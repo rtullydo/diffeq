@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2020-04-18T14:19:55-04:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body><article class="example-like"><p>Solve the IVP in terms of the convolution integrals:</p>
+<div class="displaymath">
+\begin{equation*}
+4y^{\prime\prime}+4y^{\prime}+17y=g(t),\,\,\,\,y(0)=0,y^{\prime}(0)=0.
+\end{equation*}
+</div>
+<p>Step 1: Take \(\mathcal{L}\) of both sides and solve \(\mathcal{L}\left\{ y\right\} \text{:}\)</p>
+<div class="displaymath">
+\begin{equation*}
+4\left(s^{2}\mathcal{L}\left\{ y\right\} -sy(0)-y^{\prime}(0)\right)+4\left(s\mathcal{L}\left\{ y\right\} -y(0)\right)+17\mathcal{L}\left\{ y\right\} =\mathcal{L}\left\{ g(t)\right\} 
+\end{equation*}
+</div>
+<p>and plugging in the initial conditions we have</p>
+<div class="displaymath">
+\begin{equation*}
+\mathcal{L}\left\{ y\right\} \left(4s^{2}+4s+17\right)=\mathcal{L}\left\{ g(t)\right\} 
+\end{equation*}
+</div>
+<p>so that</p>
+<div class="displaymath">
+\begin{equation*}
+\mathcal{L}\left\{ y\right\} =\frac{\mathcal{L}\left\{ g(t)\right\} }{4s^{2}+4s+17}
+\end{equation*}
+</div>
+<p>Step 2: Instead of doing partial fractions we will use the convolution integral. But first let us complete the square by first wrtiting</p>
+<div class="displaymath">
+\begin{equation*}
+4s^{2}+4s+17=4\left(s^{2}+s+\frac{17}{4}\right)
+\end{equation*}
+</div>
+<p>hence we want add/subtract \(\left(\frac{b}{2}\right)^{2}=\left(\frac{1}{2}\right)^{2}=\frac{1}{4}\)hence</p>
+<div class="displaymath">
+\begin{align*}
+4\left(s^{2}+s+\frac{17}{4}\right) \amp =4\left(s^{2}+s+\frac{1}{4}-\frac{1}{4}+\frac{17}{4}\right)\\
+\amp =4\left(\left(s+\frac{1}{2}\right)^{2}+\frac{16}{4}\right)\\
+\amp =4\left(\left(s+\frac{1}{2}\right)^{2}+4\right)
+\end{align*}
+</div>
+<p>hence</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{\mathcal{L}\left\{ g(t)\right\} }{4s^{2}+4s+17}=\frac{1}{4}\frac{1}{\left(\left(s+\frac{1}{2}\right)^{2}+4\right)}\mathcal{L}\left\{ g(t)\right\} 
+\end{equation*}
+</div>
+<p>Step 3: We take the inverse Laplace transform of</p>
+<div class="displaymath">
+\begin{equation*}
+\mathcal{L}^{-1}\left\{ \frac{1}{4}\frac{1}{\left(\left(s+\frac{1}{2}\right)^{2}+4\right)}\mathcal{L}\left\{ g(t)\right\} \right\} =\mathcal{L}^{-1}\left\{ \frac{1}{4}\mathcal{L}\left\{ f(t)\right\} \mathcal{L}\left\{ g(t)\right\} \right\} 
+\end{equation*}
+</div>
+<p>hence we need to take the inverse of</p>
+<div class="displaymath">
+\begin{align*}
+f(t) \amp =\mathcal{L}^{-1}\left\{ \frac{1}{\left(\left(s+\frac{1}{2}\right)^{2}+4\right)}\right\} \\
+\amp =\frac{1}{2}\mathcal{L}^{-1}\left\{ \frac{2}{\left(\left(s+\frac{1}{2}\right)^{2}+4\right)}\right\} \\
+\amp =\frac{1}{2}e^{-\frac{1}{2}t}\sin\left(2t\right).
+\end{align*}
+</div>
+<p>Thus using the formula \(\mathcal{L}^{-1}\left\{ F(s)G(s)\right\} =\left(f\star g\right)(t)=\int_{0}^{t}f\left(t-\tau\right)g\left(\tau\right)d\tau\) we have</p>
+<div class="displaymath">
+\begin{align*}
+y \amp =\mathcal{L}^{-1}\left\{ \frac{1}{4}\mathcal{L}\left\{ f(t)\right\} \mathcal{L}\left\{ g(t)\right\} \right\} \\
+\amp =\frac{1}{4}\int_{0}^{t}f\left(t-\tau\right)g\left(\tau\right)d\tau\\
+\amp =\frac{1}{4}\int_{0}^{t}\frac{1}{2}e^{-\frac{1}{2}\left(t-\tau\right)}\sin\left(2\left(t-\tau\right)\right)g\left(\tau\right)d\tau\\
+\amp =\frac{1}{8}\int_{0}^{t}e^{-\frac{1}{2}\left(t-\tau\right)}\sin\left(2\left(t-\tau\right)\right)g\left(\tau\right)d\tau.
+\end{align*}
+</div></article></body>
+</html>

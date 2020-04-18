@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-17T14:59:21-04:00    *-->
+<!--*    on 2020-04-18T14:19:52-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -223,6 +223,7 @@ var js_version = 0.12;
 <li><a href="ch6-4.html" data-scroll="ch6-4">Step functions</a></li>
 <li><a href="ch6-5.html" data-scroll="ch6-5">ODEs with discontinuous forcing functions</a></li>
 <li><a href="ch6-6.html" data-scroll="ch6-6">Impulse functions</a></li>
+<li><a href="ch6-7.html" data-scroll="ch6-7">The convolution integral</a></li>
 </ul>
 </li>
 <li class="link"><a href="backmatter-1.html" data-scroll="backmatter-1"><span class="title">Back Matter</span></a></li>
@@ -275,7 +276,7 @@ var js_version = 0.12;
 <main class="main"><div id="content" class="pretext-content"><section class="appendix" id="quadratic"><h2 class="heading hide-type">
 <span class="type">Appendix</span> <span class="codenumber">A</span> <span class="title">A fast quadratic method</span>
 </h2>
-<a href="quadratic.html" class="permalink">¶</a><p id="p-680">Consider the quadratic equation</p>
+<a href="quadratic.html" class="permalink">¶</a><p id="p-712">Consider the quadratic equation</p>
 <div class="displaymath">
 \begin{equation*}
 ax^2 + bx + c = 0.
@@ -288,7 +289,7 @@ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
 \end{equation*}
 </div>
 <p>or with the method of completing the square.</p>
-<p id="p-681">A recently introduced method for solving quadratic equations makes this process much easier, particularly when complex numbers are involved. We'll first look at the theory behind the method, and then we'll give some examples that show how easy it is to do. Suppose that \(a = 1\text{.}\) What we are looking for is two numbers, the <dfn class="terminology">roots</dfn> \(R\) and \(S\) so that we can factor the equation as</p>
+<p id="p-713">A recently introduced method for solving quadratic equations makes this process much easier, particularly when complex numbers are involved. We'll first look at the theory behind the method, and then we'll give some examples that show how easy it is to do. Suppose that \(a = 1\text{.}\) What we are looking for is two numbers, the <dfn class="terminology">roots</dfn> \(R\) and \(S\) so that we can factor the equation as</p>
 <div class="displaymath">
 \begin{equation*}
 (x - R)(x - S) = 0.
@@ -319,7 +320,7 @@ z = \pm\sqrt{\frac{B^2}{4} - C},
 \end{equation*}
 </div>
 <p>which is the quadratic formula when \(a = 1\text{.}\)</p>
-<p id="p-682">This might seem a bit complicated to parse, but the idea is very easy to use in practice. Consider the equation</p>
+<p id="p-714">This might seem a bit complicated to parse, but the idea is very easy to use in practice. Consider the equation</p>
 <div class="displaymath">
 \begin{equation*}
 x^2 + 5x - 6 = 0.
@@ -335,7 +336,7 @@ x^2 + 5x - 6 = 0.
 \end{gather*}
 </div>
 <p>Then the roots are \(-5/2 \pm 7/2\text{,}\) so \(R = -6\) and \(S = 1\text{,}\) which means the equation factors as \((x + 6)(x -1) = 0\text{.}\)</p>
-<p id="p-683">This works even better for complex roots. Consider the equation</p>
+<p id="p-715">This works even better for complex roots. Consider the equation</p>
 <div class="displaymath">
 \begin{equation*}
 x^2 + 2x + 10 = 0

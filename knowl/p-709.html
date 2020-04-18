@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-17T14:59:24-04:00    *-->
+<!--*    on 2020-04-18T14:19:55-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,12 +13,29 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Consider the IVP below</p>
+<p>Step 3: We take the inverse Laplace transform of</p>
 <div class="displaymath">
 \begin{equation*}
-\frac{dy}{dt}=y^{1/5},\,\,\,\,y(0)=0.
+\mathcal{L}^{-1}\left\{ \frac{1}{4}\frac{1}{\left(\left(s+\frac{1}{2}\right)^{2}+4\right)}\mathcal{L}\left\{ g(t)\right\} \right\} =\mathcal{L}^{-1}\left\{ \frac{1}{4}\mathcal{L}\left\{ f(t)\right\} \mathcal{L}\left\{ g(t)\right\} \right\} 
 \end{equation*}
 </div>
-<span class="incontext"><a href="ex2-6.html#p-709">in-context</a></span>
+<p>hence we need to take the inverse of</p>
+<div class="displaymath">
+\begin{align*}
+f(t) \amp =\mathcal{L}^{-1}\left\{ \frac{1}{\left(\left(s+\frac{1}{2}\right)^{2}+4\right)}\right\} \\
+\amp =\frac{1}{2}\mathcal{L}^{-1}\left\{ \frac{2}{\left(\left(s+\frac{1}{2}\right)^{2}+4\right)}\right\} \\
+\amp =\frac{1}{2}e^{-\frac{1}{2}t}\sin\left(2t\right).
+\end{align*}
+</div>
+<p>Thus using the formula \(\mathcal{L}^{-1}\left\{ F(s)G(s)\right\} =\left(f\star g\right)(t)=\int_{0}^{t}f\left(t-\tau\right)g\left(\tau\right)d\tau\) we have</p>
+<div class="displaymath">
+\begin{align*}
+y \amp =\mathcal{L}^{-1}\left\{ \frac{1}{4}\mathcal{L}\left\{ f(t)\right\} \mathcal{L}\left\{ g(t)\right\} \right\} \\
+\amp =\frac{1}{4}\int_{0}^{t}f\left(t-\tau\right)g\left(\tau\right)d\tau\\
+\amp =\frac{1}{4}\int_{0}^{t}\frac{1}{2}e^{-\frac{1}{2}\left(t-\tau\right)}\sin\left(2\left(t-\tau\right)\right)g\left(\tau\right)d\tau\\
+\amp =\frac{1}{8}\int_{0}^{t}e^{-\frac{1}{2}\left(t-\tau\right)}\sin\left(2\left(t-\tau\right)\right)g\left(\tau\right)d\tau.
+\end{align*}
+</div>
+<span class="incontext"><a href="ch6-7.html#p-709">in-context</a></span>
 </body>
 </html>

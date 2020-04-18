@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-17T14:59:24-04:00    *-->
+<!--*    on 2020-04-18T14:19:55-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -14,14 +14,15 @@
 <body>
 <div class="displaymath">
 \begin{align*}
-\mathcal{L}\left\{ 1\right\}  \amp =\frac{1}{s},s&gt;0\\
-\mathcal{L}\left\{ e^{at}\right\}  \amp =\frac{1}{s-a},s&gt;a,\\
-\mathcal{L}\left\{ t\right\}  \amp =\frac{1}{s^{2}},s&gt;0,\\
-\mathcal{L}\left\{ t^{2}\right\}  \amp =\frac{2}{s^{3}},s&gt;0,\\
-\mathcal{L}\left\{ \sin(at)\right\}  \amp =\frac{a}{s^{2}+a^{2}},s&gt;0,\\
-\mathcal{L}\left\{ \cos(at)\right\}  \amp =\frac{s}{s^{2}+a^{2}},s&gt;0,
+\mathcal{L}\left\{ \delta\left(t-t_{0}\right)\right\}  \amp =\lim_{\tau\to0^{+}}\mathcal{L}\left\{ d_{\tau}\left(t-t_{0}\right)\right\} \\
+\amp =\lim_{\tau\to0^{+}}\int_{t_{0}-\tau}^{t_{0}+\tau}e^{-st}d_{\tau}\left(t-t_{0}\right)dt\\
+\amp =\lim_{\tau\to0^{+}}\frac{1}{2\tau}\int_{t_{0}-\tau}^{t_{0}+\tau}e^{-st}dt=\lim_{\tau\to0^{+}}\frac{1}{2\tau}\left[\frac{e^{-st}}{t}\right]_{t=t_{0}-\tau}^{t=t_{0}+\tau}\\
+\amp =\frac{e^{-st_{0}}}{s}\lim_{\tau\to0^{+}}\frac{e^{s\tau}-e^{-s\tau}}{2\tau},\text{ by algebra}\\
+\amp =e^{-st_{0}}\lim_{\tau\to0^{+}}\frac{\sinh(s\tau)}{s\tau},\text{ by formula below}\\
+\amp =e^{-st_{0}}\lim_{\tau\to0^{+}}\frac{s\cosh(s\tau)}{s},\text{ by L'Hopitals rule}\\
+\amp =e^{-st_{0}}.
 \end{align*}
 </div>
-<span class="incontext"><a href="ex6-1.html#mjx-eqn-mrow-527">in-context</a></span>
+<span class="incontext"><a href="ch6-6.html#mjx-eqn-mrow-527">in-context</a></span>
 </body>
 </html>

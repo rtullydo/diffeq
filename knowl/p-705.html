@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-17T14:59:24-04:00    *-->
+<!--*    on 2020-04-18T14:19:55-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,27 +13,33 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>What is the largest open interval in which the solution to the IVPs in part (a) and part (b) are guaranteed to exist by the existence and uniqueness theorems?</p>
-<ol class="lower-alpha">
-<li>The IVP given by:<div class="displaymath">
+<p>Split up \(H(S)=F(s)G(s)\) where \(F(s)=\frac{2}{(s-3)^{3}}\) and \(G(s)=\frac{5}{s^{2}+25}\) so that</p>
+<div class="displaymath">
 \begin{equation*}
-\begin{cases}
-\left(t^{2}+t-2\right)y^{\prime}+e^{t}y=\frac{\left(t-4\right)}{\left(t-6\right)}\\
-y(-3)=-1.
-\end{cases}
+H(s)=3\cdot\frac{2!}{(s-3)^{2+1}}\cdot\frac{5}{s^{2}+5^{2}}
 \end{equation*}
 </div>
-</li>
-<li>The IVP given by:<div class="displaymath">
-\begin{equation*}
-\begin{cases}
-\left(t^{2}+t-2\right)y^{\prime}+e^{t}y=\frac{\left(t-4\right)}{\left(t-6\right)}\\
-y(5)=47.
-\end{cases}
-\end{equation*}
+<p>and since</p>
+<div class="displaymath">
+\begin{align*}
+\mathcal{L}^{-1}\left\{ F\right\}  \amp =\mathcal{L}^{-1}\left\{ \frac{2!}{(s-3)^{2+1}}\right\} =t^{2}e^{3t},\\
+\mathcal{L}^{-1}\left\{ G\right\}  \amp =\mathcal{L}^{-1}\left\{ \frac{5}{s^{2}+5^{2}}\right\} =\sin\left(5t\right)
+\end{align*}
 </div>
-</li>
-</ol>
-<span class="incontext"><a href="ex2-6.html#p-705">in-context</a></span>
+<p>so that</p>
+<div class="displaymath">
+\begin{align*}
+\mathcal{L}^{-1}\left\{ H(s)\right\}  \amp =3\int_{0}^{t}f(t-\tau)g(\tau)d\tau\\
+\amp =3\int_{0}^{t}(t-\tau)^{2}e^{3(t-\tau)}\sin\left(5\tau\right)d\tau
+\end{align*}
+</div>
+<p>but you also need to be prepared that one of the possible solutions is</p>
+<div class="displaymath">
+\begin{align*}
+\mathcal{L}^{-1}\left\{ H(s)\right\}  \amp =3\int_{0}^{t}f(\tau)g(t-\tau)d\tau\\
+\amp =3\int_{0}^{t}\tau^{2}e^{3\tau}\sin\left(5\left(t-\tau\right)\right)d\tau.
+\end{align*}
+</div>
+<span class="incontext"><a href="ch6-7.html#p-705">in-context</a></span>
 </body>
 </html>

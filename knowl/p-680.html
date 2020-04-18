@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-17T14:59:24-04:00    *-->
+<!--*    on 2020-04-18T14:19:55-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,19 +13,37 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Consider the quadratic equation</p>
+<p>We can consider a unit impulse at an arbitrary point \(t=t_{0}\text{,}\) meaning \(\delta\left(t-t_{0}\right)\text{,}\) hence</p>
+<div class="displaymath">
+\begin{align*}
+\delta\left(t-t_{0}\right) \amp =0,\,\,t\neq t_{0},\\
+\int_{-\infty}^{\infty}\delta(t-t_{0})dt \amp =1.
+\end{align*}
+</div>
+<p>We will now compute the Laplace Transform of \(\delta\left(t-t_{0}\right)\text{,}\) using the properties of the integral definition:</p>
+<div class="displaymath">
+\begin{align*}
+\mathcal{L}\left\{ \delta\left(t-t_{0}\right)\right\}  \amp =\lim_{\tau\to0^{+}}\mathcal{L}\left\{ d_{\tau}\left(t-t_{0}\right)\right\} \\
+\amp =\lim_{\tau\to0^{+}}\int_{t_{0}-\tau}^{t_{0}+\tau}e^{-st}d_{\tau}\left(t-t_{0}\right)dt\\
+\amp =\lim_{\tau\to0^{+}}\frac{1}{2\tau}\int_{t_{0}-\tau}^{t_{0}+\tau}e^{-st}dt=\lim_{\tau\to0^{+}}\frac{1}{2\tau}\left[\frac{e^{-st}}{t}\right]_{t=t_{0}-\tau}^{t=t_{0}+\tau}\\
+\amp =\frac{e^{-st_{0}}}{s}\lim_{\tau\to0^{+}}\frac{e^{s\tau}-e^{-s\tau}}{2\tau},\text{ by algebra}\\
+\amp =e^{-st_{0}}\lim_{\tau\to0^{+}}\frac{\sinh(s\tau)}{s\tau},\text{ by formula below}\\
+\amp =e^{-st_{0}}\lim_{\tau\to0^{+}}\frac{s\cosh(s\tau)}{s},\text{ by L'Hopitals rule}\\
+\amp =e^{-st_{0}}.
+\end{align*}
+</div>
+<p>where we used the fact that</p>
 <div class="displaymath">
 \begin{equation*}
-ax^2 + bx + c = 0.
+\sinh(s\tau)=\frac{e^{s\tau}-s^{-s\tau}}{2}.
 \end{equation*}
 </div>
-<p>Students typically learn to solve this equation with the quadratic formula</p>
+<p>In summary,</p>
 <div class="displaymath">
 \begin{equation*}
-x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+\mathcal{L}\left\{ \delta\left(t-t_{0}\right)\right\} =e^{-st_{0}},\,\,\,t_{0}&gt;0.
 \end{equation*}
 </div>
-<p>or with the method of completing the square.</p>
-<span class="incontext"><a href="quadratic.html#p-680">in-context</a></span>
+<span class="incontext"><a href="ch6-6.html#p-680">in-context</a></span>
 </body>
 </html>

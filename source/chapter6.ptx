@@ -1412,175 +1412,411 @@
             as a limit of the <m>d_{\tau}(t)</m> functions:
             <me>
             \delta(t)=\lim_{\tau\to0^{+}}d_{\tau}(t).
-            </me></p><!--
+            </me></p>
             
-             \textbf{\uline{In general: }}We can consider a unit impulse at
+            <p>We can consider a unit impulse at
             an arbitrary point <m>t=t_{0}</m>, meaning <m>\delta\left(t-t_{0}\right)</m>,
             hence 
             <md>
-            \delta\left(t-t_{0}\right) \amp =0,\,\,t\neq t_{0},\\
-            \int_{-\infty}^{\infty}\delta(t-t_{0})dt \amp =1.
+            <mrow>\delta\left(t-t_{0}\right) \amp =0,\,\,t\neq t_{0},</mrow>
+            <mrow>\int_{-\infty}^{\infty}\delta(t-t_{0})dt \amp =1.</mrow>
             </md>
-             Let's computer the Laplace Trasnform of <m>\delta\left(t-t_{0}\right)</m>:
+             We will now compute the Laplace Transform of <m>\delta\left(t-t_{0}\right)</m>, using the properties of the integral definition:
             <md>
-            \mathcal{L}\left\{ \delta\left(t-t_{0}\right)\right\}  \amp =\lim_{\tau\to0^{+}}\mathcal{L}\left\{ d_{\tau}\left(t-t_{0}\right)\right\} \\
-             \amp =\lim_{\tau\to0^{+}}\int_{t_{0}-\tau}^{t_{0}+\tau}e^{-st}d_{\tau}\left(t-t_{0}\right)dt\\
-             \amp =\lim_{\tau\to0^{+}}\frac{1}{2\tau}\int_{t_{0}-\tau}^{t_{0}+\tau}e^{-st}dt=\lim_{\tau\to0^{+}}\frac{1}{2\tau}\left[\frac{e^{-st}}{t}\right]_{t=t_{0}-\tau}^{t=t_{0}+\tau}\\
-             \amp =\frac{e^{-st_{0}}}{s}\lim_{\tau\to0^{+}}\frac{e^{s\tau}-e^{-s\tau}}{2\tau},\text{ by algebra}\\
-             \amp =e^{-st_{0}}\lim_{\tau\to0^{+}}\frac{\sinh(s\tau)}{s\tau},\text{ by formula below}\\
-             \amp =e^{-st_{0}}\lim_{\tau\to0^{+}}\frac{s\cosh(s\tau)}{s},\text{ by L'Hopitals rule}\\
-             \amp =e^{-st_{0}}.
+            <mrow>\mathcal{L}\left\{ \delta\left(t-t_{0}\right)\right\}  \amp =\lim_{\tau\to0^{+}}\mathcal{L}\left\{ d_{\tau}\left(t-t_{0}\right)\right\} </mrow>
+             <mrow>\amp =\lim_{\tau\to0^{+}}\int_{t_{0}-\tau}^{t_{0}+\tau}e^{-st}d_{\tau}\left(t-t_{0}\right)dt</mrow>
+             <mrow>\amp =\lim_{\tau\to0^{+}}\frac{1}{2\tau}\int_{t_{0}-\tau}^{t_{0}+\tau}e^{-st}dt=\lim_{\tau\to0^{+}}\frac{1}{2\tau}\left[\frac{e^{-st}}{t}\right]_{t=t_{0}-\tau}^{t=t_{0}+\tau}</mrow>
+             <mrow>\amp =\frac{e^{-st_{0}}}{s}\lim_{\tau\to0^{+}}\frac{e^{s\tau}-e^{-s\tau}}{2\tau},\text{ by algebra}</mrow>
+             <mrow>\amp =e^{-st_{0}}\lim_{\tau\to0^{+}}\frac{\sinh(s\tau)}{s\tau},\text{ by formula below}</mrow>
+             <mrow>\amp =e^{-st_{0}}\lim_{\tau\to0^{+}}\frac{s\cosh(s\tau)}{s},\text{ by L'Hopitals rule}</mrow>
+             <mrow>\amp =e^{-st_{0}}.</mrow>
             </md>
-            where I used the fact that 
+            where we used the fact that 
             <me>
             \sinh(s\tau)=\frac{e^{s\tau}-s^{-s\tau}}{2}.
             </me>
-             \textbf{\uline{Summary: }}
+            In summary,
             <me>
             \mathcal{L}\left\{ \delta\left(t-t_{0}\right)\right\} =e^{-st_{0}},\,\,\,t_{0}>0.
-            </me>
-             \textbf{\uline{Examples:}}
+            </me></p>
+
+            <p>We now compute some simple examples:</p>
+            <ul>
+                <li>If <m>t_{0}=0</m>, then 
+                        <me>
+                        \mathcal{L}\left\{ \delta\left(t\right)\right\} =e^{-s\cdot0}=1.
+                        </me></li>
+            <li> If <m>t_{0}=9</m> then 
+                        <me>
+                        \mathcal{L}\left\{ \delta\left(t-9\right)\right\} =e^{-9s}.
+                        </me></li>
+                </ul>
             
-             If <m>t_{0}=0</m>, then 
-            <me>
-            \mathcal{L}\left\{ \delta\left(t\right)\right\} =e^{-s\cdot0}=1.
-            </me>
-             If <m>t_{0}=9</m> then 
-            <me>
-            \mathcal{L}\left\{ \delta\left(t-9\right)\right\} =e^{-9s}.
-            </me>
-            
-             \textbf{\uline{Important property of delta functions:}} Suppose
-            <m>f</m> is a continuous function, then 
+            <p>We'll note the following important property of <m>\delta</m> functions, which is usually called <q>point evaluation</q>. Suppose
+            <m>f</m> is a continuous function. Then 
             <me>
             \int_{-\infty}^{\infty}f(t)\delta(t-t_{0})dt=f\left(t_{0}\right).
-            </me>
-             In the next example we show how the delta function is connected to
-            the Heaviside function. 
-             \textbf{\uline{Example0: }}Solve the IVP
-            <me>
-            y^{\prime}=\delta(t-c),\,\,\,\,y(0)=y_{0}.
-            </me>
+            </me></p>
+
+            <p>In the next example we show how the delta function is connected to
+            the Heaviside function.</p>
 
             
-             \textbf{\uline{Solution:}} Take <m>\mathcal{L}</m> of both sides and
-            <md>
-            \mathcal{L}\left\{ y^{\prime}\right\} =\mathcal{L}\left\{ \delta\left(t-c\right)\right\}  \amp \implies\\
-            s\mathcal{L}\left\{ y\right\} -y(0)=e^{-cs} \amp \implies\\
-            \mathcal{L}\left\{ y\right\} =\frac{y_{0}}{s}+\frac{e^{-cs}}{s}
-            </md>
-            hence 
-            <md>
-            y \amp =\mathcal{L}^{-1}\left\{ \frac{y_{0}}{s}\right\} +\mathcal{L}^{-1}\left\{ \frac{e^{-cs}}{s}\right\} \\
-             \amp =y_{0}+u_{c}(t).
-            </md>
+            <example>
+                <p>Solve the IVP
+                <me>
+                y^{\prime}=\delta(t-c),\,\,\,\,y(0)=y_{0}.
+                </me></p>
+
+                
+                <p>Take <m>\mathcal{L}</m> of both sides and
+                <md>
+                <mrow>\mathcal{L}\left\{ y^{\prime}\right\} =\mathcal{L}\left\{ \delta\left(t-c\right)\right\}  \amp \implies</mrow>
+                <mrow>s\mathcal{L}\left\{ y\right\} -y(0)=e^{-cs} \amp \implies</mrow>
+                <mrow>\mathcal{L}\left\{ y\right\} =\frac{y_{0}}{s}+\frac{e^{-cs}}{s}</mrow>
+                </md>
+                hence 
+                <md>
+                <mrow>y \amp =\mathcal{L}^{-1}\left\{ \frac{y_{0}}{s}\right\} +\mathcal{L}^{-1}\left\{ \frac{e^{-cs}}{s}\right\} </mrow>
+                 <mrow>\amp =y_{0}+u_{c}(t).</mrow>
+                </md></p>
+            </example>
             
-             Example 0 shows that the derivative of the Heaviside function is the
-            delta function!
-             \textbf{\uline{Fact: }}
+            <p>The example shows that the derivative of the Heaviside function is the
+            delta function! (To be totally clear, we should note that to define derivatives of discontinuous functions requires that we understand differentiation in the context of generalized functions. For now, we should accept the intuition that the <q>slope</q> of a jump dicontinuity is the <q>infinite spike</q> of the delta function.</p>
+
+            <fact>
             <me>
             \frac{d}{dt}\left[u_{c}(t)\right]=\delta\left(t-c\right).
-            </me>
-             \textbf{\uline{Example1:}} Solve the IVP
-            <me>
-            y^{\prime\prime}+4y=\delta\left(t-\pi\right)-\delta\left(t-2\pi\right),\,\,\,\,y(0)=0,y^{\prime}(0)=0.
-            </me>
+            </me></fact>
 
-            
-             \textbf{\uline{Solution:}}
-             \textbf{\uline{Step1:}} Take <m>\mathcal{L}</m> of both sides and solve
-            for <m>\mathcal{L}\left\{ y\right\} </m>:
-            <md>
-            \mathcal{L}\left\{ y^{\prime\prime}\right\} +4\mathcal{L}\left\{ y\right\} =\mathcal{L}\left\{ \delta\left(t-\pi\right)\right\} -\mathcal{L}\left\{ \delta\left(t-2\pi\right)\right\}  \amp \implies\\
-            s^{2}\mathcal{L}\left\{ y\right\} -sy(0)-y^{\prime}(0)+4\mathcal{L}\left\{ y\right\} =e^{-\pi s}-e^{-2\pi s} \amp \implies\\
-            \left(s^{2}+4\right)\mathcal{L}\left\{ y\right\} =e^{-\pi s}-e^{-2\pi s} \amp \implies\\
-            \mathcal{L}\left\{ y\right\} =\frac{e^{-\pi s}}{s^{2}+4}-\frac{e^{-2\pi s}}{s^{2}+4}.
-            </md>
-             \textbf{\uline{Step2:}} Notice that we don't need to do partial
-            fractions or complete the square here since <m>s^{2}+4</m> is already
-            a sum of two squares.
-             \textbf{\uline{Step3:}} Take an inverse Laplace transform: 
-            
-             Using <m>\mathcal{L}\left[u_{a}(t)f(t-a)\right]=e^{-as}F(s)</m> and <m>\mathcal{L}\left\{ \sin(at)\right\} =\frac{a}{s^{2}+a^{2}}</m>
-            we get
-            <md>
-            y \amp =\mathcal{L}^{-1}\left\{ \frac{e^{-\pi s}}{s^{2}+4}\right\} -\mathcal{L}^{-1}\left\{ \frac{e^{-2\pi s}}{s^{2}+4}\right\} \\
-             \amp =\frac{1}{2}\mathcal{L}^{-1}\left\{ e^{-\pi s}\frac{2}{s^{2}+2^{2}}\right\} -\frac{1}{2}\mathcal{L}^{-1}\left\{ e^{-2\pi s}\frac{2}{s^{2}+2^{2}}\right\} \\
-             \amp =\frac{1}{2}u_{\pi}(t)f_{1}\left(t-\pi\right)-\frac{1}{2}u_{2\pi}(t)f_{2}\left(t-2\pi\right)\\
-             \amp =\frac{1}{2}u_{\pi}(t)\sin\left(2\left(t-\pi\right)\right)-\frac{1}{2}u_{2\pi}(t)\sin\left(2\left(t-2\pi\right)\right)
-            </md>
-            where <m>f_{1},f_{2}=\sin(2t)</m>. 
-             Now it turns out, that 
-            <me>
-            \sin\left(2\left(t-\pi\right)\right)=\sin\left(2t-2\pi\right)=\sin(2t)
-            </me>
-            and 
-            <me>
-            \sin\left(2\left(t-2\pi\right)\right)=\sin\left(2t-4\pi\right)=\sin(2t).
-            </me>
-            or in general 
-            <me>
-            \sin\left(x\right)=\sin\left(x+2\pi\right).
-            </me>
-             Hence a possible multiple choice answer could be:
-            <me>
-            y=\frac{1}{2}u_{\pi}(t)\sin\left(2t\right)-\frac{1}{2}u_{2\pi}(t)\sin\left(2t\right).
-            </me>
-            
-            
-             \textbf{\uline{Example2:}} Solve the IVP
-            <me>
-            y^{\prime\prime}+2y^{\prime}+3y=\sin t+\delta\left(t-3\pi\right),\,\,\,\,y(0)=0,y^{\prime}(0)=0.
-            </me>
 
+            <example>
+                <p>Solve the IVP
+                <me>
+                y^{\prime\prime}+4y=\delta\left(t-\pi\right)-\delta\left(t-2\pi\right),\,\,\,\,y(0)=0,y^{\prime}(0)=0.
+                </me></p>
+
+                
+                <p>Step 1: Take <m>\mathcal{L}</m> of both sides and solve
+                for <m>\mathcal{L}\left\{ y\right\} </m>:
+                <md>
+                <mrow>\mathcal{L}\left\{ y^{\prime\prime}\right\} +4\mathcal{L}\left\{ y\right\} =\mathcal{L}\left\{ \delta\left(t-\pi\right)\right\} -\mathcal{L}\left\{ \delta\left(t-2\pi\right)\right\}  \amp \implies</mrow>
+                <mrow>s^{2}\mathcal{L}\left\{ y\right\} -sy(0)-y^{\prime}(0)+4\mathcal{L}\left\{ y\right\} =e^{-\pi s}-e^{-2\pi s} \amp \implies</mrow>
+                <mrow>\left(s^{2}+4\right)\mathcal{L}\left\{ y\right\} =e^{-\pi s}-e^{-2\pi s} \amp \implies</mrow>
+                <mrow>\mathcal{L}\left\{ y\right\} =\frac{e^{-\pi s}}{s^{2}+4}-\frac{e^{-2\pi s}}{s^{2}+4}.</mrow>
+                </md></p>
+
+                <p>Step 2: Notice that we don't need to do partial
+                fractions or complete the square here since <m>s^{2}+4</m> is already
+                a sum of two squares.</p>
+
+                <p>Step3: Take an inverse Laplace transform: 
+                
+                 Using <m>\mathcal{L}\left[u_{a}(t)f(t-a)\right]=e^{-as}F(s)</m> and <m>\mathcal{L}\left\{ \sin(at)\right\} =\frac{a}{s^{2}+a^{2}}</m>
+                we get
+                <md>
+                <mrow>y \amp =\mathcal{L}^{-1}\left\{ \frac{e^{-\pi s}}{s^{2}+4}\right\} -\mathcal{L}^{-1}\left\{ \frac{e^{-2\pi s}}{s^{2}+4}\right\} </mrow>
+                 <mrow>\amp =\frac{1}{2}\mathcal{L}^{-1}\left\{ e^{-\pi s}\frac{2}{s^{2}+2^{2}}\right\} -\frac{1}{2}\mathcal{L}^{-1}\left\{ e^{-2\pi s}\frac{2}{s^{2}+2^{2}}\right\} </mrow>
+                 <mrow>\amp =\frac{1}{2}u_{\pi}(t)f_{1}\left(t-\pi\right)-\frac{1}{2}u_{2\pi}(t)f_{2}\left(t-2\pi\right)</mrow>
+                 <mrow>\amp =\frac{1}{2}u_{\pi}(t)\sin\left(2\left(t-\pi\right)\right)-\frac{1}{2}u_{2\pi}(t)\sin\left(2\left(t-2\pi\right)\right)</mrow>
+                </md>
+                where <m>f_{1},f_{2}=\sin(2t)</m>. 
+                 Now it turns out, that 
+                <me>
+                \sin\left(2\left(t-\pi\right)\right)=\sin\left(2t-2\pi\right)=\sin(2t)
+                </me>
+                and 
+                <me>
+                \sin\left(2\left(t-2\pi\right)\right)=\sin\left(2t-4\pi\right)=\sin(2t).
+                </me>
+                or in general 
+                <me>
+                \sin\left(x\right)=\sin\left(x+2\pi\right).
+                </me>
+                 Hence a possible multiple choice answer could be:
+                <me>
+                y=\frac{1}{2}u_{\pi}(t)\sin\left(2t\right)-\frac{1}{2}u_{2\pi}(t)\sin\left(2t\right).
+                </me></p>
+            </example>
             
-             \textbf{\uline{Solution:}}
-             \textbf{\uline{Step1:}} Take <m>\mathcal{L}</m> of both sides and solve
-            for <m>\mathcal{L}\left\{ y\right\} </m>:
-            <md>
-            \mathcal{L}\left\{ y^{\prime\prime}\right\} +2\mathcal{L}\left\{ y^{\prime}\right\} +3\mathcal{L}\left\{ y\right\} =\frac{1}{s^{2}+1}+e^{-3\pi s} \amp \implies\\
-            \left[s^{2}\mathcal{L}\left\{ y\right\} -sy(0)-y^{\prime}(0)\right]+2\left[s\mathcal{L}\left\{ y\right\} -y(0)\right]+3\mathcal{L}\left\{ y\right\} =\frac{1}{s^{2}+1}+e^{-3\pi s} \amp \implies\\
-            s^{2}\mathcal{L}\left\{ y\right\} +2s\mathcal{L}\left\{ y\right\} +3\mathcal{L}\left\{ y\right\} =\frac{1}{s^{2}+1}+e^{-3\pi s} \amp \implies\\
-            \left(s^{2}+2s+3\right)\mathcal{L}\left\{ y\right\} =\frac{1}{s^{2}+1}+e^{-3\pi s} \amp \implies\\
-            \mathcal{L}\left\{ y\right\} =\frac{1}{\left(s^{2}+2s+3\right)\left(s^{2}+1\right)}+\frac{e^{-3\pi s}}{s^{2}+2s+3}
-            </md>
-             \textbf{\uline{Step2:}} First we do partial fractions:
-            <me>
-            \frac{1}{\left(s^{2}+2s+3\right)\left(s^{2}+1\right)}=\frac{As+B}{\left(s^{2}+2s+3\right)}+\frac{Cs+D}{\left(s^{2}+1\right)}
-            </me>
-            and do the algebra to get
-            <me>
-            A=\frac{1}{4},B=\frac{1}{4},C=-\frac{1}{4},D=\frac{1}{4}
-            </me>
-             Also we need to complete the square:
-            <me>
-            s^{2}+2s+3=\left(s+1\right)^{2}+2.
-            </me>
-            so that 
-            <me>
-            \frac{1}{\left(s^{2}+2s+3\right)\left(s^{2}+1\right)}=\frac{1}{4}\left(\frac{s+1}{\left(s+1\right)^{2}+2}+\frac{-s+1}{\left(s^{2}+1\right)}\right)
-            </me>
-             \textbf{\uline{Step3:}} Take an inverse Laplace transform: 
-            
-             Using <m>\mathcal{L}\left[u_{a}(t)f(t-a)\right]=e^{-as}F(s)</m> , <m>\mathcal{L}\left\{ \cos(at)\right\} =\frac{s}{s^{2}+a^{2}}</m>
-            <m>\mathcal{L}\left\{ \sin(at)\right\} =\frac{a}{s^{2}+a^{2}}</m> ,
-             Also using <m>\mathcal{L}\left\{ e^{at}\cos(bt)\right\} =\frac{s-a}{(s-a)^{2}+b^{2}}</m>
-            <m>\mathcal{L}\left\{ e^{at}\sin(bt)\right\} =\frac{b}{(s-a)^{2}+b^{2}}</m>
-            we get
-            <md>
-            y \amp =\frac{1}{4}\mathcal{L}^{-1}\left\{ \frac{s+1}{\left(s+1\right)^{2}+2}\right\} +\frac{1}{4}\mathcal{L}^{-1}\left\{ \frac{-s+1}{\left(s^{2}+1\right)}\right\} \\
-             \amp +\mathcal{L}^{-1}\left\{ \frac{e^{-3\pi s}}{\left(s+1\right)^{2}+2}\right\} \\
-             \amp =\frac{1}{4}\mathcal{L}^{-1}\left\{ \frac{s+1}{\left(s+1\right)^{2}+\left(\sqrt{2}\right)^{2}}\right\} -\frac{1}{4}\mathcal{L}^{-1}\left\{ \frac{s}{s^{2}+1}\right\} \\
-             \amp +\frac{1}{4}\mathcal{L}^{-1}\left\{ \frac{1}{s^{2}+1}\right\} +\frac{1}{\sqrt{2}}\mathcal{L}^{-1}\left\{ e^{-3\pi s}\frac{\sqrt{2}}{\left(s+1\right)^{2}+\left(\sqrt{2}\right)^{2}}\right\} \\
-             \amp =\frac{1}{4}\left(e^{-t}\cos\left(\sqrt{2}t\right)-\cos t+\sin t\right)\\
-             \amp +\frac{1}{\sqrt{2}}u_{3\pi}\left(t\right)f_{1}\left(t-3\pi\right)\\
-             \amp =\frac{1}{4}\left(e^{-t}\cos\left(\sqrt{2}t\right)-\cos t+\sin t\right)\\
-             \amp +\frac{1}{\sqrt{2}}u_{3\pi}\left(t\right)e^{-1\left(t-3\pi\right)}\sin\left(\sqrt{2}\left(t-3\pi\right)\right)
-            </md>
-             Where <m>f_{1}=\mathcal{L}^{-1}\left\{ \frac{\sqrt{2}}{\left(s+1\right)^{2}+\left(\sqrt{2}\right)^{2}}\right\} =e^{-t}\cos\sqrt{2}t</m>. 
-            
-            
-            -->
+            <example>
+                <p>Solve the IVP
+                <me>
+                y^{\prime\prime}+2y^{\prime}+3y=\sin t+\delta\left(t-3\pi\right),\,\,\,\,y(0)=0,y^{\prime}(0)=0.
+                </me></p>
+
+                
+                <p>Take <m>\mathcal{L}</m> of both sides and solve
+                for <m>\mathcal{L}\left\{ y\right\} </m>:
+                <md>
+                <mrow>\mathcal{L}\left\{ y^{\prime\prime}\right\} +2\mathcal{L}\left\{ y^{\prime}\right\} +3\mathcal{L}\left\{ y\right\} =\frac{1}{s^{2}+1}+e^{-3\pi s} \amp \implies</mrow>
+                <mrow>\left[s^{2}\mathcal{L}\left\{ y\right\} -sy(0)-y^{\prime}(0)\right]+2\left[s\mathcal{L}\left\{ y\right\} -y(0)\right]+3\mathcal{L}\left\{ y\right\} =\frac{1}{s^{2}+1}+e^{-3\pi s} \amp \implies</mrow>
+                <mrow>s^{2}\mathcal{L}\left\{ y\right\} +2s\mathcal{L}\left\{ y\right\} +3\mathcal{L}\left\{ y\right\} =\frac{1}{s^{2}+1}+e^{-3\pi s} \amp \implies</mrow>
+                <mrow>\left(s^{2}+2s+3\right)\mathcal{L}\left\{ y\right\} =\frac{1}{s^{2}+1}+e^{-3\pi s} \amp \implies</mrow>
+                <mrow>\mathcal{L}\left\{ y\right\} =\frac{1}{\left(s^{2}+2s+3\right)\left(s^{2}+1\right)}+\frac{e^{-3\pi s}}{s^{2}+2s+3}</mrow>
+                </md></p>
+                 
+                 <p>Step 2: First we do partial fractions:
+                <me>
+                \frac{1}{\left(s^{2}+2s+3\right)\left(s^{2}+1\right)}=\frac{As+B}{\left(s^{2}+2s+3\right)}+\frac{Cs+D}{\left(s^{2}+1\right)}
+                </me>
+                and do the algebra to get
+                <me>
+                A=\frac{1}{4},B=\frac{1}{4},C=-\frac{1}{4},D=\frac{1}{4}
+                </me>
+                 Also we need to complete the square:
+                <me>
+                s^{2}+2s+3=\left(s+1\right)^{2}+2.
+                </me>
+                so that 
+                <me>
+                \frac{1}{\left(s^{2}+2s+3\right)\left(s^{2}+1\right)}=\frac{1}{4}\left(\frac{s+1}{\left(s+1\right)^{2}+2}+\frac{-s+1}{\left(s^{2}+1\right)}\right)
+                </me></p>
+
+                <p>Step 3: Take an inverse Laplace transform: 
+                
+                 Using <m>\mathcal{L}\left[u_{a}(t)f(t-a)\right]=e^{-as}F(s)</m> , <m>\mathcal{L}\left\{ \cos(at)\right\} =\frac{s}{s^{2}+a^{2}}</m>
+                <m>\mathcal{L}\left\{ \sin(at)\right\} =\frac{a}{s^{2}+a^{2}}</m> ,
+                 Also using <m>\mathcal{L}\left\{ e^{at}\cos(bt)\right\} =\frac{s-a}{(s-a)^{2}+b^{2}}</m>
+                <m>\mathcal{L}\left\{ e^{at}\sin(bt)\right\} =\frac{b}{(s-a)^{2}+b^{2}}</m>
+                we get
+                <md>
+                <mrow>y \amp =\frac{1}{4}\mathcal{L}^{-1}\left\{ \frac{s+1}{\left(s+1\right)^{2}+2}\right\} +\frac{1}{4}\mathcal{L}^{-1}\left\{ \frac{-s+1}{\left(s^{2}+1\right)}\right\} </mrow>
+                 <mrow>\amp +\mathcal{L}^{-1}\left\{ \frac{e^{-3\pi s}}{\left(s+1\right)^{2}+2}\right\} </mrow>
+                 <mrow>\amp =\frac{1}{4}\mathcal{L}^{-1}\left\{ \frac{s+1}{\left(s+1\right)^{2}+\left(\sqrt{2}\right)^{2}}\right\} -\frac{1}{4}\mathcal{L}^{-1}\left\{ \frac{s}{s^{2}+1}\right\} </mrow>
+                 <mrow>\amp +\frac{1}{4}\mathcal{L}^{-1}\left\{ \frac{1}{s^{2}+1}\right\} +\frac{1}{\sqrt{2}}\mathcal{L}^{-1}\left\{ e^{-3\pi s}\frac{\sqrt{2}}{\left(s+1\right)^{2}+\left(\sqrt{2}\right)^{2}}\right\} </mrow>
+                 <mrow>\amp =\frac{1}{4}\left(e^{-t}\cos\left(\sqrt{2}t\right)-\cos t+\sin t\right)</mrow>
+                 <mrow>\amp +\frac{1}{\sqrt{2}}u_{3\pi}\left(t\right)f_{1}\left(t-3\pi\right)</mrow>
+                 <mrow>\amp =\frac{1}{4}\left(e^{-t}\cos\left(\sqrt{2}t\right)-\cos t+\sin t\right)</mrow>
+                 <mrow>\amp +\frac{1}{\sqrt{2}}u_{3\pi}\left(t\right)e^{-1\left(t-3\pi\right)}\sin\left(\sqrt{2}\left(t-3\pi\right)\right)</mrow>
+                </md>
+                 where <m>f_{1}=\mathcal{L}^{-1}\left\{ \frac{\sqrt{2}}{\left(s+1\right)^{2}+\left(\sqrt{2}\right)^{2}}\right\} =e^{-t}\cos\sqrt{2}t</m>.</p>
+             </example>
     </section>
+
+    <section xml:id="ch6-7">
+        <title>The convolution integral</title>
+
+            
+            <p>Suppose we want to take the inverse Laplace transform of a product:</p>
+
+            <p>Is it true that
+            <me>
+            \mathcal{L}^{-1}\left\{ F(s)G(s)\right\} \overset{?}{=}\mathcal{L}^{-1}\left\{ F(s)\right\} \mathcal{L}^{-1}\left\{ G(s)\right\}?
+            </me>
+            The answer is a resounding <em>NO!</em></p>
+
+            <p>In order to take the inverse of a product, we need to define the <term>convolution
+            integral</term>: Let <m>f(t),g(t)</m> be two nice functions, then 
+            <me>
+            \left(f\star g\right)(t)=\int_{0}^{t}f\left(t-\tau\right)g\left(\tau\right)d\tau=\int_{0}^{t}f(\tau)g\left(t-\tau\right)d\tau.
+            </me>
+             The function <m>h=f\star g</m> is called the \textbf{convolution} of <m>f</m>
+            and <m>g</m>. 
+            
+            We can think of convolution as somehow <q>mixing</q> or <q>averaging</q> the two functions that are being convolved. In practice, convolutions are often used to take jagged, unsmooth functions as input and return smoothed functions as output by convoluting the rough function with an appropriate smooth one.</p>
+
+            
+            
+            <theorem>
+                <p>The Laplace transform of the convolution
+                is 
+                <me>
+                \mathcal{L}\left\{ \left(f\star g\right)(t)\right\} =\mathcal{L}\left\{ f(t)\right\} \mathcal{L}\left\{ g(t)\right\} =F(s)G(s);
+                </me>
+                that is 
+                <me>
+                \mathcal{L}^{-1}\left\{ F(s)G(s)\right\} =\left(f\star g\right)(t)=\int_{0}^{t}f\left(t-\tau\right)g\left(\tau\right)d\tau.
+                </me></p>
+            </theorem>
+
+            <p>Convolutions have nice properties: We can treat <m>\star</m> almost like
+            multiplication of functions:
+            
+            <ul>
+             <li><m>f\star g=g\star f</m> (commutative)</li>
+             <li><m>f\star\left(g_{1}+g_{2}\right)=f\star g_{1}+f\star g_{2}</m> (distributive)</li>
+             <li><m>\left(f\star g\right)\star h=f\star\left(g\star h\right)</m> (associative)</li>
+             <li><m>f\star0=0\star f=0</m>.</li>
+            </ul>
+
+            However it doesn't have all the properties of ordinary multiplication. In particular,
+            <m>\left(f\star1\right)\neq1\star f</m>.</p>
+            
+           <example> 
+                <p>Find the Laplace transform of 
+                <me>
+                h(t)=\int_{0}^{t}\sin\left(t-\tau\right)\cos\tau d\tau
+                </me></p>
+
+                
+                <p>Use <m>f=\sin t</m> and <m>g=\cos t</m> and
+                we know that by the Theorem 
+                <md>
+                <mrow>\mathcal{L}\left\{ \int_{0}^{t}\sin\left(t-\tau\right)\cos\tau d\tau\right\}  \amp =\mathcal{L}\left\{ \sin t\right\} \mathcal{L}\left\{ \cos t\right\} </mrow>
+                 <mrow>\amp =\frac{1}{s^{2}+1}\cdot\frac{s}{s^{2}+1}</mrow>
+                 <mrow>\amp =\frac{s}{(s^{2}+1)^{2}}.</mrow>
+                </md></p>
+            </example>
+            
+            <example>
+                <p>Find the Laplace transform of 
+                <me>
+                e^{t}\int_{0}^{t}\sin\tau\cos\left(t-\tau\right)d\tau.
+                </me></p>
+
+                
+                <p>This question is testing if you know
+                how to use formulas 
+                <me>
+                \mathcal{L}\left\{ e^{ct}f(t)\right\} =F(s-c)
+                </me>
+                hence we need to first take the Laplace transform of 
+                <me>
+                \mathcal{L}\left\{ \int_{0}^{t}\sin\tau\cos\left(t-\tau\right)d\tau\right\} =\mathcal{L}\left\{ \int_{0}^{t}\sin\left(t-\tau\right)\cos\left(\tau\right)d\tau\right\} =\frac{s}{(s^{2}+1)^{2}}
+                </me>
+                from Example1. Hence using the formula above we have 
+                <me>
+                \mathcal{L}\left\{ e^{t}\int_{0}^{t}\sin\tau\cos\left(t-\tau\right)d\tau\right\} =\frac{s-1}{\left(\left(s-1\right)^{2}+1\right)^{2}}
+                </me></p>
+            </example>
+
+            <example>
+                <p>Find the inverse Laplace transform
+                of 
+                <me>
+                H(s)=\frac{30}{\left(s-3\right)^{3}(s^{2}+25)}
+                </me></p>
+
+                
+                <p>Split up <m>H(S)=F(s)G(s)</m> where <m>F(s)=\frac{2}{(s-3)^{3}}</m>
+                and <m>G(s)=\frac{5}{s^{2}+25}</m> so that 
+                <me>
+                H(s)=3\cdot\frac{2!}{(s-3)^{2+1}}\cdot\frac{5}{s^{2}+5^{2}}
+                </me>
+                and since 
+                <md>
+                <mrow>\mathcal{L}^{-1}\left\{ F\right\}  \amp =\mathcal{L}^{-1}\left\{ \frac{2!}{(s-3)^{2+1}}\right\} =t^{2}e^{3t},</mrow>
+                <mrow>\mathcal{L}^{-1}\left\{ G\right\}  \amp =\mathcal{L}^{-1}\left\{ \frac{5}{s^{2}+5^{2}}\right\} =\sin\left(5t\right)</mrow>
+                </md>
+                so that 
+                <md>
+                <mrow>\mathcal{L}^{-1}\left\{ H(s)\right\}  \amp =3\int_{0}^{t}f(t-\tau)g(\tau)d\tau</mrow>
+                 <mrow>\amp =3\int_{0}^{t}(t-\tau)^{2}e^{3(t-\tau)}\sin\left(5\tau\right)d\tau</mrow>
+                </md>
+                but you also need to be prepared that one of the possible solutions
+                is 
+                <md>
+                <mrow>\mathcal{L}^{-1}\left\{ H(s)\right\}  \amp =3\int_{0}^{t}f(\tau)g(t-\tau)d\tau</mrow>
+                 <mrow>\amp =3\int_{0}^{t}\tau^{2}e^{3\tau}\sin\left(5\left(t-\tau\right)\right)d\tau.</mrow>
+                </md></p>
+            </example>
+            
+            <example>
+                <p>Solve the IVP in terms of the convolution
+                integrals:
+                <me>
+                4y^{\prime\prime}+4y^{\prime}+17y=g(t),\,\,\,\,y(0)=0,y^{\prime}(0)=0.
+                </me></p>
+
+                
+                 <p>Step 1: Take <m>\mathcal{L}</m> of both sides and solve
+                <m>\mathcal{L}\left\{ y\right\} </m>: 
+                <me>
+                4\left(s^{2}\mathcal{L}\left\{ y\right\} -sy(0)-y^{\prime}(0)\right)+4\left(s\mathcal{L}\left\{ y\right\} -y(0)\right)+17\mathcal{L}\left\{ y\right\} =\mathcal{L}\left\{ g(t)\right\} 
+                </me>
+                and plugging in the initial conditions we have 
+                <me>
+                \mathcal{L}\left\{ y\right\} \left(4s^{2}+4s+17\right)=\mathcal{L}\left\{ g(t)\right\} 
+                </me>
+                so that 
+                <me>
+                \mathcal{L}\left\{ y\right\} =\frac{\mathcal{L}\left\{ g(t)\right\} }{4s^{2}+4s+17}
+                </me></p>
+
+                <p>Step 2: Instead of doing partial fractions we will
+                use the convolution integral. But first let us complete the square
+                by first wrtiting 
+                <me>
+                4s^{2}+4s+17=4\left(s^{2}+s+\frac{17}{4}\right)
+                </me>
+                hence we want add/subtract <m>\left(\frac{b}{2}\right)^{2}=\left(\frac{1}{2}\right)^{2}=\frac{1}{4}</m>hence
+                <md>
+                <mrow>4\left(s^{2}+s+\frac{17}{4}\right) \amp =4\left(s^{2}+s+\frac{1}{4}-\frac{1}{4}+\frac{17}{4}\right)</mrow>
+                 <mrow>\amp =4\left(\left(s+\frac{1}{2}\right)^{2}+\frac{16}{4}\right)</mrow>
+                 <mrow>\amp =4\left(\left(s+\frac{1}{2}\right)^{2}+4\right)</mrow>
+                </md>
+                hence 
+                <me>
+                \frac{\mathcal{L}\left\{ g(t)\right\} }{4s^{2}+4s+17}=\frac{1}{4}\frac{1}{\left(\left(s+\frac{1}{2}\right)^{2}+4\right)}\mathcal{L}\left\{ g(t)\right\} 
+                </me></p>
+
+                <p>Step 3: We take the inverse Laplace transform of
+                <me>
+                \mathcal{L}^{-1}\left\{ \frac{1}{4}\frac{1}{\left(\left(s+\frac{1}{2}\right)^{2}+4\right)}\mathcal{L}\left\{ g(t)\right\} \right\} =\mathcal{L}^{-1}\left\{ \frac{1}{4}\mathcal{L}\left\{ f(t)\right\} \mathcal{L}\left\{ g(t)\right\} \right\} 
+                </me>
+                hence we need to take the inverse of 
+                <md>
+                <mrow>f(t) \amp =\mathcal{L}^{-1}\left\{ \frac{1}{\left(\left(s+\frac{1}{2}\right)^{2}+4\right)}\right\} </mrow>
+                 <mrow>\amp =\frac{1}{2}\mathcal{L}^{-1}\left\{ \frac{2}{\left(\left(s+\frac{1}{2}\right)^{2}+4\right)}\right\} </mrow>
+                 <mrow>\amp =\frac{1}{2}e^{-\frac{1}{2}t}\sin\left(2t\right).</mrow>
+                </md>
+                Thus using the formula <m>\mathcal{L}^{-1}\left\{ F(s)G(s)\right\} =\left(f\star g\right)(t)=\int_{0}^{t}f\left(t-\tau\right)g\left(\tau\right)d\tau</m>
+                we have 
+                <md>
+                <mrow>y \amp =\mathcal{L}^{-1}\left\{ \frac{1}{4}\mathcal{L}\left\{ f(t)\right\} \mathcal{L}\left\{ g(t)\right\} \right\} </mrow>
+                 <mrow>\amp =\frac{1}{4}\int_{0}^{t}f\left(t-\tau\right)g\left(\tau\right)d\tau</mrow>
+                 <mrow>\amp =\frac{1}{4}\int_{0}^{t}\frac{1}{2}e^{-\frac{1}{2}\left(t-\tau\right)}\sin\left(2\left(t-\tau\right)\right)g\left(\tau\right)d\tau</mrow>
+                 <mrow>\amp =\frac{1}{8}\int_{0}^{t}e^{-\frac{1}{2}\left(t-\tau\right)}\sin\left(2\left(t-\tau\right)\right)g\left(\tau\right)d\tau.</mrow>
+                </md></p>
+            </example>
+            
+            <example>
+                <p>Compute the following integral 
+                <me>
+                \int_{0}^{5}e^{-x}\sin xdx
+                </me>
+                using only Laplace transforms. </p>
+                
+                 <p>Solution:: First we want to write this as a convolution:
+                <me>
+                \int_{0}^{5}e^{-x}\sin xdx=e^{-5}\int_{0}^{5}e^{5-x}\sin xdx.
+                </me>
+                and let 
+                <me>
+                h(t)=\int_{0}^{t}e^{t-\tau}\sin\tau d\tau.
+                </me>
+                The Laplace trasnform of this is 
+                <md>
+                <mrow>\mathcal{L}\left\{ h(t)\right\}  \amp =\mathcal{L}\left\{ \int_{0}^{t}e^{t-\tau}\sin\tau d\tau\right\} </mrow>
+                 <mrow>\amp =\mathcal{L}\left\{ \int_{0}^{t}f(t-\tau)g(\tau)d\tau\right\} </mrow>
+                 <mrow>\amp =\mathcal{L}\left\{ f(t)\right\} \mathcal{L}\left\{ g(t)\right\} </mrow>
+                 <mrow>\amp =\mathcal{L}\left\{ e^{t}\right\} \mathcal{L}\left\{ \sin t\right\} </mrow>
+                 <mrow>\amp =\frac{1}{\left(s-1\right)\left(s^{2}+1\right)}</mrow>
+                </md>
+                 Now do partiial fractions on this and get 
+                <me>
+                \frac{1}{\left(s-1\right)\left(s^{2}+1\right)}=\frac{1}{2}\left(\frac{1}{s-1}-\frac{s+1}{s^{2}+1}\right)
+                </me>
+                 Hence we can now take the inverse Laplace transform of this:
+                <md>
+                <mrow>h(t) \amp =\frac{1}{2}\mathcal{L}^{-1}\left\{ \frac{1}{s-1}\right\} -\frac{1}{2}\mathcal{L}^{-1}\left\{ \frac{s}{s^{2}+1}\right\} -\frac{1}{2}\mathcal{L}^{-1}\left\{ \frac{1}{s^{2}+1}\right\} </mrow>
+                 <mrow>\amp =\frac{1}{2}e^{t}-\frac{1}{2}\cos t-\frac{1}{2}\sin t.</mrow>
+                </md>
+                 Thus we computed that 
+                <me>
+                h(t)=\int_{0}^{t}e^{t-\tau}\sin\tau d\tau=\frac{1}{2}e^{t}-\frac{1}{2}\cos t-\frac{1}{2}\sin t
+                </me>
+                 Thus 
+                <md>
+                <mrow>e^{-5}\int_{0}^{5}e^{5-x}\sin xdx \amp =e^{-5}h(5)</mrow>
+                 <mrow>\amp =e^{-5}\left(\frac{1}{2}e^{5}-\frac{1}{2}\cos5-\frac{1}{2}\sin5\right).</mrow>
+                </md>
+            </p>
+            </example>
+            
+    </section>
+            
 
 </chapter>

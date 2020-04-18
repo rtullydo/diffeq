@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-17T14:59:24-04:00    *-->
+<!--*    on 2020-04-18T14:19:55-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,13 +13,15 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Consider the following initial value problem:</p>
+<p>Step 1: Take \(\mathcal{L}\) of both sides and solve for \(\mathcal{L}\left\{ y\right\} \text{:}\)</p>
 <div class="displaymath">
-\begin{equation*}
-ty^{\prime}+\left(t+1\right)y=2te^{-t},\,\,\,\,\,y(1)=a,\,\,\,\,t&gt;0
-\end{equation*}
+\begin{align*}
+\mathcal{L}\left\{ y^{\prime\prime}\right\} +4\mathcal{L}\left\{ y\right\} =\mathcal{L}\left\{ \delta\left(t-\pi\right)\right\} -\mathcal{L}\left\{ \delta\left(t-2\pi\right)\right\}  \amp \implies\\
+s^{2}\mathcal{L}\left\{ y\right\} -sy(0)-y^{\prime}(0)+4\mathcal{L}\left\{ y\right\} =e^{-\pi s}-e^{-2\pi s} \amp \implies\\
+\left(s^{2}+4\right)\mathcal{L}\left\{ y\right\} =e^{-\pi s}-e^{-2\pi s} \amp \implies\\
+\mathcal{L}\left\{ y\right\} =\frac{e^{-\pi s}}{s^{2}+4}-\frac{e^{-2\pi s}}{s^{2}+4}.
+\end{align*}
 </div>
-<p>where \(a\) is any real number. Find the particular solution that solves this IVP.</p>
-<span class="incontext"><a href="ex2-1.html#p-688">in-context</a></span>
+<span class="incontext"><a href="ch6-6.html#p-688">in-context</a></span>
 </body>
 </html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2020-04-18T14:19:55-04:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body><article class="example-like"><p>Solve the IVP</p>
+<div class="displaymath">
+\begin{equation*}
+y^{\prime\prime}+2y^{\prime}+3y=\sin t+\delta\left(t-3\pi\right),\,\,\,\,y(0)=0,y^{\prime}(0)=0.
+\end{equation*}
+</div>
+<p>Take \(\mathcal{L}\) of both sides and solve for \(\mathcal{L}\left\{ y\right\} \text{:}\)</p>
+<div class="displaymath">
+\begin{align*}
+\mathcal{L}\left\{ y^{\prime\prime}\right\} +2\mathcal{L}\left\{ y^{\prime}\right\} +3\mathcal{L}\left\{ y\right\} =\frac{1}{s^{2}+1}+e^{-3\pi s} \amp \implies\\
+\left[s^{2}\mathcal{L}\left\{ y\right\} -sy(0)-y^{\prime}(0)\right]+2\left[s\mathcal{L}\left\{ y\right\} -y(0)\right]+3\mathcal{L}\left\{ y\right\} =\frac{1}{s^{2}+1}+e^{-3\pi s} \amp \implies\\
+s^{2}\mathcal{L}\left\{ y\right\} +2s\mathcal{L}\left\{ y\right\} +3\mathcal{L}\left\{ y\right\} =\frac{1}{s^{2}+1}+e^{-3\pi s} \amp \implies\\
+\left(s^{2}+2s+3\right)\mathcal{L}\left\{ y\right\} =\frac{1}{s^{2}+1}+e^{-3\pi s} \amp \implies\\
+\mathcal{L}\left\{ y\right\} =\frac{1}{\left(s^{2}+2s+3\right)\left(s^{2}+1\right)}+\frac{e^{-3\pi s}}{s^{2}+2s+3}
+\end{align*}
+</div>
+<p>Step 2: First we do partial fractions:</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{1}{\left(s^{2}+2s+3\right)\left(s^{2}+1\right)}=\frac{As+B}{\left(s^{2}+2s+3\right)}+\frac{Cs+D}{\left(s^{2}+1\right)}
+\end{equation*}
+</div>
+<p>and do the algebra to get</p>
+<div class="displaymath">
+\begin{equation*}
+A=\frac{1}{4},B=\frac{1}{4},C=-\frac{1}{4},D=\frac{1}{4}
+\end{equation*}
+</div>
+<p>Also we need to complete the square:</p>
+<div class="displaymath">
+\begin{equation*}
+s^{2}+2s+3=\left(s+1\right)^{2}+2.
+\end{equation*}
+</div>
+<p>so that</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{1}{\left(s^{2}+2s+3\right)\left(s^{2}+1\right)}=\frac{1}{4}\left(\frac{s+1}{\left(s+1\right)^{2}+2}+\frac{-s+1}{\left(s^{2}+1\right)}\right)
+\end{equation*}
+</div>
+<p>Step 3: Take an inverse Laplace transform: Using \(\mathcal{L}\left[u_{a}(t)f(t-a)\right]=e^{-as}F(s)\) , \(\mathcal{L}\left\{ \cos(at)\right\} =\frac{s}{s^{2}+a^{2}}\) \(\mathcal{L}\left\{ \sin(at)\right\} =\frac{a}{s^{2}+a^{2}}\) , Also using \(\mathcal{L}\left\{ e^{at}\cos(bt)\right\} =\frac{s-a}{(s-a)^{2}+b^{2}}\) \(\mathcal{L}\left\{ e^{at}\sin(bt)\right\} =\frac{b}{(s-a)^{2}+b^{2}}\) we get</p>
+<div class="displaymath">
+\begin{align*}
+y \amp =\frac{1}{4}\mathcal{L}^{-1}\left\{ \frac{s+1}{\left(s+1\right)^{2}+2}\right\} +\frac{1}{4}\mathcal{L}^{-1}\left\{ \frac{-s+1}{\left(s^{2}+1\right)}\right\} \\
+\amp +\mathcal{L}^{-1}\left\{ \frac{e^{-3\pi s}}{\left(s+1\right)^{2}+2}\right\} \\
+\amp =\frac{1}{4}\mathcal{L}^{-1}\left\{ \frac{s+1}{\left(s+1\right)^{2}+\left(\sqrt{2}\right)^{2}}\right\} -\frac{1}{4}\mathcal{L}^{-1}\left\{ \frac{s}{s^{2}+1}\right\} \\
+\amp +\frac{1}{4}\mathcal{L}^{-1}\left\{ \frac{1}{s^{2}+1}\right\} +\frac{1}{\sqrt{2}}\mathcal{L}^{-1}\left\{ e^{-3\pi s}\frac{\sqrt{2}}{\left(s+1\right)^{2}+\left(\sqrt{2}\right)^{2}}\right\} \\
+\amp =\frac{1}{4}\left(e^{-t}\cos\left(\sqrt{2}t\right)-\cos t+\sin t\right)\\
+\amp +\frac{1}{\sqrt{2}}u_{3\pi}\left(t\right)f_{1}\left(t-3\pi\right)\\
+\amp =\frac{1}{4}\left(e^{-t}\cos\left(\sqrt{2}t\right)-\cos t+\sin t\right)\\
+\amp +\frac{1}{\sqrt{2}}u_{3\pi}\left(t\right)e^{-1\left(t-3\pi\right)}\sin\left(\sqrt{2}\left(t-3\pi\right)\right)
+\end{align*}
+</div>
+<p>where \(f_{1}=\mathcal{L}^{-1}\left\{ \frac{\sqrt{2}}{\left(s+1\right)^{2}+\left(\sqrt{2}\right)^{2}}\right\} =e^{-t}\cos\sqrt{2}t\text{.}\)</p></article></body>
+</html>

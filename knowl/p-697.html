@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--**************************************-->
 <!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-17T14:59:24-04:00    *-->
+<!--*    on 2020-04-18T14:19:55-04:00    *-->
 <!--*                                    *-->
 <!--*      https://pretextbook.org       *-->
 <!--*                                    *-->
@@ -13,7 +13,13 @@
 </head>
 <body>
 <h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Initially, a tank contains 100 L of water with 10 kg of sugar in solution. Water containing sugar flows into the tank at the rate of \(2\) L/min, and the well-stirred mixture in the tank flows out at the rate of \(5\) L/min. The concentration \(c(t)\) of sugar in the incoming water varies as \(c(t)=2+\cos(3t)\) kg/L. Let \(Q(t)\) be the amount of sugar (in kilograms) in the tank at time \(t\) (in minutes). Write the Initial Value Problem that \(Q(t)\) satisfies.</p>
-<span class="incontext"><a href="ex2-4.html#p-697">in-context</a></span>
+<p>In order to take the inverse of a product, we need to define the <dfn class="terminology">convolution integral</dfn>: Let \(f(t),g(t)\) be two nice functions, then</p>
+<div class="displaymath">
+\begin{equation*}
+\left(f\star g\right)(t)=\int_{0}^{t}f\left(t-\tau\right)g\left(\tau\right)d\tau=\int_{0}^{t}f(\tau)g\left(t-\tau\right)d\tau.
+\end{equation*}
+</div>
+<p>The function \(h=f\star g\) is called the \textbf{convolution} of \(f\) and \(g\text{.}\) We can think of convolution as somehow “mixing” or “averaging” the two functions that are being convolved. In practice, convolutions are often used to take jagged, unsmooth functions as input and return smoothed functions as output by convoluting the rough function with an appropriate smooth one.</p>
+<span class="incontext"><a href="ch6-7.html#p-697">in-context</a></span>
 </body>
 </html>
