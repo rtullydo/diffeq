@@ -1121,5 +1121,68 @@
       </exercise>
     </exercises>
   </section>
+
+  <section xml:id="ex6-4">
+    <title><xref ref="ch6-4"/></title>
+      <exercises>
+      <exercise><p>Take the Laplace transforms of the following functions
+        <ol>
+         <li><m>f(t)=u_{7}(t)e^{6\left(t-7\right)}</m></li>
+         <li><m>f(t)=u_{2}(t)e^{-9\left(t-2\right)}</m></li>
+         <li><m>f(t)=u_{2}(t)\left(t-2\right)^{3}</m></li>
+         <li><m>f(t)=u_{6}(t)\sin\left(3\left(t-6\right)\right)</m></li>
+         <li><m>f(t)=u_{1}(t)\cos\left(7\left(t-1\right)\right)</m></li>
+        </ol></p>
+      </exercise>
+      <exercise>
+        <p>Take the inverse Laplace transforms of the following functions
+        <ol>
+         <li><m>F(s)=\frac{e^{-3s}}{s+1}</m></li>
+         <li><m>F(s)=\frac{e^{-5s}}{s-7}</m></li>
+         <li><m>F(s)=\frac{2e^{-2s}}{s^{2}+4}</m></li>
+         <li><m>F(s)=\frac{se^{-9s}}{s^{2}+7}</m></li>
+         <li><m>F(s)=\frac{\left(s+2\right)e^{-3s}}{\left(s+2\right)^{2}+16}</m></li>
+        </ol></p>
+      </exercise> 
+      <exercise>
+      <p>Take the inverse Laplace transforms of 
+      <me>
+      F(s)=\frac{e^{-3s}}{s^{2}-3s+2}.
+      </me></p>
+      </exercise>
+      <exercise>
+        <p>Take the inverse Laplace transforms of 
+        <me>
+        F(s)=\frac{se^{-9s}}{s^{2}+6s+11}.
+        </me></p>
+      </exercise>
+    </exercises>
+  </section>
+
+  <section xml:id="ex6-5">
+    <title><xref ref="ch6-5"/></title>
+        <exercises>
+          <exercise>
+             Find the solution to the following IVP using Laplace Transforms
+            <me>
+            y^{\prime}+9y=u_{5}(t),\,\,\,\,\,y(0)=-2.
+            </me>
+          </exercise>
+          <exercise>
+             Find the solution to the following IVP using Laplace Transforms
+            <me>
+            y^{\prime}+y=u_{7}(t)e^{-2\left(t-7\right)},\,\,\,\,\,y(0)=1.
+            </me>
+          </exercise>
+          <exercise>
+             Find the solution to the following IVP using Laplace Transforms
+            <me>
+            y^{\prime\prime}+9y=u_{3}(t)\sin\left(2\left(t-3\right)\right),\,\,\,\,\,y(0)=2.
+            </me>
+          </exercise>
+          </exercises>
+        </section>
+
+
 </appendix>
 </backmatter>
