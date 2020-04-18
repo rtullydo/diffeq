@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2020-04-17T14:59:24-04:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<article class="example-like"><h6 class="heading">
+<span class="type">Example</span> <span class="codenumber">6.5.4</span>.</h6>
+<p>Solve using Laplace Transforms:</p>
+<div class="displaymath">
+\begin{equation*}
+y^{(4)}-y=u_{1}(t)-u_{2}(t),\,\,\,\,\,y(0)=0,y^{\prime}(0)=0,y^{\prime\prime}(0)=0.,y^{\prime\prime\prime}(0)=0..
+\end{equation*}
+</div>
+<p>Step 1: Take \(\mathcal{L}\) of both sides and solve for \(\mathcal{L}\)</p>
+<div class="displaymath">
+\begin{equation*}
+\mathcal{L}\left\{ y^{(4)}\right\} -\mathcal{L}\left\{ y\right\} =\mathcal{L}\left\{ u_{1}(t)-u_{2}(t)\right\} 
+\end{equation*}
+</div>
+<p>hence</p>
+<div class="displaymath">
+\begin{align*}
+\amp s^{4}\mathcal{L}\left\{ y\right\} -s^{3}y(0)-s^{2}y^{\prime}(0)-sy^{\prime\prime}(0)-sy^{\prime\prime\prime}-y^{\prime}(0)-\mathcal{L}\left\{ y\right\}\\
+\amp =\frac{e^{-s}}{s}-\frac{e^{-2s}}{s}\implies\\
+\left(s^{4}-1\right)\mathcal{L}\left\{ y\right\}  \amp =\frac{e^{-s}}{s}-\frac{e^{-2s}}{s},\implies\\
+\mathcal{L}\left\{ y\right\}  \amp =\frac{e^{-s}}{s\left(s^{4}-1\right)}-\frac{e^{-2s}}{s\left(s^{4}-1\right)}
+\end{align*}
+</div>
+<p>Step 2: We do partial fractions on</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{1}{s\left(s^{4}-1\right)}=\frac{1}{s\left(s^{2}-1\right)\left(s^{2}+1\right)}=\frac{1}{s\left(s+1\right)\left(s-1\right)\left(s^{2}+1\right)}=
+\end{equation*}
+</div>
+<p>hence</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{1}{s\left(s^{4}-1\right)}=\frac{A}{s}+\frac{B}{s+1}+\frac{C}{s-1}+\frac{Ds+E}{s^{2}+1}
+\end{equation*}
+</div>
+<p>after doing the work to get the partial fractions you get</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{1}{s\left(s^{4}-1\right)}=-\frac{1}{s}+\frac{1}{4}\frac{1}{s+1}+\frac{1}{4}\frac{1}{s-1}+\frac{1}{2}\frac{s}{s^{2}+1}
+\end{equation*}
+</div>
+<p>putting it back we need to take the inverse of</p>
+<div class="displaymath">
+\begin{align*}
+\amp e^{-s}\left[-\frac{1}{s}+\frac{1}{4}\frac{1}{s+1}+\frac{1}{4}\frac{1}{s-1}+\frac{1}{2}\frac{s}{s^{2}+1}\right]\\
+\amp -e^{-2s}\left[-\frac{1}{s}+\frac{1}{4}\frac{1}{s+1}+\frac{1}{4}\frac{1}{s-1}+\frac{1}{2}\frac{s}{s^{2}+1}\right]
+\end{align*}
+</div>
+<p>Step 3: Take the inverse Laplace transform: Using \(\mathcal{L}\left[u_{a}(t)f(t-a)\right]=e^{-as}F(s)\text{,}\) and \(\mathcal{L}\left\{ \cos(at)\right\} =\frac{a}{s^{2}+a^{2}}\) and \(\mathcal{L}\left\{ e^{at}\right\} =\frac{1}{s-a}\) we have</p>
+<div class="displaymath">
+\begin{align*}
+y \amp =\mathcal{L}^{-1}\left\{ e^{-s}\left[-\frac{1}{s}+\frac{1}{4}\frac{1}{s+1}+\frac{1}{4}\frac{1}{s-1}+\frac{1}{2}\frac{s}{s^{2}+1}\right]\right\} \\
+\amp -\mathcal{L}^{-1}\left\{ e^{-2s}\left[-\frac{1}{s}+\frac{1}{4}\frac{1}{s+1}+\frac{1}{4}\frac{1}{s-1}+\frac{1}{2}\frac{s}{s^{2}+1}\right]\right\} \\
+\amp =-u_{1}(t)+u_{1}(t)\left[\frac{1}{4}e^{-1\left(t-1\right)}+\frac{1}{4}e^{1\left(t-1\right)}+\frac{1}{2}\cos\left(t-1\right)\right]\\
+\amp +u_{2}(t)-u_{2}(t)\left\{ \frac{1}{4}e^{-1\left(t-2\right)}+\frac{1}{4}e^{1\left(t-2\right)}+\frac{1}{2}\cos\left(t-2\right)\right\} 
+\end{align*}
+</div></article><span class="incontext"><a href="ch6-5.html#example-123">in-context</a></span>
+</body>
+</html>

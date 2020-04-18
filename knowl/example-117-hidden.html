@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2020-04-17T14:59:24-04:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body><article class="example-like"><p>Take the Inverse Laplace Transform of:\({\displaystyle F(s)=\frac{e^{-7s}}{s^{2}-4}}\text{.}\)</p>
+<p>Solution: We note \(\mathcal{L}\left\{ \sinh2t\right\} =\frac{2}{s^{2}-4}\) and use \(\mathcal{L}\left\{ u_{c}(t)f_{1}\left(t-c\right)\right\} =e^{-cs}F_{1}(s)\) where \(f_{1}(t)=\sinh2t\implies f_{1}(t-7)=\sinh2\left(t-7\right)\) to get that</p>
+<div class="displaymath">
+\begin{align*}
+\mathcal{L}\left\{ u_{7}(t)f_{1}\left(t-7\right)\right\} =e^{-7s}F_{1}(s), \amp \implies\mathcal{L}\left\{ u_{7}(t)\sinh2\left(t-7\right)\right\} =\frac{2e^{-7s}}{s^{2}-4}\\
+\amp \implies\frac{1}{2}\mathcal{L}\left\{ u_{7}(t)\sinh2\left(t-7\right)\right\} =\frac{e^{-7s}}{s^{2}-4}
+\end{align*}
+</div>
+<p>hence</p>
+<div class="displaymath">
+\begin{equation*}
+\mathcal{L}^{-1}\left\{ F(s)\right\} =\frac{1}{2}u_{7}(t)\sinh2\left(t-7\right).
+\end{equation*}
+</div></article></body>
+</html>

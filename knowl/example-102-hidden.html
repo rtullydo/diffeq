@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2020-04-17T14:59:23-04:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body><article class="example-like"><p>Solve</p>
+<div class="displaymath">
+\begin{equation*}
+y^{\prime}+4y=6,\,\,\,y^{\prime}(0)=0
+\end{equation*}
+</div>
+<p>using Laplace transforms.</p>
+<p>Step 1: Find the Laplace Transform of the ODE (The going forwards part):</p>
+<div class="displaymath">
+\begin{align*}
+\mathcal{L}\left\{ y^{\prime}\right\} +4\mathcal{L}\left\{ y\right\} =\mathcal{L}\left\{ 6\right\}  \amp \iff s\mathcal{L}\left\{ y\right\} -y(0)+4\mathcal{L}\left\{ y\right\} =\frac{6}{s}
+\end{align*}
+</div>
+<p>Step 2: Solve for \(\mathcal{L}\left\{ y\right\} \) using algebra: and get</p>
+<div class="displaymath">
+\begin{equation*}
+\mathcal{L}\left\{ y\right\} =\frac{6}{s\left(s+4\right)}.
+\end{equation*}
+</div>
+<p>Step 3: Partial Fractions (We did this already)</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{6}{s\left(s+4\right)}=\frac{3/2}{s}+\frac{-3/2}{\left(s+4\right)}
+\end{equation*}
+</div>
+<p>Step 4: Use the inverse Laplace transform to get</p>
+<div class="displaymath">
+\begin{align*}
+y=\mathcal{L}^{-1}\left\{ \mathcal{L}\left\{ y\right\} \right\}  \amp =\mathcal{L}^{-1}\left\{ \frac{3/2}{s}+\frac{-3/2}{\left(s+4\right)}\right\} \\
+\amp =\frac{3}{2}\mathcal{L}^{-1}\left\{ \frac{1}{s}\right\} -\frac{3}{2}\mathcal{L}\left\{ \frac{1}{\left(s+4\right)}\right\} \\
+\amp =\frac{3}{2}\cdot1-\frac{3}{2}\mathcal{L}\left\{ \frac{1}{s-(-4)}\right\} \\
+\amp =\frac{3}{2}\cdot1-\frac{3}{2}e^{-4t}
+\end{align*}
+</div></article></body>
+</html>

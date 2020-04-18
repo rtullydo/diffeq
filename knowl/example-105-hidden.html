@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2020-04-17T14:59:23-04:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body><article class="example-like"><p>Find the inverse transform of \(F(s)=\frac{2s-8}{s^{2}-4s+5}\text{.}\)</p>
+<p>Note that we can't factor \(s^{2}-4s+5\) with real roots, thus we will complete the square.</p>
+<p><em class="alert">Completing the square:</em> Suppose we have \(s^{2}+bs+c\text{,}\) then the trick is to ADD/SUBTRACT \(\left(\frac{b}{2}\right)^{2}\text{,}\) and the polynomials will become \(s^{2}+bs+c=\left(s+\frac{b}{2}\right)^{2}-\left(\frac{b}{2}\right)^{2}+c\text{.}\) To complete the square for \(s^{2}-4s+5\text{:}\) Then \(b=-4\) hence we add/subtract \(\left(\frac{b}{2}\right)^{2}=\left(\frac{-4}{2}\right)^{2}=4\text{.}\) Thus</p>
+<div class="displaymath">
+\begin{align*}
+s^{2}-4s+5 \amp =s^{2}-4s+4+1\\
+\amp =\left(s-2\right)^{2}+1
+\end{align*}
+</div>
+<p>Going back to the problem of find the Laplace Transform we have that</p>
+<div class="displaymath">
+\begin{align*}
+F(s) \amp =\frac{2s-8}{\left(s-2\right)^{2}+1}=\frac{2\left(s-2\right)}{\left(s-2\right)^{2}+1}-4\frac{1}{\left(s-2\right)^{2}+1}
+\end{align*}
+</div>
+<p>We can apply these by separating \(F(s)\) into pieces like this:=</p>
+<div class="displaymath">
+\begin{align*}
+\mathcal{L}^{-1}\left\{ F(s)\right\}  \amp =\mathcal{L}^{-1}\left\{ \frac{2s-8}{\left(s-2\right)^{2}+1}\right\} \\
+\amp =\mathcal{L}^{-1}\left\{ \frac{2\left(s-2\right)}{\left(s-2\right)^{2}+1}\right\} -4\mathcal{L}^{-1}\left\{ \frac{1}{\left(s-2\right)^{2}+1}\right\} \\
+\amp =2e^{2t}\cos t-4e^{2t}\sin t
+\end{align*}
+</div></article></body>
+</html>

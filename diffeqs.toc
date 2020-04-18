@@ -1,0 +1,99 @@
+\hypertarget {x:book:diffeqs}{}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Modeling via differential equations, some solutions and definitions}{1}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}What are differential equations?}{1}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Studying first order equations}{2}{subsection.1.1.2}
+\contentsline {subsection}{\numberline {1.1.3}Solutions to some differential Equations}{4}{subsection.1.1.3}
+\contentsline {subsection}{\numberline {1.1.4}Studying general differential equations}{5}{subsection.1.1.4}
+\contentsline {section}{\numberline {1.2}Slope fields (direction fields)}{6}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Slope fields}{6}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Two important cases}{7}{subsection.1.2.2}
+\contentsline {chapter}{\numberline {2}First Order Differential Equations}{9}{chapter.2}
+\contentsline {section}{\numberline {2.1}Linear equations and integrating factors}{9}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Integrating factors method}{9}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Finding the integrating factor}{10}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Examples}{11}{subsection.2.1.3}
+\contentsline {section}{\numberline {2.2}Separable equations}{13}{section.2.2}
+\contentsline {section}{\numberline {2.3}Separable homogeneous equations and the substitution method}{17}{section.2.3}
+\contentsline {section}{\numberline {2.4}Modeling with Differential Equations}{20}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Model building}{20}{subsection.2.4.1}
+\contentsline {section}{\numberline {2.5}Modeling with differential equations - more problems}{24}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}Newton's Law of Cooling}{24}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.5.2}Free fall with friction}{25}{subsection.2.5.2}
+\contentsline {section}{\numberline {2.6}Existence and Uniqueness of Solutions}{29}{section.2.6}
+\contentsline {subsection}{\numberline {2.6.1}Existence theorems}{29}{subsection.2.6.1}
+\contentsline {subsection}{\numberline {2.6.2}More examples. Domains of solutions.}{32}{subsection.2.6.2}
+\contentsline {subsection}{\numberline {2.6.3}Summary}{33}{subsection.2.6.3}
+\contentsline {section}{\numberline {2.7}Autonomous Equations and Population dynamics}{34}{section.2.7}
+\contentsline {subsection}{\numberline {2.7.1}Examples of autonomous systems}{34}{subsection.2.7.1}
+\contentsline {subsubsection}{\numberline {2.7.1.1}Population growth/\penalty \exhyphenpenalty {}decay}{34}{subsubsection.2.7.1.1}
+\contentsline {subsubsection}{\numberline {2.7.1.2}Logistic Growth:}{34}{subsubsection.2.7.1.2}
+\contentsline {subsection}{\numberline {2.7.2}Phase lines}{34}{subsection.2.7.2}
+\contentsline {subsection}{\numberline {2.7.3}Classification of Equilibrium Solutions}{37}{subsection.2.7.3}
+\contentsline {section}{\numberline {2.8}Exact equations}{38}{section.2.8}
+\contentsline {subsection}{\numberline {2.8.1}Partial derivatives and the gradient}{38}{subsection.2.8.1}
+\contentsline {subsection}{\numberline {2.8.2}From gradient field to potential function}{40}{subsection.2.8.2}
+\contentsline {subsection}{\numberline {2.8.3}Differential equations and equipotentials}{40}{subsection.2.8.3}
+\contentsline {subsection}{\numberline {2.8.4}Exact equations}{41}{subsection.2.8.4}
+\contentsline {section}{\numberline {2.9}Euler's method}{44}{section.2.9}
+\contentsline {subsection}{\numberline {2.9.1}Euler's method}{45}{subsection.2.9.1}
+\contentsline {chapter}{\numberline {3}Second Order Linear Equations}{47}{chapter.3}
+\contentsline {section}{\numberline {3.1}Motivation - mass-spring systems.}{47}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Undamped mass-spring systems}{48}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Damped mass-spring systems}{50}{subsection.3.1.2}
+\contentsline {section}{\numberline {3.2}Second order linear equations}{52}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Second order linear homogeneous ODEs with constant coefficients (characteristic equation)}{53}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Derivatives as linear operators and the characteristic equation}{55}{subsection.3.2.2}
+\contentsline {section}{\numberline {3.3}Solutions to Linear Equations; the Wronskian}{56}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Principle of Superposition}{56}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Fundamental sets of solutions}{57}{subsection.3.3.2}
+\contentsline {section}{\numberline {3.4}Complex roots of the characteristic equation}{59}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Complex numbers:}{59}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Complex roots to the characteristic equation}{59}{subsection.3.4.2}
+\contentsline {subsection}{\numberline {3.4.3}Examples}{60}{subsection.3.4.3}
+\contentsline {section}{\numberline {3.5}Repeated roots; Reduction of order}{62}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Repeated roots}{62}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.2}Reduction of order}{63}{subsection.3.5.2}
+\contentsline {section}{\numberline {3.6}Non-homogeneous equations - Undetermined coefficients}{65}{section.3.6}
+\contentsline {subsection}{\numberline {3.6.1}Nonhomogeneous equations}{65}{subsection.3.6.1}
+\contentsline {subsection}{\numberline {3.6.2}Method of undetermined coefficients}{66}{subsection.3.6.2}
+\vspace {\normalbaselineskip }
+\contentsline {chapter}{\numberline {A}A fast quadratic method}{70}{appendix.A}
+\contentsline {chapter}{\numberline {B}Exercises for Chapter 1}{72}{appendix.B}
+\contentsline {section}{\numberline {B.1}Section\nobreakspace {}\ref *{x:section:ch1-1}}{72}{section.B.1}
+\contentsline {subsection}{Exercises}{72}{section.B.1}
+\contentsline {section}{\numberline {B.2}Section\nobreakspace {}\ref *{x:section:ch1-2}}{73}{section.B.2}
+\contentsline {subsection}{Exercises}{73}{section.B.2}
+\contentsline {chapter}{\numberline {C}Exercises for Chapter 2}{75}{appendix.C}
+\contentsline {section}{\numberline {C.1}Section\nobreakspace {}\ref *{x:section:ch2-1}}{75}{section.C.1}
+\contentsline {subsection}{Exercises}{75}{section.C.1}
+\contentsline {section}{\numberline {C.2}Section\nobreakspace {}\ref *{x:section:ch2-2}}{75}{section.C.2}
+\contentsline {subsection}{Exercises}{75}{section.C.2}
+\contentsline {section}{\numberline {C.3}Section\nobreakspace {}\ref *{x:section:ch2-3}}{76}{section.C.3}
+\contentsline {subsection}{Exercises}{76}{section.C.3}
+\contentsline {section}{\numberline {C.4}Section\nobreakspace {}\ref *{x:section:ch2-4}}{77}{section.C.4}
+\contentsline {subsection}{Exercises}{77}{section.C.4}
+\contentsline {section}{\numberline {C.5}Section\nobreakspace {}\ref *{x:section:ch2-5}}{78}{section.C.5}
+\contentsline {subsection}{Exercises}{78}{section.C.5}
+\contentsline {section}{\numberline {C.6}Section\nobreakspace {}\ref *{x:section:ch2-6}}{78}{section.C.6}
+\contentsline {subsection}{Exercises}{78}{section.C.6}
+\contentsline {section}{\numberline {C.7}Section\nobreakspace {}\ref *{x:section:ch2-7}}{79}{section.C.7}
+\contentsline {subsection}{Exercises}{79}{section.C.7}
+\contentsline {section}{\numberline {C.8}Section\nobreakspace {}\ref *{x:section:ch2-8}}{80}{section.C.8}
+\contentsline {subsection}{Exercises}{80}{section.C.8}
+\contentsline {section}{\numberline {C.9}Section\nobreakspace {}\ref *{x:section:ch2-9}}{81}{section.C.9}
+\contentsline {subsection}{Exercises}{81}{section.C.9}
+\contentsline {chapter}{\numberline {D}Exercises for Chapter 3}{82}{appendix.D}
+\contentsline {section}{\numberline {D.1}Section\nobreakspace {}\ref *{x:section:ch3-2}}{82}{section.D.1}
+\contentsline {subsection}{Exercises}{82}{section.D.1}
+\contentsline {section}{\numberline {D.2}Section\nobreakspace {}\ref *{x:section:ch3-3}}{82}{section.D.2}
+\contentsline {subsection}{Exercises}{82}{section.D.2}
+\contentsline {section}{\numberline {D.3}Section\nobreakspace {}\ref *{x:section:ch3-4}}{83}{section.D.3}
+\contentsline {subsection}{Exercises}{83}{section.D.3}
+\contentsline {section}{\numberline {D.4}Section\nobreakspace {}\ref *{x:section:ch3-5}}{84}{section.D.4}
+\contentsline {subsection}{\numberline {D.4.1}Repeated roots}{84}{subsection.D.4.1}
+\contentsline {subsubsection}{Exercises}{84}{subsection.D.4.1}
+\contentsline {subsection}{\numberline {D.4.2}Reduction of order}{84}{subsection.D.4.2}
+\contentsline {subsubsection}{Exercises}{84}{subsection.D.4.2}
+\contentsline {section}{\numberline {D.5}Section\nobreakspace {}\ref *{x:section:ch3-6}}{84}{section.D.5}
+\contentsline {subsection}{Exercises}{84}{section.D.5}

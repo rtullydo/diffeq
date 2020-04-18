@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2020-04-17T14:59:23-04:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<article class="example-like"><h6 class="heading">
+<span class="type">Example</span> <span class="codenumber">6.1.5</span>.</h6>
+<p>Find the Laplace transform of \(f(t)=e^{9t}\text{,}\) \(t\geq0\) .</p>
+<p>Solution: We compute</p>
+<div class="displaymath">
+\begin{align*}
+\mathcal{L}\left\{ e^{9t}\right\}  \amp =\int_{0}^{\infty}f(t)e^{-st}dt=\int_{0}^{\infty}e^{9t}e^{-st}dt\\
+\amp =\int_{0}^{\infty}e^{(9-s)t}dt\\
+\amp =\frac{1}{9-s}\left[e^{(9-s)t}\right]_{t=0}^{t=\infty}\\
+\amp =\frac{1}{9-s}\left[\lim_{b\to\infty}e^{(9-s)b}-e^{0}\right]
+\end{align*}
+</div>
+<p>but since</p>
+<div class="displaymath">
+\begin{equation*}
+\lim_{b\to\infty}e^{(9-s)b}=\begin{cases}
+\infty \amp a-s&gt;0\\
+0 \amp a-s\lt 0
+\end{cases}
+\end{equation*}
+</div>
+<p>then</p>
+<div class="displaymath">
+\begin{equation*}
+\mathcal{L}\left\{ e^{9t}\right\} =\begin{cases}
+\frac{1}{s-9} \amp s&gt;9\\
+\text{not defined} \amp s\lt 9
+\end{cases}.
+\end{equation*}
+</div></article><span class="incontext"><a href="ch6-1.html#example-94">in-context</a></span>
+</body>
+</html>

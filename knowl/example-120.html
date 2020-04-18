@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2020-04-17T14:59:24-04:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<article class="example-like"><h6 class="heading">
+<span class="type">Example</span> <span class="codenumber">6.5.1</span>.</h6>
+<p>Solve using Laplace Transforms:</p>
+<div class="displaymath">
+\begin{equation*}
+y^{\prime}=-y+u_{3}(t),\,\,\,\,\,y(0)=2.
+\end{equation*}
+</div>
+<p>Step 1: Take \(\mathcal{L}\) of both sides and solve for \(\mathcal{L}\)</p>
+<div class="displaymath">
+\begin{equation*}
+\mathcal{L}\left\{ y^{\prime}\right\} =\mathcal{L}\left\{ -y\right\} +\mathcal{L}\left\{ u_{3}(t)\right\} 
+\end{equation*}
+</div>
+<p>so that</p>
+<div class="displaymath">
+\begin{equation*}
+s\mathcal{L}\left\{ y\right\} -y(0)=-\mathcal{L}\left\{ y\right\} +\frac{e^{-3s}}{s}.
+\end{equation*}
+</div>
+<p>Step 2: Solve for \(\mathcal{L}\left\{ y\right\} \text{,}\)</p>
+<div class="displaymath">
+\begin{equation*}
+\mathcal{L}\left\{ y\right\} =\frac{2}{s+1}+\frac{e^{-3s}}{s\left(s+1\right)}
+\end{equation*}
+</div>
+<p>Step 3: We do partial fractions on</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{1}{s\left(s+1\right)}=\frac{1}{s}-\frac{1}{s+1}
+\end{equation*}
+</div>
+<p>Step 4: Take the inverse Laplace transform: Using \(\mathcal{L}\left[u_{a}(t)f(t-a)\right]=e^{-as}F(s)\text{,}\) and get</p>
+<div class="displaymath">
+\begin{align*}
+y \amp =\mathcal{L}^{-1}\left\{ \frac{2}{s+1}+e^{-3s}\frac{1}{s}-e^{-3s}\frac{1}{s+1}\right\} \\
+\amp =2e^{-t}+u_{3}(t)-u_{3}(t)e^{-\left(t-3\right)}.
+\end{align*}
+</div></article><span class="incontext"><a href="ch6-5.html#example-120">in-context</a></span>
+</body>
+</html>

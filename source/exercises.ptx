@@ -1,0 +1,1125 @@
+<backmatter>
+<appendix xml:id = "quadratic">
+  <title>A fast quadratic method</title>
+
+  <p>Consider the quadratic equation
+    <me>
+      ax^2 + bx + c = 0.
+    </me>
+  Students typically learn to solve this equation with the quadratic formula
+  <me>
+    x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+  </me>
+  or with the method of completing the square.</p>
+
+  <p>A recently introduced method for solving quadratic equations makes this process much easier, particularly when complex numbers are involved. We'll first look at the theory behind the method, and then we'll give some examples that show how easy it is to do. Suppose that <m>a = 1</m>. What we are looking for is two numbers, the <term>roots</term> <m>R</m> and <m>S</m> so that we can factor the equation as
+  <me>
+    (x - R)(x - S) = 0.
+  </me>
+  Multiplying out shows that
+  <me>
+    x^2 + bx + c = x^2 -(R +S)x + RS,
+  </me>
+  so that <m>-b = (R + S)</m> and <m>c = RS</m>. Here is the key step: <m>R+S</m> will equal <m>-b</m> when the average of <m>R</m> and <m>S</m> is <m>-b/2</m>. Because parabolas are symmetric about the vertex, the number <m>-b/2</m> is precisely halfway in between <m>R</m> and <m>S</m>. So we get
+  <me>
+    R = -b/2 + z \text{ and } S = -b/2 - z.
+  </me>
+  Since <m>RS = c</m>, we can compute
+  <me>
+    c = RS = (-b/2 + z)(-b/2 - z) = \frac{b^2}{4} - z^2
+  </me>
+  and so
+  <me>
+  z = \pm\sqrt{\frac{B^2}{4} - C},
+  </me>
+   which is the quadratic formula when <m>a = 1</m>.
+  </p>
+
+  <p>This might seem a bit complicated to parse, but the idea is very easy to use in practice.
+    Consider the equation
+    <me>x^2 + 5x - 6 = 0.</me>
+    Then we have that the roots are <m>5/2 \pm z</m>. Since the roots must multiply to <m>c</m>, we get
+    <md>
+      <mrow>(5/2 + z)(5/2 - z) = -6</mrow>
+      <mrow> \Rightarrow 25/4 - z^2 = -6 </mrow>
+      <mrow>\Rightarrow z^2 = 49/4 </mrow>
+      <mrow>\Rightarrow z = \pm 7/2</mrow>
+    </md>
+    Then the roots are <m>-5/2 \pm 7/2</m>, so <m> R = -6</m> and <m>S = 1</m>, which means the equation factors as <m>(x + 6)(x -1) = 0</m>.
+  </p>
+
+  <p>This works even better for complex roots. Consider the equation
+    <me>
+      x^2 + 2x + 10 = 0
+    </me>
+    so that the roots have the form <m>-2/2 \pm z = -1 \pm z</m>. Then
+    <me>
+      (-1 - z)(-1 + z) = 10
+    </me>
+    and so
+    <me>
+      z^2 - 1 = -10
+    </me>
+    and
+    <me>
+      z = \pm 3i
+    </me>.
+    Then the solutions to the equation are <m>-1 \pm 3i</m>.</p>
+</appendix>
+
+<appendix xml:id="exercises">
+  <title>Exercises for Chapter 1</title>
+  <section xml:id="ex1-1"><title><xref ref="ch1-1"/></title>
+    <exercises>
+      <exercise> What does it mean to be a solution to a differential equation?</exercise>
+
+      <exercise> Check if the function <m>y(t)=t+1</m> a particular solution to the following
+      differential equation:
+      <me>
+      \frac{dy}{dt}=\frac{y^{2}-1}{t^{2}+2t}.
+      </me></exercise>
+
+      <exercise>Check if the function <m>y(x)=x+x\ln x</m> solves the following initial
+      value problem:
+      <me>
+      x\frac{dy}{dx}=x+y,\,\,\,\,\,\,y(1)=3.
+      </me></exercise>
+
+      <exercise> Find the equilibrium solutions to the equation
+      <me>
+      \frac{dy}{dt}=y^{2}+2y
+      </me></exercise>
+      <exercise>Find the equilibrium solutions to the equation
+      <me>
+      \frac{dy}{dt}=y^{4}t-3y^{3}t+2y^{2}t.
+      </me></exercise>
+      <exercise>Classify the following equations as ODEs or PDEs.
+      <ol>
+      <li> <m>\frac{dy}{dt}=2yt</m></li>
+      <li> <m>\frac{\partial u}{\partial t}=\frac{\partial^{2}u}{\partial x^{2}}</m>
+
+      <p> <em>Fun Fact:</em> This particular PDE is a very famous PDE and is called
+      the <em>heat equation</em>. It models the flow of heat in a medium over
+      time.</p></li>
+
+      <li> <m>\frac{\partial^{2}u}{\partial t^{2}}=\frac{\partial^{2}u}{\partial x^{2}}+\frac{\partial^{2}u}{\partial y^{2}}</m>
+
+      <p><em>Fun Fact:</em> This particular PDE is a very famous PDE and is called
+      the <em>wave equation</em>. This PDE along with boundary conditions,
+      describes the amplitude and phase of the wave.</p></li>
+      <li> <m>x\frac{d^{2}y}{dx^{2}}=y\frac{dy}{dx}+x^{2}y</m></li>
+      <li> <m>2y^{\prime\prime}-y^{\prime}+y=0</m></li>
+      </ol></exercise>
+
+      <exercise> Classify the order of the following differential equations. Also classify
+      if it is linear or nonlinear.
+      <ol>
+      <li> <m>\frac{dy}{dt}=2yt</m></li>
+      <li> <m>y\frac{d^{2}y}{dt^{2}}=\cos t</m></li>
+      <li> <m>ty^{\prime\prime\prime}-y^{\prime\prime}-2y=0</m></li>
+      <li> <m>\frac{dy^{6}}{dt^{6}}-2\frac{dy}{dt}+y=t^{2}</m></li>
+      <li> <m>\cos y+y^{\prime}=t</m></li>
+      <li> <m>6y^{\prime\prime\prime}-y^{2}=y^{(5)}</m></li>
+      <li> <m>\frac{d^{2}y}{dt^{2}}=\frac{y}{y+t}</m></li>
+      </ol>
+      </exercise>
+    </exercises>
+  </section>
+
+
+
+  <section xml:id="ex1-2"><title><xref ref="ch1-2"/></title>
+  <exercises>
+      <exercise> Match the following slope fields with their equations.
+        <image source="images/1.2-1.png"/>
+      <ol>
+      <li> <m>\frac{dy}{dt}=\sin t</m></li>
+      <li> <m>\frac{dy}{dt}=t-y</m></li>
+      <li> <m>\frac{dy}{dt}=2-y</m></li>
+      <li> <m>\frac{dy}{dt}=t</m></li>
+      </ol></exercise>
+
+      <exercise> Suppose the following ODE
+      <me>
+      \frac{dy}{dt}=y^{2}-t
+      </me>
+      has the following slope field:
+      <image source="images/1.2-2.png"/>
+      <ol>
+      <li> Suppose <m>y(t)</m> is a solution to this ODE and also you know that <m>y\left(-1\right)=1</m>.
+      Then based on the slope field, what is your prediction for the long
+      term behavior of <m>y(t)</m>. That is, what is your prediction of
+      <me>
+      \lim_{t\to\infty}y(t)?
+      </me></li>
+      <li> Suppose <m>y(t)</m> is a solution to this ODE and also you know that <m>y\left(1\right)=0</m>.
+      Then based on the slope field, what is your prediction for the long
+      term behavior of <m>y(t)</m>, that is, what is your prediction of
+      <me>
+      \lim_{t\to\infty}y(t)=?
+      </me></li>
+      </ol></exercise>
+      <exercise> Let <m>P(t)</m> represent the population of the Phan fish breed. Suppose
+      you come up with the following differential equation that models <m>P(t)</m>:
+      <me>
+      \frac{dP}{dt}=P\left(P-100\right)\left(P+100\right)/100000
+      </me>
+      Its slope field is given by:
+      <image source = "images/1.2-3b.png"/>
+      <ol>
+      <li> Suppose that the population of the Phan fish is <m>80</m> at time <m>t=0</m>.
+      What is the long term behavior for the population of the Phan fish?
+      Will it keep increasing/decreasing, stabilize to a certain number,
+      or go extinct?</li></ol>
+      </exercise>
+  </exercises>
+</section>
+</appendix>
+
+<appendix><title>Exercises for Chapter 2</title>
+<section xml:id="ex2-1">
+  <title><xref ref="ch2-1"/></title>
+  <exercises>
+    <exercise>
+    <p>Use a computer app to draw the direction field for the given differential
+    equations. Use the direction field to describe the long term behavior
+    of the solution for large <m>t</m>. (Meaning use the direction field to
+    predict <m>\lim_{t\to\infty}y(t)</m> for different starting points). Find
+    the general solution of the given differential equations, and use
+    it to determine how solutions behave as <m>t\to\infty</m>.</p>
+
+    <ol>
+    <li> <m>y^{\prime}+3y=t+e^{-2t}</m></li>
+
+    <li> <m>y^{\prime}+y=te^{-t}+1</m></li>
+    <li> <m>ty^{\prime}-y=t^{2}e^{-t}</m></li>
+    <li> <m>2y^{\prime}+y=3t</m></li>
+    </ol>
+    </exercise>
+
+    <exercise>
+    <p>Find the particular solution to given initial value problem.</p>
+    <ol>
+    <li> <m>y^{\prime}-y=2te^{2t}</m>, <m>y(0)=1</m></li>
+    <li> <m>ty^{\prime}+2y=\sin t</m>, <m>y\left(\pi/2\right)=1</m>, <m>t>0</m></li>
+    </ol>
+    </exercise>
+    <exercise>
+    <p> Consider the following initial value problem:
+    <me>
+    ty^{\prime}+\left(t+1\right)y=2te^{-t},\,\,\,\,\,y(1)=a,\,\,\,\,t>0
+    </me>
+    where <m>a</m> is any real number. Find the particular solution that solves this IVP.</p>
+  </exercise>
+</exercises>
+</section>
+
+<section xml:id="ex2-2">
+  <title><xref ref="ch2-2"/></title>
+  <exercises>
+    <exercise>
+    <p>Find the general solutions for the following differential equations.
+    Find the <em>explicit</em> solutions if you can. If you can't solve
+    for <m>y</m> exactly, then leave it as an \emph{implicit} solution:
+    <ol>
+    <li><m>y^{\prime}=ky</m> where <m>k</m> is a parameter.</li>
+    <li> <m>y^{\prime}=\frac{x^{2}}{y}}</m></li>
+    <li> <m>\frac{dy}{dx}=\frac{3x^{2}-1}{3+2y}}</m></li>
+    <li> <m>xy^{\prime}=\frac{\left(1-y^{2}\right)^{1/2}}{y}</m></li>
+    <li> <m>\frac{dy}{dx}=\frac{x^{2}}{1+y^{2}}}</m></li>
+    <li> <m>\frac{dy}{dx}=\frac{x}{\cos\left(y^{2}\right)y}}</m></li>
+    </ol></p>
+  </exercise>
+  <exercise>
+    <p>Consider the ODE
+    <me>
+    \frac{dy}{dt}=\frac{4y}{t}.
+    </me></p>
+
+    <ol>
+    <li><p> What kind of differential equation is this? Is it linear? Is it separable?</p></li>
+    <li><p> If the ODE is both separable and Linear. Then use both methods to
+    solve this equation. And check to make sure you get the same answer.</p></li>
+    </ol>
+  </exercise>
+  <exercise>
+    <p> Find the general solution to the following differential equation:
+    <me>
+    \frac{dy}{dt}=\left(y+1\right)\left(y-2\right).
+    </me>
+    (Hint: Use partial fractions!)</p>
+  </exercise>
+</exercises>
+</section>
+
+<section xml:id="ex2-3">
+  <title><xref ref="ch2-3"/></title>
+  <exercises>
+    <exercise>
+      <p> First check each if the following differential equations are homogeneous. Then find the general solutions for the following differential equations.
+      <ol>
+      <li> <m>x^{2}\frac{dy}{dx}=-\left(y^{2}-yx\right).}</m></li>
+      <li> <m>\frac{dy}{dx}=\frac{x+3y+2\frac{y^{2}}{x}}{3x+y}.}</m></li>
+      <li> <m>\frac{dy}{dx}=\frac{y}{x}-\frac{x^{2}-y^{2}}{2xy}.}</m></li>
+      </ol></p>
+    </exercise>
+    <exercise>
+      <p> Consider the following homogeneous equation:
+      <me>
+      \frac{dy}{dx}=\frac{y-x}{y+x}.
+      </me>
+
+      <ol>
+      <li> Use the substitution <m>v=\frac{y}{x}</m> to rewrite the equation only
+      in terms of <m>v</m> and <m>x</m>.</li>
+      <li> Solve for the general solution.</li>
+      </ol>
+      </p>
+    </exercise>
+
+
+    <exercise> Consider the following homogeneous equation:
+      <me>
+      \frac{dy}{dx}=\frac{-y^{2}-yx}{x^{2}}.
+      </me>
+
+      <ol>
+      <li> Use the substitution <m>v=\frac{y}{x}</m> to rewrite the equation only
+      in terms of <m>v</m> and <m>x</m>.</li>
+      <li> Solve for the general solution.</li>
+      </ol>
+    </exercise>
+
+    <exercise>
+      <p>Using the given substitution, solve the differential equation:</p>
+      <ol>
+      <li> Rewrite <m>\frac{dy}{dx}+xy=x^{2}y^{2}}</m> using the substitution
+      <m>u=\frac{1}{y}</m>, only in terms of <m>u,x</m>.</li>
+      <li> Rewrite <m>\frac{dy}{dx}+y=\frac{x}{y^{2}}}</m> using the
+      substitution <m>u=y^{3}</m>, only in terms of <m>u,x</m>.</li>
+      </ol>
+    </exercise>
+  </exercises>
+</section>
+
+<section xml:id="ex2-4"><title><xref ref="ch2-4"/></title>
+  <exercises>
+    <exercise>
+      <p>Initially, a tank contains 100 L of water with 10 kg of sugar in solution.
+      Water containing sugar flows into the tank at the rate of <m>2</m> L/min,
+      and the well-stirred mixture in the tank flows out at the rate of
+      <m>5</m> L/min. The concentration <m>c(t)</m> of sugar in the incoming water
+      varies as <m>c(t)=2+\cos(3t)</m> kg/L. Let <m>Q(t)</m> be the amount of sugar
+      (in kilograms) in the tank at time <m>t</m> (in minutes). Write the Initial
+      Value Problem that <m>Q(t)</m> satisfies.</p>
+    </exercise>
+    <exercise>
+      <p>Initially, a tank contains <m>500</m> L (liters) of pure water. Water
+      containing <m>0.3</m>kg of salt per liter is entering at a rate of <m>2</m>
+      L/min, and the mixture is allowed to flow out of the tank at a rate
+      of <m>1</m> L/min. Let <m>Q(t)</m> be the amount of salt at time <m>t</m> measured
+      in kilograms (kg). What is the IVP that <m>Q(t)</m> satisfies?</p>
+    </exercise>
+    <exercise>
+      <p>Initially, a tank contains <m>400</m> L of water with <m>10</m> kg of salt
+      in solution. Water containing <m>0.1</m> kg of salt per liter (L) is entering
+      at a rate of <m>1</m> L/min, and the mixture is allowed to flow out of
+      the tank at a rate of <m>2</m> L/min. Let <m>Q(t)</m> be the amount of salt
+      at time <m>t</m> measured in kilograms. What is the IVP that <m>Q(t)</m> satisfies?</p>
+    </exercise>
+    <exercise>
+      <p>Consider a pond that initially constains <m>10</m> million gal of pure
+      water. Water containing a polluted chemical flows into the pond at
+      the rate of <m>6</m> million gal/year, and the mixture in the pond flows
+      out at the rate of <m>5</m> million gal/year. The concentration <m>\gamma(t)</m>
+      of chemical in the incoming water varies as <m>\gamma(t)=2+\sin2t</m>
+      grams/gal. Let <m>Q(t)</m> be the amount of chemical at time <m>t</m> measured
+      by millions of grams. What is the IVP that <m>Q(t)</m> satisfies?</p>
+    </exercise>
+    <exercise>
+      <p>A tank contains <m>200</m> gal of liquid. Initially, the tank contains
+      pure water. At time <m>t=0</m>, brine containing <m>3</m> lb/gal of salt begins
+      to pour into the tank at a rate of <m>2</m> gal/min, and the well-stirred
+      mixture is allowed to drain away at the same rate. How many minutes
+      must elapse before there are <m>100</m> lb of salt in the tank?</p>
+    </exercise>
+    <exercise>
+      <p> A huge tank initially contains <m>10</m> gallons (gal) of water with <m>6</m>
+      lb of salt in solution. Water containing <m>1</m> lb of salt per gallon
+      is entering at a rate of <m>3</m> gal/min, and the well-stirred mixture
+      is allowed to flow out of the tank at a rate of <m>2</m> gal/min. What
+      is the amount of the salt in the tank after <m>10</m> min?</p>
+    </exercise>
+    <exercise>
+      <p> Initially a tank holds <m>40</m> gallons of water with <m>10</m> lb of salt
+      in solution. A salt solution containing <m>\frac{1}{2}</m>b of salt per
+      gallon runs into the tank at the rate of <m>4</m> gallons per minute.
+      The well mixed solution runs out of the tank at a rate of 2 gallons
+      per minute. Let <m>y(t)</m> be the amount of salt in the tank after <m>t</m>
+      minutes. Then what is <m>y(20)</m>.</p>
+    </exercise>
+  </exercises>
+</section>
+<section xml:id="ex2-5">
+  <title><xref ref="ch2-5"/></title>
+  <exercises>
+    <exercise>
+    <p>A detective is called to the scene of a crime where a dead body has
+    just been found.
+    <ol>
+    <li> She arrives on the scene at 10:23 pm and begins her investigation.
+    Immediately, the temperature of the body is taken and is found to
+    be <m>80^{\circ}</m>F. The detective checks the programmable thermostat
+    and finds that the room has been kept at a constant <m>68^{\circ}</m>F
+    for the past 3 days.</li>
+    \<li>After evidence from the crime scene is collected, the temperature
+    of the body is taken once more and found to be <m>78.5^{\circ}</m> F.
+    This last temperature reading was taken exactly one hour after the
+    first one.</li>
+    <li> The next day the detective is asked by another investigator, <q>What
+    time did our victim die?</q> Assuming that the victim's
+    body temperature was normal (<m>98.6^{\circ}</m>) prior to death, what
+    is her answer to this question? Newton's Law of Cooling can be used
+    to determine a victim's time of death.</li>
+    </ol></p>
+    </exercise>
+  </exercises>
+</section>
+
+<section xml:id="ex2-6">
+  <title><xref ref="ch2-6"/></title>
+  <exercises>
+    <exercise>
+      <p>What is the largest open interval in which the solution to the IVPs
+      in part (a) and part (b) are guaranteed to exist by the existence
+      and uniqueness theorems?
+      <ol>
+      <li> The IVP given by:
+      <me>
+      \begin{cases}
+      \left(t^{2}+t-2\right)y^{\prime}+e^{t}y=\frac{\left(t-4\right)}{\left(t-6\right)}\\
+      y(-3)=-1.
+      \end{cases}
+      </me></li>
+      <li>The IVP given by:
+      <me>
+      \begin{cases}
+      \left(t^{2}+t-2\right)y^{\prime}+e^{t}y=\frac{\left(t-4\right)}{\left(t-6\right)}\\
+      y(5)=47.
+      \end{cases}
+      </me>
+      </li>
+      </ol></p>
+    </exercise>
+    <exercise>
+      <p>What is the largest open interval in which the solution of the initial
+      value problem
+      <me>
+      \begin{cases}
+      \left(t-3\right)y^{\prime}+y=\frac{\left(t-3\right)\cdot\ln\left(t-1\right)}{t-10}\\
+      y(6)=-7.
+      \end{cases}
+      </me>
+      is guaranteed to exist by the existence and uniqueness Theorem?</p>
+    </exercise>
+    <exercise>
+      <p>What is the largest open interval in which the solution of the initial
+      value problem
+      <me>
+      \begin{cases}
+      \left(t-1\right)y^{\prime}+\sqrt{t+2}y=\frac{3}{t-3}\\
+      y(2)=-5.
+      \end{cases}
+      </me>
+      is guaranteed to exist by the Existence and Uniqueness Theorem?</p>
+    </exercise>
+    <exercise>
+      <p>What is the largest open interval in which the solution of the initial
+      value problem
+      <me>
+      \begin{cases}
+      t^{2}y^{\prime}+\ln\left|t-4\right|y=\frac{t-1}{\sin t}\\
+      y(5)=9.
+      \end{cases}
+      </me>
+      is guaranteed to exist by the existence and uniqueness Theorem?</p>
+    </exercise>
+    <exercise>
+      <p>Consider the IVP below
+      <me>
+      \frac{dy}{dt}=y^{1/5},\,\,\,\,y(0)=0.
+      </me></p>
+
+      <ol>
+      <li>Is this a linear or nonlinear equation? Can you use <xref ref="existencethm1"/>?</li>
+      <li> Using <xref ref="existencethm2"/> (the general theorem), can you guarantee
+      that there is a unique solution to this IVP? Why?</li>
+      </ol>
+    </exercise>
+  </exercises>
+  </section>
+
+  <section xml:id="ex2-7"><title><xref ref="ch2-7"/></title>
+  <exercises>
+    <exercise>
+      <p>Consider the following differential equation:
+      <me>
+      \frac{dy}{dt}=\left(y+2\right)\left(y-1\right)\left(y+5\right)
+      </me></p>
+
+      <ol>
+      <li> Draw a phase line. Classify the equilibrium solutions.
+       Draw all possible sketch of solutions of this differential equation.</li>
+      <li>Consider the IVP
+      <me>
+      \frac{dy}{dt}=\left(y+2\right)\left(y-1\right)\left(y+5\right),\,\,\,\,\,\,y(0)=3.
+      </me>
+      Let <m>y(t)</m> be the unique solution that solves this IVP. Draw a sketch
+      of <m>y(t)</m> and use it to find <m>\lim_{t\to\infty}y(t)</m> and <m>\lim_{t\to-\infty}y(t)</m>?
+      </li>
+      </ol>
+    </exercise>
+    <exercise>
+      <p>Consider the following differential equation:
+      <me>
+      \frac{dy}{dt}=y\left(y-3\right)^{2}\left(y+4\right)
+      </me></p>
+
+      <ol>
+      <li> Draw a phase line. Classify the equilibrium solutions.</li>
+      <li> Draw all possible sketch of solutions of this differential equation.</li>
+      <li>Consider the IVP
+      <me>
+      \frac{dy}{dt}=y\left(y-3\right)^{2}\left(y+4\right),\,\,\,\,\,\,y(0)=-5.
+      </me>
+      Let <m>y(t)</m> be the unique solution that solves this IVP. Draw a sketch
+      of <m>y(t)</m> and use it to find <m>\lim_{t\to\infty}y(t)</m> and <m>\lim_{t\to-\infty}y(t)</m>?</li>
+
+      <li>Consider the IVP
+      <me>
+      \frac{dy}{dt}=y\left(y-3\right)^{2}\left(y+4\right),\,\,\,\,\,\,y(0)=1.
+      </me>
+      Let <m>y(t)</m> be the unique solution that solves this IVP. Draw a sketch
+      of <m>y(t)</m> and use it to find <m>\lim_{t\to\infty}y(t)</m> and <m>\lim_{t\to-\infty}y(t)</m>?
+      </li></ol>
+    </exercise>
+    <exercise>
+      <p>Let <m>y(t)</m> be the unique solution to the IVP given by
+      <me>
+      \frac{dy}{dt}=y^{2}\sin y,\,\,\,\,\,\,y(0)=1.
+      </me>
+      Draw a phase line for the ODE to find out <m>\lim_{t\to\infty}y(t)</m>
+      for the unique solution of the IVP above.</p>
+    </exercise>
+    <exercise>
+      <p>Consider the differential equation
+      <me>
+      \frac{dy}{dt}=f\left(y\right)
+      </me>
+      where <m>f(y)</m> is given by the following graph (in <m>y</m> versus <m>f(y)</m>):</p>
+
+      <image source="images/2.7-4.png"/>
+
+      <p>Draw the phase line and classify the equilibrium solutions.</p>
+    </exercise>
+  </exercises>
+  </section>
+
+  <section xml:id="ex2-8"><title><xref ref="ch2-8"/></title>
+    <exercises>
+      <exercise>
+      Determine whether each of the following equations are exact. If it
+      is exact, find the solution. Implicit solutions are fine.
+      <ol>
+      <li><m>\left(2x+3\right)+\left(2y-2\right)y^{\prime}=0}</m></li>
+      <li> <m>\left(2x+4y\right)+\left(2x-2y\right)y^{\prime}=0}</m></li>
+      <li> <m>\left(3x^{2}-2xy+2\right)dx+\left(6y^{2}-x^{2}+3\right)dy=0</m></li>
+      <li> <m>\left(2xy^{2}+2y\right)+\left(2x^{2}y+2x\right)y^{\prime}=0}</m></li>
+      <li> <m>\frac{dy}{dx}=-\frac{ax+by}{bx+cy}}</m></li>
+      <li> <m>\left(e^{x}\sin y+3y\right)dx-\left(3x-e^{x}\sin y\right)dy=0}</m></li>
+      <li> <m>\left(\frac{y}{x}+6x\right)dx+\left(\ln x-2\right)dy=0},</m><m>x>0</m></li>
+      </ol>
+      </exercise>
+      <exercise>Find the implicit particular solution to the initial value problem
+      <me>
+      \left(9x^{2}+y-1\right)dx-\left(4y-x\right)dy=0,\,\,\,\,\,\,y(1)=0.
+      </me>
+      </exercise>
+      <exercise> Find the values of <m>b</m> for which the given equation is exact.
+      <me>
+      \left(ye^{2xy}+x\right)dx+bxe^{2xy}dy=0.
+      </me>
+      </exercise>
+  </exercises>
+  </section>
+
+<section xml:id="ex2-9"><title><xref ref="ch2-9"/></title>
+    <exercises>
+      <exercise>
+        <p>Find the approximate values of the solution of the given initial value
+        problem at <m>t=0.1,0.2,0.3</m> and <m>0.4</m> using Euler's Method with <m>h=0.1</m>.
+        <me>
+        \frac{dy}{dt}=t+y,\,\,\,\,\,y(0)=1.
+        </me></p>
+      </exercise>
+      <exercise>
+        <p>Find the approximate values of the solution of the given initial value
+        problem at <m>t=0.1,0.2,0.3</m> and <m>0.4</m> using Euler's Method with <m>h=0.05</m>.
+        <me>
+        \frac{dy}{dt}=t+y^{2},\,\,\,\,\,y(0)=1.
+        </me></p>
+      </exercise>
+      <exercise>
+        <p>Find the approximate value of <m>y\left(2\right)</m> using Euler's Method
+        with <m>h=0.5</m> for the solution of the following IVP
+        <me>
+        \frac{dy}{dt}=y\left(3-ty\right),\,\,\,\,\,y(0)=0.5.
+        </me></p>
+      </exercise>
+      <exercise>
+        <p>Consider the solution <m>y(t)</m> to the IVP:
+        <me>
+        \frac{dy}{dt}=y\left(t+y\right)/10,\,\,\,\,\,y(0)=1.
+        </me>
+        Use the slope field below with Euler's Method (using <m>h=.5</m>) to estimate
+        the value of <m>y(3)</m>:
+        <image source="images/2.9-4.png"/></p>
+      </exercise>
+    </exercises>
+  </section>
+</appendix>
+<appendix><title>Exercises for Chapter 3</title>
+  <section xml:id="ex3-2"><title><xref ref="ch3-2"/></title>
+  <exercises>
+    <exercise>
+      <p>Check if the following function are solutions to the given EQ.
+      <ol>
+      <li> Check directly if <m>y_{1}=2e^{5t}</m> is a solution or not to <m>y^{\prime\prime}-6y^{\prime}+5y=0</m>.</li>
+      <li>Check directly if <m>y_{2}=2e^{t}</m> is a solution or not to <m>y^{\prime\prime}-6y^{\prime}+5y=t</m>.</li>
+      </ol></p>
+    </exercise>
+    <exercise>
+      <p>Recall that if <m>y(t)=e^{rt}</m> is a
+      solution to the ODE given by
+      <me>
+      ay^{\prime\prime}+by^{\prime}+cy=0
+      </me>
+      for constant <m>a,b,c</m> where <m>a\ne0</m>, then the exponent <m>r</m> in front
+      the <m>t</m> must be a solution to the <em>characteristic equation</em> <m>ar^{2}+br+c=0</m>.</p>
+      <p>By yourself, rederive that if <m>y(t)=Ae^{rt}</m> is a solution
+      to the equation above, then the number <m>r</m> must satisfy the characteristic equation <m>ar^{2}+br+c=0</m> or <m>A=0</m>. </p>
+    </exercise>
+    <exercise>
+      <p>Use the method given in Section 3.1 to find the general solution to
+      <me>
+      y^{\prime\prime}+5y^{\prime}-6y=0
+      </me></p>
+    </exercise>
+    <exercise>
+      <p>Use the method given in Section 3.1 to find the general solution to
+      <me>
+      y^{\prime\prime}-7y^{\prime}=0
+      </me></p>
+    </exercise>
+    <exercise>
+      <p> Use the method given in Section 3.1 to find the particular solution
+      to the IVP
+      <me>
+      y^{\prime\prime}+y^{\prime}-20y=0,\,\,\,\,\,y(0)=18,y^{\prime}(0)=9
+      </me></p>
+    </exercise>
+  </exercises>
+  </section>
+  <section xml:id="ex3-3"><title><xref ref="ch3-3"/></title>
+  <exercises>
+    <exercise>
+      <p>What is the largest open interval in which the solution of the initial
+      value problem
+      <me>
+      \left(t-3\right)y^{\prime\prime}+\sin ty^{\prime}+y=\frac{\ln\left(t-1\right)}{t-10}, \hspace{.2in}
+      y(15)=-7,y^{\prime}(15)=10
+      </me>
+      is guaranteed to exist by <xref ref="thm2ndexist"/>?</p>
+    </exercise>
+    <exercise>
+      <p>What is the largest open interval in which the solution of the initial
+      value problem
+      <me>
+      t^{2}y^{\prime\prime}+e^{t}y^{\prime}+\left(t-1\right)y=\sqrt{t+2}, \hspace{.1in}
+      y(-1)=1,y^{\prime}(-1)=5
+      </me>
+      is guaranteed to exist by <xref ref="thm2ndexist"/>?</p>
+    </exercise>
+    <exercise>Consider the equation
+      <me>
+      y^{\prime\prime}+p(t)y^{\prime}+q(t)y=0,
+      </me>
+      where <m>p,q</m> are continuous in some interval <m>I</m>. What are the two
+      things you have to do by <xref ref="thmgensol"/> in order to
+      find the general solution to the ODE above?
+    </exercise>
+    <exercise>
+      <p>Consider the equation
+      <me>
+      2t^{2}y^{\prime\prime}+3ty^{\prime}-y=0,\,\,\,\,\,t>0.
+      </me></p>
+
+      <ol>
+      <li>Is the function <m>y_{1}(t)=t^{\frac{1}{2}}</m> a solution to this ODE?</li>
+      <li> Is the function <m>y_{2}(t)=t^{-1}</m> a solution to this ODE?</li>
+      <li> Use <xref ref="thmgensol"/> to show that
+      <me>
+      y(t)=c_{1}t^{\frac{1}{2}}+c_{2}t^{-1}
+      </me>
+      gives the general solution to the ODE above.</li>
+      </ol>
+    </exercise>
+
+  </exercises>
+  </section>
+
+  <section xml:id="ex3-4">
+  <title><xref ref="ch3-4"/></title>
+  <exercises>
+    <exercise>
+      Find the general solution of the following second order linear ODEs with
+      constant coefficients.
+      <ol>
+        <li><m>y^{\prime\prime}+16y=0}</m></li>
+        <li><m>y^{\prime\prime}-4y^{\prime}+9y=0</m></li>
+        <li><m>y^{\prime\prime}-4y^{\prime}+29y=0</m></li>
+      </ol>
+    </exercise>
+    <exercise>
+      Find the particular solution to the following IVP:
+      <me>
+      y^{\prime\prime}-8y^{\prime}+17y=0},\,\,\,\,\,\,y(0)=-4,y^{\prime}(0)=-1.
+      </me>
+    </exercise>
+
+  </exercises>
+  </section>
+
+  <section xml:id="ex3-5">
+    <title><xref ref="ch3-5"/></title>
+    <subsection>
+      <title>Repeated roots</title>
+      <exercises>
+        <exercise>
+          Find the general solution of the following 2nd Order Linear ODEs with
+          constant coefficients.
+          <ol>
+          <li> <m>y^{\prime\prime}+14y^{\prime}+49y=0}</m></li>
+          <li> <m>y^{\prime\prime}-18y^{\prime}+81y=0</m></li>
+          </ol>
+        </exercise>
+        <exercise>
+          Find the particular solution to the following IVP:
+          <me>
+          y^{\prime\prime}-4y^{\prime}+4y=0},\,\,\,\,\,\,y(0)=12,y^{\prime}(0)=-3.
+          </me>
+        </exercise>
+      </exercises>
+    </subsection>
+    <subsection>
+      <title>Reduction of order</title>
+      <exercises>
+        <exercise>
+          Suppose you know that <m>y_{1}(t)=t</m> is a solution to
+          <me>
+          t^{2}y^{\prime\prime}-3ty^{\prime}+3y=0,\,\,\,\,\,t>0.
+          </me>
+          Find a second solution <m>y_{2}(t)</m> that makes <m>y=c_{1}y_{1}+c_{2}y_{2}</m>
+          the general solution of this ODE.
+        </exercise>
+        <exercise>
+          Suppose you know that <m>y_{1}(t)=t^{-1}</m> is a solution to
+          <me>
+          2t^{2}y^{\prime\prime}+ty^{\prime}-3y=0,\,\,\,\,\,t>0.
+          </me>
+          Find a second solution <m>y_{2}(t)</m> that makes <m>y=c_{1}y_{1}+c_{2}y_{2}</m>
+          the general solution of this ODE.
+        </exercise>
+        <exercise>
+          Suppose you know that <m>y_{1}(t)=t</m> is a solution to
+          <me>
+          t^{2}y^{\prime\prime}+2ty^{\prime}-2y=0,\,\,\,\,\,t>0.
+          </me>
+          Find a second solution <m>y_{2}(t)</m> that makes <m>y=c_{1}y_{1}+c_{2}y_{2}</m>
+          the general solution of this ODE.
+        </exercise>
+        <exercise>
+          Suppose you know that <m>y_{1}(t)=t^{2}</m> is a solution to
+          <me>
+          t^{2}y^{\prime\prime}-3ty^{\prime}+4y=0,\,\,\,\,\,t>0.
+          </me>
+          Find a second solution <m>y_{2}(t)</m> that makes <m>y=c_{1}y_{1}+c_{2}y_{2}</m>
+          the general solution of this ODE.
+        </exercise>
+    </exercises>
+  </subsection>
+</section>
+<section xml:id="ex3-6">
+  <title><xref ref="ch3-6"/></title>
+  <exercises>
+    <exercise> Consider the following non-homogeneous 2nd order ODE:
+      <me>
+      y^{\prime\prime}+y^{\prime}-2y=e^{3t}.
+      </me>
+
+      <ol>
+        <li>Find the general solution.</li>
+        <li> Find the particular solution to the IVP:
+          <me>
+          y^{\prime\prime}+y^{\prime}-2y=e^{3t},\,\,\,\,y(0)=\frac{1}{10},y^{\prime}(0)=\frac{13}{10}.
+          </me>
+        </li>
+      </ol>
+    </exercise>
+
+    <exercise>
+      Find the general solution to the following non-homogeneous 2nd order
+      ODE:
+      <me>
+      y^{\prime\prime}-2y^{\prime}+2y=e^{2t}.
+      </me>
+    </exercise>
+    <exercise>
+      <p>Find the general solution to the following non-homogeneous 2nd order
+      ODE:
+      <me>
+      y^{\prime\prime}-4y^{\prime}+3y=4e^{3t}.
+      </me></p>
+    </exercise>
+    <exercise>
+      <p>Find the general solution to the following non-homogeneous 2nd order
+      ODE:
+      <me>
+      y^{\prime\prime}-2y^{\prime}+y=e^{t}.
+      </me></p>
+    </exercise>
+    <exercise>
+      <p>Find the general solution to the following non-homogeneous 2nd order
+      ODE:
+      <me>
+      y^{\prime\prime}+y^{\prime}-6y=52\cos\left(2t\right).
+      </me></p>
+    </exercise>
+    <exercise>
+      <p>Find the general solution to the following non-homogeneous 2nd order
+      ODE:
+      <me>
+      y^{\prime\prime}+2y^{\prime}+3y=\sin\left(t\right).
+      </me></p>
+    </exercise>
+    <exercise>
+      <p>For the following ODEs. Use the method of undertermined coefficients
+      (MOUC) to make the correct guess for the <m>y_{p}</m>. You DO NOT have
+      to solve for the coefficients, <m>A,B,C\dots</m>. Simply make the correct
+      guess for the <m>y_{p}</m>.
+      <ol>
+      <li><m>y^{\prime\prime}-2y^{\prime}+y=te^{t},</m></li>
+      <li><m>y^{\prime\prime}+y^{\prime}-2y=t^{2}e^{t},</m></li>
+      <li><m>y^{\prime\prime}+y^{\prime}=t^{2}+\cos t,</m></li>
+      <li><m>y^{\prime\prime}+y^{\prime}-6y=e^{5t}+\sin(3t),</m></li>
+      <li><m> y^{\prime\prime}+y^{\prime}-2y=te^{t}+t^{2},</m></li>
+      </ol></p>
+    </exercise>
+  </exercises>
+  </section>
+
+  <section xml:id="ex3-7">
+    <title><xref ref="ch3-7"/></title>
+    <exercises>
+      <exercise>
+        <p>Consider the following ODE
+        <me>
+        y^{\prime\prime}+16y=\frac{1}{\sin\left(4t\right)}.
+        </me>
+
+        <ol>
+        <li>Find a particular solution to the ODE above using the method of variation
+        of parameters.</li>
+        <li> What is the general solution to the ODE above?</li>
+        </ol> 
+        </p>
+      </exercise>
+      <exercise>
+        <p>Find the general solution to 
+        <me>
+        t^{2}y^{\prime\prime}-4ty^{\prime}+6y=t^{3},\,\,\,\,t>0
+        </me>
+        given that 
+        <me>
+        y_{1}(t)=t^{2},\,\,\,y_{2}(t)=t^{3}
+        </me>
+        forms a fundamental set of solution for the corresponding homogeneous
+        differential equation.</p>
+      </exercise>
+      <exercise>
+        <p>Find the general solution to 
+        <me>
+        t^{2}y^{\prime\prime}-3ty^{\prime}+3y=8t^{3},\,\,\,\,t>0
+        </me>
+        given that 
+        <me>
+        y_{1}(t)=t,\,\,\,y_{2}(t)=t^{3}
+        </me>
+        forms a fundamental set of solution for the corresponding homogeneous
+        differential equation.</p>
+      </exercise>
+      <exercise>
+        <p>Find the general solution to 
+        <me>
+        2t^{2}y^{\prime\prime}+ty^{\prime}-3y=2t^{5/2},\,\,\,\,t>0
+        </me>
+        given that 
+        <me>
+        y_{1}(t)=t^{-1},\,\,\,y_{2}(t)=t^{3/2}
+        </me>
+        forms a fundamental set of solution for the corresponding homogeneous
+        differential equation.</p>
+      </exercise>
+    </exercises>
+  </section>
+
+  <section xml:id="ex3-8">
+    <title><xref ref="ch3-8"/>/<xref ref="ch3-9"/></title>
+    <exercises>
+      <exercise>
+        <p>A <m>64</m> lb mass stretches a spring 4 feet. The mass is displaced an
+        additional 5 feet. and then released; and is in a medium with a damping
+        coefficients <m>\gamma=7\frac{\text{lb sec}}{\text{ft}}</m>. Suppose there
+        is no external forcing. Formulate the IVP that governs the motion
+        of this mass.</p>
+      </exercise>
+      <exercise>
+        <p>A <m>32</m> lb mass stretches a spring 4 feet. The mass is displaced an
+        additional 6 feet. and then released with an initial velocity of 3
+        <m>\frac{\text{ft}}{\text{sec}}</m>; and is in a medium with a damping
+        coefficients <m>\gamma=2\frac{\text{lb sec}}{\text{ft}}</m>. Suppose there
+        is an external forcing due to wind given by <m>F(t)=3\cos\left(3t\right)</m>.
+        Formulate the IVP that governs the motion of this mass.</p>
+      </exercise>
+      <exercise>
+        <p>Consider the following undamped harmonic oscillator with forcing:
+        <me>
+        u^{\prime\prime}+5u=\sin\left(3t\right),\,\,\,\,u(0)=0,\,\,u^{\prime}(0)=0.
+        </me>
+        What is the natural frequency? What is the frequency for the external
+        force? Will you get resonance? What is your guess for <m>u_{p}</m>?</p>
+      </exercise>
+      <exercise>
+        <p>Consider the following undamped harmonic oscillator with forcing:
+        <me>
+        u^{\prime\prime}+16u=7\cos\left(4t\right),\,\,\,\,u(0)=0,\,\,u^{\prime}(0)=0.
+        </me>
+        What is the natural frequency? What is the frequency for the external
+        force? Will you get resonance? What is your guess for <m>u_{p}</m>?</p>
+      </exercise>
+    </exercises>
+  </section>
+</appendix>
+
+<appendix><title>Exercises for Chapter 4</title>
+  <section xml:id="ex4-1"><title><xref ref="ch4-1"/></title>
+  <exercises>
+    <exercise>
+     <p>What is the largest interval for which there exists a unique solution
+      by the Existence and Uniqueness Theorem for the following IVP:
+      <me>
+      \begin{cases}
+      \left(t-5\right)y^{(4)}-\frac{\ln\left(t+7\right)}{t}y^{\prime\prime}+e^{t}y=\frac{t^{2}+1}{\left(t-1\right)}\\
+      y(2)=-1\\
+      y^{\prime}(2)=1\\
+      y^{\prime\prime}(2)=2\\
+      y^{\prime\prime\prime}(2)=5.
+      \end{cases}
+      </me></p>
+    </exercise>
+    <exercise>
+      <p>Find general solution of 
+      <me>
+      y^{\prime\prime\prime}+10y^{\prime\prime}+7y^{\prime}-18y=0.
+      </me>
+      (Hint: <m>r^{3}+10r^{2}+7r-18=\left(r-1\right)\left(r+2\right)\left(r+9\right)</m>)</p>
+    </exercise>
+    <exercise>
+      <p>Find general solution of 
+      <me>
+      y^{(4)}-10y^{\prime\prime\prime}+36y^{\prime\prime}-54y^{\prime}+27y=0.
+      </me>
+      (Hint: <m>r^{4}-10r^{3}+36r^{2}-54r+27=\left(r-1\right)\left(r-3\right)^{3}</m>)</p>
+    </exercise>
+    <exercise>
+      <p>Find general solution of 
+      <me>
+      y^{(5)}-4y^{(4)}+13y^{\prime\prime\prime}-36y^{\prime\prime}+36y=0.
+      </me>
+      (Hint: <m>r^{5}-4r^{4}+13r^{3}-36r^{2}+36r=r\left(r-2\right)^{2}\left(r^{2}+9\right)</m>)</p>
+    </exercise>
+    <exercise>
+      <p>Find general solution of 
+      <me>
+      y^{(4)}+11y^{\prime\prime}+18y=0.
+      </me>
+      (Hint: <m>r^{4}+11r^{2}+18=\left(r^{2}+2\right)\left(r^{2}+9\right)</m>)</p>
+    </exercise>
+    <exercise>
+      <p>Find general solution of 
+      <me>
+      y^{(6)}+32y^{(4)}+256y^{\prime\prime}=0.
+      </me>
+      (Hint: <m>r^{6}+32r^{4}+256r^{2}=r^{2}\left(r^{2}+16\right)^{2}</m>)</p>
+    </exercise>
+  </exercises>
+  </section>
+
+  <section xml:id="ex4-2"><title><xref ref="ch4-2"/></title>
+  <exercises>
+    <exercise>
+      <p>Consider
+      <me>
+      y^{(4)}+8y^{\prime\prime\prime}+16y^{\prime\prime}=4e^{-3t}+\cos t.
+      </me>
+      Find the general form of <m>y_{p}</m>. (Hint: <m>r^{3}-4r^{2}-11r+30=\left(r+3\right)\left(r-2\right)\left(r-5\right)</m>)</p>
+    </exercise>
+    <exercise>
+      <p>Consider
+      <me>
+      y^{(4)}+8y^{\prime\prime\prime}+16y^{\prime\prime}=t+e^{t}.
+      </me>
+      Find the general form of <m>y_{p}</m>(Hint: <m>r^{4}+8r^{3}+16r^{2}=r^{2}\left(r+4\right)^{2}</m>)</p>
+    </exercise>
+    <exercise>
+      <p>Consider
+      <me>
+      y^{(4)}-10y^{\prime\prime\prime}+36y^{\prime\prime}-54y^{\prime}+27y=2te^{t}+\cos(3t),
+      </me>
+      and suppose you know that <m>y_{h}=c_{1}e^{t}+c_{2}e^{-3t}+c_{3}te^{-3t}+c_{4}t^{2}e^{-3t}</m>.
+      Find the general form of <m>y_{p}</m>.</p>
+    </exercise>
+    <exercise>
+      <p>Consider
+      <me>
+      y^{(4)}-2y^{\prime\prime\prime}=2t+1.
+      </me>
+      Find the general form of <m>y_{p}</m>. (Hint: <m>r^{4}-2r^{3}=r^{3}\left(r-2\right)</m>)</p>
+    </exercise>
+  </exercises>
+  </section>
+</appendix>
+
+<appendix><title>Exercises for Chapter 6</title>
+  <section xml:id="ex6-1">
+    <title><xref ref="ch6-1"/></title>
+    <exercises>
+      <exercise>
+        <p>Use the definition of Laplace transform to find the Laplace transform
+        of <m>f(t)=1</m>. That is, find <m>\mathcal{L}\left\{ 1\right\} .</m> </p>
+      </exercise>
+      <exercise>
+        <p>Use the definition of Laplace transform to find the Laplace transform
+        of <m>f(t)=t</m>. That is, find <m>\mathcal{L}\left\{ t\right\} .</m></p>
+      </exercise>
+
+      <exercise>
+        <p>Use the definition of Laplace transform to find the Laplace transform
+        of <m>f(t)=t^{2}</m>. That is, find <m>\mathcal{L}\left\{ t^{2}\right\} .</m></p>
+      </exercise>
+
+      <exercise>
+        <p>Use the properties of Laplace transform and the following facts 
+        <md>
+        <mrow>\mathcal{L}\left\{ 1\right\}  \amp =\frac{1}{s},s>0</mrow>
+        <mrow>\mathcal{L}\left\{ e^{at}\right\}  \amp =\frac{1}{s-a},s>a,</mrow>
+        <mrow>\mathcal{L}\left\{ t\right\}  \amp =\frac{1}{s^{2}},s>0,</mrow>
+        <mrow>\mathcal{L}\left\{ t^{2}\right\}  \amp =\frac{2}{s^{3}},s>0,</mrow>
+        <mrow>\mathcal{L}\left\{ \sin(at)\right\}  \amp =\frac{a}{s^{2}+a^{2}},s>0,</mrow>
+        <mrow>\mathcal{L}\left\{ \cos(at)\right\}  \amp =\frac{s}{s^{2}+a^{2}},s>0,</mrow>
+        </md>
+        to compute the Laplace transforms of the following functions.</p>
+        <ol>
+        <li><m>\mathcal{L}\left\{ 2e^{5t}+7\cos(3t)+2t\right\} =</m></li>
+        <li> <m>\mathcal{L}\left\{ -7e^{-9t}-5t^{2}-5\sin(3t)\right\} =</m></li>
+        <li><m>\mathcal{L}\left\{ -5\sin(\sqrt{7}t)+2+5t\right\} =</m></li>
+        <li><m>\mathcal{L}\left\{ 4e^{-t}-6e^{3t}+\cos(3t)\right\} =</m></li>
+        </ol>
+      </exercise>
+    </exercises>
+  </section>
+
+  <section xml:id="ex6-2">
+    <title><xref ref="ch6-2"/></title>
+    <exercises>
+      <exercise> <p>Use the table of Laplace Transforms to help you compute the following
+      inverse Laplace transforms.</p>
+        <ol>
+         <li><m>\mathcal{L}^{-1}\left\{ \frac{5}{s-6}\right\}</m> </li>
+         <li><m>\mathcal{L}^{-1}\left\{ \frac{5}{7-s}+\frac{1}{s+3}\right\} </m></li>
+         <li><m>\mathcal{L}^{-1}\left\{ \frac{3}{s+9}-\frac{10}{s^{2}}\right\} </m></li>
+         <li><m>\mathcal{L}^{-1}\left\{ \frac{3}{s^{2}+7}+\frac{2}{\left(s-5\right)^{3}}\right\} </m></li>
+         <li><m>\mathcal{L}^{-1}\left\{ \frac{s-3}{\left(s-3\right)^{2}+36}\right\} </m></li>
+         <li><m>\mathcal{L}^{-1}\left\{ \frac{s}{s^{2}+9}+\frac{2}{s}-\frac{s-1}{\left(s-1\right)^{2}+25}\right\} </m></li>
+        </ol>
+      </exercise>
+      <exercise>
+        <p>Solve the following IVP using Laplace Transforms:
+        <me>
+        y^{\prime}+4y=e^{-t},\,\,\,\,\,\,y(0)=0
+        </me></p>
+      </exercise>
+      <exercise>
+         <p>Solve the following IVP using Laplace Transforms:
+        <me>
+        y^{\prime}+y=e^{-2t},\,\,\,\,\,\,y(0)=2
+        </me></p>
+      </exercise>
+      <exercise>
+        <p>Solve the following IVP using Laplace Transforms:
+        <me>
+        y^{\prime}+7y=1,\,\,\,\,\,\,y(0)=3.
+        </me></p>
+      </exercise>
+    </exercises>
+  </section>
+
+  <section xml:id="ex6-3">
+    <title><xref ref="ch6-3"/></title>
+    <exercises>
+      <exercise>
+        <p>What is the correct form of the partial fractions?
+        <ol>
+         <li><m>\frac{5s-1}{\left(s-3\right)\left(s^{2}+2s+5\right)}=</m></li>
+         <li><m>\frac{s-2}{\left(s-2\right)^{2}\left(s+5\right)}=</m></li>
+         <li><m>\frac{s+1}{\left(s^{2}+9\right)\left(s^{3}+2\right)}=</m></li>
+         <li><m>\frac{s}{\left(s+1\right)\left(s^{2}+10\right)s^{3}}=</m></li>
+        </ol>
+        </p>
+      </exercise>
+      <exercise>
+        <p>Take the inverse Laplace Transforms of the following:
+        <ol>
+        <li><m> F(s)=\frac{1}{s^{2}-8s+7}</m></li>
+         <li><m>F(s)=\frac{s+7}{s^{2}+6s+13}</m></li>
+         <li><m>F(s)=\frac{2s-1}{s^{2}-8s+18}</m></li>
+        </ol>
+        </p>
+      </exercise>
+      <exercise>
+        <p>Solve the following IVP using Laplace Transforms:
+        <me>
+        y^{\prime\prime}+4y=8,\,\,\,\,y(0)=11,y^{\prime}(0)=5.
+        </me></p>
+      </exercise>
+      <exercise>
+       <p>Solve the following IVP using Laplace Transforms:
+      <me>
+      y^{\prime\prime}-4y^{\prime}+5y=2e^{t},\,\,\,\,y(0)=3,y^{\prime}(0)=1.
+      </me>
+      </p>
+      </exercise>
+    </exercises>
+  </section>
+</appendix>
+</backmatter>

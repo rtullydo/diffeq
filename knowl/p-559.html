@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2020-04-17T14:59:23-04:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<h6 class="heading"><span class="type">Paragraph</span></h6>
+<p>Solution: We compute</p>
+<div class="displaymath">
+\begin{align*}
+\mathcal{L}\left\{ \sin at\right\} =F(s) \amp =\int_{0}^{\infty}e^{-st}\sin(at)dt\\
+\amp =\lim_{B\to\infty}\int_{0}^{B}e^{-st}\sin(at)dt.
+\end{align*}
+</div>
+<p>Using integration by parts, we get</p>
+<div class="displaymath">
+\begin{align*}
+u=\sin(at)\,\,\,\,\,\,\,\, \amp dv=e^{-st}dt\\
+du=a\cos(at)dt\,\,\,\,\,\,\,\, \amp v=-\frac{e^{-st}}{s}
+\end{align*}
+</div>
+<p>so we have</p>
+<div class="displaymath">
+\begin{align*}
+F(s) \amp =\lim_{B\to\infty}\left[\left.-\frac{e^{-st}\sin(at)}{s}\right|_{t=0}^{t=B}+\int_{0}^{B}\frac{e^{-st}}{s}a\cos(at)dt\right]\\
+\amp =\lim_{B\to\infty}\left[-\frac{e^{-sB}\sin(aB)}{s}+0+\int_{0}^{B}\frac{e^{-st}}{s}a\cos(at)dt\right]\\
+\amp =0+\frac{a}{s}\int_{0}^{\infty}e^{-st}\cos(at)dt.\,\,\,\,\,\,\,\,(\star)
+\end{align*}
+</div>
+<p>Integrating \(\int_{0}^{\infty}e^{-st}\cos(at)dt\) again we get</p>
+<div class="displaymath">
+\begin{align*}
+u=\cos(at)\,\,\,\,\,\,\,\, \amp dv=e^{-st}dt\\
+du=-a\sin(at)dt\,\,\,\,\,\,\,\, \amp v=-\frac{e^{-st}}{s}
+\end{align*}
+</div>
+<div class="displaymath">
+\begin{align*}
+\int_{0}^{\infty}e^{-st}\cos(at)dt \amp =\lim_{B\to\infty}\left[\left.-\frac{e^{-st}\cos(at)}{s}\right|_{t=0}^{t=B}-\int_{0}^{B}\frac{e^{-st}}{s}a\sin(at)dt\right]\\
+\amp =\lim_{B\to\infty}\left[-\frac{e^{-sB}\cos(aB)}{s}+\frac{e^{-st}}{s}-\frac{a}{s}\int_{0}^{B}\frac{e^{-st}}{s}a\sin(at)dt\right]\\
+\amp =\left[0+\frac{t}{s}-\frac{a}{s}\int_{0}^{\infty}e^{-st}\sin(at)dt\right].
+\end{align*}
+</div>
+<p>Plugging this back into \((\star)\) we have</p>
+<div class="displaymath">
+\begin{align*}
+F(t) \amp =\frac{a}{s}\left[\frac{1}{s}-\frac{a}{s}\int_{0}^{\infty}e^{-st}\sin(at)dt\right]\\
+\amp =\frac{a}{s}\left[\frac{1}{s}-\frac{a}{s}F(s)\right]
+\end{align*}
+</div>
+<p>Then we can solve this equation using algebra for \(F(s)\) and get</p>
+<div class="displaymath">
+\begin{equation*}
+F(s)=\frac{a}{s^{2}+a^{2}},\,\,\,\,s&gt;0.
+\end{equation*}
+</div>
+<span class="incontext"><a href="ch6-1.html#p-559">in-context</a></span>
+</body>
+</html>

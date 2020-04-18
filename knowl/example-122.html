@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2020-04-17T14:59:24-04:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<article class="example-like"><h6 class="heading">
+<span class="type">Example</span> <span class="codenumber">6.5.3</span>.</h6>
+<p>Solve using Laplace Transforms:</p>
+<div class="displaymath">
+\begin{equation*}
+y^{\prime\prime}+4y=3u_{5}(t)\sin\left(t-5\right),\,\,\,\,\,y(0)=1,y^{\prime}(0)=0.
+\end{equation*}
+</div>
+<p>Step 1: Take \(\mathcal{L}\) of both sides and solve for \(\mathcal{L}\)</p>
+<div class="displaymath">
+\begin{equation*}
+\mathcal{L}\left\{ y^{\prime\prime}\right\} +4\mathcal{L}\left\{ y\right\} =3\mathcal{L}\left\{ u_{5}(t)\sin\left(t-5\right)\right\} 
+\end{equation*}
+</div>
+<p>and recall \(\mathcal{L}\left[u_{a}(t)f(t-a)\right]=e^{-as}F(s)\text{,}\) hence \(a=4\text{,}\) \(f(t-5)=\sin\left(t-5\right)\) hence \(f(t)=\sin t\) and \(\mathcal{L}\left\{ \sin t\right\} =\frac{1}{s^{2}+1}\) hence</p>
+<div class="displaymath">
+\begin{align*}
+s^{2}\mathcal{L}\left\{ y\right\} -sy(0)-y^{\prime}(0)+4\mathcal{L}\left\{ y\right\}  \amp =3\frac{e^{-5s}}{s^{2}+1},\implies\\
+\left(s^{2}+4\right)\mathcal{L}\left\{ y\right\} -s \amp =3\frac{e^{-5s}}{s^{2}+1},\implies\\
+\mathcal{L}\left\{ y\right\}  \amp =3\frac{e^{-5s}}{\left(s^{2}+4\right)\left(s^{2}+1\right)}+\frac{s}{s^{2}+4}
+\end{align*}
+</div>
+<p>Step 2: We do partial fractions on</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{3}{\left(s^{2}+4\right)\left(s^{2}+1\right)}=\frac{As+B}{s^{2}+4}+\frac{Cs+D}{s^{2}+1}
+\end{equation*}
+</div>
+<p>hence</p>
+<div class="displaymath">
+\begin{align*}
+3 \amp =\left(As+B\right)\left(s^{2}+1\right)+\left(Cs+D\right)\left(s^{2}+4\right),\implies\\
+0\cdot s^{3}+0\cdot s^{2}+0\cdot s+3 \amp =\left(A+C\right)s^{3}+\left(B+D\right)s^{2}+\left(A+4C\right)s+\left(B+4D\right)
+\end{align*}
+</div>
+<p>hence</p>
+<div class="displaymath">
+\begin{align*}
+A+C \amp =0\\
+B+D \amp =0\\
+A+4C \amp =0\\
+B+4D \amp =3
+\end{align*}
+</div>
+<p>and get</p>
+<div class="displaymath">
+\begin{equation*}
+A=0\,\,\,\,B=-1,\,\,\,\,C=0,\,\,\,D=1
+\end{equation*}
+</div>
+<p>hence</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{3}{\left(s^{2}+4\right)\left(s^{2}+1\right)}=\frac{-1}{s^{2}+4}+\frac{1}{s^{2}+1}
+\end{equation*}
+</div>
+<p>Step 3: Take the inverse Laplace transform: Using \(\mathcal{L}\left[u_{a}(t)f(t-a)\right]=e^{-as}F(s)\text{,}\) and \(\mathcal{L}\left\{ \sin(at)\right\} =\frac{a}{s^{2}+a^{2}}\) and \(\mathcal{L}\left\{ \cos(at)\right\} =\frac{a}{s^{2}+a^{2}}\) we have</p>
+<div class="displaymath">
+\begin{align*}
+y \amp =\mathcal{L}^{-1}\left\{ \frac{-e^{-5s}}{s^{2}+4}+\frac{e^{-5s}}{s^{2}+1}+\frac{s}{s^{2}+4}\right\} \\
+\amp =-\frac{1}{2}\mathcal{L}^{-1}\left\{ \frac{2e^{-5s}}{s^{2}+2^{2}}\right\} +\mathcal{L}^{-1}\left\{ \frac{e^{-5s}}{s^{2}+1}\right\} +\mathcal{L}^{-1}\left\{ \frac{s}{s^{2}+4}\right\} \\
+\amp =-\frac{1}{2}u_{5}(t)\sin\left(2\left(t-5\right)\right)+u_{5}(t)\sin\left(t-5\right)+\cos\left(2t\right)
+\end{align*}
+</div></article><span class="incontext"><a href="ch6-5.html#example-122">in-context</a></span>
+</body>
+</html>

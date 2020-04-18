@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2020-04-17T14:59:21-04:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Method of series solutions</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['\\(','\\)']]
+    },
+    asciimath2jax: {
+        ignoreClass: ".*",
+        processClass: "has_am"
+    },
+    jax: ["input/AsciiMath"],
+    extensions: ["asciimath2jax.js"],
+    TeX: {
+        extensions: ["extpfeil.js", "autobold.js", "https://pretextbook.org/js/lib/mathjaxknowl.js", ],
+        // scrolling to fragment identifiers is controlled by other Javascript
+        positionToHash: false,
+        equationNumbers: { autoNumber: "none", useLabelIds: true, },
+        TagSide: "right",
+        TagIndent: ".8em",
+    },
+    // HTML-CSS output Jax to be dropped for MathJax 3.0
+    "HTML-CSS": {
+        scale: 88,
+        mtextFontInherit: true,
+    },
+    CommonHTML: {
+        scale: 88,
+        mtextFontInherit: true,
+    },
+});
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><script>$(function () {
+    // Make *any* div with class 'sagecell-sage' an executable Sage cell
+    // Their results will be linked, only within language type
+    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
+                           linked: true,
+                           languages: ['sage'],
+                           evalButtonText: 'Evaluate (Sage)'});
+});
+</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.12/pretext.js"></script><script src="https://pretextbook.org/js/0.12/pretext_add_on.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.2/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.2/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.2/toc.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.2/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.2/setcolors.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.2/features.css" rel="stylesheet" type="text/css">
+<script>var logged_in = false;
+var role = 'student';
+var guest_access = true;
+var login_required = false;
+var js_version = 0.12;
+</script>
+</head>
+<body class="mathbook-book has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div class="hidden-content" style="display:none">\(\DeclareMathOperator{\RE}{Re}
+  \DeclareMathOperator{\IM}{Im}
+  \DeclareMathOperator{\ess}{ess}
+  \DeclareMathOperator{\intr}{int}
+  \DeclareMathOperator{\dist}{dist}
+  \DeclareMathOperator{\dom}{dom}
+  \DeclareMathOperator{\diag}{diag}
+  \DeclareMathOperator\re{\mathrm {Re~}}
+  \DeclareMathOperator\im{\mathrm {Im~}}
+  
+  \newcommand\dd{\mathrm d}
+  \newcommand{\eps}{\varepsilon}
+  \newcommand{\To}{\longrightarrow}
+  \newcommand{\hilbert}{\mathcal{H}}
+  \newcommand{\s}{\mathcal{S}_2}
+  \newcommand{\A}{\mathcal{A}}
+  \newcommand\h{\mathcal{H}}
+  \newcommand{\J}{\mathcal{J}}
+  \newcommand{\M}{\mathcal{M}}
+  \newcommand{\F}{\mathbb{F}}
+  \newcommand{\N}{\mathcal{N}}
+  \newcommand{\T}{\mathbb{T}}
+  \newcommand{\W}{\mathcal{W}}
+  \newcommand{\X}{\mathcal{X}}
+  \newcommand{\D}{\mathbb{D}}
+  \newcommand{\C}{\mathbb{C}}
+  \newcommand{\BOP}{\mathbf{B}}
+  \newcommand{\Z}{\mathbb{Z}}
+  \newcommand{\BH}{\mathbf{B}(\mathcal{H})}
+  \newcommand{\KH}{\mathcal{K}(\mathcal{H})}
+  \newcommand{\pick}{\mathcal{P}_2}
+  \newcommand{\schur}{\mathcal{S}_2}
+  \newcommand{\R}{\mathbb{R}}
+  \newcommand{\Complex}{\mathbb{C}}
+  \newcommand{\Field}{\mathbb{F}}
+  \newcommand{\RPlus}{\Real^{+}}
+  \newcommand{\Polar}{\mathcal{P}_{\s}}
+  \newcommand{\Poly}{\mathcal{P}(E)}
+  \newcommand{\EssD}{\mathcal{D}}
+  \newcommand{\Lop}{\mathcal{L}}
+  \newcommand{\cc}[1]{\overline{#1}}
+  \newcommand{\abs}[1]{\left\vert#1\right\vert}
+  \newcommand{\set}[1]{\left\{#1\right\}}
+  \newcommand{\seq}[1]{\left\lt#1\right&gt;}
+  \newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+  \newcommand{\essnorm}[1]{\norm{#1}_{\ess}}
+  \newcommand{\tr}{\operatorname{tr}}
+  \newcommand{\ran}[1]{\operatorname{ran}#1}
+  \newcommand{\nt}{\stackrel{\mathrm {nt}}{\to}}
+  \newcommand{\pnt}{\xrightarrow{pnt}}
+  \newcommand{\ip}[2]{\left\langle #1, #2 \right\rangle}
+  \newcommand{\ad}{^\ast}
+  \newcommand{\inv}{^{-1}}
+  \newcommand{\adinv}{^{\ast -1}}
+  \newcommand{\invad}{^{-1 \ast}}
+  \newcommand\Pick{\mathcal P}
+  \newcommand\Ha{\mathbb{H}}
+  \newcommand{\HH}{\Ha\times\Ha}
+  \newcommand\Htau{\mathbb{H}(\tau)}
+  \newcommand{\vp}{\varphi}
+  \newcommand{\ph}{\varphi}
+  \newcommand\al{\alpha}
+  \newcommand\ga{\gamma}
+  \newcommand\de{\delta}
+  \newcommand\ep{\varepsilon}
+  \newcommand\la{\lambda}
+  \newcommand\up{\upsilon}
+  \newcommand\si{\sigma}
+  \newcommand\beq{\begin{equation}}
+  \newcommand\ds{\displaystyle}
+  \newcommand\eeq{\end{equation}}
+  \newcommand\df{\stackrel{\rm def}{=}}
+  \newcommand\ii{\mathrm i}
+  \newcommand{\vectwo}[2]
+  {
+     \begin{pmatrix} #1 \\ #2 \end{pmatrix}
+  }
+  \newcommand{\vecthree}[3]
+  {
+     \begin{pmatrix} #1 \\ #2 \\ #3 \end{pmatrix}
+  }
+  \newcommand\blue{\color{blue}}
+  \newcommand\black{\color{black}}
+  \newcommand\red{\color{red}}
+  
+  \newcommand\nn{\nonumber}
+  \newcommand\bbm{\begin{bmatrix}}
+  \newcommand\ebm{\end{bmatrix}}
+  \newcommand\bpm{\begin{pmatrix}}
+  \newcommand\epm{\end{pmatrix}}
+  \numberwithin{equation}{section}
+  \newcommand\nin{\noindent}
+  \newcommand{\nCr}[2]{\,_{#1}C_{#2}} 
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="diffeqs.html"><span class="title">Differential Equations</span></a></h1>
+<p class="byline">Phanuel Mariano, Ryan Tully-Doyle</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="ch5-1.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch5.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="ch6.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="ch5-1.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch5.html" title="Up">Up</a><a class="next-button button toolbar-item" href="ch6.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
+<li class="link">
+<a href="introduction.html" data-scroll="introduction"><span class="codenumber">1</span> <span class="title">Introduction</span></a><ul>
+<li><a href="ch1-1.html" data-scroll="ch1-1">Modeling via differential equations, some solutions and definitions</a></li>
+<li><a href="ch1-2.html" data-scroll="ch1-2">Slope fields (direction fields)</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch2.html" data-scroll="ch2"><span class="codenumber">2</span> <span class="title">First Order Differential Equations</span></a><ul>
+<li><a href="ch2-1.html" data-scroll="ch2-1">Linear equations and integrating factors</a></li>
+<li><a href="ch2-2.html" data-scroll="ch2-2">Separable equations</a></li>
+<li><a href="ch2-3.html" data-scroll="ch2-3">Separable homogeneous equations and the substitution method</a></li>
+<li><a href="ch2-4.html" data-scroll="ch2-4">Modeling with Differential Equations</a></li>
+<li><a href="ch2-5.html" data-scroll="ch2-5">Modeling with differential equations - more problems</a></li>
+<li><a href="ch2-6.html" data-scroll="ch2-6">Existence and Uniqueness of Solutions</a></li>
+<li><a href="ch2-7.html" data-scroll="ch2-7">Autonomous Equations and Population dynamics</a></li>
+<li><a href="ch2-8.html" data-scroll="ch2-8">Exact equations</a></li>
+<li><a href="ch2-9.html" data-scroll="ch2-9">Euler's method</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch3.html" data-scroll="ch3"><span class="codenumber">3</span> <span class="title">Second Order Linear Equations</span></a><ul>
+<li><a href="ch3-1.html" data-scroll="ch3-1">Motivation - mass-spring systems.</a></li>
+<li><a href="ch3-2.html" data-scroll="ch3-2">Second order linear equations</a></li>
+<li><a href="ch3-3.html" data-scroll="ch3-3">Solutions to Linear Equations; the Wronskian</a></li>
+<li><a href="ch3-4.html" data-scroll="ch3-4">Complex roots of the characteristic equation</a></li>
+<li><a href="ch3-5.html" data-scroll="ch3-5">Repeated roots; Reduction of order</a></li>
+<li><a href="ch3-6.html" data-scroll="ch3-6">Non-homogeneous equations - Undetermined coefficients</a></li>
+<li><a href="ch3-7.html" data-scroll="ch3-7">Variation of Parameters</a></li>
+<li><a href="ch3-8.html" data-scroll="ch3-8">Harmonic oscillations</a></li>
+<li><a href="ch3-9.html" data-scroll="ch3-9">Forced oscillations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch-4.html" data-scroll="ch-4"><span class="codenumber">4</span> <span class="title">Higher order differential equations</span></a><ul>
+<li><a href="ch4-1.html" data-scroll="ch4-1">Linear equations</a></li>
+<li><a href="ch4-2.html" data-scroll="ch4-2">The Method of Undetermined Coefficients</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch5.html" data-scroll="ch5"><span class="codenumber">5</span> <span class="title">Series Solutions</span></a><ul>
+<li><a href="ch5-1.html" data-scroll="ch5-1">Power Series</a></li>
+<li><a href="ch5-2.html" data-scroll="ch5-2" class="active">Method of series solutions</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch6.html" data-scroll="ch6"><span class="codenumber">6</span> <span class="title">The Laplace Transform</span></a><ul>
+<li><a href="ch6-1.html" data-scroll="ch6-1">The definition of the Laplace transform</a></li>
+<li><a href="ch6-2.html" data-scroll="ch6-2">The Laplace Transform and Initial Value Problems</a></li>
+<li><a href="ch6-3.html" data-scroll="ch6-3">Solutions to higher order IVPs</a></li>
+<li><a href="ch6-4.html" data-scroll="ch6-4">Step functions</a></li>
+<li><a href="ch6-5.html" data-scroll="ch6-5">ODEs with discontinuous forcing functions</a></li>
+<li><a href="ch6-6.html" data-scroll="ch6-6">Impulse functions</a></li>
+</ul>
+</li>
+<li class="link"><a href="backmatter-1.html" data-scroll="backmatter-1"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="quadratic.html" data-scroll="quadratic"><span class="codenumber">A</span> <span class="title">A fast quadratic method</span></a></li>
+<li class="link">
+<a href="exercises.html" data-scroll="exercises"><span class="codenumber">B</span> <span class="title">Exercises for Chapter 1</span></a><ul>
+<li><a href="ex1-1.html" data-scroll="ex1-1">Section 1.1</a></li>
+<li><a href="ex1-2.html" data-scroll="ex1-2">Section 1.2</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="appendix-3.html" data-scroll="appendix-3"><span class="codenumber">C</span> <span class="title">Exercises for Chapter 2</span></a><ul>
+<li><a href="ex2-1.html" data-scroll="ex2-1">Section 2.1</a></li>
+<li><a href="ex2-2.html" data-scroll="ex2-2">Section 2.2</a></li>
+<li><a href="ex2-3.html" data-scroll="ex2-3">Section 2.3</a></li>
+<li><a href="ex2-4.html" data-scroll="ex2-4">Section 2.4</a></li>
+<li><a href="ex2-5.html" data-scroll="ex2-5">Section 2.5</a></li>
+<li><a href="ex2-6.html" data-scroll="ex2-6">Section 2.6</a></li>
+<li><a href="ex2-7.html" data-scroll="ex2-7">Section 2.7</a></li>
+<li><a href="ex2-8.html" data-scroll="ex2-8">Section 2.8</a></li>
+<li><a href="ex2-9.html" data-scroll="ex2-9">Section 2.9</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="appendix-4.html" data-scroll="appendix-4"><span class="codenumber">D</span> <span class="title">Exercises for Chapter 3</span></a><ul>
+<li><a href="ex3-2.html" data-scroll="ex3-2">Section 3.2</a></li>
+<li><a href="ex3-3.html" data-scroll="ex3-3">Section 3.3</a></li>
+<li><a href="ex3-4.html" data-scroll="ex3-4">Section 3.4</a></li>
+<li><a href="ex3-5.html" data-scroll="ex3-5">Section 3.5</a></li>
+<li><a href="ex3-6.html" data-scroll="ex3-6">Section 3.6</a></li>
+<li><a href="ex3-7.html" data-scroll="ex3-7">Section 3.7</a></li>
+<li><a href="ex3-8.html" data-scroll="ex3-8">Section 3.8/Section 3.9</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="appendix-5.html" data-scroll="appendix-5"><span class="codenumber">E</span> <span class="title">Exercises for Chapter 4</span></a><ul>
+<li><a href="ex4-1.html" data-scroll="ex4-1">Section 4.1</a></li>
+<li><a href="ex4-2.html" data-scroll="ex4-2">Section 4.2</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="appendix-6.html" data-scroll="appendix-6"><span class="codenumber">F</span> <span class="title">Exercises for Chapter 6</span></a><ul>
+<li><a href="ex6-1.html" data-scroll="ex6-1">Section 6.1</a></li>
+<li><a href="ex6-2.html" data-scroll="ex6-2">Section 6.2</a></li>
+<li><a href="ex6-3.html" data-scroll="ex6-3">Section 6.3</a></li>
+</ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="ch5-2"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">5.2</span> <span class="title">Method of series solutions</span>
+</h2>
+<a href="ch5-2.html" class="permalink">¶</a><p id="p-519">The idea of this section is to use series to construct solutions to linear differential equations that don't have obvious closed form solutions (which is most of them). First, we need to know that the differential equation is itself sufficiently well-behaved to have analytic solutions.</p>
+<article class="definition-like" id="defordpoint"><h6 class="heading">
+<span class="type">Definition</span> <span class="codenumber">5.2.1</span>.</h6>
+<p id="p-520">A point \(x=x_0\) is called an <dfn class="terminology">ordinary point</dfn> for a homogeneous second order differential equation of the form</p>
+<div class="displaymath">
+\begin{equation*}
+y'' + P(x)y' + Q(x)y = 0
+\end{equation*}
+</div>
+<p>if \(P\) and \(Q\) are analytic at \(x_0\text{.}\) (Typical functions for \(P,Q\) are trig functions, exponentials, polynomials, and rational functions, which are analytic away from asymptotes).</p></article><article class="example-like" id="example-87"><a data-knowl="" class="id-ref" data-refid="hk-example-87"><h6 class="heading">
+<span class="type">Example</span> <span class="codenumber">5.2.2</span>.</h6></a></article><div id="hk-example-87" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-521">Every point \(x=x_0\) is ordinary for the differential equation</p>
+<div class="displaymath">
+\begin{equation*}
+y'' + e^x y = 0.
+\end{equation*}
+</div></article></div>
+<article class="example-like" id="example-88"><a data-knowl="" class="id-ref" data-refid="hk-example-88"><h6 class="heading">
+<span class="type">Example</span> <span class="codenumber">5.2.3</span>.</h6></a></article><div id="hk-example-88" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-522">Every positive \(x_0\) is ordinary for the equation</p>
+<div class="displaymath">
+\begin{equation*}
+y'' + (\ln x) y = 0.
+\end{equation*}
+</div>
+<p>However, \(\ln x\) has an asymptote at \(x=0\text{,}\) so this is a <dfn class="terminology">singular point</dfn> for the equation. (Singular points are important to consider but quite complicated to analyze, and addressed in further advanced courses in ODE).</p></article></div>
+<p id="p-523">The big idea of power series solutions is that if</p>
+<div class="displaymath">
+\begin{equation*}
+y'' + P y' + Q y = 0
+\end{equation*}
+</div>
+<p>then at any ordinary point \(x = x_0\) we can find two linearly independent power series centered at \(x_0\) that solve the differential equation of the form</p>
+<div class="displaymath">
+\begin{equation*}
+y = \sum_{k=0}^\infty c_k (x-x_0)^k.
+\end{equation*}
+</div>
+<p>The challenge is to find the coefficients \(c_k\text{.}\)</p>
+<article class="example-like" id="example-89"><a data-knowl="" class="id-ref" data-refid="hk-example-89"><h6 class="heading">
+<span class="type">Example</span> <span class="codenumber">5.2.4</span>. <span class="title">First order example.</span>
+</h6></a></article><div id="hk-example-89" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-524">To illustrate the method, we'll begin with the power series approach to a first order differential equation</p>
+<div class="displaymath">
+\begin{equation*}
+y' - 2y = 0.
+\end{equation*}
+</div>
+<p>Of course, we already know that the solution to this equation should be \(y = k e^{2x}\) by the method of characteristic equations, so we should expect our series answer to recover that.</p>
+<p id="p-525">Since the equation is regular at every point, (2 is analytic), for convenience, we will work at the regular point \(x = 0\text{.}\) We will assume that the solution \(y = f(x)\) is a power series, which gives the expressions</p>
+<div class="displaymath">
+\begin{align*}
+y \amp = \sum_{k=0}^\infty c_k x^k  = c_0 + c_1 x + c_2 x^2 + \ldots;\\
+y' \amp = \sum_{k=0}^\infty (k+1) c_{k+1} x^k  = c_1 + 2c_2 x + 3c_3 x^2 + \ldots.
+\end{align*}
+</div>
+<p>Plugging into the differential equation, we get</p>
+<div class="displaymath">
+\begin{align*}
+(c_1 + 2c_2 x + 3c_3 x^2 + \ldots) - 2(c_0 + c_1 x + c_2 x^2 + \ldots) \amp = 0\\
+(c_1 - 2c_0) + (2c_2 - 2c_1)x + (3c_3 - 2c_2)x^2 + \ldots\amp = 0.
+\end{align*}
+</div>
+<p>What we get when we set all the coefficients equal to 0 is called a <dfn class="terminology">recursion</dfn>: if we know \(c_0\text{,}\) we can get \(c_1\text{,}\) which lets us get \(c_2\) and so on. We use substitution to get all the values in terms of the first value \(c_0\text{.}\)</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{array}{ccc}
+c_1 - 2c_0 = 0 \amp \Rightarrow \amp c_1 = 2c_0 \\
+2c_2 - 2c_1 = 0 \amp \Rightarrow \amp c_2 = c_1 = 2c_0 \\
+3c_3 - 2c_2 = 0 \amp \Rightarrow \amp c_3 = \frac{2}{3}c_2 = \frac{4}{3}c_0 \\
+4c_4 - 2c_3 = 0 \amp \Rightarrow \amp c_4 = \frac{2}{4}c_3 = \frac{2}{3} c_0 \\
+\vdots \amp \vdots \amp \vdots
+\end{array}
+\end{equation*}
+</div>
+<p>Now we can substitute these expressions into our assumed solution \(y\text{:}\)</p>
+<div class="displaymath">
+\begin{align*}
+y \amp = c_0 + c_1 x + c_2 x^2 + c_3 x^3 + \ldots\\
+\amp = c_0 + (2c_0) x + (2c_0)x^2 + (\frac{4}{3}c_0)x^3 + \ldots\\
+\amp = c_0\underbrace{\left(1 + 2x + 2x^2 + \frac{4}{3} x^3 + \ldots \right)}_{\text{homogeneous solution}}
+\end{align*}
+</div>
+<p>The quantity \(c_0\) comes from an intital condition, and the series in this case turns out to be the power series of the function \(e^{2x}\) (check if you like!).</p></article></div>
+<article class="example-like" id="example-90"><a data-knowl="" class="id-ref" data-refid="hk-example-90"><h6 class="heading">
+<span class="type">Example</span> <span class="codenumber">5.2.5</span>. <span class="title">Airy's equation.</span>
+</h6></a></article><div id="hk-example-90" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-526">The next example first appeared in work on optics in 1838. It is a very simple second order linear equation, yet does <em class="emphasis">not have any closed form solutions</em>. That is, the only approach to finding solutions is to use series methods. The solutions turn out to have applications in quantum physics as well as in optics. The equation is the straightforward looking</p>
+<div class="displaymath">
+\begin{equation*}
+y'' - x y = 0.
+\end{equation*}
+</div>
+<p id="p-527">Since \(P = 0\) and \(Q = x\text{,}\) both of which are analytic functions, series solutions exist everywhere, so we assume a center point of \(x_0 = 0\text{.}\) Then we have the expressions</p>
+<div class="displaymath">
+\begin{gather*}
+y = \sum_{k=0}^\infty c_k x^k = c_0 + c_1 x + c_2 x^2 + c_3 x^3 + c_4 x^4 + \ldots\\
+y' = \sum_{k=0}^\infty (k+1) c_{k+1} x^k = c_1 + 2c_2 x + 3 c_3 x^2 + 4 c_4 x^3 + \ldots\\
+y'' = \sum_{k=0}^\infty (k+2)(k+1) c_{k+2} x^k = 2c_2 + 6c_3 x + 12 c_4 x^2 + 20c_5 x^3 + \ldots
+\end{gather*}
+</div>
+<p>Plugging into Airy's equation, we get</p>
+<div class="displaymath">
+\begin{align*}
+\amp(2c_2 + 6c_3 x + 12 c_4 x^2 + 20c_5 x^3 + \ldots)\\
+\amp\hspace{1in} - x(c_0 + c_1 x + c_2 x^2 + c_3 x^3 + c_4 x^4 + \ldots) = 0\\
+\amp(2c_2 + 6c_3 x + 12 c_4 x^2 + 20c_5 x^3 + \ldots)\\
+\amp\hspace{1in} - (c_0 x + c_1 x^2 + c_2 x^3 + c_3 x^4 + c_4 x^5 + \ldots) = 0\\
+\amp\text{which resorts into}\\
+\amp2c_2 + (6c_3 - c_0)x + (12c_4 - c_1)x^2 + (20c_5 - c_2)x^3 \\
+\amp\hspace{1in}+ (30c_6 - c_3)x^4 + (42c_7 - c_4)x^5 + \ldots = 0
+\end{align*}
+</div>
+<p>Now we set the coefficients of each term equal to 0.</p>
+<p id="p-528">First, notice that \(2c_2 =0\) means that \(c_2 = 0\text{.}\) But \(20c_5 - c_2 = 0\text{,}\) and so \(c_5 =0\) as well. Since, \(c_8\) is given in terms of \(c_5\text{,}\) \(c_8\) is also 0, and so on for the family of coefficients \(c_2, c_5, c_8, c_{11}, \ldots\text{.}\) The is one family of coefficients.</p>
+<p id="p-529">The second family is in terms of \(c_0\text{:}\)</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{array}{ccc}
+6c_3 - c_0 = 0 \amp \Rightarrow \amp c_3 = \frac{1}{6} c_0 \\
+30 c_6 - c_3 = 0 \amp \Rightarrow \amp c_6 = \frac{1}{6\cdot 5} c_3 = \frac{1}{6\cdot5\cdot3\cdot2} c_0 \\
+72 c_9 - c_6 = 0 \amp \Rightarrow \amp c_9 = \frac{1}{9\cdot 8} c_6 = \frac{1}{9\cdot8\cdot6\cdot5\cdot3\cdot2}c_0\\
+\vdots \amp \vdots \amp \vdots
+\end{array}
+\end{equation*}
+</div>
+<p>which gives expressions for \(c_3, c_6, c_9, c_12, \ldots\) in terms of \(c_0\) (this will correspond to the first linearly independent solution).</p>
+<p id="p-530">The third family of solutions is given by \(c_1\text{:}\)</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{array}{ccc}
+12c_4 - c_1 = 0 \amp \Rightarrow \amp c_4 = \frac{1}{4\cdot3}c_1 \\
+42c_7 - c_3 = 0 \amp \Rightarrow \amp c_7 = \frac{1}{7\cdot6}c_3 = \frac{1}{7\cdot6\cdot4\cdot3}c_1 \\
+90c_{10} -  c_7 \amp \Rightarrow \amp c_{10} = \frac{1}{10\cdot9\cdot 7\cdot6\cdot 4\cdot3}c_1 \\
+\vdots \amp \vdots \amp \vdots
+\end{array}
+\end{equation*}
+</div>
+<p>which gives expressions for \(c_4, c_7, c_{10}, c_{13}, \ldots\) in terms of c_1 (this represents the second linearly independent solution).</p>
+<p id="p-531">Then we are ready to solve the equation. Starting with our assumed solution of the form \(y = \sum c_k x^k\) and sorting into the three families we've identified, we get</p>
+<div class="displaymath">
+\begin{align*}
+y \amp = c_0 + c_1 x + c_2 x^2 + c_3 x^3 \ldots\\
+\amp = c_0 + c_3 x^3 + c_6 x^6 + c_9 x^9 + \ldots \hspace{.5in} c_0 \text{ family}\\
+\amp \phantom{=} + c_1 x + c_4 x^4 + c_7 x^7 + c_{10} x^{10} + \ldots \hspace{.5in} c_1 \text{ family}\\
+\amp \phantom{=} + c_2 x^2 + c_5 x^5 + c_8 x^8 + \ldots \hspace{.5in} c_2 \text{ family}\\
+\amp = c_0\left( 1 + \frac{1}{3\cdot2} x^3 + \frac{1}{6\cdot5\cdot3\cdot2} x^6 + \frac{1}{9\cdot8\cdot6\cdot5\cdot3\cdot2}x^9 + \ldots \right)\\
+\amp \phantom{=} + c_1\left( x + \frac{1}{4\cdot3} x^4 + \frac{1}{7\cdot6\cdot4\cdot3} x^7 + \frac{1}{10\cdot9\cdot 7\cdot6\cdot 4\cdot3} x^{10} + \ldots\right) \\
+\amp \phantom{=} + 0 + 0 + 0 + 0 + \ldots 
+\end{align*}
+</div>
+<p id="p-532">Then the two linearly independent solutions to Airy's equation are</p>
+<div class="displaymath">
+\begin{equation*}
+y_1 = 1 + \frac{1}{3\cdot2} x^3 + \frac{1}{6\cdot5\cdot3\cdot2} x^6 + \frac{1}{9\cdot8\cdot6\cdot5\cdot3\cdot2}x^9 + \ldots
+\end{equation*}
+</div>
+<p>and</p>
+<div class="displaymath">
+\begin{equation*}
+y_2 = x + \frac{1}{4\cdot3} x^4 + \frac{1}{7\cdot6\cdot4\cdot3} x^7 + \frac{1}{10\cdot9\cdot 7\cdot6\cdot 4\cdot3} x^{10} + \ldots
+\end{equation*}
+</div>
+<p>where neither function has a closed form. (The complicated behavior of the solutions is part of why there isn't much better than a series or improper integral form, as can be seen from their plots. The plot below is a slight rearrangment of the two solutions into a different fundamental set, but preserves the same behavior - namely, the functions are oscillating and then become exponential.)</p>
+<div class="hidden-sagecell-sage" id="sage-22"><script type="text/x-sage">y =  Graphics();
+y += plot(airy_ai(x), (x,-10,5), ymin = -1, ymax = 1, color = 'red');
+y += plot(airy_bi(x), (x,-10,5), ymin = -1, ymax = 1);
+y.show()
+</script></div></article></div>
+<article class="example-like" id="example-91"><a data-knowl="" class="id-ref" data-refid="hk-example-91"><h6 class="heading">
+<span class="type">Example</span> <span class="codenumber">5.2.6</span>. <span class="title">Bessel equations.</span>
+</h6></a></article><div id="hk-example-91" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-533">Another important example is the so callled <dfn class="terminology">Bessel Differential Equation</dfn>:</p>
+<div class="displaymath">
+\begin{equation*}
+x^{2}y^{\prime\prime}+xy^{\prime}+\left(x^{2}-\nu^{2}\right)y=0,\,\,\,\,\,\,x&gt;0
+\end{equation*}
+</div>
+<p>where \(\nu\) is some constant. For sake of simplicity, let us pick \(\nu=0\text{,}\) so that</p>
+<div class="displaymath">
+\begin{equation*}
+x^{2}y^{\prime\prime}+xy^{\prime}+x^{2}y=0\,\,\,\,\,\,x&gt;0
+\end{equation*}
+</div>
+<p>and we can rewrite this equation by dividing by \(x^{2}\) to get</p>
+<div class="displaymath">
+\begin{equation*}
+y^{\prime\prime}+\frac{1}{x}y^{\prime}+y=0,\,\,\,\,\,\,x&gt;0.
+\end{equation*}
+</div>
+<p>Much like Airy's equation, this seems like such a simple equation, but it turns out there is no nice solution in terms of elementary functions. In turns out that one way to solve this Bessel ODE is to use power series. (Since \(x &gt; 0\text{,}\) the function \(\frac{1}{x}\) is analytic.) One can find out that</p>
+<div class="displaymath">
+\begin{align*}
+y_{1}(x) \amp =J_{0}(x),\\
+y_{2}(x) \amp =Y_{0}(x)
+\end{align*}
+</div>
+<p>where</p>
+<div class="displaymath">
+\begin{equation*}
+J_{0}(x) =\sum_{n=0}^{\infty}\frac{(-1)^{n}}{\left(n!\right)^{2}2^{2n}}x^{2n}.
+\end{equation*}
+</div>
+<p id="p-534">\(J_{0}(x)\) is called the Bessel function of first kind of order \(\nu=0\text{.}\) \(Y_{0}(x)\) is called the Bessel function of second kind of order \(\nu=0\text{.}\) \(Y_{0}(x)\) can also be represented by a series, but is more complicated. Another way to write \(Y_{0}\) is as an integral,</p>
+<div class="displaymath">
+\begin{equation*}
+Y_{0}(x)=-\frac{2}{\pi}\int_{1}^{\infty}\frac{\cos\left(tx\right)}{\sqrt{t^{2}-1}}dt,\,\,x&gt;0
+\end{equation*}
+</div>
+<p>Thus the general solution to Bessel Equation</p>
+<div class="displaymath">
+\begin{equation*}
+y^{\prime\prime}+\frac{1}{x}y^{\prime}+y=0,\,\,\,\,x&gt;0
+\end{equation*}
+</div>
+<p>is given by</p>
+<div class="displaymath">
+\begin{align*}
+y(x) \amp =c_{1}J_{0}(x)+c_{2}Y_{0}(x)\\
+\amp =c_{1}\sum_{n=0}^{\infty}\frac{(-1)^{n}}{\left(n!\right)^{2}2^{2n}}x^{2n}-c_{2}\int_{1}^{\infty}\frac{2}{\pi}\frac{\cos\left(tx\right)}{\sqrt{t^{2}-1}}dt.
+\end{align*}
+</div></article></div></section></div></main>
+</div>
+<div class="login-link"><span id="loginlogout" class="login">login</span></div>
+<script src="https://pretextbook.org/js/0.12/login.js"></script>
+</body>
+</html>

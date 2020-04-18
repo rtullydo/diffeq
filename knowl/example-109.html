@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2020-04-17T14:59:24-04:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<article class="example-like"><h6 class="heading">
+<span class="type">Example</span> <span class="codenumber">6.3.8</span>.</h6>
+<p>Use Laplace Transforms to solve:</p>
+<div class="displaymath">
+\begin{equation*}
+y^{\prime\prime}-4y^{\prime}+5y=2e^{t},\,\,\,y(0)=3,y^{\prime}(0)=1.
+\end{equation*}
+</div>
+<p>Step 1: Find the Laplace Transform of the ODE (The going forwards part). Recall the formulas \(\mathcal{L}\left\{ f^{\prime}(t)\right\} =s\mathcal{L}\left\{ f(t)\right\} -f(0)\) and \(\mathcal{L}\left\{ f^{\prime\prime}(t)\right\} =s^{2}\mathcal{L}\left\{ f(t)\right\} -sf(0)-f^{\prime}(0)\text{.}\) Applying \(\mathcal{L}\) to both sides we get</p>
+<div class="displaymath">
+\begin{align*}
+\mathcal{L}\left\{ y^{\prime\prime}-4y^{\prime}+5y\right\}  \amp =\mathcal{L}\left\{ 2e^{t}\right\} ,\iff\\
+\left[s^{2}\mathcal{L}\left\{ y\right\} -sy(0)-y^{\prime}(0)\right]-4\left[s\mathcal{L}\left\{ y\right\} -y(0)\right]+5\mathcal{L}\left\{ y\right\}  \amp =\frac{2}{s-1},\iff\\
+s^{2}\mathcal{L}\left\{ y\right\} -3s-1-4s\mathcal{L}\left\{ y\right\} +12+5\mathcal{L}\left\{ y\right\}  \amp =\frac{2}{s-1},\iff\\
+\mathcal{L}\left\{ y\right\} \left(s^{2}-4s+5\right) \amp =\frac{2}{s-1}+3s-11,\iff
+\end{align*}
+</div>
+<p>Step 2: Solve for \(\mathcal{L}\left\{ y\right\} \) using algebra: and get</p>
+<div class="displaymath">
+\begin{equation*}
+\mathcal{L}\left\{ y\right\} =\frac{2}{\left(s-1\right)\left(s^{2}-4s+5\right)}+\frac{3s-11}{s^{2}-4s+5}.
+\end{equation*}
+</div>
+<p>Step 3: Do Partial Fractions and complete the square:</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{2}{\left(s-1\right)\left(s^{2}-4s+5\right)}=\frac{A}{s-1}+\frac{Bs+C}{s^{2}-4s+5}
+\end{equation*}
+</div>
+<p>and get \(A=1,B=-1,C=3\) so that</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{2}{\left(s-1\right)\left(s^{2}-4s+5\right)}=\frac{1}{s-1}+\frac{-s+3}{s^{2}-4s+5}
+\end{equation*}
+</div>
+<p>Step 4: The inverse Laplace transform:</p>
+<div class="displaymath">
+\begin{align*}
+\amp y=\mathcal{L}^{-1}\left\{ \mathcal{L}\left\{ y\right\} \right\} \\
+\amp =\mathcal{L}^{-1}\left\{ \frac{1}{s-1}+\frac{-s+3}{s^{2}-4s+5}+\frac{3s-11}{s^{2}-4s+5}\right\} \\
+\amp =\mathcal{L}^{-1}\left\{ \frac{1}{s-1}\right\} +\mathcal{L}^{-1}\left\{ \frac{2s-8}{s^{2}-4s+5}\right\} 
+\end{align*}
+</div>
+<p>and recall that from an above example</p>
+<div class="displaymath">
+\begin{equation*}
+\mathcal{L}^{-1}\left\{ \frac{2s-8}{s^{2}-4s+5}\right\} =2e^{2t}\cos t-4e^{2t}\sin t
+\end{equation*}
+</div>
+<p>hence</p>
+<div class="displaymath">
+\begin{align*}
+y \amp =\mathcal{L}^{-1}\left\{ \frac{1}{s-1}\right\} +\mathcal{L}^{-1}\left\{ \frac{2s-8}{s^{2}-4s+5}\right\} \\
+\amp =e^{t}+2e^{2t}\cos t-4e^{2t}\sin t.
+\end{align*}
+</div></article><span class="incontext"><a href="ch6-3.html#example-109">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2020-04-17T14:59:23-04:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<article class="example-like"><h6 class="heading">
+<span class="type">Example</span> <span class="codenumber">6.3.3</span>.</h6>
+<p>(Harder) Find the inverse transform of \(F(s)=\frac{1-2s}{s^{2}+4s+5}\text{.}\) Note that we can't factor \(s^{2}+4s+5\) with real roots, thus we will complete the square.</p>
+<p><em class="alert">Completing the Square:</em> Suppose we have \(s^{2}+bs+c\text{,}\) then the trick is to ADD/SUBTRACT \(\left(\frac{b}{2}\right)^{2}\text{,}\) and the polynomials will become \(s^{2}+bs+c=\left(s+\frac{b}{2}\right)^{2}-\left(\frac{b}{2}\right)^{2}+c\text{.}\) To complete the square for \(s^{2}+4s+5\text{:}\) Then \(b=4\) hence we add/subtract \(\left(\frac{b}{2}\right)^{2}=\left(\frac{4}{2}\right)^{2}=4\text{.}\) Thus</p>
+<div class="displaymath">
+\begin{align*}
+s^{2}+4s+5 \amp =s^{2}+4s+4+\left(-4+5\right)\\
+\amp =\left(s+2\right)^{2}+1
+\end{align*}
+</div>
+<p>Going back to the problem of find the Laplace Transform we have that</p>
+<div class="displaymath">
+\begin{align*}
+F(s) \amp =\frac{1-2s}{s^{2}+4s+5}=\frac{1-2s}{\left(s+2\right)^{2}+1}
+\end{align*}
+</div>
+<p>and looking at Formulas 9 and 10 from the Laplace trasnform table:</p>
+<div class="displaymath">
+\begin{equation*}
+\mathcal{L}\left\{ e^{at}\sin bt\right\} =\frac{b}{(s-a)^{2}+b^{2}}\text{ and }\mathcal{L}\left\{ e^{at}\cos bt\right\} =\frac{s-a}{(s-a)^{2}+b^{2}}.
+\end{equation*}
+</div>
+<p>We can apply these by separating \(F(s)\) into pieces like this:=</p>
+<div class="displaymath">
+\begin{align*}
+\mathcal{L}^{-1}\left\{ F(s)\right\}  \amp =\mathcal{L}^{-1}\left\{ \frac{1-2s}{\left(s+2\right)^{2}+1}\right\} \\
+\amp =\mathcal{L}^{-1}\left\{ \frac{-2\left(s+2\right)}{\left(s+2\right)^{2}+1}\right\} +\mathcal{L}^{-1}\left\{ \frac{\boldsymbol{+4}+1}{\left(s+2\right)^{2}+1}\right\} \\
+\amp =-2\mathcal{L}^{-1}\left\{ \frac{\left(s-\left(-2\right)\right)}{\left(s-\left(-2\right)\right)^{2}+1}\right\} +5\mathcal{L}^{-1}\left\{ \frac{1}{\left(s+2\right)^{2}+1}\right\} \\
+\amp =-2e^{-2t}\cos t+5e^{-2t}\sin t.
+\end{align*}
+</div></article><span class="incontext"><a href="ch6-3.html#example-104">in-context</a></span>
+</body>
+</html>

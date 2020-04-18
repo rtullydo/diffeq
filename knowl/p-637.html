@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2020-04-17T14:59:24-04:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<h6 class="heading"><span class="type">Paragraph</span></h6>
+<p>Solution: First we complete the square by adding/subtracting \(\left(\frac{b}{2}\right)^{2}=\left(\frac{4}{2}\right)^{2}=4\) and get</p>
+<div class="displaymath">
+\begin{equation*}
+t^{2}-4t+5=t^{2}-4t+4-4+5=\left(t-2\right)^{2}-4+5=(t-2)^{2}+1
+\end{equation*}
+</div>
+<p>so that</p>
+<div class="displaymath">
+\begin{align*}
+f(t) \amp =\begin{cases}
+0 \amp t\lt 2\\
+\left(t-2\right)^{2}+1 \amp t\geq2
+\end{cases}\\
+\amp =u_{2}(t)\left[\left(t-2\right)^{2}+1\right]\\
+\amp =u_{2}(t)\left(t-2\right)^{2}+u_{2}(t),
+\end{align*}
+</div>
+<p>hence using formulas \(\mathcal{L}\left\{ u_{c}(t)f\left(t-c\right)\right\} =e^{-cs}F(s)\) and \(\mathcal{L}\left\{ t^{2}\right\} =\frac{2}{s^{3}}\) and \(c=2\text{,}\)</p>
+<div class="displaymath">
+\begin{align*}
+\mathcal{L}\left\{ f(t)\right\}  \amp =e^{-2s}F(s)+\frac{e^{-2s}}{s},\,\,\text{where }f(t-2)=\left(t-2\right)^{2},f(t)=t^{2}\\
+\amp =e^{-2s}\frac{2}{s^{3}}+\frac{e^{-2s}}{s}.
+\end{align*}
+</div>
+<span class="incontext"><a href="ch6-4.html#p-637">in-context</a></span>
+</body>
+</html>

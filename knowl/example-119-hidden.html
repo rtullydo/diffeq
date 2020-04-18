@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2020-04-17T14:59:24-04:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body><article class="example-like"><p>Take the Inverse Laplace Transform of: \({\displaystyle F(s)=\frac{1}{s^{2}-10s+26}}\text{.}\)</p>
+<p>Solution: (practice with using \(\mathcal{L}\left\{ e^{ct}g\left(t\right)\right\} =G(s-c)\)). First we complete the square and get</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{1}{s^{2}-10s+26}=\frac{1}{\left(s-5\right)^{2}+1}
+\end{equation*}
+</div>
+<p>and use \(\mathcal{L}\left\{ \sin at\right\} =\frac{a}{s^{2}+a^{2}}\) with \(a=1\) so that \(\mathcal{L}\left\{ \sin t\right\} =\frac{1}{s^{2}+1}\) Then use the fact that \(\mathcal{L}\left\{ e^{ct}g\left(t\right)\right\} =G(s-c)\) with \(c=5\) and \(g(t)=\sin t\text{,}\) thus we know that</p>
+<div class="displaymath">
+\begin{equation*}
+\mathcal{L}\left\{ e^{5t}\sin t\right\} =\frac{1}{\left(s-5\right)^{2}+1}
+\end{equation*}
+</div>
+<p>hence</p>
+<div class="displaymath">
+\begin{equation*}
+\mathcal{L}^{-1}\left\{ F(s)\right\} =e^{5t}\sin t.
+\end{equation*}
+</div></article></body>
+</html>

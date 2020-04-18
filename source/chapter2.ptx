@@ -1,0 +1,2353 @@
+<chapter xml:id="ch2">
+    <title>First Order Differential Equations</title>
+    <section xml:id="ch2-1">
+        <title>Linear equations and integrating factors</title>
+        <introduction>
+        Recall that a first order differential equation is an equation involving functions and their first derivatives. The general form of a first order equation is
+        <me>
+            \frac{dy}{dt} = f(t, y)
+        </me>
+        where <m>t</m> is the independent variable. This chapter will concern many standard and useful forms of first order equations along with methods of solution.
+        <p>A <term>linear first order differential equation</term> has the form
+        <me>
+            \frac{dy}{dt} = a(t) y + b(t).
+        </me>
+        This equation can be rewritten into <term>standard form</term> as
+        <me>
+            \frac{dy}{dt} + p(t) y = g(t)
+        </me>
+        where <m>p(t) = -a(t)</m> and <m>g(t) = b(t)</m>.</p>
+        <example>
+            <p>The first order linear differential equation
+            <me>
+                y' = t^2 y + \cos t
+            </me>
+            can be rewritten in standard form as
+            <me>
+                y' - t^2 y = \cos t.
+            </me>
+        </p>
+        </example>
+    </introduction>
+        <subsection xml:id="ch2-1a"><title>Integrating factors method</title>
+        Consider a first order linear differential equation in standard form
+        <men xml:id="linODE">
+            y' + p(t)y = g(t).
+        </men>
+        Then notice that <m>\frac{dy}{dt}+p(t)y</m>
+        looks awfully like a <em>product rule</em> of some sort. (Remember that the product rule gives a method for computing a derivative of a product of functions by <m>(fg)' = f
+        'g + fg'</m>.) In the product
+        rule, there are two functions. In our case, clearly one function will be <m>y(t)</m>;
+        what will the second function be? We need to adjust the equation so that we can undo a product rule amd simplify the equation. We denote by <m>\mu(t)</m> the <term>integrating
+        factor</term> that makes the LHS into a product rule. We can figure out what <m>\mu</m> needs to be by computation. Let's multiply both
+        sides by <m>\mu(t)</m> and get
+        <me>
+        \mu(t)\frac{dy}{dt}+\mu(t)p(t)y=\mu(t)g(t),
+        </me>
+        and if we want the LHS to be a product rule then
+        <me>
+        LHS=\frac{d\left[\mu(t)y(t)\right]}{dt}=\mu(t)\frac{dy}{dt}+\mu(t)p(t)y.
+        </me>
+        Let's just assume this works for now. (We will find out precisely what <m>\mu(t)</m>
+        needs to be in the following section). Setting the LHS to RHS we get
+        <me>
+        \frac{d\left[\mu(t)y(t)\right]}{dt}=\mu(t)g(t).
+        </me>
+        Then integrating we get
+        <me>
+        \int\frac{d\left[\mu(t)y(t)\right]}{dt}dt=\int\mu(t)g(t)dt.
+        </me>
+        But we know integrating cancels differentiation, and thus the LHS equals
+        <m>\mu(t)y(t)</m> so that
+        <me>
+        \mu(t)y(t)=\int\mu(t)g(t)dt+C.
+        </me>
+        Since <m>y</m> is the desired solution, we divide by <m>\mu(t)</m> we get that
+
+    <assemblage xml:id="firstorderlinearsol">
+      <p>
+        <me>
+          y(t)=\frac{1}{\mu(t)}\left[\int\mu(t)g(t)dt+C\right],
+        </me>
+        which is the <term>general solution</term> to the ODE in <xref ref="linODE"/>.
+      </p>
+    </assemblage></subsection>
+    <subsection xml:id="ch2-1b">
+        <title>Finding the integrating factor</title>
+
+
+        <p>So recall that for the product rule to work we have
+        <me>
+        \frac{d\left[\mu(t)y(t)\right]}{dt}=\mu(t)\frac{dy}{dt}+\mu(t)p(t)y
+        </me>
+        but then this only happens if the derivative of <m>\mu(t)</m> is <m>\mu(t)g(t)</m>
+        (by product rule!!!!). Thus,
+        <me>
+        \frac{d\left[\mu(t)\right]}{dt}=\mu(t)p(t).
+        </me>
+        Rewrite this as
+        <me>
+        \frac{d\mu}{dt}=\mu p
+        </me>
+        which is a separable equation (discussed at length in the next section). Thus, we can integrate both sides and get
+        <md>
+        <mrow>\int\frac{d\mu}{\mu}=\int p(t)dt \amp \iff \amp \ln\left|\mu\right|=\int p(t)dt</mrow>
+         <mrow> \amp \iff \amp \mu=e^{\int p(t)dt}.</mrow>
+     </md>
+        We then have a formula for the integrating factor <m>\mu</m>: </p>
+        <assemblage>
+        <p>An integrating factor <m>\mu</m> for a first order linear ODE (as in <xref ref="linODE"/>) is given by
+        <me>
+            \mu(t)=e^{\int p(t)\,dt}.
+        </me></p></assemblage>
+    </subsection>
+    <subsection>
+        <title>Examples</title>
+        <example>
+            <title>(without formula)</title>
+            <p> Find general solution
+            of <me>\frac{dy}{dt}=\frac{3}{t}y+t^{5}.</me></p>
+
+            <ul>
+            <li> <p>Step 1: Rewrite as
+            <me>
+            \frac{dy}{dt}-\frac{3}{t}y=t^{5}
+            </me>
+            so that <m>p(t)=-\frac{3}{t}</m> and <m>g(t)=t^{5}</m></p></li>.
+            <li> <p>Step 2: Find an integrating factor:
+            <me>
+            \mu(t)=e^{\int-\frac{3}{t}dt}=e^{-3\ln t}=t^{-3}=\frac{1}{t^{3}}.
+            </me>
+            Note we only need an integrating factor, not a general integrating
+            factor. So we never need to have a <m>+C</m> in this step! In the
+            next step we will note that we also don't need the absolute value inside
+            the natural log (why not?). </p></li>
+            <li><p>Step 3: Multiply BOTH SIDES of the equation by
+            <m>\mu(t)</m> and get
+            <me>
+            \frac{1}{t^{3}}\frac{dy}{dt}-\frac{3}{t^{4}}y=t^{2}
+            </me>
+            and notice that
+            <md>
+            <mrow>\frac{1}{t^{3}}\frac{dy}{dt}-\frac{3}{t^{4}}y \amp =t^{2}</mrow>
+            <mrow>\Downarrow</mrow>
+            <mrow>\frac{d}{dt} \left[\frac{1}{t^{3}}y\right]\amp =t^{2}</mrow>
+            </md></p></li>
+            <li> <p>Step 4: Integrate and solve for <m>y(t)</m> (don't
+            forget the constant <m>C</m> in this step, which is very important!)
+            <md>
+            <mrow>\int\frac{d\left[\frac{1}{t^{3}}y\right]}{dt}=\int t^{2}dt+C \amp \iff \amp \frac{1}{t^{3}}y=\frac{t^{3}}{3}+C</mrow>
+             <mrow>\amp \iff \amp y(t)=\frac{t^{6}}{3}+Ct^{3}.</mrow>
+            </md>
+            </p></li></ul>
+        </example>
+
+        <example>
+            <title>(using formula)</title>
+            <p>Solve the IVP: <me>\frac{dy}{dt}=\frac{3}{t}y+t^{5}</me>
+            with <m>y(1)=\frac{4}{3}</m>. In this example we'll skip the previous
+            steps and go straight to using the formula.</p>
+
+            <ul>
+                <li><p>Step 1: Rewrite as
+                <me>
+                \frac{dy}{dt}-\frac{3}{t}y=t^{5}
+                </me>
+                so that <m>p(t)=-\frac{3}{t}</m> and <m>g(t)=t^{5}</m>.</p></li>
+                <li><p> Step 2: Find an integrating factor:
+                <me>
+                \mu(t)=e^{\int-\frac{3}{t}dt}=e^{-3\ln t}=t^{-3}=\frac{1}{t^{3}}.
+                </me></p></li>
+                <li><p>Step 3: I can just plug in the formula and get
+                <md>
+                <mrow>y(t) \amp = \amp \frac{1}{\mu(t)}\left[\int\mu(t)g(t)dt.+C\right]</mrow>
+                 <mrow>\amp = \amp t^{3}\left[\int\frac{1}{t^{3}}t^{5}dt+C\right]</mrow>
+                 <mrow>\amp = \amp t^{3}\left[\frac{t^{3}}{3}+C\right]=\frac{1}{3}t^{6}+Ct^{3}.</mrow>
+                </md></p></li>
+                <li><p> Step 4: Since <m>y(1)=\frac{4}{3}</m> then
+                <me>
+                \frac{4}{3}=\frac{1}{3}+C
+                </me>
+                so <m>C=1</m> so that
+                <me>
+                y(t)=\frac{1}{3}t^{6}+t^{3}.
+                </me></p></li>
+            </ul>
+        </example>
+
+
+        <example>
+            <title>(using formula)</title><p> Find the general solution for
+            <me>\frac{dy}{dt}=y+9\cos t^{2}.</me></p>
+            <ul>
+                <li><p>Step 1: Rewrite as
+                <me>
+                \frac{dy}{dt}-y=9\cos t^{2}
+                </me>
+                so that <m>p(t)=-1</m> and <m>g(t)=9\cos t^{2}</m>. </p></li>
+                <li><p>Step 2: Find an integrating factor:
+                <me>
+                \mu(t)=e^{\int-1dt}=e^{-t}.
+                </me>
+                Note we only need an integrating factor, not a general integrating
+                factor. So we never need to have a <m>+C</m> in this step!</p></li>
+                <li><p> Step 3: I can go through the process again, or
+                I can just plug in the formula and get
+                <md>
+                <mrow>y(t) \amp = \amp \frac{1}{\mu(t)}\left[\int\mu(t)g(t)dt.+C\right]</mrow>
+                 <mrow>\amp = \amp \frac{1}{e^{-t}}\left[\int e^{-t}9\cos t^{2}dt+C\right]</mrow>
+                 <mrow>\amp = \amp e^{t}\left[\int e^{-t}9\cos t^{2}dt+C\right]</mrow>
+                </md>
+                Can't integrate, so we leave the answer in this form. </p></li>
+            </ul>
+        </example>
+
+        <example><title>(using formula)
+            </title><p> Find general solution of <me>t^{3}y^{\prime}+4t^{2}y=e^{-t}.</me></p>
+            <ul>
+            <li><p>Step 1: Rewrite as
+            <me>
+            y^{\prime}+\frac{4}{t}y=\frac{e^{-t}}{t^{3}}
+            </me>
+            so that <m>p(t)=\frac{4}{t}</m> and <m>g(t)=\frac{e^{-t}}{t^{3}}</m>. </p></li>
+            <li><p>Step 2: Find an integrating factor:
+            <me>
+            \mu(t)=e^{\int\frac{4}{t}dt}=e^{4\ln\left|t\right|}=t^{4}.
+            </me>
+            Note we only need an integrating factor, not a general integrating
+            factor. So we never need to have a <m>+C</m> in this step!</p></li>
+            <li><p>Step 3: I can go through the process again, or
+            I can just plug in the formula and get
+            <md>
+            <mrow>y(t) \amp = \amp \frac{1}{\mu(t)}\left[\int\mu(t)g(t)dt.+C\right]</mrow>
+            <mrow> \amp = \amp \frac{1}{t^{4}}\left[\int t^{4}\frac{e^{-t}}{t^{3}}dt+C\right]</mrow>
+             <mrow> \amp = \amp \frac{1}{t^{4}}\left[\int te^{-t}dt+C\right]</mrow>
+            <mrow> \amp = \amp \frac{1}{t^{4}}\left[-te^{-t}-e^{-t}+C\right]</mrow>
+            <mrow> \amp = \amp -\frac{1}{t^{3}}e^{-t}-\frac{1}{t^{4}}e^{-t}+\frac{C}{t^{4}}.</mrow>
+            </md>
+            </p></li></ul>
+            where we used <em>integration by parts</em>.
+        </example>
+    </subsection></section>
+
+
+    <section xml:id="ch2-2">
+        <title>Separable equations</title>
+        <p>One of the easiest methods to solve a first order ODE is called <term>separation
+        of variables</term> (presuming that one can integrate the result!). In the previous section, we focused on linear equations,
+        which cover a good deal of first order ODEs. But we want to be able
+        to solve at least some nonlinear equations if they fall into easily computable forms. </p>
+
+        <p>The technique we'll use in this section will only work if the first
+        order ODE is <term>separable</term>. We say a first order ODE is separable
+        if we can write it in the following form:
+        <men xml:id="sepeqn">
+        \frac{dy}{dt}=g(t)h(y).
+        </men>
+        If we can write it this way, then separate the variables to get (put
+        all the <m>y</m>'s on one side and all <m>t</m>'s on the other side)
+        <me>
+        \frac{1}{h(y)}dy=g(t)dt,
+        </me>
+        and then integrate both side with respect to their respective variable.
+        This is legal by a <m>u</m>-substitution argument. (This is informal algebra!) </p>
+
+        <p>Note: Sometimes you'll see a separable equation written in the following <term>differential</term> form:
+        <me>
+        M(x)dy+N(y)dy=0.
+        </me></p>
+
+        <example><title>(Not separable)</title>
+            <p>Notice that <m>\frac{dy}{dt}=y+t</m> is not separable.</p>
+            <p>But we can solve this using the methods of the previous section.</p>
+        </example>
+
+        <example>
+            <p>Find the general solution of
+                <me>
+                \frac{dy}{dt}=\frac{t}{y^{2}}.
+                </me></p>
+
+            <p> Separate variables in the equation, integrate and then solve for <m>y</m>:
+            <md>
+            <mrow>\frac{dy}{dt}=\frac{t}{y^{2}} \amp \iff \amp y^{2}dy=t\,dt</mrow>
+            <mrow>\amp \iff \amp \int y^{2}dy=\int t\,dt</mrow>
+            <mrow>\amp \iff \amp \frac{y^{3}}{3}=\frac{t^{2}}{2}+c_{1}</mrow>
+            <mrow>\amp \iff \amp y=\sqrt[3]{\frac{3t^{2}}{2}+3c_{1}}.</mrow>
+            </md></p>
+            <p>We can then rename <m>C=3c_{1}</m> and get the <em>general solution</em>
+            <me>
+            y(t)=\sqrt[3]{\frac{3t^{2}}{2}+C}.
+            </me>
+            If you are able to solve for <m>y</m> exactly, then this is called an
+            <term>explicit</term> solution, because we can solve exactly
+            with a formula. </p>
+        </example>
+
+        <example><title>(missing solution)</title>
+            <p>Find the general solution for <me>\frac{dy}{dt}=y^{2}.</me></p>
+
+
+            <ul>
+            <li><p> First let's find the equilibrium solutions: <m>y(t)=0</m> is the only
+            one. </p></li>
+            <li><p> Then use the general separation of variables procedure
+            <md>
+            <mrow>\frac{dy}{dt}=y^{2} \amp \iff \amp \frac{1}{y^{2}}dy=dt</mrow>
+            <mrow>\amp \iff \amp \int\frac{1}{y^{2}}dy=\int dt</mrow>
+            <mrow>\amp \iff \amp -\frac{1}{y}=t+C.</mrow>
+            </md></p></li>
+            <li><p>But notice that
+            <me>
+            y=-\frac{1}{t+C}
+            </me>
+             does NOT solve the IVP with <m>y(0)=0</m>. Thus we have to include the
+            equilibrium solution <m>y(t)=0</m> to get the complete general solution.
+            In this case we say the general solution is:
+            <me>
+            y_g(t) = \begin{cases}
+            0\\
+            -\frac{1}{t + C}
+            \end{cases}
+            </me></p></li>
+            </ul>
+            <p><alert>Moral of the story:</alert> Always find the equilibrium
+            solutions first in case there are any missing solutions from separating
+            variables!</p>
+            <sage>
+                <input>
+                    t, y = var('t,y')
+                    g = Graphics()
+                    g += plot_slope_field(y^2, (t, -5,5),(y,-5,5))
+                    g += plot(-1/(t + 4), (t, -5,5), ymin = -5, ymax = 5)
+                    g += plot(0, (t, -5,5), ymin=-5, ymax=5)
+                    g.show()
+                </input>
+            </sage>
+        </example>
+
+
+        <example>
+            <title>(Clever quadratic formula trick)</title>
+            <p>Solve the IVP:
+            <me>
+            \frac{dy}{dx}=\frac{2x+1}{y+1}\,\,\,\,\,\,y(0)=1
+            </me></p>
+
+
+            <ul>
+            <li><p> Note there are no equilibrium solutions</p></li>
+            <li><p> Use the general separation of variables procedure
+            <md>
+            <mrow>\frac{dy}{dt}=\frac{2x+1}{y+1} \amp \iff \amp \int\left(y+1\right)dy=\int\left(2x+1\right)dx</mrow>
+            <mrow>\amp \iff \amp \frac{y^{2}}{2}+y=x^{2}+x+C</mrow>
+            <mrow>\amp \iff \amp \frac{y^{2}}{2}+y-x^{2}-x+c=0</mrow>
+            <mrow>\amp \iff \amp y^{2}+2y-2x^{2}-2x+C=0</mrow>.
+            </md></p></li>
+            <li><p>Then we can use the quadratic formula on
+            <me>
+            ay^{2}+by+c=0
+            </me>
+            where
+            <md>
+            <mrow>a \amp =1</mrow>
+            <mrow>b \amp =2</mrow>
+            <mrow>c \amp =-2x^{2}-2x+C</mrow>
+            </md>
+            hence an explicit solution is given by
+            <md>
+            <mrow>y \amp =\frac{-b\pm\sqrt{b^{2}-4ac}}{2a}</mrow>
+            <mrow>\amp =\frac{-2\pm\sqrt{4-4\left(-2x^{2}-2x+C\right)}}{2}</mrow>
+            <mrow>\amp =-1\pm\sqrt{1+2x^{2}+2x+C}</mrow>
+            <mrow>\amp =-1\pm\sqrt{2x^{2}+2x+C}.</mrow>
+            </md>
+            Thus the general solution is
+            <me>
+            y_g(x)=-1\pm\sqrt{2x^{2}+2x+C}.
+            </me></p></li>
+            <li><p> Now to solve the IVP use the initial condition: <m>y(0)=1</m>
+            <me>
+            1=y(0)=-1\pm\sqrt{C}
+            </me>
+            so that
+            <me>
+            2=\pm\sqrt{c}
+            </me>
+            since the LHS is positive we choose the positive sign in the <m>\pm</m>
+            so that
+            <me>
+            2=\sqrt{c}
+            </me>
+            hence
+            <me>
+            c=4
+            </me>
+            so that we get the particular solution
+            <me>
+            y_p(x)=-1+\sqrt{2x^{2}+2x+4}.
+            </me>
+            </p></li></ul>
+
+            <sage>
+                <input>
+                    x, y = var('x,y')
+                    g = Graphics()
+                    g += plot_slope_field((2*x+1)/(y+1), (x, -5,5),(y,-5,5))
+                    g += plot(-1 + sqrt(2*x^2 + 2*x + 4), (x, -5,5), ymin = -5, ymax = 5)
+                    g += points([(0,1)], size = 50)
+                    g.show()
+                </input>
+            </sage>
+        </example>
+
+        <example>
+            <title>Implicit solutions</title>
+            <p>Find the general solution for <me>\frac{dy}{dt}=\frac{y}{1+y^{2}}.</me></p>
+
+            <p>In this example, we would get
+            <me>
+            \ln\left|y\right|+\frac{y^{2}}{2}=t+C
+            </me>
+            and leave it that way as there is no nice way to solve this. But any
+            function <m>y(t)</m> that satisfies the equation above is a solution to
+            our ODE. When we write solutions this way, we call this an <term>
+            implicit solution</term>, as the equation implicitly defines <m>y</m> as a function of <m>t</m>. </p>
+        </example>
+
+        <example>
+            <p>Solve the IVP
+            <me>
+            \frac{dy}{dt}=t^{4}y\,\,\,\,\,\,y(0)=1.
+            </me></p>
+
+            <ul>
+            <li><p> Solution:</p></li>
+            <li><p> Start with equilibrium solutions <m>y=0</m>.</p></li>
+            <li><p> Get <m>\left|y\right|=Ce^{t^{5}/5}</m> but notice that by choise of <m>C</m>
+            this shortens to <m>y=Ce^{t^{5}/5}</m>.</p></li>
+            <li><p>Note that this includes the equilibrum solution <m>y=0</m> by setting
+            <m>C=0</m>. </p></li>
+            <li><p> Thus then general solution is given by
+            <me>
+            y_g(t)=Ce^{t^{5}/5}.
+            </me></p></li>
+            <li><p> To solve the IVP we use the initial condition
+            <me>
+            1=y(0)=Ce^{0}=C
+            </me>
+            thus <m>C=1</m>, hence the particular solution to the IVP is
+            <me>
+            y_p(t)=e^{t^{5}/5}.
+            </me>
+            </p></li>
+            </ul>
+            <sage>
+                <input>
+                    t, y = var('t,y')
+                    g = Graphics()
+                    g += plot_slope_field(y*t^4, (t, -5,5),(y,-5,5))
+                    g += plot(exp((t^5)/5), (t, -5,5), ymin = -5, ymax = 5)
+                    g += points([(0,1)], size = 50)
+                    g.show()
+                </input>
+            </sage>
+        </example>
+        <example>
+            <p>Find the general solution: <me>\frac{dy}{dt}=\left(y+1\right)\left(y+5\right).</me></p>
+
+            <ul>
+            <li><p> Solution:</p></li>
+            <li><p> Start with equilibrium solutions <m>y=-1,-5</m> .</p></li>
+            <li><p> Use partial fractions to get <m>\frac{1}{\left(y+1\right)\left(y+5\right)}=\frac{1/4}{y+1}-\frac{1/4}{y+5}</m>.</p></li>
+            <li><p> The solution is
+            <md>
+            <mrow>\frac{1}{4}\ln\left|y+1\right|-\frac{1}{4}\ln\left|y+5\right|=t+C \amp \iff \amp \ln\left|\frac{y+1}{y+5}\right|=4t+C_{1}</mrow>
+            <mrow>\amp \iff \amp \left|\frac{y+1}{y+5}\right|=C_{2}e^{4t}</mrow>
+            <mrow>\amp \iff \amp \frac{y+1}{y+5}=C_{3}e^{4t}</mrow>
+            <mrow>\amp \iff \amp y=\frac{5ke^{4t}-1}{1-ke^{4t}}.</mrow>
+            </md></p></li>
+            <li><p>This yields all solutions but the equilibrium solution <m>y=-5</m>. Note
+            that <m>y=-1</m> can be found by taking <m>k=-1</m>. Thus
+            <me>
+            y_g(t) =  \begin{cases}
+            y(t)=\frac{5ke^{4t}-1}{1-ke^{4t}}\\
+            y(t)=-5.
+            \end{cases}
+            </me></p></li>
+            </ul>
+        </example>
+    </section>
+
+    <section xml:id="ch2-3">
+        <title>Separable homogeneous equations and the substitution method</title>
+
+            <p>Consider an ODE
+            <me>
+            \frac{dy}{dx}=f\left(x,y\right)
+            </me>
+            and suppose we can rewrite it in the form
+            <men xml:id="homoeq">
+            \frac{dy}{dx}=F\left(\frac{y}{x}\right).
+            </men>
+            An equation of the form <xref ref="homoeq"/> is called <term>homogeneous</term>.</p>
+            <ul>
+            <li><p>To solve this equation. We will define a new variable
+            <me>
+            v=\frac{y}{x}\,\,\,\,\,\,\,(\text{Important})
+            </me>
+            and write everything in terms of only <m>v</m> and <m>x</m>!</p></li>
+            <li><p><em>Solve</em> for <m>y</m>: and get
+            <me>
+            y=xv.
+            </me></p></li>
+            <li><p>Implicitly differentiate both sides:
+            <me>
+            \frac{dy}{dx}=x\frac{dv}{dx}+1\cdot v.\,\,\,\,\,\,\,(\text{Important})
+            </me></p></li>
+            </ul>
+            <p> The two important equations we come up with are:</p>
+            <assemblage>
+            <p><me>
+            \text{General homogeneous substitution:}\begin{cases}
+            v=\frac{y}{x}\\
+            \frac{dy}{dx}=x\frac{dv}{dx}+v
+            \end{cases}
+            </me></p>
+            </assemblage>
+
+            <example>
+            <p>Consider
+            <me>
+            \frac{dy}{dx}=\frac{x^{2}+xy+y^{2}}{x^{2}}.
+            </me></p>
+
+            <p><alert>Part (a):</alert> Show that this ODE is homogeneous and
+            rewrite the entire equation by only <m>v</m> and <m>x</m>.</p>
+            <p>
+            To see this we divide the numerator and denominator by <m>x^{2}</m> and
+            get
+            <me>
+            \frac{dy}{dx}=\frac{1+\frac{y}{x}+\left(\frac{y}{x}\right)^{2}}{1}.
+            </me>
+            Then replacing <m>\frac{dy}{dx}=x\frac{dv}{dx}+v</m> and <m>v=\frac{y}{x}</m>,
+            we get a new equation
+            <me>
+            x\frac{dv}{dx}+v=1+v+v^{2}.
+            </me>
+            </p>
+
+            <p><alert>Part (b):</alert> Solve the ODE in terms of <m>v</m> and then
+            return everything into terms of <m>y,x</m>.</p>
+            <p>We rewrite
+            <md>
+            <mrow>x\frac{dv}{dx}=1+v^{2} \amp \iff\int\frac{dv}{1+v^{2}}=\int\frac{1}{x}dx</mrow>
+            <mrow>\amp \iff\tan^{-1}\left(v\right)=\ln\left|x\right|+c</mrow>
+            <mrow>\amp \iff\tan^{-1}\left(\frac{y}{x}\right)=\ln\left|x\right|+c.</mrow>
+            </md>
+            Then
+            <me>
+            \frac{y}{x}=\tan\left(\ln\left|x\right|+C\right)
+            </me>
+            and the general solution is
+            <me>
+            y_g(x)=x\tan\left(\ln\left|x\right|+C\right)
+            </me></p>
+            </example>
+
+            <example>
+                <p>Find the solution to
+            <me>
+            y^{\prime}=\frac{y}{x}+\frac{x}{y}\,\,\,\,,x>0.
+            </me></p>
+
+
+            <p><alert>Step 1:</alert> First check if you can apply any of the
+            method of the previous sections (linear? separable?). The equation
+            is neither linear, or separable. But notice that this is <em>homogeneous</em>
+            for if we let <m>v=\frac{y}{x}</m> then
+            <me>
+            \frac{dy}{dx}=\frac{y}{x}+\frac{1}{y/x}=v+\frac{1}{v}.
+            </me></p>
+
+            <p><alert>Step 2:</alert> Recall that <m>\frac{dy}{dx}=x\frac{dv}{dx}+v</m>
+            , so plug this into the LHS, and get
+            <md>
+            <mrow>x\frac{dv}{dx}+v=v+\frac{1}{v} \amp \iff\int vdv=\int\frac{1}{x}dx</mrow>
+            <mrow>\amp \iff\frac{v^{2}}{2}=\ln\left|x\right|+C</mrow>
+            <mrow>\amp \iff y^{2}=2x^{2}\ln\left|x\right|+kx^{2}.</mrow>
+            </md>
+            and we get the general solution
+            <me>
+            y_g(x)=\pm\sqrt{2x^{2}\ln\left|x\right|+Cx^{2}}
+            </me></p>
+            <sage>
+                <input>
+                    x, y = var('x,y')
+                    g = Graphics()
+                    g+= plot_slope_field(y/x + x/y, (x,-10,10),(y,-10,10))
+                    g+= plot(sqrt(2*x^2*log(abs(x))+x^2),(x,1.1,10), ymin=-10, ymax=10)
+                    g+= plot(-sqrt(2*x^2*log(abs(x))+3*x^2),(x,-10, -1.1),ymin=-10, ymax=10)
+                    g.show()
+                </input>
+            </sage>
+        </example>
+
+        <example>
+            <title>(not always the same substitution)</title> <p>Rewrite
+            the equation
+            <me>
+            \frac{dy}{dx}=e^{9y-x}
+            </me>
+            in terms of only <m>v,x</m> by letting <m>v=9y-x</m>.</p>
+
+            <p><alert>Solution:</alert> Use the substitution <m>v=9y-x</m>, then solve for <m>y</m>
+            and get
+            <me>
+            y=\frac{1}{9}v+\frac{1}{9}x.
+            </me>
+            Then using implicit differentiation,
+            <me>
+            \frac{dy}{dx}=\frac{1}{9}\frac{dv}{dx}+\frac{1}{9}
+            </me>
+            and hence
+            <md>
+            <mrow>\frac{dy}{dx}=e^{9y-x} \amp \iff\frac{1}{9}\frac{dv}{dx}+\frac{1}{9}=e^{v}</mrow>
+            <mrow>\amp \iff\frac{dv}{dx}=9e^{v}-1.</mrow>
+            </md>
+            and this can be easily solved by separating variables.</p>
+        </example>
+    </section>
+
+    <section xml:id="ch2-4"><title>Modeling with Differential Equations</title>
+        <introduction>
+        <p>What are Differential Equations used for? Predicting the future! That is, differential equations typically appear in the context of <term>mathematical models </term> for physical situations that can be dsecribed using the language of change. Models are used in many areas, including science, engineering, and finance. Once a model has been written down in terms of a differential equation, there are three broad approaches to understanding the system being studied.</p>
+
+        <ul>
+        <li> Analytic: explicit solutions</li>
+        <li> Qualitative: Use geometry to see long term behaviour. For example,
+        to check if the population is increasing or decreasing.</li>
+        <li> Numerical: Approximations to actual solutions. </li>
+        </ul>
+        </introduction>
+        <subsection xml:id="ch2-4a"><title>Model building</title>
+
+            <ol>
+            <li> State Assumptions (science step, Newton's law of motions, etc,
+            ...)</li>
+            <li>Describe variables, parameters: Independent variables (<m>t,x</m>),
+            dependent variables (<m>y,u</m>), parameters (<m>k,\alpha</m>) (do not change
+            with time)</li>
+            <li> <p>Create Equations:
+                <ul>
+                    <li>Rate of change = slope = derivative.</li>
+                    <li>the word <q>is</q> means equal. </li>
+                    <li>A is proportional to B means <m>A=kB</m>.</li>
+                </ul>
+            </p></li>
+            </ol>
+
+
+            <example><title>Population growth</title>
+            <ul>
+            <li> <p><alert>Goal:</alert> Want to write a differential equation that
+            models population growth of say zebras.</p></li>
+            <li><p> <alert>Assumption:</alert> The rate of growth of the population is proportional
+            to the size of the population. </p></li>
+            <li><p><alert>Problem:</alert> Write a differential equation that governs
+            this.
+            Let <m>P(t)</m> be the population of zebras at time <m>t</m>.
+            So for now we have
+            <me>
+            \frac{dP}{dt}=k\cdot P.
+            </me></p>
+
+            <p>Note here that <m>k</m> is a <term>parameter</term> that can be
+            changed or selected for a specific situation once we know more information. For example if we know the proportion is <m>k=2</m>, then
+            <me>
+            \frac{dP}{dt}=2\cdot P
+            </me>
+            and we already saw earlier that <m>P(t)=Ce^{2t}</m> is a solution to this.</p></li>
+            </ul>
+            </example>
+
+            <example>
+                <title>Mixing problem 1</title>
+
+
+                <p><alert>Problem:</alert> A vat contains 60L of water with 5kg of salt
+                water dissolved in it. A salt water solution that contains 2kg of salt per liter enters the vat at a rate of 3 L/min.
+                Pure water is also flowing into the vat at a rate of 2 L/min. The solution in the vat is kept well mixed and is drained
+                at a rate of 5 L/min, so that the rate in is the same
+                as the rate out. Thus there is always 60L of salt water
+                at any given time. How much salt is in the tank after 30 minutes? What is
+                the long term behavior?
+                </p>
+
+                <p><alert>Solution:</alert></p>
+                <ul>
+                <li><p><alert>Step 1:</alert> Define variables.</p>
+
+                <p>Let <m>y(t)=</m>amount of salt at time <m>t</m>. Let <m>y(0)=5</m> kg. </p></li>
+
+                <li><p><alert>Step 2:</alert> Find rate in/rate out</p>
+
+                <p>Two equations from basic physics will help here. First,
+                    <me>
+                        \text{mass(kg) } = \text{ density(kg/L) } \times \text{ volume(L)}.
+                    </me>
+                Second,
+                    <me>
+                        \text{rate of mass (kg/min) } = \text{ concentration (kg/L) } \times \text{rate of volume (L/min)}.
+                    </me></p>
+                <p>Finally, when the volume of the mixture doesn't change, it must by that
+                <me>
+                    \text{ volume rate in } = \text{ volume rate out}
+                </me></p>
+                <p>Using the information from the problem we have
+                <md>
+                <mrow>\mbox{Rate in } \amp = \amp \underset{\mbox{-salt water solution}}{\left(2\frac{\mbox{kg}}{\mbox{L}}\right)\left(3\frac{\mbox{L}}{\mbox{min}}\right)}+\underset{-\mbox{pure water}}{\left(0\frac{\mbox{kg}}{L}\right)\left(2\frac{\mbox{L}}{\mbox{min}}\right)}</mrow>
+                 <mrow>\amp = \amp 6\frac{\mbox{kg}}{\mbox{min}}.</mrow>
+                </md></p>
+                <p> and</p>
+                <md>
+                <mrow>\mbox{Rate out } \amp = \amp \left(\begin{array}{c}
+                \mbox{concentrarion}\\
+                \mbox{of stuff going out}
+                \end{array}\right)\times\mbox{Rate}</mrow>
+                <mrow> \amp = \amp \left(\frac{y(t)}{60} \frac{\mbox{kg}}{\mbox{L}}\right)\times5\frac{\mbox{L}}{\mbox{min}}.</mrow>
+                <mrow> \amp = \amp \frac{y(t)}{12}\frac{\mbox{kg}}{\mbox{min}}.</mrow>
+                </md></li>
+
+                <li><p><alert>Step 3:</alert> Write the IVP</p>
+
+                <p>Always recall that for mixing problems we have
+                <md>
+                <mrow>\frac{dy}{dt} \amp = \amp \mbox{Rate in}-\mbox{Rate out}</mrow>
+                 <mrow>\amp = \amp 6-\frac{y}{12}.</mrow>
+                </md>
+                and the initial condition is
+                <me>
+                y(0)=5.
+                </me></p></li>
+
+                <li><p><alert>Step 4:</alert> Find the common denominator and solve
+                using separation of variables.</p>
+
+                <p>Write
+                <me>
+                \frac{dy}{dt}=6-\frac{y}{12}=\frac{72-y}{12}
+                </me>
+                and using separation of variables we get
+                <md>
+                <mrow>\frac{dy}{dt}=\frac{72-y}{12} \amp \iff \amp \frac{dy}{72-y}=\frac{dt}{12}</mrow>
+                <mrow>\amp \iff \amp -\ln\left|72-y\right|=\frac{t}{12}+C_{1}</mrow>
+                <mrow>\amp \iff \amp \ln\left|72-y\right|=\frac{-t}{12}+C_{2}</mrow>
+                <mrow>\amp \iff \amp \left|72-y\right|=C_{3}e^{-\frac{t}{12}}</mrow>
+                <mrow>\amp \iff \amp 72-y=ke^{-\frac{t}{12}}</mrow>
+                <mrow>\amp \iff \amp y=72-ke^{-\frac{t}{12}}.</mrow>
+                </md>
+                Solving the IVP by using <m>y(0)=5</m>, we get
+                <md>
+                <mrow>y(0)=5 \amp \iff \amp 72-ke^{0}=5</mrow>
+                 <mrow>\amp \iff \amp k=72-5=67</mrow>
+                </md>
+                so the final solution is
+                <me>
+                y(t)=72-67e^{-\frac{t}{12}}.
+                </me></p></li>
+
+                <li><p><alert>Step 5:</alert></p>
+
+                <p>After 30 minutes there is
+                <me>
+                y(30)=72-67e^{-\frac{30}{12}}=66.5\mbox{ kg}.
+                </me>
+                The long term behavior is simply the limit:
+                <me>
+                \lim_{t\to\infty}y(t)=\lim_{t\to\infty}72-67e^{-\frac{30}{12}}=72-0=72.
+                </me></p></li></ul>
+            </example>
+
+            <example>
+                <title>Mixing problem II</title>
+
+               <p>The difference here is that now we allow the total volume of fluid
+                to vary, when before it was kept fixed. </p>
+
+                <p><alert>Problem:</alert>
+                A <m>400</m>-gallon tank initially contains <m>200</m> gallons
+                of water containing <m>3</m> pounds of sugar per gallon. Suppose
+                water containing <m>5</m> pounds per gallon flows into the the
+                top of the tank at a rate of <m>6</m> gallons per minute. The
+                water in the tank is kept well mixed, and <m>4</m> gallons per
+                minute are removed from the bottom of the tank. How much sugar is
+                in the tank when the tank is full? </p>
+
+                <p><alert>Solution:</alert></p>
+                <ul>
+
+                <li><p><alert>Step 1:</alert> Define variables</p>
+
+                <p>Let <m>y(t)=</m> amount of sugar at time <m>t</m>, which is in minutes. Let
+                <m>y(0)=3\times200=600\mbox{ pounds}</m>. </p></li>
+
+                <li><p><alert>Step 2:</alert> Find Rate in/ Rate out</p>
+
+                <p>Note that for anything that comes in you can always find the rate
+                in as
+                <me>
+                \mbox{Rate in}=\left(\begin{array}{c}
+                \mbox{concentration}\\
+                \mbox{of sugar coming in}
+                \end{array}\right)\times\mbox{Rate}.
+                </me>
+                Similarly you can always find the Rate out as
+                <me>
+                \mbox{Rate out}=\left(\begin{array}{c}
+                \mbox{concentration}\\
+                \mbox{of sugar coming out}
+                \end{array}\right)\times\mbox{Rate}.
+                </me></p>
+
+                <p>We have
+                <md>
+                <mrow>\text{Rate in}\amp = \amp \underset{\mbox{-sugar water solution}}{\left(5\frac{\mbox{pounds}}{\mbox{gallon}}\right)\left(6\frac{\mbox{gallons}}{\mbox{min}}\right)}</mrow>
+                <mrow>\amp = \amp 30\frac{\mbox{pounds}}{\mbox{gallon}}.</mrow>
+                </md></p>
+
+                <p>To find the concentration of sugar coming out we have know the
+                amount of water at time <m>t</m>.
+                <md>
+                <mrow>\mbox{Water at time }t \amp = \amp 200\mbox{ gallons}+\left(6\frac{\mbox{gallons}}{\mbox{min}}-4\frac{\mbox{gallons}}{\mbox{min}}\right)t</mrow>
+                <mrow>\amp = \amp 200+2t,</mrow>
+                </md>
+                So
+                <md>
+                <mrow>\mbox{Rate out} \amp = \amp \left(\begin{array}{c}
+                \mbox{concentration}\\
+                \mbox{of stuff going out}
+                \end{array}\right)\times\mbox{Rate}</mrow>
+                <mrow>\amp = \amp \left(\frac{y(t)}{200+2t}\frac{\text{pounds}}{\text{gallon}}\right)\times4\frac{\mbox{gallons}}{\mbox{min}}.</mrow>
+                <mrow>\amp = \amp 4\frac{y(t)}{200+2t}\frac{\text{pound}}{\text{min}}.</mrow>
+                </md></p></li>
+
+                <li><p><alert>Step 3:</alert> Write the IVP</p>
+
+                <p>Always recall that for mixing problems we have
+                <md>
+                <mrow>\frac{dy}{dt} \amp = \amp \mbox{Rate in}-\mbox{Rate out}</mrow>
+                <mrow>\amp = \amp 30-\frac{4}{200+2t}y.</mrow>
+                </md>
+                and the initial condition
+                <me>
+                y(0)=600.
+                </me></p></li>
+
+                <li><p><alert>Step 4:</alert> Solve using the Method of integrating
+                factors:</p>
+
+                <p>Write
+                <me>
+                \frac{dy}{dt}+\frac{4}{200+2t}y=30
+                </me>
+                so that <m>g(t)=\frac{4}{200+2t}</m> and <m>b(t)=30</m>. Thus the integrating
+                factor is
+                <me>
+                \mu(t)=e^{4\int\frac{dt}{200+2t}}=e^{2\int\frac{dt}{100+t}}=e^{2\ln\left(100+t\right)}=\left(100+t\right)^{2}.
+                </me>
+                Thus using the formula, we have that
+                <md>
+                <mrow>y(t) \amp = \amp \frac{1}{\mu(t)}\left[\int\mu(t)b(t)dt.+C\right]</mrow>
+                <mrow>\amp = \amp \frac{1}{\left(100+t\right)^{2}}\left[30\int\left(100+t\right)^{2}dt.+C\right]</mrow>
+                <mrow>\amp = \amp \frac{1}{\left(100+t\right)^{2}}\left[30\frac{\left(100+t\right)^{3}}{3}.+C\right]</mrow>
+                <mrow>\amp = \amp \frac{1}{\left(100+t\right)^{2}}\left[10\left(100+t\right)^{3}+C\right]</mrow>
+                </md>
+                and using <m>y(0)=600</m> we get that
+                <me>
+                600=\frac{1}{100^{2}}\left[10\cdot100^{3}+C\right]
+                </me>
+                so that
+                <me>
+                C=-4,000,000
+                </me>
+                and thus
+                <me>
+                y(t)=\frac{10\left(100+t\right)^{3}-4,000,000}{\left(100+t\right)^{2}}.
+                </me></p></li>
+
+                <li><p><alert>Step5:</alert> Answer the question</p>
+
+                <p>Since the amount of water in the tank is <m>200+2t</m> then it fills up
+                when
+                <me>
+                200+2t=400
+                </me>
+                so that <m>t=100</m>. Thus the amount of sugar is
+                <md>
+                <mrow>y(100) \amp = \amp \frac{10\left(200\right)^{3}-4,000,000}{\left(200\right)^{2}}</mrow>
+                <mrow>\amp = \amp 1,900\mbox{ pounds}.</mrow>
+                </md></p></li>
+            </ul>
+        </example>
+    </subsection>
+</section>
+<section xml:id="ch2-5">
+    <title>Modeling with differential equations - more problems</title>
+        <subsection>
+            <title>Newton's Law of Cooling</title>
+
+            <p><term>Newton's Law of Cooling</term> states that the temperature
+            of an object changes at a rate proportional to the difference between
+            its temperature and its surroundings.</p>
+            <p> That is, let <m>T(t)</m> be the temperature of the object, while <m>T_{s}</m>
+            is the surrounding temperature. Then by Newton's Law of cooling there
+            is some constant of proportionality <m>k</m>, such that
+            <me>
+            \frac{dT}{dt}=k\left(T-T_{s}\right).
+            </me></p>
+
+            <example><title>Newton's Law of Cooling</title>Suppose there was a murder in a room
+            that is 70° F. Assume the victim had a temperature of 98.6° when murdered.
+            Let <m>t_{c}</m> be the time it took for someone to finally discover the
+            corpse since its death. As a detective, your goal is to find out how
+            long ago the body died. Here is the given information
+            <ul>
+            <li>Fact 1: At the time time someone discovered the
+            body, the temperature of the corpse was <m>72.5</m>.</li>
+            <li>Fact 2: One hour after the body was discovered,
+            the temperature of the corpse was <m>72</m>.</li>
+            <li> Question: Find the critical value of <m>t_{c}</m></li>
+            </ul>
+            <p><alert>Solution:</alert> One needs to solve the following IVP:
+            Let <m>T(t)</m> be the temperature of the victim, then
+            <me>
+            \frac{dT}{dt}=k\left(T-70\right),\,\,\,\,\,T\left(0\right)=98.6
+            </me>
+            and need to use the information
+            <md>
+            <mrow>T(t_{c}) \amp =72.5,</mrow>
+            <mrow>T(t_{c}+1) \amp =72.</mrow>
+            </md>
+             to solve for <m>k</m>.</p>
+            <p>First solving for <m>T(t)</m> we get
+            <md>
+            <mrow>T(t) \amp =70+\left(98.6-70\right)e^{kt}</mrow>
+             <mrow>\amp =70+28.6e^{kt}.</mrow>
+            </md></p>
+            <p>Then using
+            <md>
+            <mrow>72.5 \amp =70+28.6e^{kt_{c}},</mrow>
+            <mrow>72 \amp =70+28.6e^{k(t_{c}+1)}</mrow>
+            </md></p>
+            <p>Solving the first equation for <m>k</m> we get
+            <me>
+            k=\frac{1}{t_{c}}\ln\frac{2.5}{28.6}
+            </me>
+            and plugging this into second equation we get
+            <me>
+            72=70+28.6e^{\frac{1}{t_{c}}\ln\frac{2.5}{28.6}(t_{c}+1)}
+            </me>
+            and hence
+            <me>
+            t_{c}\approx10.92\text{ hours}.
+            </me>
+            and <m>k=-0.223</m>.
+            </p>
+        </example>
+        </subsection>
+        <subsection><title>Free fall with friction</title>
+
+            <p>We will consider problems involving <term>free-fall</term> with and without initial velocities. We will also consider when there is some <term>air resistance</term>
+            of magnitude <m>R(v)</m> directed opposite to the velocity <m>v</m>.</p>
+
+            <p><alert>Setting up an equation: </alert></p>
+
+            <p>Assume that the positive direction is up (that is, gravity is negatively oriented). </p>
+            <p>Since we know that <m>F=\text{mass}\times\text{acceleration}=m\frac{dv}{dt}</m>.
+            This will always be the LHS of our equation.</p>
+            <p>The RHS depends on the problem given (e.g. free fall, throwing object
+            up? is there resistance?)</p>
+            <p>Thus our equations in free fall will be in the form
+            <me>
+            m\frac{dv}{dt}=\pm R(v) - mg.
+            </me>
+            The plus/minus symbol is present as friction/resistance is always in the opposite direction of motion.</p>
+
+
+            <ul>
+            <li>We'll have <m>-R(v)</m>: If object is going up, i.e. <m>v>0</m>. (Since air
+            resistance <m>R(v)</m> is directed opposite to the velocity <m>v</m>)</li>
+            <li>We'll have <m>+R(v)</m> if the object is going down, i.e. <m>v\lt0</m> (Since air
+            resistance <m>R(v)</m> is directed opposite to the velocity <m>v</m>)</li>
+            </ul>
+
+            <example>
+            <p>Suppose an object with mass <m>10</m> kg
+            is launched upward with initial velocity <m>20</m> m/s from a platform
+            that is <m>3</m> meters high. Suppose there is a force due to air resistance
+            of magnitude <m>\left|v\right|</m> directed opposite to the velocity,
+            where the velocity <m>v</m> is measured in m/s. We neglect the variation
+            of the earth's gravitational fields with distance. (Since it's not
+            going very high anyways)</p>
+            <ul>
+            <li><p><alert>Part (a):</alert> Find the maximum height above the ground
+            that the object reaches.</p>
+
+            <p><alert>Solution:</alert> Suppose we consider when the object
+            is going up in the air before it has reached the maximum height. Let
+            <m>R(v)=\left|v\right|</m> be the resistance, then using what've discussed
+            above we have
+            <me>
+            m\frac{dv}{dt}=-R(v)-mg,
+            </me>
+            and we have <m>-R(v)</m> since the object is still going up. Since the
+            object is going up then <m>v>0</m>. Recall that
+            <me>
+            \left|v\right|=\begin{cases}
+            v \amp v>0\\
+            -v \amp v\lt0
+            \end{cases}
+            </me>
+            then
+            <me>
+            m\frac{dv}{dt}=-\left|v\right|-mg=-v-mg.
+            </me>
+            Hence
+            <me>
+            m\frac{dv}{dt}=-v-mg.
+            </me></p>
+            <p>Solving this we have that
+            <md>
+            <mrow>\int\frac{dv}{v+mg}=\frac{\int-dt}{m} \amp \iff\ln\left|v+mg\right|=-\frac{t}{m}+C</mrow>
+             <mrow>\amp \iff\left|v+mg\right|=Ce^{-t/m}</mrow>
+             <mrow>\amp \iff v+mg=Ce^{-t/m}\\</mrow>
+             <mrow>\amp \iff v=Ce^{-t/m}-mg.</mrow>
+            </md></p>
+            <p> Since <m>v(0)=20</m> Then we can solve for <m>C</m> and obtain (using <m>g=9.8 \text{m/s}^2</m>
+
+            <md>
+            <mrow>v(t) \amp =\left(20+mg\right)e^{-t/m}-mg,</mrow>
+             <mrow>\amp =118e^{-t/10}-98.</mrow>
+            </md>
+            and this equation is valid only when the object is going up.</p>
+            <p> The maximum happens when velocity is equal to zero. Thus set <m>v(t_{1})=0</m>
+            and we get that
+            <md>
+            <mrow>0=118e^{-t/10}-98 \amp \iff t_{1}=-10\ln\left(\frac{98}{118}\right)</mrow>
+             <mrow>\amp \iff t_{1}\approx1.86.</mrow>
+            </md></p>
+            <p>Solve for position: We get
+            <md>
+            <mrow>x(t) \amp =\int v(t)dt+C</mrow>
+             <mrow>\amp =-1180e^{-t/10}-98t+C.</mrow>
+            </md>
+            Since <m>x(0)=3</m>, then
+            <md>
+            <mrow>3=-1180e^{0}-98\cdot0+C \amp \iff3=-1180+C</mrow>
+             <mrow>\amp \iff C=1183.</mrow>
+            </md></p>
+            <p> Thus
+            <me>
+            x(t)=-1180e^{-t/10}-98t+1183.
+            </me>
+            Then
+            <md>
+            <mrow>\text{maximum height} \amp =x(1.86)</mrow>
+             <mrow>\amp \approx21.</mrow>
+            </md></p></li>
+
+            <li><p><alert>Part (b):</alert> Find the time that the object hits the
+            ground, assuming it missed the platform.</p>
+
+            <p><alert>Solution:</alert> We need to find the equation of when
+            the object is falling down.When the object is falling down we thus
+            have the following equation:
+            <me>
+            m\frac{dv}{dt}=R(v)-mg,
+            </me>
+            and we have <m>R(v)</m> since the object is going down. Thus since the object is going <em>down</em> then <m>v\lt0</m>. Recall
+            that
+            <me>
+            \left|v\right|=\begin{cases}
+            v \amp v>0\\
+            -v \amp v\lt0
+            \end{cases}
+            </me>
+            then <m>\left|v\right|=-v</m> so that
+            <me>
+            m\frac{dv}{dt}=\left|v\right|-mg=-v-mg.
+            </me>
+            hence
+            <me>
+            m\frac{dv}{dt}=-v-mg.
+            </me></p>
+            <p>Solving this we have that <m>v_{2}(t)=Ce^{-t/m}-mg</m> with initial condition
+            <m>v_{2}(0)=0</m>. Thus
+            <md>
+            v_{2}(t) \amp =mge^{-t/m}-mg\\
+             \amp =98e^{-t/10}-98.
+            </md></p>
+            <p>Then
+            <md>
+            <mrow>x_{2}(t) \amp =\int v_{2}(t)dt+C</mrow>
+             <mrow>\amp =-980e^{-t/10}-98t+C</mrow>
+            </md>
+            since
+            <me>
+            x_{2}(0)=\text{maximum height}=21
+            </me>
+            then solving for <m>C</m> we have
+            <me>
+            x_{2}(t)=-980e^{-t/10}-98t+1001.
+            </me></p>
+            <p>To find out when <m>x_{2}(t)</m> hits the ground we need to find <m>t_{2}</m>
+            such that <m>x_{2}(t_{2})=0</m> thus (using a calculator)
+            <me>
+            0=-980e^{-t_{2}/10}-98t_{2}+1001\iff t_{2}\approx2.14.
+            </me></p>
+            <p>Thus the ball hits the ground by adding the time it takes to reach
+            its maximum plus the time after that:
+            <me>
+            t_{0}=t_{1}+t_{2}=1.86+2.14=4\text{ seconds}.
+            </me></p></li></ul>
+        </example>
+        <example><p>Consider the same scenario as before.
+            A object with mass <m>10</m> kg is launched upward with initial velocity
+            <m>20</m> m/s from a platform that is <m>3</m> meters high. Except, there
+            is a force due to air resistance of magnitude <m>v^{2}/5</m> directed
+            opposite to the velocity, where the velocity <m>v</m> is measured in m/s.</p>
+            <ul>
+            <li><p><alert>Part (a):</alert> Write the differential equation for velocity,
+            when the object is still going up.</p>
+
+            <p><alert>Solution:</alert> Let <m>R(v)=v^{2}/5</m> be the resistance,
+            then
+            <me>
+            m\frac{dv}{dt}=-R(v)-mg,
+            </me>
+            and we have <m>-R(v)</m> since the object is still going up. Thus
+            <me>
+            m\frac{dv}{dt}=-\frac{v^{2}}{5}-mg\iff m\frac{dv}{dt}=-\frac{v^{2}}{5}-98
+            </me>
+            </p></li>
+            <li><p><alert>Part (b):</alert> Write the differential equation for velocity,
+            when the object has already reched maximum and is already going down..</p>
+
+            <p><alert>Solution:</alert> Let <m>R(v)=v^{2}/5</m> be the resistance,
+            then using the above we have
+            <me>
+            m\frac{dv}{dt}=R(v)-mg,
+            </me>
+            and we have <m>R(v)</m> since the object is going down. Thus
+            <me>
+            m\frac{dv}{dt}=\frac{v^{2}}{5}-98.
+            </me></p></li></ul>
+          </example>
+           <example>
+            <p>Suppose we fly a plane at an altitude
+            of <m>5000</m> ft and drop a watermelon that weighs <m>64</m> pounds vertically
+            downward. Assume that the force of air resistance, which is directed
+            opposite to the velocity, is of magnitude <m>\left|v\right|/128</m>. (Use
+            <m>g=32</m> ft/sec<m>^2</m>)</p>
+
+            <p><alert>Question:</alert> Find how long it takes for the watermelon
+            to hit the ground.</p>
+
+            <p><alert>Solution:</alert> Since the watermelon is falling down, <m>v\lt0</m>. Hence
+            <me>
+            m\frac{dv}{dt}=R(v)-mg,
+            </me>
+            where <m>R(v)</m> is positive. Now recall that
+            <me>
+            \text{weight}=mg
+            </me>
+            then <m>m=\frac{64}{32}=2</m>.</p>
+            <p>Then <m>R(v)=\left|v\right|/128=v/128</m>, and so
+            <md>
+            <mrow>m\frac{dv}{dt}=\frac{v}{128}-mg \amp \iff2\frac{dv}{dt}=\frac{v}{128}-64</mrow>
+            <mrow>\amp \iff\frac{dv}{dt}=\frac{v}{256}-32</mrow>
+            <mrow>\amp \iff\int\frac{dv}{v-256\cdot32}=\int\frac{1}{256}dt</mrow>
+            <mrow>\amp \iff v(t)=Ce^{t/256}+256\cdot32.</mrow>
+            </md>
+            and since <m>v(0)=0</m> then
+            <me>
+            v(t)=-256\cdot32e^{t/256}+256\cdot32.
+            </me></p>
+            <p> Solving for the distance traveled <m>x(t)</m> from the ground we have
+            <me>
+            x(t)=-\left(256\right)^{2}\cdot32e^{t/256}+32\cdot\left(256\right)t+C
+            </me>
+            and letting <m>x(0)=0</m>, then
+            <me>
+            x(t)=-\left(256\right)^{2}\cdot32e^{t/256}+32\cdot\left(256\right)t+\left(256\right)^{2}\cdot32
+            </me>
+            Then, noting that since we chose the plane to be altitude 0 and the melon falls 5000ft down,
+            <md>
+            <mrow>x(t_{0})=-5000 \amp \iff t_{0}\approx17.88\text{ seconds.}</mrow>
+            </md></p>
+          </example>
+        </subsection></section>
+
+<section xml:id="ch2-6">
+  <title>Existence and Uniqueness of Solutions</title>
+  <subsection xml:id="ch2-6a">
+    <title>Existence theorems</title>
+    <p>We want to know if solutions even exist to a given ODE.</p>
+
+    <ul>
+    <li> If this models a physical phenomona and no solutions exists, then
+    there is something seriously wrong about your model.</li>
+    <li>
+    Why spend time trying to find a solution, and doing all the things
+    in previous sections if no solutions exist.</li>
+    </ul>
+
+    <p>By way of analogy, consider the polynomial equation
+    <me>
+    2x^{5}-10x+3=0.
+    </me>
+    Plugging <m>x=\pm1</m> into <m>f(x)=2x^{5}-10x+5</m> we get <m>f(1)=-5</m> and
+    <m>f(-1)=11</m>. What can we conclude about the solution set?</p>
+
+    <ul>
+    <li>We draw a continuous sketch of this graph, and show it must cross
+    the <m>x-</m>axis.</li>
+    <li> By the intermediate value theorem we know that at least one solution
+    exists, since somewhere in between <m>x=-1</m> and <m>x=1</m>
+    the function <m>f(x)</m> must have crossed the <m>x-</m> axis.</li>
+    <li> There could be more than one, we'd like to know if we should stop
+    searching for more solutions.</li>
+    <li> This is a difficult questions. There is no <q>quadratic formula</q> for 5th degree polynomials.</li>
+    </ul>
+    <p> On the other hand, no real solutions exist for <m>x^{2}+1=0</m>.</p>
+
+    <p>In the context of differential equations, there are theorems that tell us conditions for when a solution must <term>exist</term> for a linear first order ODE and when we know that solution is <term>unique</term>.</p>
+    <theorem xml:id="existencethm1">
+      <title>Linear <m>1</m>st order ODE Existence and Uniqueness Theorem</title>
+      <p>If the function <m>p</m> and <m>g</m> are continuous on an open interval <m>I=(a,b)</m>      containing the point <m>t=t_{0}</m>, then there <term>exists</term> a <term>unique</term> function <m>y=\phi(t)</m> that satisties the IVP
+      <me>
+      y^{\prime}+p(t)y=g(t),\,\,\,\,\,\,\,y(t_{0})=y_{0}
+      </me>
+      for each <m>t</m> in <m>I</m> and where <m>y_{0}</m> is an arbitrary initial value.</p>
+    </theorem>
+    <p> This theorem guarantees the existence and uniqueness of solutions
+    under the assumption of the theorem. <em>This is only for IVP, nothing to do with separate solutions to ODE's</em>
+    (which we already know there are many).</p>
+    <p><em> This theorem allows you to know the
+    domain before even solving for the solution. That is, we know where the solution is valid, which is an important consideration in modeling problems.</em></p>
+
+    <example>
+      <p><alert>Part (a):</alert> Without solving the problem, what is
+      the largest interval in which the solution of the given IVP is certain
+      to exist by the Existence and Uniqueness Theorem?
+      <me>
+      (t-1)y^{\prime}+\cos ty=\frac{e^{t}}{t-6}\,\,\,\,\,\,\,y(3)=-4
+      </me></p>
+      <p><alert>Solution:</alert> We rewrite as
+      <me>
+      y^{\prime}+\frac{\cos t}{(t-1)}y=\frac{e^{t}}{\left(t-6\right)(t-1)}
+      </me>
+      Since <m>\frac{\cos t}{(t-1)}</m> and <m>\frac{e^{t}}{\left(t-6\right)(t-1)}</m>
+      are only both continuous for every <m>t\neq1,6</m>. The intervals are:
+      <me>
+      \left(-\infty,1\right)\cup\left(1,6\right)\cup\left(6,\infty\right).
+      </me></p>
+      <p>But since the interval <m>I=(1,6)</m> is the only one that contains the
+      initial point <m>t_{0}=03</m> is in <m>I</m>. Then we know there exists a
+      unique solution <m>y=\phi(t)</m> on the interval <m>(1,6)</m>.</p>
+      <p><alert>Part (b):</alert> What if I change the initial condition
+      to
+      <me>
+      y(8)=7,
+      </me>
+      then what is the interval <m>I</m>?</p>
+      <p>
+      <alert>Solution:</alert> Then <m>I=\left(6,\infty\right)</m>.</p>
+    </example>
+    <example>
+      <p><alert>Part (a):</alert> Without solving the problem, what is
+      the largest interval in which the solution of the given IVP is certain
+      to exist by the Existence and Uniqueness Theorem?
+      <me>
+      t^{2}y^{\prime}+\frac{\ln\left(t-1\right)}{e^{t-2}}y=\frac{t-5}{\sin(t-4)}\,\,\,\,\,\,\,y(3)=\pi
+      </me></p>
+      <p><alert>Solution:</alert> We rewrite as
+      <me>
+      y^{\prime}+\frac{\ln\left(t-1\right)}{t^{2}e^{t-2}}y=\frac{t-5}{t^{2}\sin(t-4)}
+      </me>
+      \item The function <m>\frac{\ln\left|t-1\right|}{t^{2}e^{t-2}}</m> is continuous
+      when <m>t\neq0</m> and <m>t-1>0</m>. So continuous on <m>(1,\infty)</m>.</p>
+      <p> The function <m>\frac{t-5}{t^{2}\sin(t-4)}</m> is continuous when <m>t\neq0</m>
+      and when <m>t-4\neq n\pi</m> <m>\implies t\neq4+n\pi</m>. So the problem points
+      are <m>t=0</m> and <m>t=\dots,4-2\pi,4-\pi,4,4+\pi,4+2\pi</m>. Note that <m>4+\pi\approx7.14</m> hence both functions are simultaneously continuous on
+      <me>
+      \left(1,4\right)\cup\left(4,4+\pi\right)\cup\left(4+\pi,4+2\pi\right)\cup\cdots
+      </me>
+      since <m>t_{0}=3</m> falls inside <m>(1,4)</m> then the solution to this IVP
+      must have domain
+      <me>
+      I=(1,4).
+      </me></p>
+      <p> <alert>Part (b):</alert> What if I change the initial condition
+      to
+      <me>
+      y(8)=10,
+      </me>
+      then what is <m>I</m>?</p>
+      <p>Then <m>I=\left(4+\pi,4+2\pi\right)</m>.</p>
+    </example>
+
+    <p>For general first order equations, the situation is more complicated. The content of the following theorem is that if the differential equation is nice enough, we can find some small circle where the solutions exist and are unique.</p>
+
+    <theorem xml:id="existencethm2">
+      <title>General 1st Order ODE existence and uniqueness theorem</title>
+      <p>Suppose <m>f(t,y)</m> and <m>\frac{\partial f}{\partial y}</m>
+      are continuous functions in a rectangle of the form
+      <me>
+      \left\{ \left(t,y\right)\mid a\lt t\lt b,c \lt y \lt d\right\}
+      </me>
+      in the <m>ty-</m>plane. If <m>(t_{0},y_{0})</m> is a point inside the rectangle.
+      then there exists a unique <m>\epsilon>0</m> and a <term>unique function</term>
+      <m>y(t)=\phi(t)</m> defined for <m>\left(t_{0}-\epsilon,t_{0}+\epsilon\right)</m>
+      that solves the initial value problem
+      <me>
+      \frac{dy}{dt}=f(t,y),\qquad y(t_{0})=y_{0}.
+      </me></p>
+    </theorem>
+
+    <p><alert>Warning:</alert> Unlike <xref ref="existencethm1"/>, the statement of <xref ref="existencethm2"/> does not
+    tell you what domain the solution will be valid for. In this case,
+    you really do have to explicitly find the solution to figure out the domain
+    of the function.</p>
+    <corollary>
+    <p>Moreover assuming the same conditions as Theorem 1, if <m>(t_{0},y_{0})</m>
+    is a point in this rectangle and if <m>y_{1}(t)</m> and <m>y_{2}(t)</m> are
+    two functions that solve the IVP
+    <me>
+    \frac{dy}{dt}=f(t,y),\quad y(t_{0})=y_{0},
+    </me>
+    for all <m>t\in\left(t_{0}-\epsilon,t_{0}+\epsilon\right)</m>, then
+    <me>
+    y_{1}(t)=y_{2}(t)
+    </me>
+    for <m>t\in\left(t_{0}-\epsilon,t_{0}+\epsilon\right)</m>.</p>
+    </corollary>
+
+    <p><alert>Restatement of Uniqueness Theorem:</alert> If two solutions
+    <m>y_{1},y_{2}</m> to an ODE that satisfies the condition of the uniqueness
+    theorem, then if they are in the same place at the same time, then
+    they must be the same function! That is, the uniqueness condition says that if <m>y_{1},y_{2}</m>
+    are two solutions to some ODE and <m>y_{1}</m> and <m>y_{2}</m> are equal
+    at some point <m>t_{0}</m>, then <m>y_{1}(t)=y_{2}(t)</m> for all <m>t</m> in
+    some interval. <em>It's either all or nothing.</em></p>
+
+    <example>
+      <p>Consider
+      <me>
+      \frac{dy}{dt}=(y-1)^{1/2}\qquad y(0)=1.
+      </me></p>
+
+      <p><alert>Part (a):</alert> Is this a linear or nonlinear equation? Can you
+      use <xref ref="existencethm1"/>?</p>
+
+      <p><alert>Solution:</alert>
+      This is a nonlinear equation, due to the expression <m>(y-1)^{1/2}</m>.
+      Since <xref ref="existencethm1"/> only applies to linear equations, we can't use it for this IVP.</p>
+
+      <p><alert>Part (b):</alert> Using <xref ref="existencethm2"/> (the general theorem),
+      can you guarantee that there is a unique solution to this IVP? Why?</p>
+      <p><alert>Solution:</alert>
+       To apply <xref ref="existencethm2"/>, we need the right hand side equation
+      <me>
+      f(t,y)=(y-1)^{1/2}
+      </me>
+      to be continuous and we need
+      <me>
+      \frac{\partial f}{\partial y}=\frac{1}{2\sqrt{y-1}}
+      </me>
+      to be continous around the point <m>(t_{0},y_{0})=(0,1)</m>. But since
+      <m>\frac{1}{2\sqrt{y-1}}</m> is not continuous when <m>y_{0}=1</m>, then we
+      cannot guarantee uniqueness of the solution. (That is, this is a poor model at this point.)</p>
+
+      <p><alert>Moral:</alert> There could be multiple solutions to this
+      IVP. If a solution exists, it may not be unique!</p>
+    </example>
+
+    <p>In summary:
+
+    <ul>
+    <li><xref ref="existencethm1"/>: Allows to check if there exists a unique solution for Linear
+    Equations. Also tells us what the possible domain is.</li>
+    <li> <xref ref="existencethm2"/>: Allows to check if there exists a unique solution for general
+    first order equations. Does not tell us about possible domains.
+    </li></ul></p>
+  </subsection>
+  <subsection xml:id="ch2-6b">
+    <title>More examples. Domains of solutions.</title>
+
+    <p>A <term>partial derivative</term> is a derivative of a function in more than one variable with respect to just one of the variables, considering the other variables as constants. For a function <m>f = f(t,y)</m>, we denote the partial derivative with respect to <m>t</m> by <m>\frac{\partial}{\partial t} f</m> or by the compact notation <m>f_t</m>. For example, take the partials
+    of <m>y^{2}+t^{2},yt</m> and <m>y^{2}t</m>.</p>
+
+    <p><me>
+      \frac{\partial}{\partial y} [y^2 + t^2] = 2y + 0 = 2y
+    </me>
+    and
+    <me>
+      \frac{\partial}{\partial t} [y^2 + t^2] = 0 + 2t = 2t.
+    </me>
+    For the second function,
+    <me>
+      \frac{\partial}{\partial y} y^2 t = 2yt
+    </me>
+    and
+    <me>
+      \frac{\partial}{\partial t} y^2 t = y^2.
+    </me></p>
+
+    <p>Notice that <xref ref="existencethm2"/> only gives you a function <m>y(t)</m> defined
+    for some interval <m>\left(t_{0}-\epsilon,t_{0}+\epsilon\right)</m>. We need to keep in mind that the number <m>\epsilon>0</m> may be super small, so the solution may not be valid for big <m>t</m>. So this affects how we can apply this theorem
+    real world solutions.</p>
+
+    <example>
+      <title>Finding the domain of a solution</title>
+      <p>Consider
+      <me>
+      \frac{dy}{dt}=1+y^{2}\qquad y(0)=0.
+      </me></p>
+
+      <p><alert>Part (a):</alert> Find where in the <m>t-y</m> plane the hypothesis of <xref ref="existencethm2"/> is satisfied:</p>
+
+      <p><alert>Solution:</alert> Note that <m>f(t,y)=1+y^{2}</m> and <m>\frac{\partial f}{\partial y}=2y</m>
+      are always continuous, thus satisfied in all of <m>\mathbb{R}^{2}</m>.</p>
+
+      <p><alert>Part (b):</alert> Find the actual interval in which the IVP exists
+      uniquely. We <alert>must</alert> keep in mind that the solution could blow up at an asymptote.</p>
+      <p>Solve using separable equations and
+      get <m>y(t)=\tan(t+c)</m> and with initial condition you get <m>y(t)=\tan(t)</m>.
+      But this solution is only valid for <m>t\in\left(-\frac{\pi}{2},\frac{\pi}{2}\right)</m>.</p>
+      <sage>
+        <input>
+          t,y = var('t,y')
+          g = Graphics()
+          g += plot_slope_field(1 + y^2, (t,-5,5), (y,-5,5))
+          g += plot(tan(t), (t,-5,5), ymax=5, ymin=-5)
+          g.show()
+        </input>
+      </sage>
+      <p><alert>Moral</alert>: Unlike <xref ref="existencethm1"/>, the conclusion of <xref ref="existencethm2"/> does not say that the solution needs to exist in the entire rectangle, it just says that there
+      exists some (possibly mysterious) interval in which it exists.</p>
+    </example>
+    <example>
+      <title>Lack of uniqueness</title>
+
+      <p>Consider the problem <m>\frac{dy}{dt}=3y^{2/3}</m> and <m>y(0)=0</m>.</p>
+
+      <p><alert>Question 1:</alert> Show that <m>y_{1}(t)=0</m> and <m>y_{2}(t)=t^{3}</m>
+      are two solutions to this IVP. Why does this not contradict the uniqueness assertion of <xref ref="existencethm2"/>?</p>
+
+      <p><alert>Solution:</alert> We know the equilibrium <m>y_{1}(t)=0</m>
+      which solves the IVP is one solution. Use separation of variables
+      to get <m>y(t)=(t+c)^{3}</m> so that <m>y_{2}(t)=t^{3}</m>.</p>
+      <p>That is, the solution through <m>(0,0)</m> is <alert>NOT UNIQUE!</alert></p>
+      <p>This doesn't contradict <xref ref="existencethm2"/> because we can compute <m>\frac{\partial f}{\partial y}=2y^{-\frac{1}{3}}=\frac{2}{y^{1/3}}</m>.
+      This is not continuous at <m>(t_{0},y_{0})=(0,0)</m>, and so the theorem does not apply.</p>
+
+      <p><alert>Question 2:</alert> Consider the problem <m>\frac{dy}{dt}=3y^{2/3}</m> and
+      <m>y(1)=1</m>. Find where in the <m>t-y</m> plane solutions exist uniquely.</p>
+
+      <p><alert>Solution:</alert> Solutions exist uniquely in any rectangle
+      not containing <m>(0,0)</m>.</p>
+    </example>
+
+
+    <example>
+      <title>Applications of uniqueness: comparing solutions</title>
+
+      <p> Consider the equation <m>\frac{dy}{dt}=\frac{(1+t)^{2}}{(1+y)^{2}}</m>.</p>
+
+      <p>We can easily check that <m>y_{1}(t)=t</m> is a solution. Now say that <m>y_{2}(t)</m> is the unique solution to the IVP
+      <me>
+      \frac{dy}{dt}=\frac{(1+t)^{2}}{(1+y)^{2}}\quad y(0)=-.1.
+      </me></p>
+
+      <p>It is very hard to solve this equation. But we can still say something about the behavior of <m>y_2</m>. In particular, <m>y_{2}(t)</m> can't cross the other solution <m>y_{1}(t)=t</m>. Then we can say that <me>y_{2}(t) \lt t</me> for all <m>t</m>, which is a useful and striking bound on the behavior of <m>y_2</m>.</p>
+      <sage>
+        <input>
+          t,y = var('t,y')
+          g = Graphics()
+          g += plot_slope_field((1+t)^2/(1+y)^2, (t,-5,5), (y,-5,5))
+          g += plot(t, (t,-5,5), ymin=-5, ymax = 5)
+          Y =function('Y')(t)
+          ode = diff(Y,t) == (1+t)^2/(1+Y)^2
+          g += desolve_rk4(ode, Y, ivar=t, ics=[0,-.1], step=.1, end_points=[-5,5], output = 'plot', xmin=-5, xmax = 5, color='red')
+          g.show()
+        </input>
+      </sage>
+    </example>
+  </subsection>
+    <subsection xml:id="ch2-6c">
+      <title>Summary</title>
+
+      <ul>
+      <li>We must check continuity conditions to have uniqueness and existence.</li>
+      <li> Uniqueness implies that solutions can't cross each other.</li>
+      <li> Specifically, uniqueness implies that solutions can't cross equilibrium solutions.</li>
+      <li> We can use uniqueness to say that solutions are between other solutions, which can give strong qualitative understanding.</li>
+      </ul>
+  </subsection>
+  </section>
+
+  <section xml:id="ch2-7">
+    <title>Autonomous Equations and Population dynamics</title>
+    <introduction>
+      <definition>
+        <p>An <term>autonomous differential equation</term> is of the form
+        <me>
+        \frac{dy}{dt}=f(y).
+        </me></p>
+      </definition>
+
+
+      <p>We will only deal with autonomous equations in this section. Autonomous equations are preferable for some physical models are autonomous (self-govering). For example a compressed spring has
+      the same force at 4:00am and at 10:00pm.</p>
+    </introduction>
+
+    <subsection xml:id="ch2-7a">
+      <title>Examples of autonomous systems</title>
+      <subsubsection>
+      <title>Population growth/decay</title>
+
+      <p>Assumption: The rate of growth of the population is proportional to the size of the population.
+
+      Thus if <m>k</m> is the proportionality constant (growth rate) we have
+      <me>
+      \frac{dP}{dt}=kP.
+      </me>
+      But here <m>P</m> is the dependent variable, <m>t</m> is time, which is the independent variable.
+      Thus <m>P=P(t)</m> is actually a function! This is a ODE. We can also
+      write it <m>P^{\prime}=kP</m>, or the physics way, <m>\dot{P}=kP</m>.</p></subsubsection>
+      <subsubsection>
+        <title>Logistic Growth:</title>
+      <p>Assumption: If population is small, then rate of growth is proportional to its
+      size. If population is too large to be supported by its resources and environment, then the population will decrease, that <m>\frac{dP}{dt} \lt 0</m>.
+      We can restate the assumptions as
+      <ol>
+      <li> <m>\frac{dP}{dt}\approx kP</m> if <m>P</m> is small.</li>
+      <li>If <m>P>N</m> then <m>\frac{dP}{dt} \lt 0</m>.</li>
+      </ol></p>
+      <p> In this case, we have the <term>logistic growth model</term>
+      <me>
+      \frac{dP}{dt}=k\left(1-\frac{P}{N}\right)P
+      </me></p>
+    </subsubsection></subsection>
+
+    <subsection>
+      <title>Phase lines</title>
+
+      <p>Suppose <m>\frac{dy}{dt}=y(1-y)</m>, which has the slope field
+      <sage>
+        <input>
+          t, y = var('t,y')
+          plot_slope_field(y*(1-y), (t,-3,3), (y, -3, 3))
+        </input>
+      </sage>
+      </p>
+      <p> Since the slopes are the same at each horizontal direction we can compress this information to something <em>easier</em> to draw, the <term>phase line</term> for the autonomous equation.</p>
+
+      <p>Rope Metaphor: We can reduce the entire 2d picture into a <q>rope</q> that the function climbs up and down.
+      <ol>
+      <li>Start with IVP <m>\frac{dy}{dt}=f(y)</m> and <m>y(0)=y_{0}</m>.</li>
+      <li>Draw a rope at start at <m>y_{0}</m>.</li>
+      <li> At each <m>y</m> write <m>f(y)</m> on this rope to indicate the slope at that
+      <m>y</m>.</li>
+      <li>If <m>f(y)=0</m> stay put. If <m>f(y)>0</m> then climb
+      up the rope, if <m>f(y)\lt 0</m> then climb down the rope.</li>
+      <li> Bigger values for <m>f(y)</m> means climb faster as <m>t</m> moves through
+      time.</li>
+      <li> If you let <m>y(t)</m> your location on the rope, then <m>y(t)</m> is a solution
+      to the IVP.</li>
+      </ol>
+      </p>
+
+
+
+      <p>The rope in <xref ref="fig-phase1"/> is the Phase line, but instead of numbers we use arrows
+      to represent the slope.</p>
+
+      <p>The phase line for this equation has two points representing the equilibrium solutions, and arrows indicating the sign of the slopes given by <m>f(y)</m> between the equilibira.</p>
+
+      <figure xml:id="fig-phase1">
+        <caption>Phase line for <m>\frac{dy}{dt} = y(1-y)</m></caption>
+        <image source="images/1.6-Phase1.png" width="30%"/>
+      </figure>
+
+      <p> For example, the phase line shows that as <m>y</m> is close to <m>y=1</m> from below,
+      then the function keeps increasing, and thus must approach asymptotically
+      to the equilibrium solution.</p>
+      <p>A sketch of some possible solutions looks like:
+      <figure xml:id="fig-sketch1">
+        <caption>Solution sketch for <m>\frac{dy}{dt} = y(1-y)</m></caption>
+        <image source="images/1.6-Sketch1.png" width="40%"/>
+      </figure>
+    </p>
+
+    <p>From our first sketch we can always notice the following things about
+    sketching curves:</p>
+    <ol>
+      <li> If <m>f(y(0))=0</m> then <m>y(0)</m> is an equilibirum solution and <m>y(t)=y(0)</m>
+      for all <m>t</m>.</li>
+      <li> If <m>f(y(0))>0</m> then <m>y(t)</m> is <em>increasing</em> for all <m>t</m> and
+      either <m>y(y)\to\infty</m> as <m>t\to\infty</m> or <m>y(t)</m> tends to first
+      equilibirum point <em>larger</em> than <m>y(0).</m></li>
+      <li> If <m>f(y(0))
+      \lt 0</m> then then <m>y(t)</m> is <em>decreasing</em> for all <m>t</m>
+      and either <m>y(y)\to-\infty</m> as <m>t\to\infty</m> or <m>y(t)</m> tends to
+      first equilibirum point <em>smaller</em> than <m>y(0).</m></li>
+    </ol>
+    <example>
+      <title>Curve Sketching</title>
+
+      <p>We let
+      <me>
+      \frac{dy}{dt}=(2-y)\sin y.
+      </me></p>
+      <ol>
+        <li>Find equilibrium points <m>y=2</m> and <m>y=n\pi</m> (so infinite amount)</li>
+        <li> Plug points and get that the phase line is :
+        <image source="images/1.6-Phase2.png" width="30%"/>
+        </li>
+        <li>Talk about what happens when things are getting close to the equilibrium
+        solutions.</li>
+        <li> Sketch curves:
+          <image source="images/1.6-Sketch2.png"/>
+        </li>
+      </ol>
+    </example>
+
+    <example>
+      <title>We don't know how quickly things jump</title>
+
+      <p>Show that the graph <m>\frac{dP}{dt}=(1-\frac{P}{20})^{3}(\frac{P}{5}-1)P^{7}</m>
+      has Phase line <m>[\ominus20\oplus5\ominus0\oplus]</m><m>\begin{array}{c}
+      \vee\\
+      20\\
+      \wedge\\
+      5\\
+      \vee\\
+      0\\
+      \wedge
+      \end{array}</m> but <m>5</m> jumps to <m>20</m> very quickly (like <m>0.00001</m> quick.</p>
+      <sage>
+        <input>
+          t,y=var('t,y')
+          plot_slope_field((1 - y/20)^3 * (y/5 - 1) *y^7, (t,-5,5), (y,0, 20))
+        </input>
+      </sage>
+    </example>
+
+    <example>
+      <title>Not all solutions exist for all <m>t</m></title>
+
+      <p>Consider the equation <m>\frac{dy}{dt}=(1+y)^{2}</m>.</p>
+
+      <p> The phase line is <m>[\ominus-1\oplus]</m> <m>\begin{array}{c}
+      \wedge\\
+      -1\\
+      \wedge
+      \end{array}</m> Sketch a curve.</p>
+      <p> These increasing/decreasing behaviors could be asymptotes. (Phase
+      LINE DOES NOT TELL US THIS INFO)</p>
+      <p> ACTUAL SOL: <m>y(t)=-1-\frac{1}{t+c}</m>. Asymptote at <m>t=c</m>.</p>
+      <p>If <m>y(0)>-1</m> then draw possible curve.</p>
+      <sage>
+        <input>
+          t,y=var('t,y')
+          g = Graphics()
+          g+= plot_slope_field((1+y)^2, (t,-5,5),(y,-5,5))
+          g+= plot(-1-1/(t + 2), (t,-5,5), ymax = 5, ymin = -5)
+          g.show()
+        </input>
+      </sage>
+
+    </example>
+
+    <example>
+      <title>Cusps</title>
+
+      <p> Consider the equation <m>\frac{dy}{dt}=\frac{1}{1-y}</m>.</p>
+
+      <p> The phase line would be:
+        <image source="images/1.6-Phase3.png"/>
+
+      We can sketch <q>cusp-like</q> curves. Once a curve has fallen into a hole once it reaches the dotted line.</p>
+      <sage>
+        <input>
+          t,y=var('t,y')
+          g = Graphics()
+          g+= plot_slope_field(1/(1-y), (t, -5, 5), (y, -5, 5))
+          g+= plot(1 + sqrt(-2*t + 4), (t, -5, 2))
+          g+= plot(1 - sqrt(-2*t -2), (t, -5, -1), color="red")
+          g.show()
+        </input>
+      </sage>
+    </example>
+
+    <p><alert>Role of Equilibrium points:</alert></p>
+
+
+    <p>The solutions to autonomous equations either
+
+    <ol>
+      <li> Tend to <m>\pm\infty</m></li>
+      <li> Tend to the equilibrium solutions.</li>
+      <li> Stay consistently increasing/decreasing within equilibrium solutions.</li>
+    </ol></p>
+    </subsection>
+
+
+    <subsection>
+      <title>Classification of Equilibrium Solutions</title>
+
+      <p>Recall what <term>asymptotic</term> means: say that <m>f</m> is asymptotic to the line <m>y = c</m> if
+      <me>
+        \lim_{t \to \infty} f(t) = c.
+      </me></p>
+
+      <p>We can classify the equilibrium solutions to an autonomous equation by looking at the behavior of <q>nearby</q> solutions. Solutions fall into one of three categories.</p>
+      <ol>
+        <li><p><alert>Asymptotically stable (sink)</alert></p>
+        <ol>
+          <li><m>y_{0}</m> is an <term>asymptotically stable</term> equilibrium if any solution with
+          initial condition sufficiently close to <m>y_{0}</m> is asymptotic to
+          <m>y_{0}</m> as <m>t</m> increases.</li>
+          <li>Phase Line looks like this: <m>\left[\ominus y_{0}\oplus\right]</m> <m>\begin{array}{c}
+          \vee\\
+          y_{0}\\
+          \wedge
+          \end{array}</m></li>
+          <li>Graph looks like: (reminds you that it is falling into something)</li>
+          <li>In a graph of <m>f(y)</m> vs. <m>y</m>, we have <m>f^{\prime}(y_{0}) \lt 0</m>.</li>
+        </ol>
+        </li>
+        <li>
+          <p><alert>Asymptotically unstable (source):</alert></p>
+
+          <ol>
+            <li> <m>y_{0}</m> is an <term>asymptotically unstable</term> equilibrium if any solution with
+            initial condition sufficiently close to <m>y_{0}</m> tends torward <m>y_{0}</m>
+            as <m>t</m> decreases.</li>
+            <li> The phase line looks like this: <m>\left[\oplus y_{0}\ominus\right]</m> <m>\begin{array}{c}
+            \wedge\\
+            y_{0}\\
+            \vee
+            \end{array}</m></li>
+            <li> Graph looks like: ( reminds you that it is coming from one place)</li>
+            <li> In <m>f(y)</m> vs. <m>y</m> graph, we have <m>f^{\prime}(y_{0})>0</m>.</li>
+          </ol>
+        </li>
+        <li>
+          <p><alert>Semistable:</alert></p>
+
+          <ol>
+            <li> <m>y_{0}</m> is an <alert>asymptotically semistable</alert> equilibrium if it doesn't fit the category
+            of a sink or source
+            \item Phase Line looks like this: <m>\left[\oplus y_{0}\oplus\right]</m> <m>\begin{array}{c}
+            \wedge\\
+            y_{0}\\
+            \wedge
+            \end{array}</m>or <m>\left[\ominus y_{0}\ominus\right]</m> <m>\begin{array}{c}
+            \vee\\
+            y_{0}\\
+            \vee
+            \end{array}</m></li>
+            <li> Graph looks like:
+            </li>
+          </ol>
+        </li>
+      </ol>
+
+      <example><title>Drawing solution from the <m>f(y)</m>
+      vs. <m>y</m> graph)</title>
+
+      <p>Consider the equation <m>\frac{dy}{dt}=y^{2}+y-6=(y+3)(y-2)</m>.</p>
+
+      <p>The phase line is <m>\left[\oplus2\ominus-3\oplus\right]</m> <m>\begin{array}{c}
+      \wedge\\
+      2\\
+      \vee\\
+      -3\\
+      \wedge
+      \end{array}</m></p>
+      <p>How can these be classified?</p>
+      </example>
+      <example>
+        <title>(Using <m>f(y)</m>)</title>
+
+        <p>We can figure out classification directly from the graph of <m>f(y)</m>.
+        <image source="images/1.6-Classif-1.png"/>
+        Here, node means semistable, sink means stable, and source means unstable.</p>
+      </example>
+
+      <example>
+      <p>Suppose we only know the graph of <m>f(y)</m>
+      not the actual formula.
+
+      <image source="images/1.6-f(y).png"/>
+
+      <p>Then draw phase line : <m>\left[\ominus c\oplus b\ominus a\oplus\right]</m>
+      <m>\begin{array}{c}
+      \vee\\
+      c\\
+      \wedge\\
+      b\\
+      \vee\\
+      a\\
+      \wedge
+      \end{array}</m>
+      Now sketch some solution curves.</p>
+      </p>
+    </example>
+  </subsection>
+  </section>
+
+  <section xml:id="ch2-8">
+    <title>Exact equations</title>
+    <introduction>
+      <p>This section introduces a family of equations that arise naturally in physical contexts. For example, suppose that we had a detailed temperature map of a hot metal sheet. Can we predict how the heat will flow? The answer to this question is provided by the gradient, studied in multi-variable calculus. But what about the opposite scenario? Given a heat flow map, can we reconstruct the original temperature distribution? To answer this question, we'll consider what are known as <term>exact equations</term>. First, we recall some multivariable calculus.</p>
+    </introduction>
+    <subsection>
+      <title>Partial derivatives and the gradient</title>
+      <p>Suppose that <m>z = f(x,y)</m> is a function of two independent variables. Just as in one variable, we want to understand how the graph of <m>f</m> changes at a point, but now we have lots of different directions to look at. To compute the rate of change in the <m>x</m> and <m>y</m> directions, we can use the <term>partial derivative</term> in those directions. When we take a partial derivative with respect to a variable, we treat all other variables as constant so that we're isolating our view to change in that specific direction.</p>
+      <definition>
+      <p>Let <m>z = f(x,y)</m>. The partial derivative of <m>f</m> with respect to <m>x</m> is
+      <me>
+        \frac{\partial f}{\partial x} = \lim_{h \to 0} \frac{f(x + h, y) - f(x,y)}{h}.
+      </me>
+      The partial derivative of <m>f</m> with respect to <m>y</m> is
+      <me>
+        \frac{\partial f}{\partial y} = \lim_{h\to 0}\frac{f(x, y+h) - f(x,y)}{h}.
+      </me></p>
+     </definition>
+      <p>In practice, we can use the single variable differentiation rules, treating the other variable like it is a fixed number. For example,
+      <me>
+        \frac{\partial}{\partial x} x^2 + x \cos y + y^2 = 2x + \cos y + 0.
+      </me></p>
+      <p>Frequently, when given a function <m>z = f(x,y)</m>, we wish to know the direction of greatest slope or rate of change. For example, if <m>z = f(x,y)</m> represents the height of a mountain, the direction that water flows downhill will be in the direction of sleepest descent. We can use the partial derivatives to define a <term>vector field</term> that at each point <m>(x,y)</m> gives the direction of greatest slope of the graph of <m>f</m>.</p>
+      <definition>
+        <p>The <term>gradient</term> of <m>z = f(x,y)</m> is the vector-valued function
+        <me>
+          \nabla f = \langle \frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}\rangle.
+        </me>
+        This is written shorthand as <m>\nabla f = \langle f_x, f_y\rangle</m>.</p>
+      </definition>
+      <p>You should think of the gradient in this context as a slope field - at every point in the <m>x-y</m> plane, the gradient attaches a vector that indicates the direction of greatest slope.</p>
+      <p>If we think of <m>z = f(x,y)</m> as a voltage map or a temperature map or a height map, a standard visualization is to use curves to represent points that have equal heights. Such curves are called <term>isotherms</term> or <term>equipotential lines</term> or altitude lines.</p>
+      <example><title>Equipotentials and surfaces</title>
+        <p>Let <m>f(x, y) = -x^2 + 3y - y^2</m>. The following code will plot some equipotentials of <m>f</m>. In particular, we will plot the curves corresponding to <m>z = 0, 1, 2</m>.</p>
+        <sage>
+          <input>
+            x,y = var('x,y')
+            g = Graphics()
+            g+= implicit_plot(-x^2  + 3*y - y^2, (x, -2,2), (y, 0,3), color = "red" )
+            g+=implicit_plot(-x^2  + 3*y - y^2 - 1, (x, -2,2), (y, 0,3), color="yellow" )
+            g+= implicit_plot(-x^2  + 3*y - y^2-2, (x, -2,2), (y, 0,3), color="green" )
+            g.show()
+          </input>
+        </sage>
+        Now compare to the surface itself:
+        <sage>
+          <input>
+            var('x y z')
+            f(x, y) = -x^2  + 3*y - y^2
+            P = implicit_plot3d(f-z, (x ,-1, 3), (y, 0, 3), (z, -2, 3))
+            Q = plot3d(0, (-1,3), (0,3), color="red", opacity=".4")
+            R = plot3d(1, (-1,3), (0,3), color="yellow", opacity = ".4")
+            S = plot3d(2, (-1,3), (0,3), color ="green", opacity = ".4")
+            P + Q +R +S
+          </input>
+        </sage>
+      </example>
+
+      <example><title>Relationship between equipotentials and gradients</title>
+      <p>One of the most important geometric facts about the relationship between the <term>potential function</term> <m>f</m> and the gradient field <m>\nabla f</m> is that <em>equipotentials are perpendicular to gradients.</em> Using our previous example:</p>
+
+        <sage>
+          <input>
+            x,y = var('x,y')
+            g = Graphics()
+            g+= implicit_plot(-x^2  + 3*y - y^2, (x, -2,2), (y, 0,3), color = "red" )
+            g+=implicit_plot(-x^2  + 3*y - y^2 - 1, (x, -2,2), (y, 0,3), color="yellow" )
+            g+= implicit_plot(-x^2  + 3*y - y^2-2, (x, -2,2), (y, 0,3), color="green" )
+            g+= plot_vector_field((-2*x, 3 - 2*y), (-2,2), (0,3))
+            g.show()
+          </input>
+        </sage>
+      </example>
+      <p>In summary, given a <term>potential function</term> <m>z = f(x,y)</m>,
+      <ol>
+        <li> We can find the equipotential lines (lines of constant height)
+          <me>
+          C = f(x,y);
+        </me>
+        </li>
+        <li> we can find the gradient field
+          <me>
+            \nabla f = \langle f_x, f_y \rangle;
+          </me>
+        </li>
+        <li> and we know that at a given point, the equipotential and the gradient line are perpendicular.</li></ol>
+      </p>
+  </subsection>
+  <subsection>
+    <title>From gradient field to potential function</title>
+    <p>How do we know when we can go the other direction? That is, as we asked at the top of the section, when given a vector field <m>F(x,y) = (M(x,y), N(x,y))</m>, how can we recover a potential function <m>f</m>? Essentially, this is asking us to find a function so that <m>\nabla f = F</m> (the <q>antiderivative of <m>F</m> is <m>f</m></q>). Like integration problems, this may not always exist.</p>
+    <definition>
+      <p>A vector field <m>F</m> is called <term>conservative</term> if there exists a potential function <m>f</m> so that <m>\nabla f = F</m>.</p>
+    </definition>
+    <p>One marker of nice functions in two variables is the conclusion of <term>Clairaut's theorem</term>, which states that the <term>mixed partial derivatives</term> of <m>f</m> are equal - that is, for a nice <m>f</m>,
+    <me>
+      \frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 f}{\partial y \partial x}.
+    </me>
+    Suppose for the moment that a vector field <me>F = \langle M, N \rangle = \nabla f = \langle f_x, f_y \rangle</me> and that the derivatives <m>f_{xx}, f_{yy}, f_{xy}, f_{yx}</m> all exist and are continuous. Clairaut's theorem will force
+    <me>
+      \frac{\partial M}{\partial y} = f_{xy} = f_{yx} = \frac{\partial N}{\partial x}
+      </me>. It turns out to be the case that this condition, <m>M_y = N_x</m>, is not only necessary but sufficient on nice enough domains like rectangles. </p>
+
+      <theorem>
+        <p>Let <m>F = \langle M(x,y), N(x,y) \rangle</m> be a vector field so that the partial derivatives of <m>M</m> and <m>N</m> exist and are continuous on a rectangle <m>a \leq x \leq b, c \leq y \leq d</m>. Then there exists a potential function <m>f</m> so that <m>\nabla f = F</m> if
+        <me>
+        M_y = N_x.
+        </me>
+      </p>
+      </theorem>
+  </subsection>
+  <subsection>
+    <title>Differential equations and equipotentials</title>
+    <p>The <term>total derivative</term> of a function <m>z = f(x,y)</m> is given by the expression
+    <me>
+      df = f_x \, dx + f_y \, dy.
+    </me>
+    Notice that the functions that appear as components in <m>df</m> are the components of the gradient <m>\nabla f</m>. If we were given the equation of an equipotential for <m>f</m>, say
+    <me>
+      f(x, y) = C,
+    </me>
+    then the total derivative of the equation is
+    <md>
+      <mrow>\amp df = dC </mrow>
+      <mrow>\Rightarrow \amp f_x \, dx + f_y \, dy = 0</mrow>
+      <mrow>\Rightarrow \amp M \, dx + N \, dy = 0.</mrow>.
+    </md>
+    If we have further that <m>f</m> has continuous second partial derivatives on a rectangle <m>a \leq x \leq b, c \leq y \leq d</m>, then Clairaut's theorem gives
+    <me>
+      M_y = f_{xy} = f_{yx} = N_x.
+    </me>
+    </p>
+    <p>The upshot of all of this is that we can view an equation of the form
+      <me>
+        M \, dx + N \, dy = 0
+      </me>
+    as a differential equation that seeks to find the equipotentials <m>f(x,y) = C</m> for some unknown function <m>f</m> with <m>\nabla f = \langle M, N \rangle</m>. </p>
+  </subsection>
+  <subsection>
+    <title>Exact equations</title>
+      <p>Consider an equation
+      <m>
+      M(x,y)dx+N(x,y)dy=0.
+      </m>
+      We say this equation is <term>exact</term> if
+      <m>
+      \frac{\partial M}{\partial y}=\frac{\partial N}{\partial x};
+      </m>
+      that is, as discussed in the previous section, the equation represents a differential equation that seeks to find equipotentials of a function <m>f</m> so that <m>\nabla f = \langle M, N \rangle</m>.</p>
+      <example> Suppose
+      <m>
+      \frac{dy}{dx}=\frac{-2x-y^{2}}{2xy}.
+      </m>
+      We can rewrite this as
+      <m>
+      \left(2x+y^{2}\right)dx+2xydy=0
+      </m>
+      then <m>M=2x+y^{2}</m> and <m>N=2xy</m>. Computing the partial derivatives,
+      <md>
+      <mrow>M_{y} \amp =2y</mrow>
+      <mrow>N_{x} \amp =2y</mrow>
+      </md>
+      are <m>M_{y}=N_{x}</m>. Thus this equation is exact.
+      </example>
+      <theorem>
+      <p>If <m>M,N,M_{y},N_{x}</m> are all continuous on a rectangle <m>[a,b]\times[c,d]</m> and <me>M\,dx+N\,dy=0</me> is exact
+      then there exists a function <m>\psi</m> such that
+      <me>
+      \psi_{x}(x,y)=M(x,y)\text{ and }\psi_{y}(x,y)=N(x,y)
+      </me>
+      and such that
+      <m>
+      \psi(x,y)=C
+      </m>
+       gives an implicit solution to the ODE.
+      </p></theorem>
+
+      <proof>
+      If <m>\psi</m> satisfies <m>\psi_{x}=M</m> and <m>\psi_{y}=N</m>
+      such that <m>\psi(x,y)=C</m> then <m>\psi</m> defines a function <m>y=\phi(x)</m> implicitly.
+      Then we show <m>\phi(x)</m> solves the ODE. Note that
+      <m>
+      0=M(x,y)+N(x,y)y^{\prime}=\frac{\partial\psi}{\partial x}+\frac{\partial\psi}{\partial y}\frac{dy}{dx}=\frac{d}{dx}\left(\psi\left(x,\phi(x)\right)\right)
+      </m>
+      by the multivariable chain rule. Thus if we integrate both sides
+      <md>
+      <mrow>\amp 0 =\frac{d}{dx}\left(\psi\left(x,\phi(x)\right)\right) </mrow><mrow> \iff\amp \int0dx=\int\frac{d}{dx}\left(\psi\left(x,\phi(x)\right)\right)dx</mrow>
+       <mrow> \iff \amp c=\psi\left(x,\phi(x)\right),</mrow>
+      </md>
+      as needed.
+      </proof>
+      <p><alert>Solving exact equations:</alert> If <m>Mdx+Ndy=0</m> is exact
+      then
+      <md>
+      <mrow>\amp \psi_{x}=M(x,y) \amp \implies \amp \psi=\int M(x,y)dx+h(y)</mrow>
+       <mrow>\amp \amp \amp \Downarrow</mrow>
+      <mrow>\amp \psi_{y}=N(x,y) \amp \amp \psi_{y}=\frac{\partial}{\partial y}\left(\int M(x,y)dx\right)+h^{\prime}(y)</mrow>
+      </md>
+      and then solve for <m>h(y)</m>.</p>
+
+      <p><alert>Another way:</alert> One may also solve it by starting
+      with the second equation:
+      <md>
+      <mrow>\amp \psi_{x}=M(x,y) \amp \amp \psi_{x}=\frac{\partial}{\partial x}\left(\int N(x,y)dx\right)+g^{\prime}(x)</mrow>
+      <mrow> \amp \amp \amp \Uparrow</mrow>
+      <mrow>\amp\psi_{y}=N(x,y)\implies \amp \amp\psi=\int N(x,y)dy+g(x).</mrow>
+      </md>
+      </p>
+      <example>
+      <p> We know
+      <m>
+      \left(2x+y^{2}\right)dx+2xydy=0
+      </m>
+      is exact.
+      <ol>
+      <li> Show it's exact(done earlier) and follow the arrows until you close the diagram:
+      <md>
+      <mrow>\text{Start here:} \amp \psi_{x}=2x+y^{2} \amp \implies \amp \psi=\int\left(2x+y^{2}\right)dx+h(y)</mrow>
+       <mrow>\amp  \amp  \amp \boldsymbol{\psi=x^{2}+y^{2}x+h(y)}</mrow>
+       <mrow>\amp  \amp  \amp \Downarrow</mrow>
+       <mrow>\amp \psi_{y}=2xy \amp \Longleftarrow \amp \psi_{y}=2xy+h^{\prime}(y)</mrow>
+      </md>
+      </li>
+      <li>Solve for <m>h(y)</m> by noting that since
+      <md>
+      <mrow>2xy=2xy+h^{\prime}(y)\implies \amp h^{\prime}(y)=0</mrow>
+      <mrow>\implies \amp h(y)=C.</mrow>
+      </md></li>
+      <li> Put it all together and get
+      <m>
+      \psi(x,y)=x^{2}+y^{2}x+C
+      </m>
+      and hence the <em>implicit solution</em> is
+      <m>
+      x^{2}+y^{2}x=C.
+      </m>
+      </li></ol></p>
+    </example>
+
+    <example><p>Solve
+      <m>
+      \left(y\cos x+2xe^{y}\right)+\left(\sin x+x^{2}e^{y}-y^{2}\right)y^{\prime}=0.
+      </m></p>
+
+      <p><ol>
+      <li> To show it's exact note that
+      <m>
+      \left(y\cos x+2xe^{y}\right)dx+\left(\sin x+x^{2}e^{y}-y^{2}\right)dy=0,
+      </m>
+      and not hard to see that
+      <md>
+      <mrow>M_{y} \amp =\cos x+2xe^{y}</mrow>
+      <mrow>N_{x} \amp =\cos x+2xe^{y}</mrow>
+      </md>
+      and they are equal, thus this ODE is exact. Follow the arrows until
+      close the diagram:
+      <md>
+      <mrow>\text{Start here:} \amp \psi_{x}=y\cos x+2xe^{y} \amp \implies \amp \psi=\int\left(y\cos x+2xe^{y}\right)dx+h(y)</mrow>
+       <mrow>\amp  \amp  \amp \boldsymbol{\psi=y\sin x+x^{2}e^{y}+h(y)}</mrow>
+       <mrow>\amp  \amp  \amp \Downarrow</mrow>
+       <mrow>\amp \psi_{y}=\sin x+x^{2}e^{y}-y^{2} \amp \Longleftarrow \amp \psi_{y}=\sin x+x^{2}e^{y}+h^{\prime}(y)</mrow>
+      </md></li>
+      <li>Solve for <m>h(y)</m> by noting that since
+      <md>
+      <mrow>\sin x+x^{2}e^{y}-y^{2}=\sin x+x^{2}e^{y}+h^{\prime}(y)\implies \amp h^{\prime}(y)=-y^{2}</mrow>
+      <mrow>\implies \amp h(y)=-\frac{y^{3}}{3}</mrow>
+      </md></li>
+      <li> Put it all together and get
+      <m>
+      \psi(x,y)=y\sin x+x^{2}e^{y}-y
+      </m>
+      and hence the <em>implicit solution</em> is
+      <m>
+      y\sin x+x^{2}e^{y}-\frac{y^{3}}{3}=C.
+      </m>
+      </li></ol></p>
+      <sage>
+        <input>
+          var('x,y')
+          P = plot_vector_field((y*cos(x) + 2*x*e^y, sin(x) + x^2*e^y - y^2), (-3,3),(-3,3))
+          Q = implicit_plot(y *sin(x) + x^2*e^y - y^3/3 - 5,(-3,3),(-3,3), color="red")
+          R = implicit_plot(y *sin(x) + x^2*e^y - y^3/3 - 3,(-3,3),(-3,3), color ="orange")
+          S = implicit_plot(y *sin(x) + x^2*e^y - y^3/3,(-3,3),(-3,3), color ="blue")
+          P + Q +R +S
+        </input>
+      </sage>
+    </example>
+    <example>Find the value of <m>b</m> for which the
+      given equation is exact, and then solve it using that <m>b</m>:
+      <m>
+      \left(xy^{2}+bx^{2}y\right)dx+\left(x+y\right)x^{2}dy
+      </m>
+      <ol>
+      <li>If this equation is exact then <m>M_{y}=N_{x}</m>,
+      <md>
+      <mrow>M_{y} \amp =2xy+bx^{2}</mrow>
+      <mrow>N_{x} \amp =3x^{2}+2yx</mrow>
+      </md>
+      and are only equal when <m>b=3</m>. Follow the arrows until close the
+      diagram:
+      <md>
+        <mrow>\text{Start here:} \amp \psi_{x}=xy^{2}+3x^{2}y \amp \implies \amp \psi=\int\left(xy^{2}+3x^{2}y\right)dx+h(y)</mrow>
+       <mrow>\amp  \amp  \amp \boldsymbol{\psi=\frac{1}{2}x^{2}y^{2}+x^{3}y+h(y)}</mrow>
+       <mrow>\amp  \amp  \amp \Downarrow</mrow>
+       <mrow>\amp \psi_{y}=x^{3}+x^{2}y \amp \Longleftarrow \amp \psi_{y}=x^{2}y+x^{3}+h^{\prime}(y)</mrow>
+      </md></li>
+      <li> Solve for <m>h(y)</m> by noting that since
+      <md>
+      <mrow>x^{3}+x^{2}y=x^{2}y+x^{3}+h^{\prime}(y)\implies \amp h^{\prime}(y)=0</mrow>
+      <mrow>\implies \amp h(y)=C</mrow>
+      </md></li>
+      <li>Put it all together and get
+      <m>
+      \psi(x,y)=\frac{1}{2}x^{2}y^{2}+x^{3}y+C
+      </m>
+      and hence the <em>implicit solution</em> is
+      <m>
+      \frac{1}{2}x^{2}y^{2}+x^{3}y=C.
+      </m></li></ol>
+
+    </example>
+
+      <example>
+      <p>Solve
+      <m>
+      \left(x\cos x+e^{y}\right)dx+xe^{y}dy
+      </m></p>
+
+      <ol>
+      <li> If this equation is exact then <m>M_{y}=N_{x}</m>,
+      and
+      <md>
+      <mrow>M_{y} \amp =e^{y}</mrow>
+      <mrow>N_{x} \amp =e^{y}</mrow>
+      </md>
+      Now note that it is actually easier to integrate <m>N</m> with respect
+      to <m>y</m>: Thus we can start the diagram in the other direction
+      <md>
+       <mrow>\amp \psi_{x}=x\cos x+e^{y} \amp \Longleftarrow \amp =\psi_{x}=e^{y}+g^{\prime}(x)</mrow>
+       <mrow>\amp  \amp  \amp \boldsymbol{\psi=xe^{y}+g(x)}</mrow>
+       <mrow>\amp  \amp  \amp \Uparrow</mrow>
+      <mrow>\text{Start here:} \amp \psi_{y}=xe^{y} \amp \implies \amp \psi_{y}=\int\left(xe^{y}\right)dy+g(x)</mrow>
+      </md></li>
+      <li> Solve for <m>g(x)</m> by noting that since
+      <md>
+      <mrow>x\cos x+e^{y}=e^{y}+g^{\prime}(x)\implies \amp g^{\prime}(x)=x\cos x</mrow>
+      </md>
+      but at the end of the day we can't avoid the harder integration, as
+      we still need to integration by parts to
+      <m>
+      g(x)=x\sin x+\cos x
+      </m></li>
+      <li> <p>Put it all together and get
+      <m>
+      \psi(x,y)=xe^{y}+x\sin x+\cos x
+      </m>
+      and hence the <em>implicit solution</em> is
+      <m>
+      xe^{y}+x\sin x+\cos x=C.
+      </m></p>
+      </li></ol>
+      <sage>
+        <input>
+          var('x,y')
+          P = plot_vector_field((x*cos(x) + e^y, x*e^y), (-3,3),(0,5))
+          Q = implicit_plot(x*e^y + x*sin(x) + cos(x) - 120,(-3,3),(0,5), color="red")
+          R = implicit_plot(x*e^y + x*sin(x) + cos(x) - 50,(-3,3),(0,5), color ="orange")
+          S = implicit_plot(x*e^y + x*sin(x) + cos(x) - 10,(-3,3),(0,5), color ="blue")
+          P + Q +R +S
+        </input>
+      </sage>
+    </example>
+
+  </subsection>
+</section>
+
+<section xml:id="ch2-9">
+  <title>Euler's method</title>
+    <introduction>
+      <p>In practice, many if not most differential equations do not have explicit solutions. If an equation does happen to fall into a form that we have a solution method for, there is no guarantee that we can integrate the result. Thus, it is important to have approaches that can sketch curves and approximate solutions in the absence of explicit formulas.</p>
+      <p>One of the most straightforward approaches to first order equations of the form
+      <me>
+        \frac{dy}{dt} = f(t,y)
+      </me>
+      is <term>Euler's method</term>, which approximates a solution to an initial value problem with small pieces of tangent line.</p>
+
+
+      <p> Suppose we are given an initial value problem
+      <me>
+      \frac{dy}{dt}=f(t,y)\qquad y(t_{0})=y_{0}.
+      </me></p>
+
+      <ul>
+        <li>Let <m>h=</m> step size. These are our <m>t-</m>axis increments.</li>
+        <li>Let <m>t_{0}=</m> our starting point. Then our next point will
+        be <m>t_{1}=t_{0}+h</m>, then <m>t_{2}=t_{1}+h</m>. Notice that this means
+        <me>
+          t_{k+1} - t_k = h.
+        </me>
+      </li>
+      </ul>
+      <p> For example suppose <m>t_{0}=1</m> and <m>h=.5</m>, then <m>t_{0}=1,t_{1}=1.5,t_{2}=2,\dots</m>. So how do we find the explicit values for <m>y_{k}</m> other than just guessing?</p>
+      <observation>For small step size <m>h</m>, the slope of the tangent line at <m>(t_0, y_0)</m> is a reasonable approximation for the secant line connecting <m>(t_0, y(t_0))</m> to the point <m>(t_1), y(t_1)</m>. That is,
+      <me>
+        \frac{y(t_{k+1}) - y(t_k)}{t_{k+1} - t_k} = \frac{y(t_{k+1}) - y(t_k)}{h} \approx f(t_k, y(t_k)).</me>
+      </observation>
+      <p>Let <m>y_0 = y(t_0)</m>. Now, denote by <m>y_1</m> the <em>approximation</em> of <m>y(t_1)</m> given by
+      <me>
+        y(t_1) \approx y_1 := y_0 + f(t_0, y_0) h.
+      </me>
+      Iteration of this idea to produce a larger approximate graph of a solution is the key idea of Euler's method.</p>
+    </introduction>
+    <subsection>
+      <title>Euler's method</title>
+        <definition>
+          <p>Given an initial condition <m>y(t_{0})=y_{0}</m> and step size <m>h</m>, compute
+          <m>\left(t_{k+1},y_{k+1}\right)</m> from the preceding point <m>(t_{k},y_{k})</m>
+          as follows:
+          <md>
+            <mrow>t_{k+1} \amp = \amp t_{k}+h</mrow>
+            <mrow>y_{k+1} \amp = \amp y_{k}+f\left(t_{k},y_{k}\right)h.</mrow>
+          </md></p>
+        </definition>
+        <example>
+          <p>
+          Suppose we have the autonomous equation
+          <md>
+          <mrow>\frac{dy}{dt}=2y-1 \amp  \amp ,y(0)=1,</mrow>
+          </md>
+          with <m>h=0.1</m> and <m>0\leq t\leq1</m>.</p>
+          <ol>
+            <li>Our first point is <m>(t_{0},y_{0})=\left(0,1\right)</m>.</li>
+            <li>We can compute the formula for this and get <m>t_{k+1}=t_{k}+.1</m> and
+            notice that <m>f\left(t,y\right)=2y-1</m>.
+            <me>
+            y_{k+1}=y_{k}+f\left(t_{k},y_{k}\right)h=y_{k}+\left(2y_{k}-1\right)(.1).
+            </me></li>
+            <li> Make a table:
+            <me>
+            \begin{array}{|c|c|c|c|}
+            \hline
+            k \amp t_{k} \amp y_{k}=y_{k-1}+f\left(t_{k-1},y_{k-1}\right)h \amp f\left(t_{k},y_{k}\right)=2y_{k}-1\\
+            \hline
+            \hline
+            0 \amp 0 \amp 1 \amp 1\\
+            \hline
+            1 \amp 0.1 \amp y_{1}=1+1\cdot(.1)=\mathbf{1.1} \amp f\left(t_{1},y_{1}\right)=2(1.1)-1=\mathbf{1.20}\\
+            \hline
+            2 \amp 0.2 \amp y_{2}=1.1+(1.20)\cdot(.1)=\mathbf{1.22} \amp f\left(t_{2},y_{2}\right)=2(1.22)-1=\mathbf{1.44}\\
+            \hline
+            3 \amp 0.3 \amp y_{3}=1.22+(1.20)\cdot(.1)=\mathbf{1.364} \amp f\left(t_{3},y_{3}\right)=2(1.22)-1=\mathbf{1.73}\\
+            \hline
+            4 \amp 0.4 \amp 1.537 \amp 2.07\\
+            \hline
+             \amp .5 \amp 1.744 \amp 2.49\\
+            \hline
+             \amp .6 \amp 1.993 \amp 2.98\\
+            \hline
+             \amp .7 \amp 2.292 \amp 3.58\\
+            \hline
+             \amp .8 \amp 2.65 \amp 4.3\\
+            \hline
+             \amp 0.9 \amp 3.080 \amp 5.16\\
+            \hline
+             \amp 1.0 \amp 3.596 \amp 3.596\\
+            \hline
+            \end{array}</me></li>
+          </ol>
+          <p>Notice that actual value is <m>y(1)=\frac{e^{2}+1}{2}=4.195</m> and our
+          approximation is <m>y(1)\approx3.596</m>, which is a little short, but
+          it makes sense all the slopes are always below the graph.</p>
+        </example>
+        <example>
+
+          <p>Our previous example didn't have any <m>t</m>s to plug in. So suppose we have
+          <me>
+          \frac{dy}{dt}=-2ty^{2},\quad y(0)=1,\quad h=\frac{1}{2}
+          </me></p>
+
+          <ol>
+          <li>Our first point is <m>(t_{0},y_{0})=\left(0,1\right)</m>.</li>
+          <li> We can compute the formula for this and get <m>t_{k+1}=t_{k}+.5</m> and
+          notice that <m>f\left(t,y\right)=-2ty^{2}</m>.
+          <me>
+          y_{k+1}=y_{k}+f\left(t_{k},y_{k}\right)h=y_{k}+\left(-2t_{k}y_{k}^{2}\right)(\frac{1}{2}).
+          </me></li>
+          <li><p>Make a table:
+            <me>
+              \begin{array}{|c|c|c|c|}
+              \hline
+              k \amp t_{k} \amp y_{k}=y_{k-1}+f\left(t_{k-1},y_{k-1}\right)h \amp f\left(t_{k},y_{k}\right)=-2t_{k}y_{k}^{2}\\
+              \hline
+              \hline
+              0 \amp 0 \amp 1 \amp 0\\
+              \hline
+              1 \amp \frac{1}{2} \amp y_{1}=1+0\cdot(\frac{1}{2})=\mathbf{1} \amp f\left(t_{1},y_{1}\right)=-2\frac{1}{2}1^{1}=\mathbf{-1}\\
+              \hline
+              2 \amp 1 \amp y_{2}=1+(-1)\cdot(\frac{1}{2})=\mathbf{\frac{1}{2}} \amp f\left(t_{2},y_{2}\right)=-2(1)(\frac{1}{2})^{2}=\mathbf{-\frac{1}{2}}\\
+              \hline
+              3 \amp 1.5=\frac{3}{2} \amp y_{3}=\frac{1}{2}+(-\frac{1}{2})\cdot(\frac{1}{2})=\frac{1}{4} \amp f\left(t_{3},y_{3}\right)=-2(\frac{3}{2})(\frac{1}{4})^{2}=\mathbf{-\frac{3}{16}}\\
+              \hline
+              4 \amp 2 \amp \frac{1}{4}+\left(-\frac{3}{16}\right)\cdot\left(\frac{1}{2}\right)=.15625 \amp \\
+              \hline
+              \end{array}
+            </me></p></li>
+          </ol>
+
+          <p>A plot of our approximate solution is given below:</p>
+          <image source="images/1.4-1.png" />
+          <p>In code, this might look like</p>
+          <sage>
+            <input>
+              var('t,y')
+              f(t, y) = -2*t*y^2
+              t0 = 0
+              y0 = 1
+              A = plot_slope_field(f, (0,3), (-1,3))
+
+              #approximate solution by Euler's method
+              h = .5
+              time = [t0 + n*h for n in range(5)]
+              yk = [y0]
+              def ynext(n):
+                  return yk[n-1] + f(time[n-1], yk[n-1])*h
+              for i in range(1,5):
+                  yk.append(ynext(i))
+              L = [[time[i], yk[i]] for i in range(5)]
+              B = line(L)
+
+              #actual solution
+              g(t) = 1/(t^2 + 1)
+              C = plot(g, (0,2), color = "red")
+              A + B + C
+            </input>
+          </sage>
+
+          </example>
+        </subsection>
+
+  </section>
+</chapter>

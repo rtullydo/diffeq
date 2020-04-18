@@ -1,0 +1,1586 @@
+<chapter xml:id="ch6">
+    <title>The Laplace Transform</title>
+    <section xml:id="ch6-1">
+        <title>The definition of the Laplace transform</title>
+            <p>In this section, we define <m>\mathcal{L}</m>, the Laplace transform, which is one of the major mathematical tools of engineering and the mathematics of physical systems. Before defining the Laplace Transform we review <term>improper integrals</term>,         since its definition depends on it.</p>
+
+            <assemblage>
+                <p>An improper integral with an infinite limit of integration is shorthand for the limit
+                    <me>
+                    \int_{a}^{\infty}f(t)dt=\lim_{B\to\infty}\int_{a}^{B}f(t)dt.
+                    </me>
+                </p>
+            </assemblage>
+
+            <p>If the limit converges then the improper integral converges. If the limit diverges, then the improper integral diverges.</p>
+
+            <p>We also need to be able to integrate through simple discontinuities in functions that change definition. </p>
+            <definition> 
+                <p>A function <m>f</m> is <term>piecewise continuous</term>
+            on <m>\alpha\leq t\leq\beta</m> if it is continuous there except for a
+            finite number of jump (or removable) discontinuities.</p>
+            </definition>
+             
+            <example> 
+                <p>Are the following functions piecewise
+                continutions?
+                <me>
+                f(t)=\begin{cases}
+                t^{2} \amp 0\leq t\leq1\\
+                1 \amp 1\lt t\leq2\\
+                4-t \amp 2\lt t\leq3
+                \end{cases}
+                </me>
+                and
+                <me>
+                g(t)=\begin{cases}
+                t^{2} \amp 0\leq t\leq1\\
+                (t-1)^{-1} \amp 1\lt t\leq2\\
+                1 \amp 2\lt t\leq3.
+                \end{cases}
+                </me></p>
+
+                <p>Solution: Sketch the graphs
+                 <m>f(t)</m> is piecewise continuous since it only has a jump discontinuity.
+                 <m>g(t)</m> is <em>not</em> since it has a discontinuity that is not jump
+                or removable.
+                </p>
+            </example>
+
+            <example><title>Integrating piecewise functions</title>
+                <p>Consider
+                <image width="50%" source="images/6.1-1.jpg" />
+                 
+                Then 
+                <me>
+                \int_{\alpha}^{\beta}f(t)dt=\int_{\alpha}^{t_{1}}f(t)dt+\int_{t_{1}}^{t_{2}}f(t)dt+\int_{t_{2}}^{\beta}f(t)dt.
+                </me></p>
+            </example>
+            
+            <p>The goal of using the Laplace transform is to change the differential equations, which have techniques of solution built on calculus, into the language of algebraic equations, which have techniques of solution built on high school algebra. The hope is that once we discover a solution to the algebraic equation, we can transform it back into a solution for the original ODE.</p>
+
+            <p><me>
+            \begin{array}{ccc}
+            \text{ODE Equation} \amp \overset{\mathcal{L}}{\implies} \amp \text{Algebraic Equation}\\
+             \amp  \amp \Downarrow\\
+            \text{Turn it into an ODE Solution } \amp \underset{\mathcal{L}^{-1}}{\Longleftarrow} \amp \text{Solve the Algebrac EQ}
+            \end{array}
+            </me>
+             Thus the Laplace transforms a function <m>f(t)</m> into a function <m>F(s)</m>, which is representied symbolically as
+            <me>
+            f(t)\overset{\mathcal{L}}{\longrightarrow}F(s).
+            </me></p>
+
+            <p>Generally, a <term>transform</term> of a function <m>f(t)</m> turns <m>f(t)</m>m> into a different function with potentially more tractible properties. 
+            
+             We will transform functions <m>f(t)</m> of <m>t</m> in the <term>time domain</term> into functions <m>F(s)</m>
+            of <m>s</m> in the <term>frequency domain</term>. The use of these terms is deliberate and will become clear on further study.</p> 
+            
+            <p>We are now ready to define the transform of greatest use in the solution of linear differential equations.</p>
+            <definition>
+                <p>The <term>Laplace transform</term> of
+                <m>f</m> is given by 
+                <me>
+                \mathcal{L}\left\{ f(t)\right\} =F(s)=\int_{0}^{\infty}f(t)e^{-st}dt.
+                </me>
+                 We assume <m>s</m> is real (though in general it can be complex).</p>
+             </definition>
+
+             <p>In general, we should be suspicious of integrals involving infinity as a limit of integration. Why should we believe that such an integral is likely to converge? The key observation is that the exponential function <m>e^{-st}</m> tends to <m>0</m> <em>very quickly</em>. In fact exponentials dominate all polynomials, which is going to mean that the functions most commonly used in differential equations (polynomials, trig functions, and exponentials with domain restrictions) are all reasonably controlled by the exponential function <m>e^{-st}</m>.</p>
+
+             <assemblage>
+                <title>Existence of <m>\mathcal{L}\left\{ f(t)\right\} </m></title>
+            
+                 <p>If <m>f</m> is piecewise continuous for <m>\left[0,a\right]</m> for all <m>a</m> and            <m>\left|f(t)\right|\leq Ke^{ct}</m> for large <m>t</m>, 
+                 then <m>\mathcal{L}\left[f(t)\right]=F(s)</m> exists.</p>
+             </assemblage>
+
+            <p>The following examples may seem cumbersome, but rest easy! After using the defintion to get a feel for how the Laplace transform works, we'll develop a table of known and useful transforms and our study will be more algebraic.</p>
+
+            <example>
+                <p>Find the Laplace transform of <m>f(t)=e^{9t}</m>,
+                <m>t\geq0</m> .</p>
+            
+                 <p>Solution: We compute 
+                <md>
+                <mrow>\mathcal{L}\left\{ e^{9t}\right\}  \amp =\int_{0}^{\infty}f(t)e^{-st}dt=\int_{0}^{\infty}e^{9t}e^{-st}dt</mrow>
+                <mrow> \amp =\int_{0}^{\infty}e^{(9-s)t}dt</mrow>
+                <mrow> \amp =\frac{1}{9-s}\left[e^{(9-s)t}\right]_{t=0}^{t=\infty}</mrow>
+                <mrow> \amp =\frac{1}{9-s}\left[\lim_{b\to\infty}e^{(9-s)b}-e^{0}\right]</mrow>
+                </md>
+                but since 
+                <me>
+                \lim_{b\to\infty}e^{(9-s)b}=\begin{cases}
+                \infty \amp a-s>0\\
+                0 \amp a-s\lt 0
+                \end{cases}
+                </me>
+                then 
+                <me>
+                \mathcal{L}\left\{ e^{9t}\right\} =\begin{cases}
+                \frac{1}{s-9} \amp s>9\\
+                \text{not defined} \amp s\lt 9
+                \end{cases}.
+                </me></p>
+            </example>
+
+            <example>
+                <p>Find the Laplace transform of <m>f(t)=e^{at}</m>,
+                <m>t\geq0</m> .</p>
+                <p> We can use the same computation as in
+                Example 1, but change every <m>9</m> to an <m>a</m> and get 
+                <me>
+                \mathcal{L}\left\{ e^{at}\right\} =\frac{1}{s-a}\,\,\,\,\,\,s>a.
+                </me></p>
+            </example>
+
+            <example>
+                <p>Find the Laplace transform of <m>f(t)=1</m>,
+                <m>t\geq0</m> .</p>
+                <p>Solution: Using <m>a=0</m> above we have that <m>f(t)=e^{0\cdot t}=1</m>
+                hence we can use the formula above to get 
+                <me>
+                \mathcal{L}\left\{ 1\right\} =\frac{1}{s}\,\,\,\,\,\,s>0.
+                </me></p>
+            </example>
+
+            <p>Eventually, we'll make a table where we collect all of the Laplace
+            transforms that we have computed, so that we don't have to redo the
+            work everytime.</p>
+
+            <example>
+                <p>Find the Laplace transform of <m>f(t)=\sin(at)</m>.</p>
+                <p>Solution: We compute 
+                <md>
+                <mrow>\mathcal{L}\left\{ \sin at\right\} =F(s) \amp =\int_{0}^{\infty}e^{-st}\sin(at)dt</mrow>
+                <mrow> \amp =\lim_{B\to\infty}\int_{0}^{B}e^{-st}\sin(at)dt.</mrow>
+                </md>
+                Using integration by parts, we get 
+                <md>
+                <mrow>u=\sin(at)\,\,\,\,\,\,\,\, \amp dv=e^{-st}dt</mrow>
+                <mrow>du=a\cos(at)dt\,\,\,\,\,\,\,\, \amp v=-\frac{e^{-st}}{s}</mrow>
+                </md>
+                so we have
+                <md>
+                <mrow>F(s) \amp =\lim_{B\to\infty}\left[\left.-\frac{e^{-st}\sin(at)}{s}\right|_{t=0}^{t=B}+\int_{0}^{B}\frac{e^{-st}}{s}a\cos(at)dt\right]</mrow>
+                <mrow> \amp =\lim_{B\to\infty}\left[-\frac{e^{-sB}\sin(aB)}{s}+0+\int_{0}^{B}\frac{e^{-st}}{s}a\cos(at)dt\right]</mrow>
+                <mrow> \amp =0+\frac{a}{s}\int_{0}^{\infty}e^{-st}\cos(at)dt.\,\,\,\,\,\,\,\,(\star)</mrow>
+                </md>
+                 Integrating <m>\int_{0}^{\infty}e^{-st}\cos(at)dt</m> again we get
+                <md>
+                <mrow>u=\cos(at)\,\,\,\,\,\,\,\, \amp dv=e^{-st}dt</mrow>
+                <mrow>du=-a\sin(at)dt\,\,\,\,\,\,\,\, \amp v=-\frac{e^{-st}}{s}</mrow>
+                </md>
+                <md>
+                <mrow>\int_{0}^{\infty}e^{-st}\cos(at)dt \amp =\lim_{B\to\infty}\left[\left.-\frac{e^{-st}\cos(at)}{s}\right|_{t=0}^{t=B}-\int_{0}^{B}\frac{e^{-st}}{s}a\sin(at)dt\right]</mrow>
+                <mrow> \amp =\lim_{B\to\infty}\left[-\frac{e^{-sB}\cos(aB)}{s}+\frac{e^{-st}}{s}-\frac{a}{s}\int_{0}^{B}\frac{e^{-st}}{s}a\sin(at)dt\right]</mrow>
+                <mrow> \amp =\left[0+\frac{t}{s}-\frac{a}{s}\int_{0}^{\infty}e^{-st}\sin(at)dt\right].</mrow>
+                </md>
+                Plugging this back into <m>(\star)</m> we have
+                <md>
+                <mrow>F(t) \amp =\frac{a}{s}\left[\frac{1}{s}-\frac{a}{s}\int_{0}^{\infty}e^{-st}\sin(at)dt\right]</mrow>
+                <mrow> \amp =\frac{a}{s}\left[\frac{1}{s}-\frac{a}{s}F(s)\right]</mrow>
+                </md>
+                Then we can solve this equation using algebra for <m>F(s)</m> and get
+                <me>
+                F(s)=\frac{a}{s^{2}+a^{2}},\,\,\,\,s>0.
+                </me></p>
+            </example>
+                
+            <assemblage><title>Properties of the Laplace Transform: Linearity</title>
+                <p>
+                 If <m>f,g</m> are two function where <m>\mathcal{L}</m> exists for <m>s>a_{1}</m>
+                and <m>s>a_{2}</m>, respectively, Then 
+                <me>
+                \mathcal{L}\left\{ f(t)\pm g(t)\right\} =\mathcal{L}\left\{ f(t))\right\} \pm\mathcal{L}\left\{ g(t)\right\} ,\,\,\,s>\max\left\{ a_{1},a_{2}\right\} ,
+                </me>
+                and
+                 We have for <m>c\in\mathbb{R}</m>,
+                <me>
+                \mathcal{L}\left\{ cf(t))\right\} =c\mathcal{L}\left\{ f(t))\right\} .
+                </me></p>
+            </assemblage>
+            
+            <example>
+                <p> Find the Laplace transform of <m>f(t)=7-e^{2t}+4\sin(3t)</m>.</p>
+                <p>Solution: Using what we have computed we get
+                <md>
+                <mrow>\mathcal{L}\left\{ 7-e^{-5t}+4\sin(3t)\right\}  \amp =\mathcal{L}\left\{ 7\right\} -\mathcal{L}\left\{ e^{(-5)t}\right\} +4\mathcal{L}\left\{ \sin(3t)\right\} </mrow>
+                <mrow> \amp =\frac{7}{s}-\frac{1}{s-(-5)}+4\cdot\frac{3}{s^{2}+9}</mrow>
+                <mrow> \amp =\frac{7}{s}-\frac{1}{s+5}+\frac{12}{s^{2}+9}.\,\,\,\,\,s>0</mrow>
+                </md></p>
+            </example>
+    </section>
+
+    <section xml:id="ch6-2">
+        <title>The Laplace Transform and Initial Value Problems</title>
+            <introduction>
+                <p>In this section we will show the connection between ODEs with given initial value conditions and Laplace
+                Transforms. Recall that our previous methods for approaching IVPs involve solving first a homogeneous equation and then using another method, such as undertermined coefficients, to find a particular solution. Using the Laplace transform, we will be able to do this all at once.</p>
+
+                <p>First, we need to look at how the Laplace transform acts on derivatives.</p>
+                <theorem><title>Laplace transform of <m>\frac{df}{dt}</m></title>
+                    <p>Suppose <m>f</m> has a Laplace transform <m>\mathcal{L}\left\{ f\right\} = F(s) </m> and is controlled by some exponential <m>Ke^at</m>.
+                    Then the Laplace transform
+                    of <m>f^{\prime}</m> is given by 
+                    <me>
+                    \mathcal{L}\left\{ f^{\prime}(t)\right\} =s\mathcal{L}\left\{ f(t)\right\} -f(0).
+                    </me>
+                    </p>
+                </theorem>
+
+                <proof>
+                <p>Let 
+                <me>
+                \mathcal{L}\left\{ f^{\prime}(t)\right\} =\lim_{B\to\infty}\int_{0}^{B}f^{\prime}(t)e^{-st}dt
+                </me>
+                and we use integration by parts
+                <md>
+                u=e^{-st} \amp \,\,\,\,\,\,\,\,\,\,\,dv=f^{\prime}(t)dt\\
+                du=-se^{-st}dt \amp \,\,\,\,\,\,\,\,\,\,\,v=f(t)
+                </md>
+                we have 
+                <md>
+                <mrow>\mathcal{L}\left\{ f^{\prime}(t)\right\}  \amp =\lim_{B\to\infty}\left[f(t)e^{-st}\right]_{t=0}^{t=B}+\int_{0}^{B}f(t)se^{-st}dt</mrow>
+                <mrow> \amp =\left[0-f(0)\right]+s\int_{0}^{\infty}f(t)e^{-st}dt</mrow>
+                <mrow> \amp =-f(0)+s\mathcal{L}\left\{ f(t)\right\} ,</mrow>
+                </md>
+                here we use the condition from Theorem 6.2.1 that says <m>\left|f(t)\right|\leq Ke^{at}</m>
+                for <m>t\geq M</m> which implies that <m>\lim_{B\to\infty}f(B)e^{-sB}=0</m>
+                when <m>s>a</m>.  Rearranging gives us the desired result. 
+                </p></proof>
+
+                <corollary>
+                    <p>Suppose <m>f,f^{\prime},\dots,f^{(n)}</m> are nice functions that have
+                    Laplace transforms, then 
+                    <me>
+                    \mathcal{L}\left\{ f^{(n)}(t)\right\} =s^{n}\mathcal{L}\left\{ f(t)\right\} -s^{n-1}f(0)\cdots-sf^{(n-2)}(0)-f^{(n-1)}(0).
+                    </me></p>
+                </corollary>
+
+                <example>
+
+                     <m>\mathcal{L}\left\{ f^{\prime\prime}(t)\right\} =s^{2}\mathcal{L}\left\{ f(t)\right\} -sf(0)-f^{\prime}(0)</m>. 
+                     <m>\mathcal{L}\left\{ f^{\prime\prime\prime}(t)\right\} =s^{3}\mathcal{L}\left\{ f(t)\right\} -s^{2}f(0)-sf^{\prime}(0)-f^{\prime\prime}(0)</m>. 
+                </example>
+            </introduction>
+
+            <subsection><title>Inverse Laplace Transforms</title>
+
+                <p>The Inverse Laplace transform <m>\mathcal{L}^{-1}</m> is the function
+                that satisfies <m>\mathcal{L}^{-1}\left\{ \mathcal{L}\left[f\right]\right\} =f</m>.
+                In other words,
+                <me>
+                \mathcal{L}^{-1}\left\{ F\right\} =f\iff\mathcal{L}\left\{ f\right\} =F.
+                </me></p>
+                
+                <assemblage><title>Some example inverse transforms</title>
+                 <p><me>\mathcal{L}^{-1}\left\{ \frac{1}{s}\right\} =1</me>.
+                 <me>\mathcal{L}^{-1}\left\{ \frac{1}{s-1}\right\} =e^{t}</me>
+                 <me>\mathcal{L}^{-1}\left\{ \frac{10}{s+1}\right\} =10\mathcal{L}^{-1}\left\{ \frac{1}{s-(-1)}\right\} =10e^{-t}</me>.
+                 <me>\mathcal{L}^{-1}\left\{ \frac{6}{s^{2}+7}\right\} =6\mathcal{L}^{-1}\left\{ \frac{1}{s^{2}+\left(\sqrt{7}\right)^{2}}\right\} =\frac{6}{\sqrt{7}}\mathcal{L}^{-1}\left\{ \frac{\sqrt{7}}{s^{2}+\left(\sqrt{7}\right)^{2}}\right\} =\frac{6}{\sqrt{7}}\sin\left(\sqrt{7}t\right)</me>. </p>
+                </assemblage>
+                <p>In general,
+                <me>
+                \mathcal{L}^{-1}\left\{ \frac{1}{s-a}\right\} =e^{at}.
+                </me></p>
+
+
+                <p>We'll typically have rational functions for which we need to find inverse transforms. As an example, let's compute <m>\mathcal{L}^{-1}\left\{ \frac{4}{\left(s-1\right)\left(s+1\right)}\right\} </m>.
+                Whenever we have linear or irreducible quadratic factors in the denominator, we need to use partial
+                fractions:
+                <me>
+                \frac{4}{\left(s-1\right)\left(s+1\right)}=\frac{A}{\left(s-1\right)}+\frac{B}{\left(s+1\right)},
+                </me>
+                hence 
+                <md>
+                <mrow>4 \amp =A\left(s+1\right)+B\left(s-1\right),</mrow>
+                <mrow>0\cdot s+4 \amp =\left(A+B\right)s+\left(A-B\right)</mrow>
+                </md>
+                so that
+                <md>
+                <mrow>A+B \amp =0\\</mrow>
+                <mrow>A-B \amp =4</mrow>
+                </md>
+                and get <m>A=2,B-2</m>. Thus 
+                <me>
+                \frac{4}{\left(s-1\right)\left(s+1\right)}=\frac{2}{s-1}-\frac{2}{s+1}.
+                </me>
+
+
+                 Therefore: 
+                <md>
+                <mrow>\mathcal{L}^{-1}\left\{ \frac{4}{\left(s-1\right)\left(s+1\right)}\right\}  \amp =\mathcal{L}^{-1}\left\{ \frac{4}{\left(s-1\right)\left(s+1\right)}\right\}</mrow>
+                 <mrow>\amp =\mathcal{L}^{-1}\left\{ \frac{2}{s-1}\right\} -\mathcal{L}^{-1}\left\{ \frac{2}{s+1}\right\} </mrow>
+                 <mrow>\amp =2e^{t}-2e^{-t}.</mrow>
+                </md></p>
+
+                <example>
+                    <p> Find <m>\mathcal{L}^{-1}\left\{ \frac{6}{s\left(s+4\right)}\right\} </m>.</p>
+                    <p>First 
+                    <me>
+                    \frac{6}{s\left(s+4\right)}=\frac{A}{s}+\frac{B}{\left(s+4\right)}
+                    </me>
+                    so that 
+                    <me>
+                    6=A\left(s+4\right)+Bs
+                    </me>
+                    or
+                    <me>
+                    0s+6=\left(A+B\right)s+4A
+                    </me>
+                    and get 
+                    <md>
+                    0 \amp =A+B,\\
+                    6 \amp =4A
+                    </md>
+                    so that <m>A=-\frac{3}{2}</m> and <m>B=\frac{3}{2}</m> hence 
+                    <md>
+                    <mrow>\mathcal{L}^{-1}\left\{ \frac{6}{s\left(s+4\right)}\right\}  \amp =\mathcal{L}^{-1}\left\{ \frac{3/2}{s}+\frac{-3/2}{\left(s+4\right)}\right\} </mrow>
+                     <mrow>\amp =\frac{3}{2}\mathcal{L}^{-1}\left\{ \frac{1}{s}\right\} -\frac{3}{2}\mathcal{L}\left\{ \frac{1}{\left(s+4\right)}\right\} </mrow>
+                     <mrow>\amp =\frac{3}{2}\cdot1-\frac{3}{2}\mathcal{L}\left\{ \frac{1}{s-(-4)}\right\} </mrow>
+                     <mrow>\amp =\frac{3}{2}\cdot1-\frac{3}{2}e^{-4t}</mrow>
+                    </md></p>
+                </example>
+            </subsection>
+            <subsection>
+                <title>Higher order IVPs</title>
+                <p>We'll now combine the partial fraction technique with the Laplace transform to solve higher order examples.</p>
+
+                <example>
+                
+                    <p>Solve 
+                    <me>
+                    y^{\prime}=y-4e^{-t},\,\,\,y(0)=1
+                    </me>
+                    using Laplace transforms. </p>
+
+                    <p>
+                     Step 1: Find the Laplace Transform of the ODE (The
+                    going forwards part):
+                    <md>
+                    <mrow>\mathcal{L}\left\{ y^{\prime}\right\} =\mathcal{L}\left\{ y\right\} -4\mathcal{L}\left\{ e^{-t}\right\}  \amp \iff s\mathcal{L}\left\{ y\right\} -y(0)=\mathcal{L}\left\{ y\right\} -4\frac{1}{s+1}</mrow>
+                     <mrow>\amp \iff s\mathcal{L}\left\{ y\right\} -1=\mathcal{L}\left\{ y\right\} -4\frac{1}{s+1}.</mrow>
+                    </md></p>
+
+                    <p>
+                     Step 2: Solve for <m>\mathcal{L}\left\{ y\right\} </m>
+                    using algebra: and get 
+                    <me>
+                    \mathcal{L}\left\{ y\right\} =\frac{1}{s-1}-\frac{4}{\left(s-1\right)\left(s+1\right)}.
+                    </me></p>
+
+                    <p>
+                     Step 3: We want to go backwards and invert this.
+                    But first let's do partial fractions:
+                    <me>
+                    \frac{4}{\left(s-1\right)\left(s+1\right)}=\frac{A}{\left(s-1\right)}+\frac{B}{\left(s+1\right)},
+                    </me>
+                    hence 
+                    <md>
+                    <mrow>4 \amp =A\left(s+1\right)+B\left(s-1\right),</mrow>
+                    <mrow>0\cdot s+4 \amp =\left(A+B\right)s+\left(A-B\right)</mrow>
+                    </md>
+                    so that
+                    <md>
+                    <mrow>A+B \amp =0</mrow>
+                    <mrow>A-B \amp =4</mrow>
+                    </md>
+                    and get <m>A=2,B=-2</m>. Thus 
+                    <me>
+                    \frac{4}{\left(s-1\right)\left(s+1\right)}=\frac{2}{s-1}-\frac{2}{s+1}.
+                    </me></p>
+
+                    <p>Step 4: Use the inverse Laplace transform to get
+                    <md>
+                    <mrow>y=\mathcal{L}^{-1}\left\{ \mathcal{L}\left\{ y\right\} \right\}  \amp =\mathcal{L}^{-1}\left\{ \frac{1}{s-1}\right\} -\mathcal{L}^{-1}\left\{ \frac{4}{\left(s-1\right)\left(s+1\right)}\right\} </mrow>
+                     <mrow>\amp =\mathcal{L}^{-1}\left\{ \frac{1}{s-1}\right\} -\left(\mathcal{L}^{-1}\left\{ \frac{2}{s-1}\right\} -\mathcal{L}^{-1}\left\{ \frac{2}{s+1}\right\} \right)</mrow>
+                     <mrow>\amp =e^{t}-\mathcal{L}^{-1}\left\{ \frac{2}{s-1}\right\} +\mathcal{L}^{-1}\left\{ \frac{2}{s+1}\right\} </mrow>
+                     <mrow>\amp =e^{t}-2e^{t}+2e^{-t}</mrow>
+                     <mrow>\amp =-e^{t}+2e^{-t}.</mrow>
+                    </md></p>
+                </example>
+            
+
+                <example>
+                    <p>Solve 
+                    <me>
+                    y^{\prime}+4y=6,\,\,\,y^{\prime}(0)=0
+                    </me>
+                    using Laplace transforms. </p>
+
+                    <p>Step 1: Find the Laplace Transform of the ODE (The
+                    going forwards part):
+                    <md>
+                    <mrow>\mathcal{L}\left\{ y^{\prime}\right\} +4\mathcal{L}\left\{ y\right\} =\mathcal{L}\left\{ 6\right\}  \amp \iff s\mathcal{L}\left\{ y\right\} -y(0)+4\mathcal{L}\left\{ y\right\} =\frac{6}{s}</mrow>
+                    </md></p>
+
+                    <p>Step 2: Solve for <m>\mathcal{L}\left\{ y\right\} </m>
+                    using algebra: and get 
+                    <me>
+                    \mathcal{L}\left\{ y\right\} =\frac{6}{s\left(s+4\right)}.
+                    </me></p>
+
+                    <p>Step 3: Partial Fractions (We did this already)
+                    <me>
+                    \frac{6}{s\left(s+4\right)}=\frac{3/2}{s}+\frac{-3/2}{\left(s+4\right)}
+                    </me></p>
+
+                    <p>Step 4: Use the inverse Laplace transform to get
+                    <md>
+                    <mrow>y=\mathcal{L}^{-1}\left\{ \mathcal{L}\left\{ y\right\} \right\}  \amp =\mathcal{L}^{-1}\left\{ \frac{3/2}{s}+\frac{-3/2}{\left(s+4\right)}\right\} </mrow>
+                     <mrow>\amp =\frac{3}{2}\mathcal{L}^{-1}\left\{ \frac{1}{s}\right\} -\frac{3}{2}\mathcal{L}\left\{ \frac{1}{\left(s+4\right)}\right\} </mrow>
+                     <mrow>\amp =\frac{3}{2}\cdot1-\frac{3}{2}\mathcal{L}\left\{ \frac{1}{s-(-4)}\right\} </mrow>
+                     <mrow>\amp =\frac{3}{2}\cdot1-\frac{3}{2}e^{-4t}</mrow>
+                    </md>
+                    </p>
+                </example>
+            </subsection>
+    </section>
+
+    <section xml:id="ch6-3">
+        <title>Solutions to higher order IVPs</title>
+            <introduction>
+                <p>Recall the folloing consequence of the Laplace transform of a derivative:</p>
+                <corollary>
+                    <p>Suppose <m>f,f^{\prime},\dots,f^{(n)}</m> are nice functions that have
+                    Laplace transforms, then 
+                    <me>
+                    \mathcal{L}\left\{ f^{(n)}(t)\right\} =s^{n}\mathcal{L}\left\{ f(t)\right\} -s^{n-1}f(0)\cdots-sf^{(n-2)}(0)-f^{(n-1)}(0).
+                    </me></p>
+                </corollary>
+                
+                For example,
+                <assemblage><p>
+                    <ol>
+                     <li><m>\mathcal{L}\left\{ f^{\prime\prime}(t)\right\} =s^{2}\mathcal{L}\left\{ f(t)\right\} -sf(0)-f^{\prime}(0)</m>. </li>
+                     <li><m>\mathcal{L}\left\{ f^{\prime\prime\prime}(t)\right\} =s^{3}\mathcal{L}\left\{ f(t)\right\} -s^{2}f(0)-sf^{\prime}(0)-f^{\prime\prime}(0)</m>. </li>
+                    </ol></p>
+                </assemblage>
+                
+                <p>Typically, we use a table to compute Laplace transforms and inverse transforms. The examples below refer to the transforms listed on the following table.</p>
+                <assemblage>
+                    <p><me>
+                    \begin{array}{l|l}
+                    f(t) = \mathcal{L}\inv\{F(s)\} \amp F(s) = \mathcal{L}\{f(t)\} \\[4pt] \hline
+                    \text{1. } 1 \amp \frac{1}{s}, \hspace{.2in} s > 0 \\[4pt]
+                    \text{2. } e^{at} \amp \frac{1}{s-a}, \hspace{.2in} s > a \\[4pt]
+                    \text{3. } t^n, n=\text{ positive integer} \amp \frac{n!}{s^{n+1}}, \hspace{.2in} s > 0 \\[4pt]
+                    \text{4. } t^p, p > -1 \amp \frac{\Gamma(p+1)}{s^{p+1}}, \hspace{.2in} s > 0 \\[4pt]
+                    \text{5. } \sin at \amp \frac{a}{s^2 + a^2}, \hspace{.2in} s > 0 \\[4pt]
+                    \text{6. } \cos at \amp \frac{s}{s^2 + a^2}, \hspace{.2in} s > 0 \\[4pt]
+                    \text{7. } \sinh at \amp \frac{a}{s^2 - a^2}, \hspace{.2in} s > \abs{a} \\[4pt]
+                    \text{8. } \cosh at \amp \frac{s}{s^2 - a^2}, \hspace{.2in} s > \abs{a} \\[4pt]
+                    \text{9. } e^{at} \sin bt \amp \frac{b}{(s-a)^2 + b^2}, \hspace{.2in} s > a\\[4pt]
+                    \text{10. } e^{at} \cos bt \amp \frac{s - a}{(s-a)^2 + b^2}, \hspace{.2in} s > a \\[4pt]
+                    \text{11. } t^n e^{at}, n=\text{ positive integer} \amp \frac{n!}{(s-a)^{n+1}}, \hspace{.2in} s > a
+                    \end{array}
+                    </me></p>
+                </assemblage>
+            </introduction>
+
+            <subsection><title>Partial fractions</title>
+                <p>The essential step in computing an inverse Laplace transform is separating the function <m>F</m> into pieces that we can apply the inverse transform to. This is typically done via partial fractions. Make sure you first factor the denominator as much as possible
+                <ol>
+                <li> The correct form of the partial fractions is
+                                <me>
+                                \frac{5s}{\left(s-1\right)\left(s^{2}+1\right)}=\frac{A}{s-1}+\frac{Bs+C}{s^{2}+1}
+                                </me></li>
+                 <li>The correct form of the partial fractions is
+                                 <me>
+                                 \frac{6s+1}{\left(s-1\right)^{3}\left(s^{2}+3\right)}=\frac{A}{s-1}+\frac{B}{\left(s-1\right)^{2}}+\frac{C}{\left(s-1\right)^{3}}+\frac{Ds+E}{s^{2}+3}
+                                 </me></li>
+                 <li>The correct form of the partial fractions is
+                                 <me>
+                                 \frac{9s-1}{s\left(s^{2}+9\right)\left(s-5\right)}=\frac{A}{s}+\frac{Bs+C}{s^{2}+9}+\frac{D}{s-5}
+                                 </me></li>
+                <li> The correct form of the partial fractions is
+                                <me>
+                                \frac{s^{2}+s-1}{\left(s^{2}+1\right)^{3}\left(s-1\right)}=\frac{As+B}{s^{2}+1}+\frac{Cs+D}{\left(s^{2}+1\right)^{2}}+\frac{Es+F}{\left(s^{2}+1\right)^{3}}+\frac{G}{s-1}.
+                                </me></li>
+                <li> The correct form of the partial fractions is
+                                <md>
+                                <mrow>\frac{9s+1}{\left(s^{4}+1\right)\left(s^{2}+2s+10\right)s^{2}} \amp =\frac{As^{3}+Bs^{2}+Cs+D}{s^{4}+1}+\frac{Es+F}{s^{2}+2s+10}.</mrow>
+                                <mrow> \amp +\frac{G}{s}+\frac{H}{s^{2}}.</mrow>
+                                </md></li>
+                </ol></p>
+            </subsection>
+
+            <subsection><title>Inverse Laplace Transforms</title>
+                <example>
+                    <p>Find the inverse transform of <m>F(s)=\frac{1}{s^{4}+s^{2}}</m></p>
+                    
+                    <p>First let's do partial fractions:
+                    <me>
+                    \frac{1}{s^{2}\left(s^{2}+1\right)}=\frac{A}{s}+\frac{B}{s^{2}}+\frac{Cs+D}{s^{2}+1}
+                    </me>
+                    hence
+                    <me>
+                    1=As\left(s^{2}+1\right)+B\left(s^{2}+1\right)+\left(Cs+D\right)s^{2}
+                    </me>
+                     so that
+                    <me>
+                    0s^{3}+0s^{2}+0s+1=\left(A+C\right)s^{3}+\left(B+D\right)s^{2}+As+B
+                    </me>
+                    and get the equations
+                    <md>
+                    A+C \amp =0\\
+                    B+D \amp =0\\
+                    A \amp =0\\
+                    B \amp =1
+                    </md>
+                    and get <m>B=1,A=0,C=0,D=-1</m>. Thus 
+                    <me>
+                    \frac{1}{s^{2}\left(s^{2}+1\right)}=\frac{1}{s^{2}}-\frac{1}{s^{2}+1}.
+                    </me></p>
+
+                    <p>Using Formulas <m>3</m> and <m>5</m> in the Laplace Trasform table:
+                    <me>
+                    \mathcal{L}\left\{ t^{n}\right\} =\frac{n!}{s^{n+1}},\,\,\,\mathcal{L}\left\{ \sin(at)\right\} =\frac{a}{s^{2}+a^{2}}.
+                    </me>
+                    Use get the inverse Laplace transform:
+                    <md>
+                    <mrow>\mathcal{L}^{-1}\left\{ F(s)\right\}  \amp =\mathcal{L}^{-1}\left\{ \frac{1}{s^{2}}\right\} -\mathcal{L}^{-1}\left\{ \frac{1}{s^{2}+1}\right\} </mrow>
+                     <mrow>\amp =t-\sin t,</mrow>
+                    </md></p>
+                </example>
+                
+                <example> 
+                    <p>(Harder) Find the inverse transform of <m>F(s)=\frac{1-2s}{s^{2}+4s+5}</m>. Note that
+                    we can't factor <m>s^{2}+4s+5</m> with real roots, thus we will complete
+                    the square.</p>
+                    <p><alert>Completing the Square:</alert> Suppose we have <m>s^{2}+bs+c</m>,
+                    then the trick is to ADD/SUBTRACT <m>\left(\frac{b}{2}\right)^{2}</m>,
+                    and the polynomials will become <m>s^{2}+bs+c=\left(s+\frac{b}{2}\right)^{2}-\left(\frac{b}{2}\right)^{2}+c</m>.
+                    To complete the square for <m>s^{2}+4s+5</m>:
+                    Then <m>b=4</m> hence we add/subtract <m>\left(\frac{b}{2}\right)^{2}=\left(\frac{4}{2}\right)^{2}=4</m>.
+                    Thus 
+                    <md>
+                    <mrow>s^{2}+4s+5 \amp =s^{2}+4s+4+\left(-4+5\right)</mrow>
+                     <mrow>\amp =\left(s+2\right)^{2}+1</mrow>
+                    </md></p>
+
+                    <p>Going back to the problem of find the Laplace Transform we have that
+                    <md>
+                    <mrow>F(s) \amp =\frac{1-2s}{s^{2}+4s+5}=\frac{1-2s}{\left(s+2\right)^{2}+1}</mrow>
+                    </md>
+                    and looking at Formulas 9 and 10 from the
+                    Laplace trasnform table:
+                    <me>
+                    \mathcal{L}\left\{ e^{at}\sin bt\right\} =\frac{b}{(s-a)^{2}+b^{2}}\text{ and }\mathcal{L}\left\{ e^{at}\cos bt\right\} =\frac{s-a}{(s-a)^{2}+b^{2}}.
+                    </me>
+                    We can apply these by separating <m>F(s)</m> into pieces like this:=
+                    <md>
+                    <mrow>\mathcal{L}^{-1}\left\{ F(s)\right\}  \amp =\mathcal{L}^{-1}\left\{ \frac{1-2s}{\left(s+2\right)^{2}+1}\right\} </mrow>
+                     <mrow>\amp =\mathcal{L}^{-1}\left\{ \frac{-2\left(s+2\right)}{\left(s+2\right)^{2}+1}\right\} +\mathcal{L}^{-1}\left\{ \frac{\boldsymbol{+4}+1}{\left(s+2\right)^{2}+1}\right\} </mrow>
+                     <mrow>\amp =-2\mathcal{L}^{-1}\left\{ \frac{\left(s-\left(-2\right)\right)}{\left(s-\left(-2\right)\right)^{2}+1}\right\} +5\mathcal{L}^{-1}\left\{ \frac{1}{\left(s+2\right)^{2}+1}\right\} </mrow>
+                     <mrow>\amp =-2e^{-2t}\cos t+5e^{-2t}\sin t.</mrow>
+                    </md></p>
+                </example>
+
+                <example>
+                     <p>Find the inverse transform of <m>F(s)=\frac{2s-8}{s^{2}-4s+5}</m>.</p>
+
+                     <p> Note that
+                    we can't factor <m>s^{2}-4s+5</m> with real roots, thus we will complete
+                    the square. </p>
+                    <p><alert>Completing the square:</alert> Suppose we have <m>s^{2}+bs+c</m>,
+                    then the trick is to ADD/SUBTRACT <m>\left(\frac{b}{2}\right)^{2}</m>,
+                    and the polynomials will become <m>s^{2}+bs+c=\left(s+\frac{b}{2}\right)^{2}-\left(\frac{b}{2}\right)^{2}+c</m>.
+                    To complete the square for <m>s^{2}-4s+5</m>:
+                    Then <m>b=-4</m> hence we add/subtract <m>\left(\frac{b}{2}\right)^{2}=\left(\frac{-4}{2}\right)^{2}=4</m>.
+                    Thus 
+                    <md>
+                    <mrow>s^{2}-4s+5 \amp =s^{2}-4s+4+1</mrow>
+                     <mrow>\amp =\left(s-2\right)^{2}+1</mrow>
+                    </md></p>
+                    
+                     <p>Going back to the problem of find the Laplace Transform we have that
+                    <md>
+                    <mrow>F(s) \amp =\frac{2s-8}{\left(s-2\right)^{2}+1}=\frac{2\left(s-2\right)}{\left(s-2\right)^{2}+1}-4\frac{1}{\left(s-2\right)^{2}+1}</mrow>
+                    </md>
+                    We can apply these by separating <m>F(s)</m> into pieces like this:=
+                    <md>
+                    <mrow>\mathcal{L}^{-1}\left\{ F(s)\right\}  \amp =\mathcal{L}^{-1}\left\{ \frac{2s-8}{\left(s-2\right)^{2}+1}\right\} </mrow>
+                     <mrow>\amp =\mathcal{L}^{-1}\left\{ \frac{2\left(s-2\right)}{\left(s-2\right)^{2}+1}\right\} -4\mathcal{L}^{-1}\left\{ \frac{1}{\left(s-2\right)^{2}+1}\right\} </mrow>
+                     <mrow>\amp =2e^{2t}\cos t-4e^{2t}\sin t</mrow>
+                    </md></p>
+                </example>
+
+                <example>
+                    
+                    <p>Find the inverse transform of <m>F(s)=\frac{2s-3}{s^{2}-4}</m>.</p>
+                    
+                    <p> Notice that this one looks like Formulas 7 and 8 from the
+                    Table of Laplace Transforms:
+                    <me>
+                    \mathcal{L}\left\{ \sinh(at)\right\} =\frac{a}{s^{2}-a^{2}}\text{ and }\mathcal{L}\left\{ \cosh\left(at\right)\right\} =\frac{s}{s^{2}-a^{2}}\,\,\,\,s>\left|a\right|.
+                    </me>
+                     Hence we can separate <m>F(s)</m> into pieces so that we can make it look
+                    like the formulas above:
+                    <md>
+                    <mrow>\mathcal{L}^{-1}\left\{ F(s)\right\}  \amp =\mathcal{L}^{-1}\left\{ \frac{2s-3}{s^{2}-4}\right\} </mrow>
+                     <mrow>\amp =2\mathcal{L}^{-1}\left\{ \frac{s}{s^{2}-2^{2}}\right\} -\frac{3}{2}\mathcal{L}^{-1}\left\{ \frac{2}{s^{2}-2^{2}}\right\} </mrow>
+                     <mrow>\amp =2\cosh\left(2t\right)-\frac{3}{2}\sinh\left(2t\right).</mrow>
+                    </md></p>
+                </example>
+
+                <example>
+                    <p>Find the inverse transform of <m>F(s)=\frac{3s}{s^{2}-s-6}</m>.</p>
+
+                    <p> We
+                    want to use partial fractions
+                    <me>
+                    \frac{3s}{(s-3)(s+2)}=\frac{A}{s-3}+\frac{B}{s+2}
+                    </me>
+                    and multiply both sides by the denominator of the LHS we get
+                    <me>
+                    3s=A\left(s+2\right)+B\left(s-3\right)
+                    </me>
+                    and rewriting we get 
+                    <me>
+                    3s+0=\left(A+B\right)s+\left(2A-3B\right)
+                    </me>
+                    so that 
+                    <me>
+                    3=A+B\text{ and }=2A-3B
+                    </me>
+                    and solving for <m>A,B</m> gets us 
+                    <me>
+                    A=\frac{9}{5},\,\,\,B=\frac{6}{5}.
+                    </me>
+                    So that using our table we have that
+                    <md>
+                    <mrow>\mathcal{L}^{-1}\left\{ F(s)\right\}  \amp =\mathcal{L}^{-1}\left\{ \frac{9/5}{s-3}\right\} +\mathcal{L}^{-1}\left\{ \frac{6/5}{s-(-2)}\right\} </mrow>
+                     <mrow>\amp =\frac{9}{5}e^{3t}+\frac{6}{5}e^{-2t}.</mrow>
+                    </md></p>
+                </example>
+            </subsection>
+
+            <subsection><title>Using Laplace Transforms to solve IVPs</title>
+                <example> 
+                    <p>Use Laplace Transforms to solve:
+                    <me>
+                    y^{\prime\prime\prime}+y^{\prime}=1,\,\,\,y(0)=y^{\prime}(0)=y^{\prime\prime}(0)=0.
+                    </me></p>
+
+                    <p>Step 1: Find the Laplace Transform of the ODE (The
+                    going forwards part). Recall the formulas <m>\mathcal{L}\left\{ f^{\prime}(t)\right\} =s\mathcal{L}\left\{ f(t)\right\} -f(0)</m>
+                    and <m>\mathcal{L}\left\{ f^{\prime\prime\prime}(t)\right\} =s^{3}\mathcal{L}\left\{ f(t)\right\} -s^{2}f(0)-sf^{\prime}(0)-f^{\prime\prime}(0)</m>.
+                    Applying <m>\mathcal{L}</m> to both sides we get 
+                    <md>
+                    <mrow>\mathcal{L}\left\{ y^{\prime\prime\prime}+y^{\prime}\right\}  \amp =\mathcal{L}\left\{ 1\right\} ,\iff</mrow>
+                    <mrow>\left[s^{3}\mathcal{L}\left\{ y\right\} -s^{2}y(0)-sy^{\prime}(0)-y^{\prime\prime}(0)\right]+\left[s\mathcal{L}\left\{ y\right\} -y(0)\right] \amp =\frac{1}{s},\iff</mrow>
+                    <mrow>\left[s^{3}\mathcal{L}\left\{ y\right\} -s^{2}\cdot0-s\cdot0-0\right]+\left[s\mathcal{L}\left\{ y\right\} -0\right] \amp =\frac{1}{s},\iff</mrow>
+                    <mrow>\mathcal{L}\left\{ y\right\} \left(s^{3}+s\right) \amp =\frac{1}{s},\iff</mrow>
+                    </md></p>
+
+                     <p>Step 2: Solve for <m>\mathcal{L}\left\{ y\right\} </m>
+                    using algebra: and get 
+                    <me>
+                    \mathcal{L}\left\{ y\right\} =\frac{1}{s^{2}\left(s^{2}+1\right)}.
+                    </me></p>
+
+                    <p>Step 3: We want to go backwards.
+                    But first let's do partial fractions: we did this in
+                    Example 1 of the Laplace transforms and got 
+                    <me>
+                    \frac{1}{s^{2}\left(s^{2}+1\right)}=\frac{1}{s^{2}}-\frac{1}{s^{2}+1}.
+                    </me></p>
+
+                    <p>Step 4: Formulas <m>3</m> and <m>5</m> in
+                    the Laplace Transform table:
+                    <me>
+                    \mathcal{L}\left\{ t^{n}\right\} =\frac{n!}{s^{n+1}},\,\,\,\mathcal{L}\left\{ \sin(at)\right\} =\frac{a}{s^{2}+a^{2}}.
+                    </me>
+                    Use get the inverse Laplace transform:
+                    <md>
+                    <mrow>y=\mathcal{L}^{-1}\left\{ \mathcal{L}\left\{ y\right\} \right\}  \amp =\mathcal{L}^{-1}\left\{ \frac{1}{s^{2}}\right\} -\mathcal{L}^{-1}\left\{ \frac{1}{s^{2}+1}\right\} </mrow>
+                     <mrow>\amp =t-\sin t,</mrow>
+                    </md></p>
+                </example>
+
+                <example>
+                    <p>Use Laplace Transforms to solve:
+                    <me>
+                    y^{\prime\prime}-4y^{\prime}+5y=2e^{t},\,\,\,y(0)=3,y^{\prime}(0)=1.
+                    </me></p>
+
+                    <p>Step 1: Find the Laplace Transform of the ODE (The
+                    going forwards part). Recall the formulas <m>\mathcal{L}\left\{ f^{\prime}(t)\right\} =s\mathcal{L}\left\{ f(t)\right\} -f(0)</m>
+                    and <m>\mathcal{L}\left\{ f^{\prime\prime}(t)\right\} =s^{2}\mathcal{L}\left\{ f(t)\right\} -sf(0)-f^{\prime}(0)</m>.
+                    Applying <m>\mathcal{L}</m> to both sides we get 
+                    <md>
+                    <mrow>\mathcal{L}\left\{ y^{\prime\prime}-4y^{\prime}+5y\right\}  \amp =\mathcal{L}\left\{ 2e^{t}\right\} ,\iff</mrow>
+                    <mrow>\left[s^{2}\mathcal{L}\left\{ y\right\} -sy(0)-y^{\prime}(0)\right]-4\left[s\mathcal{L}\left\{ y\right\} -y(0)\right]+5\mathcal{L}\left\{ y\right\}  \amp =\frac{2}{s-1},\iff</mrow>
+                    <mrow>s^{2}\mathcal{L}\left\{ y\right\} -3s-1-4s\mathcal{L}\left\{ y\right\} +12+5\mathcal{L}\left\{ y\right\}  \amp =\frac{2}{s-1},\iff</mrow>
+                    <mrow>\mathcal{L}\left\{ y\right\} \left(s^{2}-4s+5\right) \amp =\frac{2}{s-1}+3s-11,\iff</mrow>
+                    </md></p>
+
+                    <p> Step 2: Solve for <m>\mathcal{L}\left\{ y\right\} </m>
+                    using algebra: and get 
+                    <me>
+                    \mathcal{L}\left\{ y\right\} =\frac{2}{\left(s-1\right)\left(s^{2}-4s+5\right)}+\frac{3s-11}{s^{2}-4s+5}.
+                    </me></p>
+                    <p>Step 3: Do Partial Fractions and complete the square:
+                    <me>
+                    \frac{2}{\left(s-1\right)\left(s^{2}-4s+5\right)}=\frac{A}{s-1}+\frac{Bs+C}{s^{2}-4s+5}
+                    </me>
+                    and get <m>A=1,B=-1,C=3</m> so that 
+                    <me>
+                    \frac{2}{\left(s-1\right)\left(s^{2}-4s+5\right)}=\frac{1}{s-1}+\frac{-s+3}{s^{2}-4s+5}
+                    </me></p>
+                     <p>Step 4: The inverse Laplace transform:
+                    <md>
+                     <mrow>\amp y=\mathcal{L}^{-1}\left\{ \mathcal{L}\left\{ y\right\} \right\} </mrow>
+                     <mrow>\amp =\mathcal{L}^{-1}\left\{ \frac{1}{s-1}+\frac{-s+3}{s^{2}-4s+5}+\frac{3s-11}{s^{2}-4s+5}\right\} </mrow>
+                     <mrow>\amp =\mathcal{L}^{-1}\left\{ \frac{1}{s-1}\right\} +\mathcal{L}^{-1}\left\{ \frac{2s-8}{s^{2}-4s+5}\right\} </mrow>
+                    </md>
+                    and recall that from an above example 
+                    <me>
+                    \mathcal{L}^{-1}\left\{ \frac{2s-8}{s^{2}-4s+5}\right\} =2e^{2t}\cos t-4e^{2t}\sin t
+                    </me>
+                    hence 
+                    <md>
+                    <mrow>y \amp =\mathcal{L}^{-1}\left\{ \frac{1}{s-1}\right\} +\mathcal{L}^{-1}\left\{ \frac{2s-8}{s^{2}-4s+5}\right\} </mrow>
+                     <mrow>\amp =e^{t}+2e^{2t}\cos t-4e^{2t}\sin t.</mrow>
+                    </md></p>
+                </example>
+
+                <example>
+                    
+                    <p>Take the Laplace transform of
+                    the following equation:
+                    <me>
+                    y^{\prime\prime}+4y=3\cos t\,\,\,\,\,\,\,\,\,y(0)=y^{\prime}(0)=0.
+                    </me></p>
+
+                    <p>Step 1: Find the Laplace Transform of the ODE (The
+                    going forwards part). Recall the formulas <m>\mathcal{L}\left\{ f^{\prime}(t)\right\} =s\mathcal{L}\left\{ f(t)\right\} -f(0)</m>
+                    and <m>\mathcal{L}\left\{ f^{\prime\prime}(t)\right\} =s^{2}\mathcal{L}\left\{ f(t)\right\} -sf(0)-f^{\prime}(0)</m>.
+                    Applying <m>\mathcal{L}</m> to both sides we get 
+                    <md>
+                    <mrow>\mathcal{L}\left\{ y^{\prime\prime}+4y\right\}  \amp =\mathcal{L}\left\{ 3\cos t\,\right\} ,\iff</mrow>
+                    <mrow>\left[s^{2}\mathcal{L}\left\{ y\right\} -sy(0)-y^{\prime}(0)\right]+4\mathcal{L}\left\{ y\right\}  \amp =\frac{3s}{s^{2}+1},\iff</mrow>
+                    <mrow>\mathcal{L}\left\{ y\right\} \left(s^{2}+4\right) \amp =\frac{3s}{s^{2}+1},\iff</mrow>
+                    </md></p>
+
+                    <p>Step 2: Solve for <m>\mathcal{L}\left\{ y\right\} </m>
+                    using algebra: and get 
+                    <me>
+                    \mathcal{L}\left\{ y\right\} =\frac{3s}{\left(s^{2}+4\right)\left(s^{2}+1\right)}.
+                    </me></p>
+
+                    <p>Step 3: Do Partial Fractions and complete the square:
+                    <me>
+                    \frac{3s}{\left(s^{2}+4\right)\left(s^{2}+1\right)}=\frac{As+B}{s^{2}+4}+\frac{Cs+C}{s^{2}+1}
+                    </me>
+                    and get <m>A=-1,B=0,C=1,D=0</m> so that 
+                    <me>
+                    \frac{3s}{\left(s^{2}+4\right)\left(s^{2}+1\right)}=\frac{-s}{s^{2}+4}+\frac{s}{s^{2}+1}
+                    </me></p>
+                     <p>Step 4: The inverse Laplace transform:
+                    <md>
+                     <mrow>\amp y=\mathcal{L}^{-1}\left\{ \mathcal{L}\left\{ y\right\} \right\} </mrow>
+                     <mrow>\amp =\mathcal{L}^{-1}\left\{ \frac{-s}{s^{2}+4}+\frac{s}{s^{2}+1}\right\} </mrow>
+                     <mrow>\amp =-\cos(2t)+\cos t.</mrow>
+                    </md>
+                    </p>
+                </example>
+            </subsection>
+    </section>
+
+    <section xml:id="ch6-4">
+        <title>Step functions</title>
+            <p>Step functions are often used in problems involving 
+            
+             the flow of electric circuts,
+              and discontinuous impulsive forcing, such as in vibrations of mechanical
+            systems. </p>
+            
+            <definition> <p>The <term>Heaviside function</term>, or
+            <term>unit step function</term> is defined by 
+            <me>
+            u_{c}(t)=\begin{cases}
+            0 \amp t\lt c\\
+            1 \amp t\geq c
+            \end{cases}.
+            </me></p></definition>
+            
+            <p>Though it really doesn't matter, we will assume <m>c>0</m>. 
+            
+            The step function looks like <image width="40%" source = "images/6.3-1.jpg" />, which you can think of an <q>on-switch</q> that turns on at <m>t=c</m>.
+             Note that <m>1-u_{c}(t)</m> is the corresponding <q>off-switch</q> and looks like: <image width="40%" source="images/6.3-2.jpg"/></p>
+
+            <example>
+                <p>Sketch the following function and describe
+                it as a piecewise function:
+                <me>
+                f(t)=2tu_{2}(t)-(t-1)u_{4}(t).
+                </me></p>
+
+                
+                <p>We look at the critical points which
+                are <m>t=2,4</m> and consider different cases:
+                
+                 <m>t\lt2</m>, <m>f(t)=0+0=0</m>
+                 <m>2\leq t\lt4</m>, <m>f(t)=2t\cdot1+0=2t</m>,
+                 <m>4\leq t</m>, <m>f(t)=2t\cdot1-(t-1)\cdot1=t+1</m>, hence
+                <me>
+                f(t)=\begin{cases}
+                0 \amp t\lt 2\\
+                2t \amp 2\leq t \lt 4\\
+                t+1 \amp t\geq4.
+                \end{cases}
+                </me></p>
+            </example>
+            
+            
+            
+            <example>
+                <p> Write <m>f(t)</m> in terms of step functions:
+                <me>
+                f(t)=\begin{cases}
+                t \amp 0\leq t\lt 1\\
+                t-1 \amp 1\leq t\lt 2\\
+                t-2 \amp 2\leq t\lt 3\\
+                0 \amp 3\leq t.
+                \end{cases}
+                </me></p>
+
+            
+                <p>Solution: The discontinuity points are <m>t=0,1,2,3</m>. 
+                
+                 When <m>0\leq t\lt 1</m>, the function will be <m>f(t)=tu_{0}(t)+\cdots</m>.
+                Our goal is to figure out the rest.
+                 When <m>1\leq t\lt 2</m>, the function will be <m>f(t)=tu_{0}(t)+\boldsymbol{?}\cdot u_{1}(t)+\cdots=t-1</m>,
+                hence 
+                <me>
+                t+?=t-1\,\,\,\implies?=-1.
+                </me>
+
+                
+                 Hence <m>f(t)=tu_{0}(t)-1\cdot u_{1}(t)+\cdots</m>
+                
+                 When <m>2\leq \lt 3</m>, the function will be <m>f(t)=tu_{0}(t)-1\cdot u_{1}(t)+\boldsymbol{?}u_{2}(t)+\cdots=t-2</m>,
+                hence 
+                <me>
+                t-1+?=t-2\,\,\,\implies?=-1.
+                </me>
+
+                
+                 Hence <m>f(t)=tu_{0}(t)-1\cdot u_{1}(t)-1u_{2}(t)+\cdots</m>
+                
+                 When <m>t\geq3</m>, the function will be <m>f(t)=tu_{0}(t)-1\cdot u_{1}(t)-1u_{2}(t)+\boldsymbol{?}u_{3}(t)\cdots=0</m>,
+                hence 
+                <me>
+                t-1-1+?=0\,\,\,\implies?=2-t
+                </me>
+                 Thus
+                <me>
+                f(t)=tu_{0}(t)-u_{1}(t)-u_{2}(t)+(2-t)u_{3}(t).
+                </me></p>
+            </example>
+            
+            
+             <p>We can compute the Laplace transform of <m>u_{c}(t)</m>:
+            <md>
+            <mrow>\mathcal{L}\left\{ u_{c}(t)\right\}  \amp =\int_{0}^{\infty}u_{c}(t)e^{-st}dt=\int_{c}^{\infty}e^{-st}dt</mrow>
+             <mrow>\amp =\left[-\frac{e^{-st}}{s}\right]_{t=c}^{t=\infty}</mrow>
+             <mrow>\amp =\frac{e^{-cs}}{s}.</mrow>
+            </md></p>
+
+            <example>
+                <p>Find the Laplace Transform of 
+                <me>
+                f(t)=\begin{cases}
+                2 \amp t\lt3\\
+                -3 \amp t\geq3
+                \end{cases}.
+                </me></p>
+
+            
+                <p>Solution: First use the technique from the first
+                two examples two write <m>f(t)</m> in terms of <m>u_{c}</m>, and get 
+                <me>
+                f(t)=2-5u_{3}(t),
+                </me>
+                hence 
+                <me>
+                F(s)=\mathcal{L}\left\{ f(t)\right\} =\frac{2}{s}-5\frac{e^{-3s}}{s}.
+                </me></p>
+            </example>
+            
+            <p>The theorems that come next are called the <term>translation theorems</term>, because they represent the effect of translation on both functions and their transforms.</p>
+
+            <theorem><title>First translation theorem</title>
+            <p>If <m>F(s)=\mathcal{L}\left\{ f(t)\right\} </m> exists for
+            <m>s>a\geq0</m> and <m>c>0</m>, then 
+            <me>
+            \mathcal{L}\left\{ u_{c}(t)f\left(t-c\right)\right\} =e^{-cs}\mathcal{L}\left\{ f(t)\right\} =e^{-cs}F(s),
+            </me>
+            Conversely, if <m>f(t)=\mathcal{L}^{-1}\left\{ F(s)\right\} </m>, then
+            <me>
+            u_{c}(t)f\left(t-c\right) =\mathcal{L}^{-1}\left\{ e^{-cs}F(s)\right\} .
+            </me>
+            </p></theorem>
+
+            <p> Remark: Note that <m>u_{c}(t)f(t-c)</m> translates a function to the right
+            by <m>c</m>, and leaves everything to the left as zero.</p> 
+            
+            <theorem><title>Second translation theorem</title>
+                <p>If <m>F(s)=\mathcal{L}\left\{ f(t)\right\} </m> exists for
+                <m>s>a\geq0</m> and <m>c>0</m>, then 
+                <me>
+                \mathcal{L}\left\{ e^{ct}f\left(t\right)\right\} =F(s-c),\,\,\,\,s>a+c.
+                </me>
+                Conversely, if <m>f(t)=\mathcal{L}^{-1}\left\{ F(s-c)\right\} </m>, then
+                <me>
+                e^{ct}f(t)=\mathcal{L}^{-1}\left\{ F(s-c)\right\} .
+                </me></p>
+            </theorem>
+            
+             <p>The translation theorems are included in the table formulas:</p>
+            
+            <assemblage>
+            <p><ol>
+            <li><m>\mathcal{L}\left\{ t^{n}\right\} =\frac{n!}{s^{n+1}}</m>, <m>n</m> positive integer.</li>
+            
+            <li> <m>\mathcal{L}\left\{ t\right\} =\frac{1}{s^{2}}</m>, <m>\mathcal{L}\left\{ t^{2}\right\} =\frac{2}{s^{3}}</m>,
+                        and <m>\mathcal{L}\left\{ t^{3}\right\} =\frac{3!}{s^{4}}</m>. </li>
+            
+             <li><m>\mathcal{L}\left\{ \sin at\right\} =\frac{a}{s^{2}+a^{2}}</m></li>
+             <li><m>\mathcal{L}\left\{ \cos at\right\} =\frac{s}{s^{2}+a^{2}}</m></li>
+             <li><m>\mathcal{L}\left\{ \sinh at\right\} =\frac{a}{s^{2}-a^{2}}</m></li>
+             <li><m>\mathcal{L}\left\{ \cosh at\right\} =\frac{s}{s^{2}-a^{2}}</m></li>
+             <li><m>\mathcal{L}\left\{ u_{c}(t)f\left(t-c\right)\right\} =e^{-cs}F(s)</m></li>
+             <li><m>\mathcal{L}\left\{ e^{ct}f\left(t\right)\right\} =F(s-c)</m></li>
+            </ol></p>
+            </assemblage>
+
+            <example>
+                <p>Find the Laplace transform of
+                <me>
+                f(t)=\begin{cases}
+                0 \amp t\lt 2\\
+                t^{2}-4t+5 \amp t\geq2
+                \end{cases}
+                </me></p>
+
+                
+                <p>Solution: First we complete the square by adding/subtracting
+                <m>\left(\frac{b}{2}\right)^{2}=\left(\frac{4}{2}\right)^{2}=4</m> and
+                get
+                <me>
+                t^{2}-4t+5=t^{2}-4t+4-4+5=\left(t-2\right)^{2}-4+5=(t-2)^{2}+1
+                </me>
+                so that
+                <md>
+                <mrow>f(t) \amp =\begin{cases}
+                                0 \amp t\lt 2\\
+                                \left(t-2\right)^{2}+1 \amp t\geq2
+                                \end{cases}</mrow>
+                 <mrow>\amp =u_{2}(t)\left[\left(t-2\right)^{2}+1\right]</mrow>
+                 <mrow>\amp =u_{2}(t)\left(t-2\right)^{2}+u_{2}(t),</mrow>
+                </md>
+                hence using formulas <m>\mathcal{L}\left\{ u_{c}(t)f\left(t-c\right)\right\} =e^{-cs}F(s)</m>
+                and <m>\mathcal{L}\left\{ t^{2}\right\} =\frac{2}{s^{3}}</m> and <m>c=2</m>,
+                <md>
+                <mrow>\mathcal{L}\left\{ f(t)\right\}  \amp =e^{-2s}F(s)+\frac{e^{-2s}}{s},\,\,\text{where }f(t-2)=\left(t-2\right)^{2},f(t)=t^{2}</mrow>
+                 <mrow>\amp =e^{-2s}\frac{2}{s^{3}}+\frac{e^{-2s}}{s}.</mrow>
+                </md></p>
+            </example>
+            
+            <example>
+                <p>Take the Inverse Laplace Transform of:<m>{\displaystyle F(s)=\frac{e^{-2s}}{s^{2}+s-2}}</m></p>
+            
+                <p>SolutionL In this example we can actually factor
+                <md>
+                <mrow>\frac{e^{-2s}}{s^{2}+s-2} \amp =\frac{e^{-2s}}{\left(s+2\right)\left(s-1\right)}</mrow>
+                 <mrow>\amp =e^{-2s}\left(\frac{-1/3}{s+2}+\frac{1/3}{s-1}\right),\,\text{by partial fractions}</mrow>
+                </md>
+                and use <m>\mathcal{L}\left\{ u_{c}(t)f\left(t-c\right)\right\} =e^{-cs}F(s)</m>
+                (use this whenever use see an <m>e^{-cs}</m> when taking \textbf{inverses}!)
+                <md>
+                <mrow>\mathcal{L}^{-1}\left\{ F(s)\right\}  \amp =-\frac{1}{3}\mathcal{L}^{-1}\left\{ \frac{e^{-2s}}{s-(-2)}\right\} +\frac{1}{3}\mathcal{L}^{-1}\left\{ \frac{e^{-2s}}{s-1}\right\} </mrow>
+                 <mrow>\amp =-\frac{1}{3}u_{2}(t)f_{1}\left(t-2\right)+\frac{1}{3}u_{2}(t)f_{2}\left(t-2\right).</mrow>
+                </md>
+                 Use the fact that <m>\mathcal{L}\left\{ f_{1}\right\} =\mathcal{L}\left\{ e^{-2t}\right\} =\frac{1}{s+2}</m>
+                and <m>\mathcal{L}\left\{ f_{2}\right\} =\mathcal{L}\left\{ e^{t}\right\} =\frac{1}{s-1}</m>
+                hence 
+                <me>
+                \mathcal{L}^{-1}\left\{ F(s)\right\} =-\frac{1}{3}u_{2}(t)e^{-2\left(t-2\right)}+\frac{1}{3}u_{2}(t)e^{(t-2)}.
+                </me></p>
+            </example>
+            
+            <example>
+                <p>Take the Inverse Laplace Transform of:<m>{\displaystyle F(s)=\frac{9\left(s-3\right)e^{-5s}}{s^{2}-6s+13}}</m></p>
+                
+                <p>Solution: In this example we can only complete
+                the square since we can't factor and get 
+                <me>
+                \frac{9\left(s-3\right)e^{-5s}}{s^{2}-6s+13}=\frac{9\left(s-3\right)e^{-5s}}{\left(s-3\right)^{2}+2^{2}}
+                </me>
+
+                
+                 Now note that by <m>\mathcal{L}\left\{ e^{ct}f\left(t\right)\right\} =F(s-c)</m>
+                and <m>\mathcal{L}\left\{ \cos at\right\} =\frac{s}{s^{2}+a^{2}}</m> we
+                have 
+                <md>
+                <mrow>\mathcal{L}\left\{ \cos\left(2t\right)\right\} =\frac{s}{s^{2}+2^{2}} \amp \implies\mathcal{L}\left\{ e^{3t}\cos\left(2t\right)\right\} =\frac{(s-3)}{(s-3)^{2}+2^{2}}</mrow>
+                </md>
+                 (Need to take care of the <m>e^{-5s}</m>) Now use <m>\mathcal{L}\left\{ u_{c}(t)f_{1}\left(t-c\right)\right\} =e^{-cs}F_{1}(s)</m>
+                with <m>f_{1}(t)=e^{3t}\cos\left(2t\right)</m> and <m>c=5</m> so that <m>f_{1}(t-5)=e^{3(t-5)}\cos\left(2\left(t-5\right)\right)</m>
+                hence
+                <me>
+                \mathcal{L}\left\{ u_{5}(t)e^{3(t-5)}\cos\left(2\left(t-5\right)\right)\right\} =e^{-5s}\frac{(s-3)}{(s-3)^{2}+2^{2}}
+                </me>
+                Thus multiplying both sides by <m>9</m>
+                <me>
+                \mathcal{L}^{-1}\left\{ F(s)\right\} =9u_{5}(t)e^{3(t-5)}\cos\left(2\left(t-5\right)\right).
+                </me></p>
+            </example>
+            
+            <example>
+                 <p>Take the Inverse Laplace Transform of:<m>{\displaystyle F(s)=\frac{e^{-7s}}{s^{2}-4}}</m>.</p>
+                
+                 <p>Solution: We note <m>\mathcal{L}\left\{ \sinh2t\right\} =\frac{2}{s^{2}-4}</m>
+                and use <m>\mathcal{L}\left\{ u_{c}(t)f_{1}\left(t-c\right)\right\} =e^{-cs}F_{1}(s)</m>
+                where <m>f_{1}(t)=\sinh2t\implies f_{1}(t-7)=\sinh2\left(t-7\right)</m>
+                to get that 
+                <md>
+                <mrow>\mathcal{L}\left\{ u_{7}(t)f_{1}\left(t-7\right)\right\} =e^{-7s}F_{1}(s), \amp \implies\mathcal{L}\left\{ u_{7}(t)\sinh2\left(t-7\right)\right\} =\frac{2e^{-7s}}{s^{2}-4}</mrow>
+                 <mrow>\amp \implies\frac{1}{2}\mathcal{L}\left\{ u_{7}(t)\sinh2\left(t-7\right)\right\} =\frac{e^{-7s}}{s^{2}-4}</mrow>
+                </md>
+                hence 
+                <me>
+                \mathcal{L}^{-1}\left\{ F(s)\right\} =\frac{1}{2}u_{7}(t)\sinh2\left(t-7\right).
+                </me></p>
+            </example>
+            
+            <example>
+                <p>Take the Inverse Laplace Transform of:<m>{\displaystyle F(s)=\frac{1}{s^{2}}+\frac{e^{-6s}}{\left(s-2\right)^{3}}}</m>.</p>
+                
+                <p> We know <m>\mathcal{L}\left\{ t\right\} =\frac{1}{s^{2}}</m>,
+                <m>\mathcal{L}\left\{ t^{2}\right\} =\frac{2}{s^{3}}</m> and <m>\mathcal{L}\left\{ e^{ct}f\left(t\right)\right\} =F(s-c)</m>
+                and <m>\mathcal{L}\left\{ u_{c}(t)f\left(t-c\right)\right\} =e^{-cs}F(s)</m>
+                hence 
+                <md>
+                <mrow>\mathcal{L}^{-1}\left\{ F(s)\right\}  \amp =t+\frac{1}{2}\mathcal{L}^{-1}\left\{ \frac{2e^{-6s}}{\left(s-2\right)^{3}}\right\} </mrow>
+                 <mrow>\amp =t+\frac{1}{2}u_{6}(t)e^{2(t-6)}(t-6)^{2}.</mrow>
+                </md></p>
+            </example>
+            
+            <example>
+                <p> Take the Inverse Laplace Transform of:
+                <m>{\displaystyle F(s)=\frac{1}{s^{2}-10s+26}}</m>.</p>
+                
+                <p>Solution: (practice with using <m>\mathcal{L}\left\{ e^{ct}g\left(t\right)\right\} =G(s-c)</m>). First
+                we complete the square and get 
+                <me>
+                \frac{1}{s^{2}-10s+26}=\frac{1}{\left(s-5\right)^{2}+1}
+                </me>
+                and use <m>\mathcal{L}\left\{ \sin at\right\} =\frac{a}{s^{2}+a^{2}}</m>
+                with <m>a=1</m> so that <m>\mathcal{L}\left\{ \sin t\right\} =\frac{1}{s^{2}+1}</m>
+                
+                 Then use the fact that <m>\mathcal{L}\left\{ e^{ct}g\left(t\right)\right\} =G(s-c)</m>
+                with <m>c=5</m> and <m>g(t)=\sin t</m>, thus we know that 
+                <me>
+                \mathcal{L}\left\{ e^{5t}\sin t\right\} =\frac{1}{\left(s-5\right)^{2}+1}
+                </me>
+                hence 
+                <me>
+                \mathcal{L}^{-1}\left\{ F(s)\right\} =e^{5t}\sin t.
+                </me></p>
+            </example>
+    </section>
+
+        <section xml:id="ch6-5">
+            <title>ODEs with discontinuous forcing functions</title>
+
+            
+            <p>We will now do some examples involving intial value problems where the forcing function have pieces that switch on and off. This will require the use of step functions to turn parts of the forcing function on and off as the definition requires. You can think of this as a way to rewrite a multi-part definition into just one definition for a piecewise continuous function.</p>
+
+            <example>
+                <p>Solve using Laplace Transforms:
+                <me>
+                y^{\prime}=-y+u_{3}(t),\,\,\,\,\,y(0)=2.
+                </me></p>
+
+            
+                <p>Step 1: Take <m>\mathcal{L}</m> of both sides and solve
+                for <m>\mathcal{L}</m>
+                <me>
+                \mathcal{L}\left\{ y^{\prime}\right\} =\mathcal{L}\left\{ -y\right\} +\mathcal{L}\left\{ u_{3}(t)\right\} 
+                </me>
+                so that 
+                <me>
+                s\mathcal{L}\left\{ y\right\} -y(0)=-\mathcal{L}\left\{ y\right\} +\frac{e^{-3s}}{s}.
+                </me></p>
+
+                <p>Step 2: Solve for <m>\mathcal{L}\left\{ y\right\} </m>,
+                <me>
+                \mathcal{L}\left\{ y\right\} =\frac{2}{s+1}+\frac{e^{-3s}}{s\left(s+1\right)}
+                </me></p>
+
+                <p>Step 3: We do partial fractions on 
+                <me>
+                \frac{1}{s\left(s+1\right)}=\frac{1}{s}-\frac{1}{s+1}
+                </me></p>
+
+                <p>Step 4: Take the inverse Laplace transform:
+                Using <m>\mathcal{L}\left[u_{a}(t)f(t-a)\right]=e^{-as}F(s)</m>, and get
+                <md>
+                <mrow>y \amp =\mathcal{L}^{-1}\left\{ \frac{2}{s+1}+e^{-3s}\frac{1}{s}-e^{-3s}\frac{1}{s+1}\right\} </mrow>
+                 <mrow>\amp =2e^{-t}+u_{3}(t)-u_{3}(t)e^{-\left(t-3\right)}.</mrow>
+                </md></p>
+            </example>
+            
+            <example>
+                <p>Solve using Laplace Transforms:
+                <me>
+                y^{\prime}=-3y+6u_{4}(t)e^{-\left(t-4\right)},\,\,\,\,\,y(0)=5.
+                </me></p>
+
+                
+                <p>Step 1: Take <m>\mathcal{L}</m> of both sides 
+                <me>
+                \mathcal{L}\left\{ y^{\prime}\right\} =-3\mathcal{L}\left\{ y\right\} +6\mathcal{L}\left\{ u_{4}(t)e^{-\left(t-4\right)}\right\} 
+                </me>
+                and get 
+                <me>
+                s\mathcal{L}\left\{ y\right\} -y(0)=-3\mathcal{L}\left\{ y\right\} +6\mathcal{L}\left\{ u_{4}(t)e^{-\left(t-4\right)}\right\} 
+                </me></p>
+                
+                <p>Step 2: Solve for <m>\mathcal{L}\left\{ y\right\} </m>
+                and get
+                <me>
+                \mathcal{L}\left\{ y\right\} =\frac{5}{s+3}+\frac{6e^{-4s}}{\left(s+3\right)\left(s+1\right)}.
+                </me></p>
+
+                <p>Step 3: We do partial fractions
+                <me>
+                \frac{6}{\left(s+3\right)\left(s+1\right)}=\frac{-3}{\left(s+3\right)}+\frac{3}{\left(s+1\right)}.
+                </me></p>
+
+                <p>Step 3: Take the inverse Laplace transform:
+                Using <m>\mathcal{L}\left[u_{a}(t)f(t-a)\right]=e^{-as}F(s)</m>, and 
+                <md>
+                <mrow>y \amp =\mathcal{L}^{-1}\left\{ \frac{5}{s+3}+\frac{6e^{-4s}}{\left(s+3\right)\left(s+1\right)}\right\} </mrow>
+                 <mrow>\amp =\mathcal{L}^{-1}\left\{ \frac{5}{s+3}\right\} +\mathcal{L}^{-1}\left\{ -3e^{-4s}\frac{1}{\left(s+3\right)}+3e^{-4s}\frac{1}{\left(s+1\right)}\right\} </mrow>
+                 <mrow>\amp =5e^{-3t}-3u_{4}(t)e^{-3\left(t-4\right)}+3u_{4}(t)e^{-\left(t-4\right)}.</mrow>
+                </md></p>
+            </example>
+
+            <example>
+                <p>Solve using Laplace Transforms:
+                <me>
+                y^{\prime\prime}+4y=3u_{5}(t)\sin\left(t-5\right),\,\,\,\,\,y(0)=1,y^{\prime}(0)=0.
+                </me></p>
+
+                
+                <p>Step 1: Take <m>\mathcal{L}</m> of both sides and solve
+                for <m>\mathcal{L}</m>
+                <me>
+                \mathcal{L}\left\{ y^{\prime\prime}\right\} +4\mathcal{L}\left\{ y\right\} =3\mathcal{L}\left\{ u_{5}(t)\sin\left(t-5\right)\right\} 
+                </me>
+                and recall <m>\mathcal{L}\left[u_{a}(t)f(t-a)\right]=e^{-as}F(s)</m>,
+                hence <m>a=4</m>, <m>f(t-5)=\sin\left(t-5\right)</m> hence <m>f(t)=\sin t</m>
+                and <m>\mathcal{L}\left\{ \sin t\right\} =\frac{1}{s^{2}+1}</m> hence
+                <md>
+                <mrow>s^{2}\mathcal{L}\left\{ y\right\} -sy(0)-y^{\prime}(0)+4\mathcal{L}\left\{ y\right\}  \amp =3\frac{e^{-5s}}{s^{2}+1},\implies</mrow>
+                <mrow>\left(s^{2}+4\right)\mathcal{L}\left\{ y\right\} -s \amp =3\frac{e^{-5s}}{s^{2}+1},\implies</mrow>
+                <mrow>\mathcal{L}\left\{ y\right\}  \amp =3\frac{e^{-5s}}{\left(s^{2}+4\right)\left(s^{2}+1\right)}+\frac{s}{s^{2}+4}</mrow>
+                </md></p>
+                 
+                <p>Step 2: We do partial fractions on 
+                <me>
+                \frac{3}{\left(s^{2}+4\right)\left(s^{2}+1\right)}=\frac{As+B}{s^{2}+4}+\frac{Cs+D}{s^{2}+1}
+                </me>
+                hence 
+                <md>
+                <mrow>3 \amp =\left(As+B\right)\left(s^{2}+1\right)+\left(Cs+D\right)\left(s^{2}+4\right),\implies</mrow>
+                <mrow>0\cdot s^{3}+0\cdot s^{2}+0\cdot s+3 \amp =\left(A+C\right)s^{3}+\left(B+D\right)s^{2}+\left(A+4C\right)s+\left(B+4D\right)</mrow>
+                </md>
+                hence 
+                <md>
+                <mrow>A+C \amp =0</mrow>
+                <mrow>B+D \amp =0</mrow>
+                <mrow>A+4C \amp =0</mrow>
+                <mrow>B+4D \amp =3</mrow>
+                </md>
+                and get 
+                <me>
+                A=0\,\,\,\,B=-1,\,\,\,\,C=0,\,\,\,D=1
+                </me>
+                hence 
+                <me>
+                \frac{3}{\left(s^{2}+4\right)\left(s^{2}+1\right)}=\frac{-1}{s^{2}+4}+\frac{1}{s^{2}+1}
+                </me></p>
+
+                <p>Step 3: Take the inverse Laplace transform:
+                Using <m>\mathcal{L}\left[u_{a}(t)f(t-a)\right]=e^{-as}F(s)</m>, and <m>\mathcal{L}\left\{ \sin(at)\right\} =\frac{a}{s^{2}+a^{2}}</m>
+                and <m>\mathcal{L}\left\{ \cos(at)\right\} =\frac{a}{s^{2}+a^{2}}</m>
+                we have
+                <md>
+                <mrow>y \amp =\mathcal{L}^{-1}\left\{ \frac{-e^{-5s}}{s^{2}+4}+\frac{e^{-5s}}{s^{2}+1}+\frac{s}{s^{2}+4}\right\} </mrow>
+                 <mrow>\amp =-\frac{1}{2}\mathcal{L}^{-1}\left\{ \frac{2e^{-5s}}{s^{2}+2^{2}}\right\} +\mathcal{L}^{-1}\left\{ \frac{e^{-5s}}{s^{2}+1}\right\} +\mathcal{L}^{-1}\left\{ \frac{s}{s^{2}+4}\right\} </mrow>
+                 <mrow>\amp =-\frac{1}{2}u_{5}(t)\sin\left(2\left(t-5\right)\right)+u_{5}(t)\sin\left(t-5\right)+\cos\left(2t\right)</mrow>
+                </md></p>
+            </example>
+            
+            <example>
+                <p>Solve using Laplace Transforms:
+                <me>
+                y^{(4)}-y=u_{1}(t)-u_{2}(t),\,\,\,\,\,y(0)=0,y^{\prime}(0)=0,y^{\prime\prime}(0)=0.,y^{\prime\prime\prime}(0)=0..
+                </me></p>
+
+                
+                <p>Step 1: Take <m>\mathcal{L}</m> of both sides and solve
+                for <m>\mathcal{L}</m>
+                <me>
+                \mathcal{L}\left\{ y^{(4)}\right\} -\mathcal{L}\left\{ y\right\} =\mathcal{L}\left\{ u_{1}(t)-u_{2}(t)\right\} 
+                </me>
+                 hence 
+                <md>
+                <mrow>\amp s^{4}\mathcal{L}\left\{ y\right\} -s^{3}y(0)-s^{2}y^{\prime}(0)-sy^{\prime\prime}(0)-sy^{\prime\prime\prime}-y^{\prime}(0)-\mathcal{L}\left\{ y\right\}</mrow><mrow>  \amp =\frac{e^{-s}}{s}-\frac{e^{-2s}}{s}\implies</mrow>
+                <mrow>\left(s^{4}-1\right)\mathcal{L}\left\{ y\right\}  \amp =\frac{e^{-s}}{s}-\frac{e^{-2s}}{s},\implies</mrow>
+                <mrow>\mathcal{L}\left\{ y\right\}  \amp =\frac{e^{-s}}{s\left(s^{4}-1\right)}-\frac{e^{-2s}}{s\left(s^{4}-1\right)}</mrow>
+                </md></p>
+
+                <p>Step 2: We do partial fractions on 
+                <me>
+                \frac{1}{s\left(s^{4}-1\right)}=\frac{1}{s\left(s^{2}-1\right)\left(s^{2}+1\right)}=\frac{1}{s\left(s+1\right)\left(s-1\right)\left(s^{2}+1\right)}=
+                </me>
+                hence 
+                <me>
+                \frac{1}{s\left(s^{4}-1\right)}=\frac{A}{s}+\frac{B}{s+1}+\frac{C}{s-1}+\frac{Ds+E}{s^{2}+1}
+                </me>
+                after doing the work to get the partial fractions you get 
+                <me>
+                \frac{1}{s\left(s^{4}-1\right)}=-\frac{1}{s}+\frac{1}{4}\frac{1}{s+1}+\frac{1}{4}\frac{1}{s-1}+\frac{1}{2}\frac{s}{s^{2}+1}
+                </me>
+                putting it back we need to take the inverse of 
+                <md>
+                <mrow>\amp e^{-s}\left[-\frac{1}{s}+\frac{1}{4}\frac{1}{s+1}+\frac{1}{4}\frac{1}{s-1}+\frac{1}{2}\frac{s}{s^{2}+1}\right]</mrow><mrow>\amp -e^{-2s}\left[-\frac{1}{s}+\frac{1}{4}\frac{1}{s+1}+\frac{1}{4}\frac{1}{s-1}+\frac{1}{2}\frac{s}{s^{2}+1}\right]</mrow>
+                </md></p>
+
+                <p>Step 3: Take the inverse Laplace transform:
+                Using <m>\mathcal{L}\left[u_{a}(t)f(t-a)\right]=e^{-as}F(s)</m>, and <m>\mathcal{L}\left\{ \cos(at)\right\} =\frac{a}{s^{2}+a^{2}}</m>
+                and <m>\mathcal{L}\left\{ e^{at}\right\} =\frac{1}{s-a}</m> we have
+                <md>
+                <mrow>y \amp =\mathcal{L}^{-1}\left\{ e^{-s}\left[-\frac{1}{s}+\frac{1}{4}\frac{1}{s+1}+\frac{1}{4}\frac{1}{s-1}+\frac{1}{2}\frac{s}{s^{2}+1}\right]\right\} </mrow>
+                 <mrow>\amp -\mathcal{L}^{-1}\left\{ e^{-2s}\left[-\frac{1}{s}+\frac{1}{4}\frac{1}{s+1}+\frac{1}{4}\frac{1}{s-1}+\frac{1}{2}\frac{s}{s^{2}+1}\right]\right\} </mrow>
+                 <mrow>\amp =-u_{1}(t)+u_{1}(t)\left[\frac{1}{4}e^{-1\left(t-1\right)}+\frac{1}{4}e^{1\left(t-1\right)}+\frac{1}{2}\cos\left(t-1\right)\right]</mrow>
+                 <mrow>\amp +u_{2}(t)-u_{2}(t)\left\{ \frac{1}{4}e^{-1\left(t-2\right)}+\frac{1}{4}e^{1\left(t-2\right)}+\frac{1}{2}\cos\left(t-2\right)\right\} </mrow>
+                </md></p>
+            </example>
+            
+            <example>
+                <p>Find the Laplace transform of 
+                <me>
+                f(t)=\begin{cases}
+                t \amp 0\leq t\lt 1\\
+                3t \amp 1\leq t\lt\infty
+                \end{cases}.
+                </me></p>
+
+                
+                <p>Step 1: First let us rewrite this in terms of unit
+                step functions.
+                
+                 When <m>0\leq t\lt 1</m>: the function is <m>f(t)=t</m>
+                 When <m>1\leq t\lt \infty</m>: then function is <m>f(t)=t+?\cdot u_{1}(t)=3t</m>
+                hence <m>?=2t</m> so that 
+                <me>
+                f(t)=t+2tu_{1}(t).
+                </me></p>
+                
+                <p>Step 2: Before we can take a Laplace transform,
+                we notice that our fomula involves <m>\mathcal{L}\left\{ u_{c}(t)g\left(t-c\right)\right\} =e^{-ct}\mathcal{L}\left\{ g(t)\right\} </m>.
+                Thus we will need to turn <m>2tu_{1}(t)</m> into this form: 
+                <md>
+                <mrow>f(t) \amp =t+2tu_{1}(t)</mrow>
+                 <mrow>\amp =t+2\left(t-\boldsymbol{1}\right)u_{1}(t)+\boldsymbol{2u_{1}(t)}</mrow>
+                </md>
+                hence 
+                <md>
+                <mrow>\mathcal{L}\left\{ f(t)\right\}  \amp =\mathcal{L}\left\{ t\right\} +2\mathcal{L}\left\{ (t-1)u_{1}(t)\right\} +2\mathcal{L}\left\{ u_{1}(t)\right\} </mrow>
+                 <mrow>\amp =\frac{1}{s^{2}}+2e^{-s}\frac{1}{s^{2}}+2e^{-s}\frac{1}{s}.</mrow>
+                </md></p>
+            </example>
+                
+                
+            <p>We now introduce the following useful formula that is not included
+            in the table, which records the translation of a step function:</p>
+            
+            <fact>
+            <p>We have 
+            <me>
+            \mathcal{L}\left\{ u_{c}(t)h(t)\right\} =e^{-cs}\mathcal{L}\left\{ h\left(t+c\right)\right\} .
+            </me></p>
+            </fact>
+            
+            <example>
+
+                <p>Take the Laplace transform of <m>f(t)=u_{1}(t)te^{t}</m>.</p>
+                
+                <p>Notice that we cannot use the formula
+                <m>\mathcal{L}\left\{ u_{c}(t)g\left(t-c\right)\right\} =e^{-ct}\mathcal{L}\left\{ g(t)\right\} </m>
+                directly since <m>te^{t}</m> is not written as a function of <m>(t-1)</m>. 
+                 Hence we'll need to use <m>\mathcal{L}\left\{ u_{c}(t)h(t)\right\} =e^{-cs}\mathcal{L}\left\{ h\left(t+c\right)\right\} </m>
+                with <m>h(t)=te^{t}</m> and <m>c=1</m>. Thus 
+                <me>
+                h\left(t+1\right)=(t+1)e^{t+1}
+                </me>
+                and we get
+                <md>
+                <mrow>\mathcal{L}\left\{ u_{1}(t)te^{t}\right\}  \amp =e^{-cs}\mathcal{L}\left\{ h\left(t+c\right)\right\} </mrow>
+                 <mrow>\amp =e^{-s}\mathcal{L}\left\{ (t+1)e^{t+1}\right\} </mrow>
+                 <mrow>\amp =e^{-s}\mathcal{L}\left\{ te^{t}e+e^{t}e\right\} </mrow>
+                 <mrow>\amp =e^{-s}\left(e\mathcal{L}\left\{ te^{t}\right\} +e\mathcal{L}\left\{ e^{t}\right\} \right)</mrow>
+                 <mrow>\amp =e^{1-s}\left(\frac{1}{\left(s-1\right)^{2}}+\frac{1}{\left(s-1\right)}\right)</mrow>
+                </md>
+                where we used formula <m>2</m> and <m>11</m> in the table. </p>
+            </example>
+    </section>
+
+    <section xml:id="ch6-6">
+        <title>Impulse functions</title>
+
+            <p>One of the most useful capabilities of the Laplace transform is to deal with forcing functions that aren't even functions, but that occur with great regularity in the modeling of physical systems. The guiding question here that we should keep in mind is <q>what happens to an oscillating mass when it gets struck by an outside blow?</q>.</p>
+
+            <p>We consider 
+            <me>
+            ay^{\prime\prime}+by^{\prime}+cy=f(t),
+            </me>
+            where
+            <md>
+            <mrow>g(t) \amp =\begin{cases}
+                        \text{large } \amp t_{0}-\tau\lt t\lt t_{0}+\tau.\\
+                        0 \amp \text{elsewhere}
+                        \end{cases}</mrow>
+            </md>
+             Here <m>g(t)</m> is a <term>force</term> and 
+            <me>
+            I(\tau)=\int_{t_{0}-\tau}^{t_{0}+\tau}g(t)dt=\int_{-\infty}^{\infty}g(t)dt
+            </me>
+            is the <term>impulse</term> of the force, or the amount of force in a
+            short time period about <m>t_{0}</m>.</p>
+            
+            
+            <p>If <m>y=</m>current in an electric circuit,
+            <m>g(t)=</m> is the time derivative of the voltage, then <m>I(\tau)</m> is
+            the total voltage impressed on circuit in the time interval <m>I=\left(t_{0}-\tau,t_{0}+\tau\right)</m>. 
+            
+             We will use the following particular example of a force with <m>\tau=0</m>
+            (to simplify things):
+            <me>
+            g(t)=d_{\tau}(t)=\begin{cases}
+            \frac{1}{2\tau} \amp -\tau\lt t\lt \tau,\\
+            0 \amp \text{elsewhere}
+            \end{cases},
+            </me>
+            where <m>\tau>0</m> is small.</p>
+            
+            <p>We'll first look at some nice properties of <m>d_{\tau}(t)</m>:
+            
+            <ol>
+            <li><m>{\displaystyle \lim_{\tau\to0^{+}}d_{\tau}(t)=0}</m>, whenever <m>t\neq0</m>,
+            and <m>\lim_{\tau\to0^{+}}d_{\tau}(0)=\infty</m>. <image source="images/6.5-1.jpg"/></li>
+          <li>   <m>I(\tau)=\int_{-\tau}^{\tau}\frac{1}{2\tau}dt=\left[\frac{1}{2\tau}t\right]_{-\tau}^{\tau}=1</m>
+                      for every <m>\tau</m>.
+                       Hence <m>{\displaystyle \lim_{\tau\to0^{+}}}I(\tau)=1</m>, <image source="images/6.5-2.jpg"/></li>
+            </ol></p>
+
+            <p> We thus want to define a <term>unit impulse function <m>\delta</m></term>,
+            with the properties
+            <me>
+            \delta(t)=\begin{cases}
+            0 \amp t\neq0\\
+            \infty \amp t=0
+            \end{cases}
+            </me>
+            and 
+            <me>
+            \int_{-\infty}^{\infty}\delta(t)dt=1.
+            </me></p>
+
+            
+            <p>This object isn't actually a function, but there is a mathematically rigorous way to define objects called <em>generalized
+            functions</em> which includes <m>\delta</m>. We call <m>\delta</m> the <term>Dirac delta function</term>. We can think of <m>\delta</m> 
+            as a limit of the <m>d_{\tau}(t)</m> functions:
+            <me>
+            \delta(t)=\lim_{\tau\to0^{+}}d_{\tau}(t).
+            </me></p><!--
+            
+             \textbf{\uline{In general: }}We can consider a unit impulse at
+            an arbitrary point <m>t=t_{0}</m>, meaning <m>\delta\left(t-t_{0}\right)</m>,
+            hence 
+            <md>
+            \delta\left(t-t_{0}\right) \amp =0,\,\,t\neq t_{0},\\
+            \int_{-\infty}^{\infty}\delta(t-t_{0})dt \amp =1.
+            </md>
+             Let's computer the Laplace Trasnform of <m>\delta\left(t-t_{0}\right)</m>:
+            <md>
+            \mathcal{L}\left\{ \delta\left(t-t_{0}\right)\right\}  \amp =\lim_{\tau\to0^{+}}\mathcal{L}\left\{ d_{\tau}\left(t-t_{0}\right)\right\} \\
+             \amp =\lim_{\tau\to0^{+}}\int_{t_{0}-\tau}^{t_{0}+\tau}e^{-st}d_{\tau}\left(t-t_{0}\right)dt\\
+             \amp =\lim_{\tau\to0^{+}}\frac{1}{2\tau}\int_{t_{0}-\tau}^{t_{0}+\tau}e^{-st}dt=\lim_{\tau\to0^{+}}\frac{1}{2\tau}\left[\frac{e^{-st}}{t}\right]_{t=t_{0}-\tau}^{t=t_{0}+\tau}\\
+             \amp =\frac{e^{-st_{0}}}{s}\lim_{\tau\to0^{+}}\frac{e^{s\tau}-e^{-s\tau}}{2\tau},\text{ by algebra}\\
+             \amp =e^{-st_{0}}\lim_{\tau\to0^{+}}\frac{\sinh(s\tau)}{s\tau},\text{ by formula below}\\
+             \amp =e^{-st_{0}}\lim_{\tau\to0^{+}}\frac{s\cosh(s\tau)}{s},\text{ by L'Hopitals rule}\\
+             \amp =e^{-st_{0}}.
+            </md>
+            where I used the fact that 
+            <me>
+            \sinh(s\tau)=\frac{e^{s\tau}-s^{-s\tau}}{2}.
+            </me>
+             \textbf{\uline{Summary: }}
+            <me>
+            \mathcal{L}\left\{ \delta\left(t-t_{0}\right)\right\} =e^{-st_{0}},\,\,\,t_{0}>0.
+            </me>
+             \textbf{\uline{Examples:}}
+            
+             If <m>t_{0}=0</m>, then 
+            <me>
+            \mathcal{L}\left\{ \delta\left(t\right)\right\} =e^{-s\cdot0}=1.
+            </me>
+             If <m>t_{0}=9</m> then 
+            <me>
+            \mathcal{L}\left\{ \delta\left(t-9\right)\right\} =e^{-9s}.
+            </me>
+            
+             \textbf{\uline{Important property of delta functions:}} Suppose
+            <m>f</m> is a continuous function, then 
+            <me>
+            \int_{-\infty}^{\infty}f(t)\delta(t-t_{0})dt=f\left(t_{0}\right).
+            </me>
+             In the next example we show how the delta function is connected to
+            the Heaviside function. 
+             \textbf{\uline{Example0: }}Solve the IVP
+            <me>
+            y^{\prime}=\delta(t-c),\,\,\,\,y(0)=y_{0}.
+            </me>
+
+            
+             \textbf{\uline{Solution:}} Take <m>\mathcal{L}</m> of both sides and
+            <md>
+            \mathcal{L}\left\{ y^{\prime}\right\} =\mathcal{L}\left\{ \delta\left(t-c\right)\right\}  \amp \implies\\
+            s\mathcal{L}\left\{ y\right\} -y(0)=e^{-cs} \amp \implies\\
+            \mathcal{L}\left\{ y\right\} =\frac{y_{0}}{s}+\frac{e^{-cs}}{s}
+            </md>
+            hence 
+            <md>
+            y \amp =\mathcal{L}^{-1}\left\{ \frac{y_{0}}{s}\right\} +\mathcal{L}^{-1}\left\{ \frac{e^{-cs}}{s}\right\} \\
+             \amp =y_{0}+u_{c}(t).
+            </md>
+            
+             Example 0 shows that the derivative of the Heaviside function is the
+            delta function!
+             \textbf{\uline{Fact: }}
+            <me>
+            \frac{d}{dt}\left[u_{c}(t)\right]=\delta\left(t-c\right).
+            </me>
+             \textbf{\uline{Example1:}} Solve the IVP
+            <me>
+            y^{\prime\prime}+4y=\delta\left(t-\pi\right)-\delta\left(t-2\pi\right),\,\,\,\,y(0)=0,y^{\prime}(0)=0.
+            </me>
+
+            
+             \textbf{\uline{Solution:}}
+             \textbf{\uline{Step1:}} Take <m>\mathcal{L}</m> of both sides and solve
+            for <m>\mathcal{L}\left\{ y\right\} </m>:
+            <md>
+            \mathcal{L}\left\{ y^{\prime\prime}\right\} +4\mathcal{L}\left\{ y\right\} =\mathcal{L}\left\{ \delta\left(t-\pi\right)\right\} -\mathcal{L}\left\{ \delta\left(t-2\pi\right)\right\}  \amp \implies\\
+            s^{2}\mathcal{L}\left\{ y\right\} -sy(0)-y^{\prime}(0)+4\mathcal{L}\left\{ y\right\} =e^{-\pi s}-e^{-2\pi s} \amp \implies\\
+            \left(s^{2}+4\right)\mathcal{L}\left\{ y\right\} =e^{-\pi s}-e^{-2\pi s} \amp \implies\\
+            \mathcal{L}\left\{ y\right\} =\frac{e^{-\pi s}}{s^{2}+4}-\frac{e^{-2\pi s}}{s^{2}+4}.
+            </md>
+             \textbf{\uline{Step2:}} Notice that we don't need to do partial
+            fractions or complete the square here since <m>s^{2}+4</m> is already
+            a sum of two squares.
+             \textbf{\uline{Step3:}} Take an inverse Laplace transform: 
+            
+             Using <m>\mathcal{L}\left[u_{a}(t)f(t-a)\right]=e^{-as}F(s)</m> and <m>\mathcal{L}\left\{ \sin(at)\right\} =\frac{a}{s^{2}+a^{2}}</m>
+            we get
+            <md>
+            y \amp =\mathcal{L}^{-1}\left\{ \frac{e^{-\pi s}}{s^{2}+4}\right\} -\mathcal{L}^{-1}\left\{ \frac{e^{-2\pi s}}{s^{2}+4}\right\} \\
+             \amp =\frac{1}{2}\mathcal{L}^{-1}\left\{ e^{-\pi s}\frac{2}{s^{2}+2^{2}}\right\} -\frac{1}{2}\mathcal{L}^{-1}\left\{ e^{-2\pi s}\frac{2}{s^{2}+2^{2}}\right\} \\
+             \amp =\frac{1}{2}u_{\pi}(t)f_{1}\left(t-\pi\right)-\frac{1}{2}u_{2\pi}(t)f_{2}\left(t-2\pi\right)\\
+             \amp =\frac{1}{2}u_{\pi}(t)\sin\left(2\left(t-\pi\right)\right)-\frac{1}{2}u_{2\pi}(t)\sin\left(2\left(t-2\pi\right)\right)
+            </md>
+            where <m>f_{1},f_{2}=\sin(2t)</m>. 
+             Now it turns out, that 
+            <me>
+            \sin\left(2\left(t-\pi\right)\right)=\sin\left(2t-2\pi\right)=\sin(2t)
+            </me>
+            and 
+            <me>
+            \sin\left(2\left(t-2\pi\right)\right)=\sin\left(2t-4\pi\right)=\sin(2t).
+            </me>
+            or in general 
+            <me>
+            \sin\left(x\right)=\sin\left(x+2\pi\right).
+            </me>
+             Hence a possible multiple choice answer could be:
+            <me>
+            y=\frac{1}{2}u_{\pi}(t)\sin\left(2t\right)-\frac{1}{2}u_{2\pi}(t)\sin\left(2t\right).
+            </me>
+            
+            
+             \textbf{\uline{Example2:}} Solve the IVP
+            <me>
+            y^{\prime\prime}+2y^{\prime}+3y=\sin t+\delta\left(t-3\pi\right),\,\,\,\,y(0)=0,y^{\prime}(0)=0.
+            </me>
+
+            
+             \textbf{\uline{Solution:}}
+             \textbf{\uline{Step1:}} Take <m>\mathcal{L}</m> of both sides and solve
+            for <m>\mathcal{L}\left\{ y\right\} </m>:
+            <md>
+            \mathcal{L}\left\{ y^{\prime\prime}\right\} +2\mathcal{L}\left\{ y^{\prime}\right\} +3\mathcal{L}\left\{ y\right\} =\frac{1}{s^{2}+1}+e^{-3\pi s} \amp \implies\\
+            \left[s^{2}\mathcal{L}\left\{ y\right\} -sy(0)-y^{\prime}(0)\right]+2\left[s\mathcal{L}\left\{ y\right\} -y(0)\right]+3\mathcal{L}\left\{ y\right\} =\frac{1}{s^{2}+1}+e^{-3\pi s} \amp \implies\\
+            s^{2}\mathcal{L}\left\{ y\right\} +2s\mathcal{L}\left\{ y\right\} +3\mathcal{L}\left\{ y\right\} =\frac{1}{s^{2}+1}+e^{-3\pi s} \amp \implies\\
+            \left(s^{2}+2s+3\right)\mathcal{L}\left\{ y\right\} =\frac{1}{s^{2}+1}+e^{-3\pi s} \amp \implies\\
+            \mathcal{L}\left\{ y\right\} =\frac{1}{\left(s^{2}+2s+3\right)\left(s^{2}+1\right)}+\frac{e^{-3\pi s}}{s^{2}+2s+3}
+            </md>
+             \textbf{\uline{Step2:}} First we do partial fractions:
+            <me>
+            \frac{1}{\left(s^{2}+2s+3\right)\left(s^{2}+1\right)}=\frac{As+B}{\left(s^{2}+2s+3\right)}+\frac{Cs+D}{\left(s^{2}+1\right)}
+            </me>
+            and do the algebra to get
+            <me>
+            A=\frac{1}{4},B=\frac{1}{4},C=-\frac{1}{4},D=\frac{1}{4}
+            </me>
+             Also we need to complete the square:
+            <me>
+            s^{2}+2s+3=\left(s+1\right)^{2}+2.
+            </me>
+            so that 
+            <me>
+            \frac{1}{\left(s^{2}+2s+3\right)\left(s^{2}+1\right)}=\frac{1}{4}\left(\frac{s+1}{\left(s+1\right)^{2}+2}+\frac{-s+1}{\left(s^{2}+1\right)}\right)
+            </me>
+             \textbf{\uline{Step3:}} Take an inverse Laplace transform: 
+            
+             Using <m>\mathcal{L}\left[u_{a}(t)f(t-a)\right]=e^{-as}F(s)</m> , <m>\mathcal{L}\left\{ \cos(at)\right\} =\frac{s}{s^{2}+a^{2}}</m>
+            <m>\mathcal{L}\left\{ \sin(at)\right\} =\frac{a}{s^{2}+a^{2}}</m> ,
+             Also using <m>\mathcal{L}\left\{ e^{at}\cos(bt)\right\} =\frac{s-a}{(s-a)^{2}+b^{2}}</m>
+            <m>\mathcal{L}\left\{ e^{at}\sin(bt)\right\} =\frac{b}{(s-a)^{2}+b^{2}}</m>
+            we get
+            <md>
+            y \amp =\frac{1}{4}\mathcal{L}^{-1}\left\{ \frac{s+1}{\left(s+1\right)^{2}+2}\right\} +\frac{1}{4}\mathcal{L}^{-1}\left\{ \frac{-s+1}{\left(s^{2}+1\right)}\right\} \\
+             \amp +\mathcal{L}^{-1}\left\{ \frac{e^{-3\pi s}}{\left(s+1\right)^{2}+2}\right\} \\
+             \amp =\frac{1}{4}\mathcal{L}^{-1}\left\{ \frac{s+1}{\left(s+1\right)^{2}+\left(\sqrt{2}\right)^{2}}\right\} -\frac{1}{4}\mathcal{L}^{-1}\left\{ \frac{s}{s^{2}+1}\right\} \\
+             \amp +\frac{1}{4}\mathcal{L}^{-1}\left\{ \frac{1}{s^{2}+1}\right\} +\frac{1}{\sqrt{2}}\mathcal{L}^{-1}\left\{ e^{-3\pi s}\frac{\sqrt{2}}{\left(s+1\right)^{2}+\left(\sqrt{2}\right)^{2}}\right\} \\
+             \amp =\frac{1}{4}\left(e^{-t}\cos\left(\sqrt{2}t\right)-\cos t+\sin t\right)\\
+             \amp +\frac{1}{\sqrt{2}}u_{3\pi}\left(t\right)f_{1}\left(t-3\pi\right)\\
+             \amp =\frac{1}{4}\left(e^{-t}\cos\left(\sqrt{2}t\right)-\cos t+\sin t\right)\\
+             \amp +\frac{1}{\sqrt{2}}u_{3\pi}\left(t\right)e^{-1\left(t-3\pi\right)}\sin\left(\sqrt{2}\left(t-3\pi\right)\right)
+            </md>
+             Where <m>f_{1}=\mathcal{L}^{-1}\left\{ \frac{\sqrt{2}}{\left(s+1\right)^{2}+\left(\sqrt{2}\right)^{2}}\right\} =e^{-t}\cos\sqrt{2}t</m>. 
+            
+            
+            -->
+    </section>
+
+</chapter>

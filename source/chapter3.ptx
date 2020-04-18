@@ -1,0 +1,1716 @@
+<chapter xml:id="ch3">
+  <title>Second Order Linear Equations</title>
+  <section xml:id="ch3-1">
+    <title>Motivation - mass-spring systems.</title>
+    <introduction>
+      <p>This chapter is concerned with <term>second order differential equations</term>, and in particular those with <term>constant coefficients</term>. That is, we're going to be spending quite a bit of time thinking about equations of the form
+      <me>
+        a y'' + b y' + c y = 0
+      </me>
+      and
+      <me>
+        a y'' + b y' + c y = f(t).
+      </me>
+      At first glance, these equations seem artificially simple in structure. However, some of the most useful differential equations in the physical sciences and mathematics have this form, which motivates our close attention to second order linear equations with constant coefficients.</p>
+    </introduction>
+    <subsection>
+      <title>Undamped mass-spring systems</title>
+      <image source = "images/spring_no_mass.jpg"/>
+      <image source = "images/spring_eq.jpg" />
+      <image source = "images/hookes.jpg" />
+      <image source = "images/spring_diff_1.jpg" />
+      <image source = "images/spring_diff_2.jpg" />
+      <p>The pictures above are a derivation of the differential equation for a simple <term>mass-spring system</term>. Notice that the resulting equation has a second derivative <m>x''</m> in it - thus, this is a second order equation where the position of the mass <m>x(t)</m> relative to the equilibrium position is a function of time <m>t</m>:
+      <me>
+        x'' + \frac{k}{m} x = 0.
+      </me>
+      Also, note the important fact that the equation is linear and has constant coefficients. If we want to describe how the solutions to this equation behave, we should study second order equations with constant coefficients.</p>
+    </subsection>
+    <subsection>
+      <title>Damped mass-spring systems</title>
+      <p>One way to model more complicated situations with a mass-spring system is to include a <term>damper</term> that applies force against the direction of motion. The spring/shock absorber system in a car wheel is an example of a <term>damped mass-spring system</term>. The pictures below derive the equation for this in the case that we assume that the damper exerts a force proportional to and in the opposite direction from the velocity of the mass.</p>
+      <image source = "images/damped1.jpg" />
+      <image source = "images/damped2.jpg" />
+      <image source = "images/damped3.jpg" />
+      <p>Thus, the equation for a damped mass-spring system is
+        <me>
+          x'' + \frac{b}{m} x' + \frac{k}{m} x = 0
+        </me>
+        which is also a second order linear equation with constant coefficients. </p>
+      <p>The mass-spring system is one of the most useful models in all of science. For example, RLC circuits (resistor/inductor/capacitor) are typically modeled as mass-spring systems. </p>
+      <p>This motivates the study of second order linear differential equations with constant coefficients, even though that might seem like an extremely restricted family of problems to think about. In later sections, we will extend our ideas to consider what happens if an external <em>driving</em> or <em>forcing function</em> is applied to the system.</p>
+
+      <p>We should already have an idea about the sorts of functions that solve these systems.
+        <ol>
+          <li>Physical intuition tells us that when we release a mass attached to a spring from a non-equilibrium starting position, the mass oscillates up and down around the equilibrium position. This suggests that sine or cosine waves might be involved in the solution.</li>
+          <li>Mathematical intuition tells us that functions that are related to their second derivatives by constant factors are also sines and cosines. That is, <m>(\sin x)'' = - \sin x</m>.</li>
+        </ol>
+        We will see that, indeed, this intuition is correct for undamped systems with no external forces.</p>
+    </subsection>
+  </section>
+  <section xml:id="ch3-2">
+    <title>Second order linear equations</title>
+    <introduction>
+      <p> A <term>general second order ODE</term> is of the form
+      <me>
+      \frac{d^{2}y}{dt^{2}}=f\left(t,y,\frac{dy}{dt}\right).
+      </me>
+      As is the case with first order equations, we can describe a more structured family of equations. A <term><m>2^{nd}</m> order linear ODE</term> is of the form
+      <me>
+      a(t)y^{\prime\prime}+b(t)y^{\prime}+c(t)y=d(t)
+      </me>
+      which can be rewritten as
+      <me>
+      y^{\prime\prime}+p(t)y^{\prime}+q(t)y=g(t).
+      </me>
+      A 2nd order ODE is called <term>homogeneous</term> if
+      <me>
+      a(t)y^{\prime\prime}+b(t)y^{\prime}+c(t)y=0
+      </me>
+      and <term>nonhomogeneous</term> if
+      <me>
+      a(t)y^{\prime\prime}+b(t)y^{\prime}+c(t)y=d(t)
+      </me>
+      for some <m>d(t)</m> that is NOT identically zero.</p>
+      <p> An intial value problem for a second order ODE needs to have <alert>two</alert> initial conditions:
+      <md>
+      <mrow>y(t_{0}) \amp =y_{0},</mrow>
+      <mrow>y^{\prime}(t_{0}) \amp =y_{0}^{\prime}.</mrow>
+      </md></p>
+    </introduction>
+    <subsection>
+      <title>Second order linear homogeneous ODEs with constant coefficients (characteristic equation)</title>
+      <p>We will begin with the <term>2nd order
+      linear homogeneous ODEs with constant coefficients</term> that we introduced and motivated in the previous section:
+      <me>
+      ay''+by^{\prime}+cy=0
+      </me>
+      where <m>a,b,c</m> are real constants.</p>
+      <p>Consider <m>y^{\prime\prime}-y=0</m> or
+      <me>
+      y^{\prime\prime}=y.
+      </me>
+      Can we think of a solution to this ODE from Calculus 1? A function
+      where its second derivative is equal to itself?</p>
+      <p>A moment of thought should lead us to conclude that there are two obvious solutions: <m>y_{1}(t)=e^{t}</m> and <m>y_{2}(t)=e^{-t}</m>. But it not hard to check that the larger family of functions <m>y = c_{1}e^{t}</m> and <m>y = c_{2}e^{-t}</m> are
+      also solutions for any constants <m>c_1, c_2</m>. </p>
+      <p>Now consider the general ODE
+      <me>
+      ay^{\prime\prime}+by^{\prime}+cy=0.
+      </me></p>
+
+      <p>Guided by our observation about the solutions to the previous equation, let us assume solutions are of the form <m>y(t)=e^{rt}</m>. (If this is an unsatisfying assumption, another appoach will be explained shortly).  Then
+      <md>
+      <mrow>y(t) \amp =e^{rt}</mrow>
+      <mrow>y^{\prime}(t) \amp =re^{rt}</mrow>
+      <mrow>y^{\prime\prime}(t) \amp =r^{2}e^{rt},</mrow>
+      </md>
+      and plugging this into the ODE we have
+      <md>
+      <mrow>LHS=ar^{2}e^{rt}+bre^{rt}+ce^{rt} \amp \overset{?}{=}0</mrow>
+      <mrow>e^{rt}\left(ar^{2}+br+c\right) \amp \overset{?}{=}0.</mrow>
+      </md>
+      and since <m>e^{rt}\neq0</m> then
+      <me>
+      ar^{2}+br+c=0.
+      </me>
+      Using standard methods for quadratic equations, we can solve for the roots <m>r=r_{1},r_{2}</m>.</p>
+      <p>This is called the <term>characteristic equation</term> of
+      this ODE. If the roots <m>r_1, r_2</m> are <em>real and distinct</em>, then the <term>general solution to the homogeneous equation</term> is of the form
+      <me>
+      y(t)=c_{1}e^{r_{1}t}+c_{2}e^{r_{2}t}.
+      </me></p>
+        <p>The justification for gluing together the solutions will be presented in the next section as the <q>principle of superposition</q>.</p>
+      <example>
+        <p>Let's find the general solution of
+        <me>
+        y^{\prime\prime}+5y^{\prime}+6y=0.
+        </me></p>
+
+
+        <ol>
+        <li> We'll guess that the solution to a solution
+        is <m>y(t)=e^{rt}</m> for some <m>r</m>. Then get
+        <me>
+        \left(r^{2}+5r+6\right)e^{rt}=0
+        </me>
+        so that we must have <m>r^{2}+5r+6=\left(r+2\right)\left(r+3\right)=0</m>
+        so that <m>r=-2,-3</m>.</li>
+        <li>So <m>y_{1}(t)=e^{-2t}</m> and <m>y_{2}(t)=e^{-3t}</m>
+        are solutions and
+        <me>
+        y(t)=c_{1}e^{-2t}+c_{2}e^{-3t}
+        </me>
+        is the general solution.</li>
+        </ol>
+      </example>
+      <example>
+        <p>Let's find the solution to the following
+        IVP
+        <me>
+        y^{\prime\prime}+5y^{\prime}+6y=0\,\,\,\,y(0)=2,y^{\prime}(0)=-1.
+        </me></p>
+
+
+        <p>Solving for the particular solution. We
+        have <m>y(0)=2</m> and <m>y^{\prime}(0)=-1</m>. Differentiating <m>y(t)=c_{1}e^{-2t}+c_{2}e^{-3t}</m>
+        we get <m>y^{\prime}(t)=-2c_{1}e^{-2t}-3c_{2}e^{-3t}</m> and set up the
+        following system:
+        <md>
+        <mrow>c_{1}+c_{2} \amp = \amp 2</mrow>
+        <mrow>-2c_{1}-3c_{2} \amp = \amp -1</mrow>
+        </md>
+        and get <m>c_{1}=5,c_{2}=-3</m>. So the particular solution is
+        <me>
+        y(t)=5e^{-2t}-3e^{-3t}.
+        </me></p>
+      </example>
+
+
+      <example>
+        <p>Let's find the general solution of
+        <me>
+        2\frac{d^{2}y}{dt^{2}}+7\frac{dy}{dt}-4y=0.
+        </me></p>
+
+        <ol>
+          <li>We'll guess that the solution to a solution
+        is <m>y(t)=e^{rt}</m> for some <m>r</m>. Then get
+        <me>
+        \left(2r^{2}+7r-4\right)e^{rt}=0
+        </me>
+        so that we must have <m>2r^{2}+7r-4=\left(2r-1\right)\left(r+4\right)=0</m>
+        so that <m>r=\frac{1}{2},-4</m>.</li>
+        <li>So <m>y_{1}(t)=e^{t/2}</m> and <m>y_{2}(t)=e^{-4t}</m>
+        are solutions and
+        <me>
+        y(t)=c_{1}e^{t/2}+c_{2}e^{-4t}
+        </me>
+        is the general solution.</li>
+        </ol>
+      </example>
+
+    </subsection>
+    <subsection>
+      <title>Derivatives as linear operators and the characteristic equation</title>
+      <p>It might seem unsatisfying to assume the form of an answer and then show that our guess worked. Is there a mathematical justification for making this guess? The answer is yes, if we're willing to push our understanding of differentiation slightly.</p>
+      <p>Define the <term>differential operator</term> <m>D</m> to be the operation of applying <m>\frac{d}{dx}</m> to a function <m>y(x)</m>. The operator <m>D</m> can be thought of as a function on functions:
+      <me>
+        D(\text{function}) = \text{ derivative}.
+      </me>
+      Any order of derivative can be thought of this way. For example,
+      <me>
+        y''' = \frac{d^3 y}{dx^3} = \frac{d^3}{dx^3} y = D^3 y.
+      </me>
+      We need a notion of <m>D^0</m> - what should that mean? It makes sense to set <m>D^0(y) = y</m> - that is, take no derivatives of <m>y</m>. We will use the symbol <m>1</m> to represent this function, the <term>identity function</term> that leaves <m>y</m> unchanged.</p>
+      <p>In Calculus, we learn that derivatives follow certain rules. Two of the most important are
+      <me>
+        D(f + g) = Df + Dg
+      </me>
+      and
+      <me>
+        D(cf) = cD(f).
+      </me>
+      These two properties together show that <m>D</m> is a <term>linear function</term>.</p>
+      <p>Using differential operator notation allows us to transform an ODE and use algebraic techniques to solve it using first order methods. Consider the equation
+      <me>
+        y'' + 3 y ' + 2 y = 0.
+      </me>
+      This can be written
+      <me>
+        D^2 y + 3 D y + 2 y = 0
+      </me>
+      using operator notation. But since each operator is applied to the same input, <m>y</m>, we can use function notation to write
+      <me>
+        (D^2 + 3D + 2)(y) = 0.
+      </me></p>
+      <p>The operator expression <m>D^2 + 3D + 2</m> can be factored as symbols into <m>(D + 2)(D + 1)</m> (that this is equal to the original equation applied to <m>y</m> is a consequence of linearity). Now, using the fact that the derivative of 0 is 0, we assert that the solutions to the equation
+      <me>
+        (D + 1)(D + 2)y = (D + 2)(D+1)y = 0
+      </me>
+      are the solutions to <m>(D + 1)(y) = 0</m> and <m>(D + 2)y = 0</m>, which are just the first order equations
+      <md>
+        <mrow>y' + y = 0</mrow>
+        <mrow>y' + 2y = 0</mrow>
+      </md>
+      These are separable, with solutions <m>y_1 = c_1 e^{-x}</m> and <m>y_2 = c_2 e^{-2x}</m>. So the general solution (justified by the principle of superposition, covered in the next section) to the ODE is
+      <me>
+        y = c_1 e^{-x} + c_2 e^{-2x}.
+      </me> </p>
+      <p>Note that the operator polynomial <m>D^2 + 3D + 2</m> is precisely equivalent to the characteristic polynomial <m>r^2 + 3r + 2</m>.</p>
+    </subsection>
+  </section>
+
+  <section xml:id="ch3-3">
+    <title>Solutions to Linear Equations; the Wronskian</title>
+
+      <introduction>
+        <p>In this section, we will consider equations of the form
+        <me>
+        y^{\prime\prime}+p(t)y^{\prime}+q(t)y=0,\,\,\,\,\,y(t_{0})=y_{0},\,\,\,\,y^{\prime}(t_{0})=y_{0}^{\prime}.
+        </me>
+        where <m>a,b,c</m> are constants. This is a second order, linear, homogeneous equation.
+        Our goal is to find the general solution of these equations.</p>
+
+        <theorem xml:id="thm2ndexist"><title>
+        (Existence and Uniqueness for <m>2</m>nd order linear ODES)</title><p> Consider the
+        IVP
+        <me>
+        y^{\prime\prime}+p(t)y^{\prime}+q(t)y=g(t),\,\,\,\,\,y(t_{0})=y_{0},\,\,\,\,y^{\prime}(t_{0})=y_{0}^{\prime}
+        </me>
+        where <m>p,q,g</m> are continuous on an open interval <m>I</m> that contains
+        <m>t_{0}</m>. Then there exists a unique solution <m>y=\phi(t)</m>, and the
+        solution exists throughout all of <m>I</m>.</p>
+        </theorem>
+        <p>Recall that this theorem implies that a solution to this IVP
+        <ol>
+        <li> exists,</li>
+        <li> is unique</li>
+        <li> and the solution <m>\phi</m> is defined throughout all of <m>I</m>.</li>
+        </ol>
+        In fact
+        it says more, namely that <m>\phi</m> is at least twice differentiable on <m>I</m>.</p>
+        <example>
+          <p>Find the longest interval in which the
+          solution to the IVP is certain to exist by <xref ref="thm2ndexist"/>:
+          <me>
+          \left(t^{4}-4t^{2}\right)y^{\prime\prime}+\cos ty^{\prime}-e^{t}y=0,\,\,\,\,\,\,y(1)=2,\,\,\,y^{\prime}(1)=1.
+          </me></p>
+
+          <p><alert>Solution:</alert> Rewrite the equation as
+          <me>
+          y^{\prime\prime}+\frac{\cos t}{t^{2}\left(t^{2}-4\right)}y^{\prime}-\frac{e^{t}}{t^{2}\left(t^{2}-4\right)}y=0.
+          </me>
+          so that <m>p(t)=\frac{\cos t}{t^{2}\left(t^{2}-4\right)}</m> and <m>q(t)=-\frac{e^{t}}{t^{2}\left(t^{2}-4\right)}</m>
+          which are both continuous on <m>\left(-\infty,-2\right)\cup\left(-2,0\right)\cup\left(0,2\right)\cup\left(2,\infty\right)</m>.
+          Since <m>t_{0}=1\in\left(0,2\right)</m> then <m>I=\left(0,2\right)</m> is
+          the longest interval where <m>p(t)</m> and <m>q(t)</m> are both continuous
+          that contains <m>t_{0}</m>.</p>
+        </example>
+      </introduction>
+      <subsection>
+        <title>Principle of Superposition</title>
+        <p>We now give a name to idea that linear combinations of solutions to a linear homogeneous differential equation remain solutions. (Again, the underlying principle is the linearity of the differential operator.)</p>
+        <theorem><title>Superposition of solutions to linear homogeneous ODE</title>
+        <p>If <m>y_{1}</m> and <m>y_{2}</m> are two solutions to an ODE
+        <me>
+        y^{\prime\prime}+p(t)y^{\prime}+q(t)y=0,
+        </me>
+        then the linear combination <m>y(t)=c_{1}y_{1}(t)+c_{2}y_{2}(t)</m> is
+        also a solution for any values <m>c_{1},c_{2}</m>.</p>
+        </theorem>
+        <p><alert>Warning:</alert> The principle of superposition holds only if the equation is <em>linear</em> and <em>homogeneous</em>.</p>
+
+        <example>
+          <p>Suppose <m>y_{1}(t)=e^{-t}</m> and <m>y_{2}(t)=e^{t}</m>
+          are two solutions to <m>y^{\prime\prime}-y=0</m>. Since this is a linear
+          homogeneous ODE then the principle of superposition says that the
+          function
+          <me>
+          y(t)=2e^{-t}+3e^{t}
+          </me>
+          is also a solution.</p>
+        </example>
+        <example>
+          <p>It is not hard to check that <m>y_{1}(t)=1</m>
+          and <m>y_{2}(t)=t^{\frac{1}{2}}</m> are solutions to
+          <me>
+          yy^{\prime\prime}+\left(y^{\prime}\right)^{2}=0,\,\,\,t>0.
+          </me></p>
+
+
+          <p>Part (a): Show <m>y(t)=1+2t^{\frac{1}{2}}</m> is not
+          a solution to this ODE:</p>
+          <p>Solution: First compute
+          <md>
+          <mrow>y(t) \amp =1+2t^{\frac{1}{2}}</mrow>
+          <mrow>y^{\prime}(t) \amp =t^{-\frac{1}{2}}</mrow>
+          <mrow>y^{\prime\prime}(t) \amp =-\frac{1}{2}t^{-\frac{3}{2}}</mrow>
+          </md>
+          To show this simply check if the LHS equal to <m>0</m>:
+          <md>
+          <mrow>LHS \amp =yy^{\prime\prime}+\left(y^{\prime}\right)^{2}=\left(1+2t^{\frac{1}{2}}\right)\left(-\frac{1}{2t^{3/2}}\right)+\left(\frac{1}{t^{\frac{1}{2}}}\right)^{2}</mrow>
+           <mrow>\amp =-\frac{1}{2t^{3/2}}-\frac{1}{t}+\frac{1}{t}=-\frac{1}{2t^{3/2}}\neq0,</mrow>
+          and thus it isn't a solution.</md></p>
+
+          <p>Part (b): Why does this not contradict the Principle
+          of Superposition?</p>
+          <p> Solution: To apply the principle, the equation
+          needs to be linear. The term <m>\left(y^{\prime}\right)^{2}</m> in the
+          ODE makes this nonlinear, hence we can't even use the principle in
+          the first place.
+          </p>
+        </example>
+      </subsection>
+      <subsection>
+        <title>Fundamental sets of solutions</title>
+        <p> Suppose that
+        <m>y_{1}(t)</m> and <m>y_{2}(t)</m> are two solutions to a second order linear homogeneous
+        equation. When do we know that
+        <me>
+        y(t)=c_{1}y_{1}(t)+c_{2}y_{2}(t)
+        </me>
+        is the <term>general solution</term> to the ODE? That is, when do we know
+        that we can obtain <em>every single solution</em> to an IVP? To answer
+        that we need to define some machinery.</p>
+        <definition>
+          The determinant of a matrix <m>\left(\begin{array}{cc}
+        a \amp b\\
+        c \amp d
+        \end{array}\right)</m> is
+        <me>
+        \left|\begin{array}{cc}
+        a \amp b\\
+        c \amp d
+        \end{array}\right|=ad-bc.
+        </me>
+        </definition>
+        <definition> The <term>Wronskian</term>
+        of the solutions <m>y_{1}(t)</m> and <m>y_{2}(t)</m> to a second order linear homogeneous
+        ODE is the function
+        <me>
+        W=W(y_{1},y_{2})(t)=\left|\begin{array}{cc}
+        y_{1}(t) \amp y_{2}(t)\\
+        y_{1}^{\prime}(t) \amp y_{2}^{\prime}(t)
+        \end{array}\right|.
+        </me>
+        </definition>
+        <p>The Wronskian computes a function that can be used to check of a solution set is sufficient to construct every possible solution.</p>
+
+        <theorem xml:id="thmgensol">
+        <title>General solution theorem</title>
+          <p>Suppose <m>y_{1}</m> and <m>y_{2}</m>
+          are two solutions to the ODE
+          <me>
+          y^{\prime\prime}+p(t)y^{\prime}+q(t)y=0
+          </me>
+          in some interval <m>I</m> where <m>p,q</m> are continuous. Then the family
+          of solutions
+          <me>
+          y(t)=c_{1}y_{1}(t)+c_{2}y_{2}(t)
+          </me>
+          for arbtitrary <m>c_{1},c_{2}</m> is the general solution if and only if the Wronskian <m>W\left(y_{1},y_{2}\right)</m>
+          is not zero for at least one point <m>t_{0}</m> in <m>I</m>.</p>
+        </theorem>
+
+        <example>
+          <p>Find the general solution to
+          <me>
+          y^{\prime\prime}+4y^{\prime}-5y=0.
+          </me></p>
+
+          <p>Solution: In the last section we showed that to
+          find solutions to this ODE we simply need to solve the characteristic
+          equation
+          <me>
+          r^{2}+4r-5=\left(r-1\right)\left(r+5\right)=0
+          </me>
+          and get <m>r=1,-5</m> so that
+          <me>
+          y(t)=c_{1}e^{t}+c_{2}e^{-5t}
+          </me>
+          gives other solutions to the ODE. To show this gives all of them,
+          we simply need to show the Wronksian is not always zero:
+          <md>
+          <mrow>W\left(e^{t},e^{-5t}\right) \amp =\left|\begin{array}{cc}
+          y_{1}(t) \amp y_{2}(t)\\
+          y_{1}^{\prime}(t) \amp y_{2}^{\prime}(t)
+          \end{array}\right|=\left|\begin{array}{cc}
+          e^{t} \amp e^{-5t}\\
+          e^{t} \amp -5e^{-5t}
+          \end{array}\right|</mrow>
+           <mrow>\amp =-5e^{-4t}-e^{-4t}</mrow>
+           <mrow>\amp =-6e^{-4t}</mrow>
+           <mrow>\amp \neq0.</mrow>
+          </md></p>
+        </example>
+
+        <p>To find the general solution
+        of <m>y^{\prime\prime}+p(t)y^{\prime}+q(t)y=g(t)</m>, we only need to
+        find two (<m>y_{1},y_{2}</m>) solutions whose Wronskian is nonzero:
+        <ol>
+        <li> First find two solutions <m>y_{1},y_{2}</m>.</li>
+        <li> Then check <m>W(y_{1},y_{2})\neq0</m> for at least one point in the interval.</li>
+        </ol></p>
+        <definition>
+          <p>The solutions <m>y_{1}</m> and <m>y_{2}</m>
+          are said to form a <term>fundamental set of solutions</term>
+          to
+          <me>
+          y^{\prime\prime}+p(t)y^{\prime}+q(t)y=0
+          </me>
+          if <m>W\left(y_{1},y_{2}\right)\neq0</m>.</p>
+        </definition>
+
+        <example>
+          <p>Verify that <m>y_{1}(t)=t^{\frac{1}{2}}</m>
+          and <m>y_{2}(t)=t^{-1}</m> form a fundamental set of solutions of
+          <me>
+          2t^{2}y^{\prime\prime}+3ty^{\prime}-y=0,\,\,\,\,\,t>0.
+          </me></p>
+
+          <p>Solution:</p>
+          <p>Part (a): First we verify these are indeed solutions
+          by plugging them into the LHS and checking that they equal zero. First
+          computer some derivatives
+          <me>
+          \begin{array}{ccc}
+          y_{1}(t)=t^{\frac{1}{2}} \amp  \amp y_{2}(t)=t^{-1}\\
+          y_{2}^{\prime}(t)=\frac{1}{2}t^{-\frac{1}{2}} \amp  \amp y_{2}^{\prime}(t)=-t^{-2}\\
+          y_{3}^{\prime}(t)=-\frac{1}{4}t^{-\frac{3}{2}} \amp  \amp y_{2}^{\prime\prime}(t)=-t^{-2}.
+          \end{array}
+          </me>
+          Plugging <m>y_{1}</m> into LHS we get
+          <md>
+          <mrow>LHS \amp =2t^{2}y_{1}^{\prime\prime}+3ty_{1}^{\prime}-y_{1}</mrow>
+           <mrow>\amp =2t^{2}\left(-\frac{1}{4}t^{-\frac{3}{2}}\right)+3t\left(\frac{1}{2}t^{-\frac{1}{2}}\right)-\left(t^{\frac{1}{2}}\right)</mrow>
+           <mrow>\amp =-\frac{1}{2}t^{\frac{1}{2}}+\frac{3}{2}t^{\frac{1}{2}}-t^{\frac{1}{2}}</mrow>
+           <mrow>\amp =0.</mrow>
+          </md>
+          Thus <m>y_{1}</m> is a solution. It is very similar to show <m>y_{2}</m> is
+          a solution.</p>
+          <p>Part (b): To show <m>y_{1}y_{2}</m> form a fundamental
+          set of solutions, we simply need to show that <m>W(y_{1},y_{2})</m> is
+          nonzero:
+          <me>
+          W(y_{1},y_{2})=\left|\begin{array}{cc}
+          t^{\frac{1}{2}} \amp t^{-1}\\
+          \frac{1}{2}t^{-\frac{1}{2}} \amp -t^{-2}
+          \end{array}\right|=-\frac{3}{2}t^{-3/2}\neq0
+          </me>
+          which is nonzero for <m>t>0</m>.
+          </p>
+        </example>
+      </subsection>
+  </section>
+  <section xml:id="ch3-4">
+    <title>Complex roots of the characteristic equation</title>
+
+    <subsection>
+      <title>Complex numbers:</title>
+
+      <p>Complex numbers are of the form <m>z = a+bi</m> where
+      <m>a,b\in\mathbb{R}</m> and <m>i=\sqrt{-1}</m>. Thus <m>i^{2}=-1</m>. Complex numbers have a <term>polar representation</term> <m>z = r e^{i\theta}</m>, where <m>r = \sqrt{a^2 + b^2}</m> and <m>\theta = \arctan\frac{y}{x}</m>. In the polar representation, we should think about <m>r</m> as a radius and <m>e^{i\theta}</m> as a point on the unit circle.</p>
+
+      <p> We should think about the exponential part as representing motion on a circle. The unit circle from trigonometry gives <m>(x,y) = (\cos \theta, \sin \theta)</m> for an angle <m>\theta</m> on the unit circle. This connection is made explicit in what is known as <term>Euler's formula:</term>
+      <me>e^{i\theta}=\cos \theta+i\sin \theta.</me>
+      So
+      <me>
+      e^{a+ib}=e^{a}e^{ib}=e^{a}\left(\cos b+i\sin b\right)=e^{a}\cos b+ie^{a}\sin b.
+      </me></p>
+    </subsection>
+
+    <subsection>
+      <title>Complex roots to the characteristic equation</title>
+      <p>Suppose we are solving the constant coefficient 2nd order linear differential equation
+      <me>
+      ay^{\prime\prime}+by^{\prime}+cy=0.
+      </me>
+      and that solving the characteristic equation
+      <me>
+      ar^{2}+br+c=0
+      </me>
+      gives that the roots are
+      <me>
+      r_1=a + ib \text{ and }r_2=a - ib.
+      </me>
+      (Remember that complex roots of real polynomials always come in conjugate pairs.)</p>
+      <p>These roots are distinct, so we can apply the form of solutions we developed in the previous section. So for the root <m>r_1 = a + ib</m>, the solution is of the form
+      <md>
+      <mrow>y(t) \amp =e^{r_1t}=e^{\left(a+ib \right)t}=e^{a t}e^{ib t}</mrow>
+       <mrow>\amp =e^{a t}\left(\cos\left(b t\right)+i\sin\left(b t\right)\right)</mrow>
+       <mrow>\amp =e^{a t}\cos\left(b t\right)+ie^{a t}\sin\left(b t\right)</mrow>
+       <mrow>\amp =u(t)+iv(t)</mrow>
+      </md>
+      where <m>u(t)=e^{a t}\cos\left(b t\right)</m> is the real part
+      and <m>v(t)=e^{a t}\sin\left(b t\right)</m> is the imaginary part.</p>
+      <p>The complex form of the solution is frequently useful for computational purposes, but in practice (and for non-mathematicians) we prefer real solutions. Because the differential operator is linear, we have the following theorem:</p>
+      <theorem>
+        <p>If <m>y(t)=u(t)+iv(t)</m> is a complex solution
+        to an ODE of the form <m>ay^{\prime\prime}+by^{\prime}+cy=0</m>, then
+        so are <m>u(t)</m> and <m>v(t)</m>.</p>
+      </theorem>
+      <p>Therefore since <m>u(t)=e^{a t}\cos\left(b t\right)</m>
+      and <m>v(t)=e^{a t}\sin\left(b t\right)</m> are solutions we can
+      compute (after some tedious work) that the Wronskian of <m>u</m> and <m>v</m>
+      are:
+      <me>
+      W\left(u,v\right)(t)=\mu e^{2a t}\neq0\text{ as long as }b\neq0.
+      </me>
+      Hence by the <xref ref="thmgensol" />,
+      because the Wronskian is not zero we have that <m>u(t)</m> and <m>v(t)</m> form a
+      fundamental set of solutions. In other words, the general solution to <m>a y '' + by' + cy = 0</m> is
+      <me>
+        y_g = e^{at} (c_1 \cos(bt) + c_2\sin(bt)).
+      </me></p>
+    </subsection>
+    <subsection>
+      <title>Examples</title>
+      <p>So far, we can solve two cases of second order linear constant coefficient homogeneous differential equations.
+
+      For
+      <me>
+      a\frac{d^{2}y}{dt^{2}}+b\frac{dy}{dt}+cy=0
+      </me>
+      and roots <m>r_1, r_2</m> of
+      <me>
+      ar^{2}+br+c=0,
+      </me>
+      the general solutions are the following:
+
+      <me>
+      \begin{array}{|c|c|c|}
+      \hline
+      \text{Roots} \amp \text{General solution} \amp \text{Example}\\
+      \hline
+      r_{1},r_{2}= \text{real, distinct} \amp y(t)=c_{1}e^{r_{1}t}+c_{2}e^{r_{2}t} \amp \left(r+1\right)\left(r-1\right)=r^{2}-1=0\\
+      \hline
+      r=a \pm ib, \text{imaginary} \amp y(t)=c_{1}e^{a t}\cos b t+c_{2}e^{a t}\sin b t \amp r^{2}+1=0\\
+      \hline
+      \end{array}
+      </me></p>
+
+      <example>
+        <p> Let's find the general solution of
+        <me>
+        \frac{d^{2}y}{dt}+4\frac{dy}{dt}+13y=0
+        </me></p>
+
+        <p> Step 1: We can jump straight to the characteristic
+        equation:
+        <me>
+        r^{2}+4r+13=0,
+        </me>
+
+        which we can solve this using the quadratic formula:
+        <me>
+        r=\frac{-4\pm\sqrt{16-4\cdot13}}{2}=-2\pm\frac{1}{2}\sqrt{4(4-13)}=-2\pm\sqrt{-9}=-2\pm3i.
+        </me>
+
+        (Or you can use a completing the square trick</p>
+
+        <p>Step 2: The general solution is
+        <me>
+        y(t)=c_{1}e^{-2t}\cos3t+c_{2}e^{-2t}\sin3t.
+        </me>
+        </p>
+      </example>
+
+      <example>
+          <p>Let's find the particular solution to
+        the IVP:
+        <me>
+        y^{\prime\prime}+9y=0,\,\,\,\,\,\,y(0)=-2,\,\,\,y^{\prime}(0)=1
+        </me></p>
+
+
+        <p>Step 1: We can jump straight to the characteristic
+        equation:
+        <me>
+        r^{2}+9=0
+        </me>
+        and get <m>r=\pm3i</m>.</p>
+        <p>Step 2: The general solution is
+        <md>
+        <mrow>y(t) \amp =c_{1}e^{0t}\cos3t+c_{2}e^{0t}\sin3t.</mrow>
+         <mrow>\amp =c_{1}\cos3t+c_{2}\sin3t.</mrow>
+        </md></p>
+        <p> Step 3: Using the initial conditions <m>y(0)=-2,\,\,\,y^{\prime}(0)=1</m>
+        we need to first take a derivative
+        <md>
+        <mrow>y(t) \amp =c_{1}\cos3t+c_{2}\sin3t</mrow>
+        <mrow>y^{\prime}(t) \amp =-3c_{1}\sin3t+3c_{2}\cos3t</mrow>
+        </md>
+        hence
+        <md>
+        <mrow>-2 \amp =y(0)=c_{1}+0</mrow>
+        <mrow>1 \amp =y^{\prime}(0)=0+3c_{2}</mrow>
+        </md>
+        so that
+        <me>
+        c_{1}=-2,c_{2}=\frac{1}{3}.
+        </me>
+        Thus the solution is
+        <me>
+        y(t)=-2\cos3t+\frac{1}{3}\sin3t.
+        </me></p>
+      </example>
+      <example>
+        <p>Suppose we get that the general solution
+        comes out to
+        <me>
+        y(t)=c_{1}e^{3t}\cos t+c_{2}e^{3t}\sin t.
+        </me>
+        Then just remember when finding constants corresponding to initial conditions that we need to use product rule to find the derivative
+        of <m>y(t)</m>:
+        <me>
+        y^{\prime}(t)=3c_{1}e^{3t}\cos t-c_{1}e^{3t}\sin t+3c_{2}e^{3t}\sin t+c_{2}e^{3t}\cos t.
+        </me>
+        </p>
+      </example>
+    </subsection>
+
+  </section>
+
+  <section xml:id = "ch3-5">
+    <title>Repeated roots; Reduction of order</title>
+    <subsection>
+      <title>Repeated roots</title>
+    <p>Suppose that we are given the differential equation
+      <me>
+        ay'' + by' + cy = 0
+      </me>
+      and that <m>b^2 - 4ac = 0</m>. Then the characteristic equation must have the form
+      <md>
+        <mrow>ar^2 + br + c \amp= ar^2 + br + \frac{b^2}{4a}</mrow>
+        <mrow> \amp= a(r + \frac{b}{2a})^2</mrow>
+      </md>
+      That is, the equation has just one root, <m>r = -\frac{b}{2a}</m>. The results of the previous section say that the function <m>y = e^{-\frac{b}{2a} t}</m> is a solution to the equation. But this is just one solution. We can't use another copy of the function as a second solution because it isn't linearly independent from the first - we will not have a fundamental set, nor will we know the general equation.</p>
+      <p>So the question is how to get a second solution from only our knowledge of the first. Because the roots are repeated, we may well guess that some kind of modification of the first solution <m>y_1 = e^{-\frac{b}{2a} t}</m> will give us what we want, but we need to use more than a constant or again we'll fail to have a fundamental set. It seems reasonable to guess that the second solution should have the form
+      <me>
+        y_2 = u(t) y_1(t)
+      </me>
+      for some unknown (but non-constant) function <m>u</m>.</p>
+      <p>So suppose that <m>y_2 = u y_1</m> solves the equation. We'll need to compute expressions for <m>y_2''</m> and <m>y_2'</m> so that we can plug our <q>solution</q> into the differential equation.
+      <md>
+        <mrow>y_2 \amp= u e^{-\frac{b}{2a}t}</mrow>
+        <mrow>y_2' \amp= u' e^{-\frac{b}{2a}t} -\frac{b}{2a} u e^{-\frac{b}{2a}t}</mrow>
+        <mrow>y_2'' \amp= u'' e^{-\frac{b}{2a} t} - \frac{b}{2a} u' e^{-\frac{b}{2a}t} - \frac{b}{2a} u' e^{-\frac{b}{2a}t} + \frac{b^2}{4a^2} u e^{-\frac{b}{2a}t}</mrow>
+      </md>
+      Then
+      <md>
+        <mrow>0 \amp= ay_2'' + b y_2' + cy_2</mrow>
+        <mrow> \amp= ay_2'' + by_2' + \frac{b^2}{4a}y</mrow>
+        <mrow> \amp= a(u'' e^{-\frac{b}{2a} t} - \frac{b}{a} u' e^{-\frac{b}{2a}t} + \frac{b^2}{4a^2} u e^{-\frac{b}{2a}t})</mrow>
+        <mrow> \amp\hspace{.5in} + b(u' e^{-\frac{b}{2a}t} -\frac{b}{2a} u e^{-\frac{b}{2a}t}) + \frac{b^2}{4a}(u e^{-\frac{b}{2a}t})</mrow>
+        <mrow> \amp = a u'' e^{-\frac{b}{2a}t}.</mrow>
+      </md></p>
+
+      <p>Since <m> a \neq 0</m> and <m>e^{-\frac{b}{2a}t} \neq 0</m>, then it must be that
+      <me>
+        a u'' e^{-\frac{b}{2a} t} = 0 \Rightarrow u'' = 0.
+      </me>
+      Integrating twice gets us that <m>u = Ct + D</m> for arbitrary constants <m>C, D</m>. Then our second solution is <m>y_2 = u y_1 = (Ct + D)y_1</m>. Since we're working with linear differential equations, the principle of superposition allows us to set <m>D = 0</m> (since we already know that scalar multiples of <m>y_1</m> are solutions) and <m>C = 1</m> (since any scalar multiple of a solution is a solution). Thus, <m>y_2 = t y_1</m> is our proposed second solution.</p>
+
+      <p>To check that we have a fundamental set, we can compute the Wronskian <m>W(y_1, t y_1)</m>:
+      <me>
+        W(y_1, t y_1) = \left| \begin{array}{cc} y_1 \amp t y_1 \\
+                              y_1' \amp y_1 + t y_1' \end{array}\right| = y_1^2 = e^{-\frac{b}{a}t} \neq 0 \text{ for any } t.
+      </me>
+      We conclude that the set <m>y_1 = e^{-\frac{b}{2a}t}, y_2 = t e^{-\frac{b}{2a}t}</m> is a fundemental set of solutions, and so the general solution for an equation with repeated roots is
+      <me>
+        y(t) = c_1 e^{-\frac{b}{2a}t} + c_2t e^{-\frac{b}{2a}t}.
+      </me> </p>
+      <example>
+        <p>Consider the equation
+        <me>
+          y'' + 6y' + 9y = 0.
+        </me>
+        The characteristic equation is
+        <me>
+          r^2 + 6r + 9 = (r + 3)^2
+        </me>
+        and so we have the repeated root <m>r = -3</m>. Our first solution is <m>y_1 = e^{-3t}</m>. By the argument above, our second linearly independent solution is <m>y_2 = t e^{-3t}</m>
+        and the general solution is
+        <me>
+          y = c_1 e^{-3t} + c_2 t e^{-3}.
+        </me></p>
+      </example>
+      <example>
+        <p>Find the general solution of
+          <me>
+            y'' - 10 y' + 25 y = 0
+          </me>
+        </p>
+
+        <p>The characteristic equation is
+          <me> r^2 - 10 r + 25 = (r - 5)^2 = 0,</me>
+          and so we have the repeated root <m>r = 5</m>.
+          Then the general solution is
+          <me>
+            y = c_1 e^{5t} + c_2 te^{5t}.
+          </me>
+        </p>
+      </example>
+
+      <assemblage>
+      <p>The table below summarizes the solutions for homogeneous linear second order differential equations with constant coefficients.
+
+      <me>
+        \begin{array}{|c|c|c|}
+        \hline
+        \text{roots}: \amp \text{general solution} \amp \text{example}\\
+        \hline
+        r_{1},r_{2}= \text{real, distinct} \amp y(t)=c_{1}e^{r_{1}t}+c_{2}e^{r_{2}t} \amp \left(r+1\right)\left(r-1\right)=0 \\
+        \hline
+        r=a\pm ib,\text{imaginary} \amp y(t)=c_{1}e^{a t}\cos b t+c_{2}e^{a t}\sin b t \amp r^{2}+1=0\\
+        \hline
+        r=r_{1},\text{real, repeated} \amp y(t)=c_{1}e^{r_{1}t}+c_{2}te^{r_{1}t}. \amp \left(r-2\right)^{2}=0\\
+        \hline
+        \end{array}
+      </me></p>
+    </assemblage>
+    </subsection>
+    <subsection>
+      <title>Reduction of order</title>
+
+          <p>In the previous examples, when we had only one solution
+          <m>y_{1}</m>, we found a second solution <m>y_{2}=ty_{1}</m> by multiplying by
+          <m>t</m>. We did this by making the guess that <m>y_2 = u y_1</m>. This idea works for general second order homogenous linear equations, not just those with constant coefficients.</p>
+
+          <p>For example, suppose
+          we know that <m>y_{1}(t)=t</m> is a solution to
+          <me>
+          t^{2}y^{\prime\prime}+2ty^{\prime}-2y=0,\,\,\,\,\,t>0.
+          </me>
+          To find the second solution <m>y_{2}(t)</m> of this ODE,
+          we guess
+          <me>
+          y_{2}(t)=v(t)y_{1}(t)=v(t)t.
+          </me></p>
+
+          <p>First, take
+          derivatives:
+          <md>
+          <mrow>y_{2}(t) \amp =v(t)t</mrow>
+          <mrow>y_{2}^{\prime}(t) \amp =v^{\prime}(t)t+v(t)</mrow>
+          <mrow>y_{2}^{\prime\prime}(t) \amp =v^{\prime\prime}(t)t+v^{\prime}(t)+v^{\prime}(t)</mrow>
+           <mrow>\amp =v^{\prime\prime}(t)t+2v^{\prime}(t).</mrow>
+          </md>
+          Then plug <m>y_{2}</m> and its derivatives into
+          the LHS of the ODE:
+          <md>
+          <mrow>LHS\amp =t^{2}y_{2}^{\prime\prime}+2ty_{2}^{\prime}-2y_{2}</mrow>
+          <mrow> \amp =t^{2}\left(v^{\prime\prime}(t)t+2v^{\prime}(t)\right) +2t\left(v^{\prime}(t)t+v(t)\right) -2\left(v(t)t\right)</mrow>
+           <mrow>\amp =t^{3}v^{\prime\prime}(t)+2t^{2}v^{\prime}(t) +2t^{2}v^{\prime}(t)+2tv(t) -2tv(t)</mrow>
+           <mrow> \amp= t^{3}v^{\prime\prime}+4t^{2}v^{\prime}.</mrow>
+          </md></p>
+
+          <p>Setting the LHS equal to zero means
+          <me>
+          v^{\prime\prime}t+4v^{\prime}=0.
+          </me>
+          Now we notice that <me>t^{3}v^{\prime\prime}+4t^{2}v^{\prime}=0</me> is really a first order equation is disguise, using the substitution <m>w=v^{\prime}</m>.
+          <assemblage>
+          <p>The equation <me>a(t)v^{\prime\prime}+b(t)v^{\prime}=0</me> using the substitution <m>w=v^{\prime}</m>
+          becomes <me> a(t) w' + b(t) w = 0</me>, which is separable and first order.
+          </p>
+          </assemblage>
+          Then we need to solve
+          <me>
+          w^{\prime}+\frac{4}{t}w=0.
+          </me>
+
+          This equation is separable, and gives
+          <me>
+            w = \frac{k_{1}}{t^{4}}
+          </me>
+          Now we need to reverse the substitution to find <m>v</m>.
+          <me>
+          v^{\prime}=w=k_{1}t^{-4}
+          </me>
+          hence
+          <me>
+          v=k_{1}t^{-3}+k_{2}.
+          </me>
+          </p>
+          <p>To finish we have that <m>y_{2}=v\cdot t=\left(k_{1}t^{-3}+k_{2}\right)t=k_{1}t^{-2}+k_{2}t</m>.
+          Set <m>k_{2}=0</m>
+          and <m>k_{1}=1</m>. Thus
+          <me>
+          y_{2}(t)=t^{-2}
+          </me>
+          is a linearly independent solution.
+          Hence the general solution is given by
+          <md>
+          <mrow>y(t) \amp =c_{1}y_{1}(t)+c_{2}y_{2}(t)</mrow>
+           <mrow>\amp =c_{1}t+c_{2}t^{-2}.</mrow>
+          </md>
+        </p>
+
+        This example illustrates the central ideas of reduction of order.
+        <assemblage>
+          <p>Given a second order linear differential equation
+            <me>
+              a(t) y'' + b(t) y' + c(t) y = r(t)
+            </me>
+            with a known solution <m>y_1</m>, a second solution is given by <me>y_2 = v(t)y_1.</me>
+            This substitution will reduce the order of the equation from second to first in terms of <m>w = v'</m>.
+            </p>
+            </assemblage>
+        </subsection>
+  </section>
+
+  <section xml:id ="ch3-6">
+    <title>Non-homogeneous equations - Undetermined coefficients</title>
+    <subsection><title>Nonhomogeneous equations</title>
+      <p>An equation is called <term>nonhomogeneous</term> if there is a <term>forcing term</term> - that is, a function of just the independent variable on the RHS of the equation. For example, consider the nonhomogeneous equation
+      <me>
+      y^{\prime\prime}+p(t)y^{\prime}+q(t)y=g(t)
+      </me>
+      where <m>p,q,g</m> are (continuous) functions on some open interval <m>I</m>. The function <m>g(t)</m> is the forcing or driving function.</p>
+      <p>Consider the corresponding homogeneous equation
+      <me>
+      y^{\prime\prime}+p(t)y^{\prime}+q(t)y=0,.
+      </me>
+      whose general solution we'll call <m>y_{h}</m>. Now suppose that the <term>particular solution</term> <m>y_p(t)</m> solves the nonhomogeneous equation. Then <m>y_p + y_h</m> also solves the equation, since
+      <md>
+        <mrow>
+          \amp(y_p + y_h)'' + p(y_p + y_h)' + q(y_p + y_h)</mrow>
+        <mrow>\amp= y_p'' + py_p' +q y_p + y_h'' +p y_h' + qy_h </mrow>
+        <mrow>\amp= g(t) + 0 </mrow>
+        <mrow>\amp= g(t).</mrow>
+      </md>
+      We record this result in the following theorem.</p>
+
+      <theorem xml:id="thmnonhom">
+        <p>The general
+        solution of
+        <me>
+          y^{\prime\prime}+p(t)y^{\prime}+q(t)y=g(t)
+        </me>
+        is given by
+        <me>
+          y(t)=c_{1}y_{1}(t)+c_{2}y_{2}(t)+y_{p}(t)
+        </me>
+        where <m>y_{1},y_{2}</m> are a fundamental set of solutions of the corresponding
+        homogeneous equation, and <m>y_{p}(t)</m> is a particular solution
+        to the nonhomogeneous equation.</p>
+      </theorem>
+
+      <p>Steps to solving <m>y^{\prime\prime}+p(t)y^{\prime}+q(t)y=g(t):</m>
+      <ol>
+        <li> We already know how to find the fundamental set of
+        solutions <m>y_{1},y_{2}</m> for the homogeneous equation. We have that
+        <m>y_{h}=c_{1}y_{1}+c_{2}y_{2}</m> is the general solution to the corresponding homogeneous equation.</li>
+        <li>Find a particular solution <m>y_{p}</m> using the <term>method
+        of undetermined coefficients</term>.</li>
+        <li> The pieces can be summed into the general solution:
+        <m>y(t)=y_{h}+y_{p}=c_{1}y_{1}+c_{2}y_{2}+y_{p}</m>.</li>
+      </ol>
+      </p>
+    </subsection>
+    <subsection>
+      <title>Method of undetermined coefficients</title>
+      <p>The idea of the method of undetermined coefficients is to guess what the particular solution <m>y_{p}</m> should be, based on what <m>g(t)</m> looks like. If we think about the LHS of a differential equation as a machine that takes as input some function <m>y</m> and produces as output a function <m>y'' + py' + qy</m>, we can guess the sort of input that will be required to produce the output <m>g(t)</m> as a sum of derivatives of <m>y</m>.</p>
+
+      <p>Our guess of <m>y_{p}</m> will always be the general form of <m>g(t)</m>, for nice function. For example, we will guess that polynomial inputs produce polynomial outputs, that exponential inputs produce exponential outputs, and that trigonometric inputs produce trigonometric outputs.
+      <me>
+        \begin{array}{|c|c|}
+        \hline
+        \text{If } g(t) \text{ looks like }  \amp \text{Then } y_{p}(t) \text{ is}\\
+        \hline
+        \hline
+        P_{n}(t)=a_{n}t^{n}+a_{n-1}t^{n-1}+\cdots+a_{0} \amp t^{s}\left[A_{m}t^{m}+A_{m-1}t^{m-1}+\cdots+A_{0}\right]\\
+        \hline
+        e^{\alpha t}P_{m}(t) \amp t^{s}e^{\alpha t}\left[A_{m}t^{m}+A_{m-1}t^{m-1}+\cdots+A_{0}\right]\\
+        \hline
+        P_{m}(t)e^{\alpha t}\cos\beta t \text{ or } P_{m}(t)e^{\alpha t}\sin\beta t \amp t^{s}\left[\left(A_{m}t^{m}+\cdots+A_{0}\right)e^{\alpha t}\cos\beta t\right. \\
+        \amp \left.+\left(B_{m}t^{m}+\cdots+B_{0}\right)e^{\alpha t}\sin\beta t\right]\\
+        \hline
+        \end{array}
+      </me>This looks more complicated that it actually is because there's a possibility that <m>g(t)</m> is actually a solution to the homogeneous equation. So <m>s=</m> the smallest nonnegative integer (<m>s=0,1,</m>or <m>2</m>) such
+      that no term of <m>y_{p}</m> is a solution to the corresponding homogeneous
+      equation. (For example, given the equation <m>x'' + 4x' + 4x = e^{-2t}</m>, we can't guess <m>y_p = A e^{-2t}</m> because this solves the homogeneous equation.)</p>
+
+      <example>
+        Find the solution to the following IVP:
+        <me>
+        y^{\prime\prime}+5y^{\prime}+6y=e^{-t}.\,\,\,\,\,\,\,\,\,y(0)=1,y^{\prime}(0)=\frac{1}{2}
+        </me>
+
+        <p>Step 1: Find <m>y_{h}(t)</m> , which is simply the
+        general solution of
+        <me>
+        y^{\prime\prime}+5y^{\prime}+6y=0.
+        </me>
+        Solving the charateristic polynomial <m>r^{2}+5r+6=(r+2)(r+3)= 0,</m>
+        we get <m>r=-2,-3</m> so that the solution is
+        <me>
+        y_{h}(t)=c_{1}e^{-2t}+c_{2}e^{-3t}.
+        </me></p>
+        <p>Step 2: We find <m>y_{p}(t)</m> by making our guess
+        and to find the undertermined coefficient. So we let <m>y_{p}(t)=Ae^{-t}</m>
+        and plug <m>y_{p}</m> into the LHS:
+        <md>
+        <mrow>y_{p}^{\prime\prime}+5y_{p}^{\prime}+6y_{p} \amp = \amp Ae^{-t}-5Ae^{-t}+6Ae^{-t}</mrow>
+         <mrow>\amp = \amp 2Ae^{-t}</mrow>
+        </md></p>
+        <p>Step 3: Set the LHS equal to the RHS and solve
+        for <m>A</m> to get
+        <me>
+        2Ae^{-t}=e^{-t}
+        </me>
+        so that <m>A=\frac{1}{2}</m>.</p>
+
+        <p>Step 4: Plug <m>A</m> back in and get <m>y_{h}(t)=\frac{1}{2}e^{-t}</m>
+        and a general solution of
+        <me>
+        y(t)=c_{1}e^{-2t}+c_{2}e^{-3t}+\frac{1}{2}e^{-t}.
+        </me></p>
+        <p> Final IVP step: Now we need to find <m>c_{1}</m> and
+        <m>c_{2}</m> using <m>y(0)=1</m> and <m>y^{\prime}(0)=\frac{1}{2}</m> and set
+        up the following system of equations:
+        <md>
+        <mrow>c_{1}+c_{2}+\frac{1}{2} \amp = \amp 1</mrow>
+        <mrow>-2c_{1}-3c_{2}-\frac{1}{2} \amp = \amp \frac{1}{2}</mrow>
+        </md>
+        which comes from <m>y(t)=c_{1}e^{-2t}+c_{2}e^{-3t}+\frac{1}{2}e^{-t}</m>
+        and <m>y^{\prime}(t)=-2k_{1}e^{-2t}-3k_{2}e^{-3t}-\frac{1}{2}e^{-t}.</m>
+        Solving this we get <m>c_{1}=\frac{5}{2}</m> and <m>c_{2}=-2</m> thus the
+        solution to the IVP is
+        <me>
+        y(t)=\frac{5}{2}e^{-2t}-2e^{-3t}+\frac{1}{2}e^{-t}.
+        </me></p>
+      </example>
+
+      <example>
+        Find the general solution of
+        <me>
+        \frac{d^{2}y}{dt}-5\frac{dy}{dt}+4y=e^{4t}.
+        </me>
+
+        <p>Step 1: Find <m>y_{h}(t)</m>. We solve <m>r^{2}-5r+4=(r-1)(r-4)=0</m> and get <m>r=1,4</m> so that the
+        solution is
+        <me>
+        y_{h}(t)=c_{1}e^{t}+c_{2}e^{4t}.
+        </me></p>
+        <p> Step 2: <m>y_{p}(t)=Ae^{4t}</m> is the wrong guess because
+        <me>
+        \frac{d^{2}y_{p}}{dt}-5\frac{dy_{p}}{dt}+4y_{p}=16Ae^{4t}-20Ae^{4t}+4Ae^{4t}=0.
+        </me>
+        But we should have known that this wouldn't work. The term
+        <m>e^{4t}</m> is part of the homogeneous solution, so plugging it into the LHS will give 0. We can modify our guess by multiplying by <m>t</m>.
+        Our second guess should be <m>y_{p}(t)=Ate^{4t}</m>
+        . Find <m>y_{p}^{\prime}</m> and <m>y_{p}^{\prime\prime}(t)</m> on the side
+        and plug into LHS and get
+        <md>
+        <mrow>\frac{d^{2}y_{p}}{dt}-5\frac{dy_{p}}{dt}+4y_{p} \amp = \amp \left(8Ae^{4t}+16Ate^{4t}\right)-5\left(Ae^{4t}+4Ate^{4t}\right)+4Ate^{4t}</mrow>
+         <mrow>\amp = \amp 3Ae^{4t}</mrow>
+        </md>
+        Now set LHS equal to RHS and get <m>3Ae^{4t}=e^{4t}</m> so that <m>A=\frac{1}{3}</m>.</p>
+        <p>Step 3: Plug <m>A</m> back in and get <m>y_{p}(t)=\frac{1}{3}e^{4t}</m>
+        and a general solution of
+        <me>
+        y(t)=c_{1}e^{t}+c_{2}e^{4t}+\frac{1}{3}te^{4t}.
+        </me>
+        </p>
+      </example>
+
+      <example>
+        Find the general solution of
+        <me>
+        \frac{d^{2}y}{dt^{2}}+2\frac{dy}{dt}+10y=4\cos2t
+        </me>
+
+        <p>Step 1: Find <m>y_{h}</m> which is the general solution
+        to the unforced equation
+        <me>
+        \frac{d^{2}y}{dt^{2}}+2\frac{dy}{dt}+10y=0
+        </me>
+        which since <m>r^{2}+2r+10=0</m> gives <m>r=-1\pm3i</m> must be
+        <me>
+        y_{h}(t)=c_{1}e^{-t}\cos3t+c_{2}e^{-t}\sin3t.
+        </me></p>
+        <p>Step 2: Now as long as the RHS <m>g(t)</m>
+        is not part of <m>y_{c}</m> then we can use that as our guess. So we let
+        <m>y_{p}(t)=A\cos2t+B\sin2t</m>.</p>
+
+        <p>Step 3: Plug into the LHS and set equal to RHS
+        <md>
+        <mrow>\frac{d^{2}y_{p}}{dt^{2}}+2\frac{dy_{p}}{dt}+10y \amp = \left[-4A\cos2t-4B\sin2t\right]</mrow>
+         <mrow>\amp +2\left[-2A\sin2t+2B\cos2t\right]+10\left[A\cos2t+B\sin2t\right]</mrow>
+        </md>
+        which gives us
+        <me>
+        \left[-4A+4B+10A\right]\cos2t+\left[-4B-4A+10B\right]\sin2t=4\cos2t
+        </me>
+        so that
+        <md>
+        <mrow>6A+4B \amp = \amp 4</mrow>
+        <mrow>-4A+6B \amp = \amp 0</mrow>
+        </md>
+        gives us <m>A=\frac{6}{13},B=\frac{4}{13}</m>.</p>
+        <p>Step 4: Plug into general solution of <m>y(t)=y_{h}(t)+y_{p}(t)</m>
+        and get
+        <me>
+        y(t)=c_{1}e^{-t}\cos3t+c_{2}e^{-t}\sin3t+\frac{6}{13}\cos2t+\frac{4}{13}\sin2t.
+        </me>
+        </p>
+      </example>
+
+      <example>
+        Find the general form of a particular
+        solution of
+        <me>
+        y^{\prime\prime}-2y^{\prime}-3y=5te^{-t}.
+        </me>
+
+        <p>Step 1: Find <m>y_{h}</m> which is <m>y_{h}=c_{1}e^{-t}+c_{2}e^{3t}</m>.</p>
+        <p>Step 2: Using our table our first guess
+        will be
+        <me>
+        y_{p}=\left(At+B\right)e^{-t}
+        </me>
+        since <m>At+B</m> is the general form of a one degree polynomial. But
+        this doesn't work because <m>Be^{-t}</m> is included in the <m>y_{c}</m> as
+        <m>c_{1}e^{-t}</m></p>
+        <p>Step 2 (Second guess): Now guess
+        <me>
+        y_{p}=t\left(At+B\right)e^{-t}
+        </me>
+        so that both <m>At^{2}e^{-t}</m> and <m>Bte^{-t}</m> are different than the terms
+        in <m>y_{c}</m>. </p>
+      </example>
+      <example>
+        Find the general form of a particular
+        solution of
+        <me>
+        y^{\prime\prime}+6y^{\prime}+9y=-7te^{-3t}+t^{3}
+        </me>
+
+        <p>Step 1: The characteristic equation is <m>r^{2}+6r+9=(r+3)^{2}=0</m>, which
+        gives the repeated root of <m>r_{1}=r_{2}=-3</m>. Hence
+        <me>
+        y_{h}(t)=c_{1}e^{-3t}+c_{2}te^{-3t}
+        </me></p>
+        <p>Using our table we make our first guess as
+        <me>
+        y_{p}=\left(At+B\right)e^{-3t}+Ct^{3}+Dt^{2}+Et+F
+        </me>
+        but this is wrong, since <m>\left(At+B\right)e^{-3t}</m> is included in
+        the <m>y_{h}</m>. So our second guess is to multiply <em>only
+        that part</em> by <m>t</m>, and get
+        <me>
+        y_{p}=t\left(At+B\right)e^{-3t}+Ct^{3}+Dt^{2}+Et+F.
+        </me>
+        But this still doesn't work since <m>Bte^{-3t}</m> is included in the
+        <m>y_{c}</m> as <m>c_{2}te^{-3t}</m>.
+        Our third guess is to multiply again only that part by <m>t</m>
+        and get
+        <me>
+        y_{p}=t^{2}\left(At+B\right)e^{-3t}+Ct^{3}+Dt^{2}+Et+F,
+        </me>
+        which works since none of the terms in the <m>y_{p}</m> are included in
+        the homogeneous solution <m>y_{h}</m>.</p>
+      </example>
+
+      <example>
+        <p>Find the general
+        form of a particular solution of
+        <me>
+        y^{\prime\prime}+y=t+t\sin t
+        </me></p>
+
+        <p>Step 1: As in Example 3 we know <m>y_{h}(t)=c_{1}\cos t+c_{2}\sin t.</m></p>
+        <p>Our first guess would normally
+        be <m>y_{p}=At+B+\left[\left(Dt+E\right)\cos t+\left(Ft+G\right)\sin t\right]</m>
+        but notice that since <m>E\cos t</m> and <m>G\sin t</m> is included in the
+        <m>y_{h},</m> we need to multiply by <m>t</m> and get our final guess of
+        <me>
+        y_{p}=At+B+t\left[\left(Dt+E\right)\cos t+\left(Ft+G\right)\sin t\right]
+        </me></p>
+      </example>
+
+      <example>
+        <p>Find the general form of a particular
+        solution of
+        <me>
+        y^{\prime\prime}+2y^{\prime}+10y=4e^{-t}\cos3t+17
+        </me></p>
+
+        <p> Step 1: As in Example 3 we know <m>y_{h}(t)=c_{1}e^{-t}\cos3t+c_{2}e^{-t}\sin3t.</m></p>
+        <p> Since <m>e^{-t}\cos3t</m> is already
+        inside our <m>y_{c}</m> we need to multiply by <m>t</m> .
+        <me>
+        y_{p}=t\left(Ae^{-t}\cos3t+Be^{-t}\sin3t\right)+C.
+        </me>
+        Note that <m>17</m> is a zero degree polynomial , which is why we have
+        the <m>C</m> in the <m>y_{p}</m>.</p>
+      </example>
+    </subsection>
+  </section>
+
+  <section xml:id="ch3-7">
+  <title>Variation of Parameters</title>
+    <p>Consider the equation
+    <me>
+    y^{\prime\prime}+4y =\frac{3}{\sin t}
+    </me>
+    MOUC doesn't work with quotients, only products. We will learn a (more complicated) general formula to solving more general linear non-homoheneous
+    2nd order ODEs.</p>
+
+    <theorem xml:id="thmvarpara">
+    <title>Variation of Parameters</title> 
+      <p>If <m>p,q,</m> and <m>g</m> are continuous on an
+      open interval <m>I</m>, and if the functions <m>\left\{ y_{1},y_{2}\right\} </m>
+      form a fundamental set of solutions to the corresponding homogeneous
+      equation
+      <me>
+      y^{\prime\prime}+p(t)y^{\prime}+q(t)y=0,
+      </me>
+      then a particular solution to
+      <me>
+      y^{\prime\prime}+p(t)y^{\prime}+q(t)y=g(t)
+      </me>
+      is given by
+      <md>
+        <mrow>y_{p}(t) \amp =-y_{1}(t)\int_{t_{0}}^{t}\frac{y_{2}(s)g(s)}{W\left(y_{1},y_{2}\right)(s)}ds+y_{2}(t)\int_{t_{0}}^{t}\frac{y_{1}(s)g(s)}{W\left(y_{1},y_{2}\right)(s)}ds</mrow>
+        <mrow>\amp =-y_{1}(t)\left[\int\frac{y_{2}(t)g(t)}{W\left(y_{1},y_{2}\right)(t)}dt\right]+y_{2}(t)\left[\int\frac{y_{1}(t)g(t)}{W\left(y_{1},y_{2}\right)(t)}dt\right]</mrow>
+      </md>
+      if the antiderivates exist,
+      where <m>t_{0}</m> is any value in <m>I</m>. Then the general solution
+      to the non-homogeneous solution is 
+      <me>
+      y(t)=c_{1}y_{1}(t)+c_{2}y_{2}(t)+y_{p}(t).
+      </me>
+      </p>
+    </theorem>
+    
+    <proof> 
+      <p>The proof can be found in any differential equations text, or online. The idea is this: Suppose 
+      <me>
+      y_{h}(t)=c_{1}y_{1}(t)+c_{2}y_{1}(t)
+      </me>
+      is the general solution to 
+      <me>
+      y^{\prime\prime}+p(t)y^{\prime}+q(t)y=0.
+      </me>
+      Then the idea is to use the following guess:
+      <me>
+      y_{p}(t)=u_{1}(t)y_{1}(t)+u_{2}(t)y_{2}(t)
+      </me>
+      for the non-homogeneous equation, and also make the extra assumption that
+      <me>
+      u_{1}^{\prime}(t)y_{1}(t)+u_{2}^{\prime}(t)y_{2}(t)=0.\,\,\,\,\,(\star)
+      </me>
+      The validity of this assumption is difficult to justify without higher level mathematics, but one can at least take comfort in that we have an extra constraint to play with, so for computational convenience we select condition <m>(\star)</m>.</p>
+
+      <p>Then take derivatives, simplify and put them back into the differential equation. This
+      will always reduce to 
+      <md>
+      <mrow>LHS \amp =y_{p}^{\prime\prime}+p(t)y_{p}^{\prime}+q(t)y_{p}</mrow>
+       <mrow>\amp =\text{work}</mrow>
+       <mrow>\amp =u_{1}^{\prime}y_{1}^{\prime}(t)+u_{2}^{\prime}(t)y_{2}^{\prime}(t)</mrow>
+      </md>
+      and set LHS to RHS which is <m>g(t)</m> hence we get 
+      <me>
+      u_{1}^{\prime}(t)y_{1}^{\prime}(t)+u_{2}^{\prime}(t)y_{2}^{\prime}(t)=g(t).\,\,\,\,\,(\star\star)
+      </me>
+      Putting <m>(\star)</m> and <m>(\star\star)</m> together we have the two equations:
+      <me>
+      \begin{cases}
+      u_{1}^{\prime}(t)y_{1}(t)+u_{2}^{\prime}(t)y_{2}(t)=0\\
+      u_{1}^{\prime}y_{1}^{\prime}(t)+u_{2}^{\prime}(t)y_{2}^{\prime}(t)=g(t)
+      \end{cases}
+      </me>
+      which boils to solving for <m>u_{1}^{\prime}(t)</m> and <m>u_{2}^{\prime}(t)</m>
+      and getting
+      <me>
+      \begin{cases}
+      u_{1}^{\prime}(t)=-\frac{y_{2}(t)g(t)}{W\left(y_{1},y_{2}\right)(t)}\\
+      u_{2}^{\prime}(t)=\frac{y_{1}(t)g(t)}{W\left(y_{1},y_{2}\right)(t)}
+      \end{cases}
+      </me>
+      which by integrating we have 
+      <me>
+      \begin{cases}
+      u_{1}(t)=-\int\frac{y_{2}(t)g(t)}{W\left(y_{1},y_{2}\right)(t)}dt\\
+      u_{2}(t)=\int\frac{y_{1}(t)g(t)}{W\left(y_{1},y_{2}\right)(t)}dt
+      \end{cases}
+      </me></p>
+    </proof>
+
+    <example>
+      <p>Find a particular
+        solution to 
+        <me>
+        y^{\prime\prime}+4y=\frac{1}{\cos\left(2t\right)}.
+        </me></p>
+
+        <p>Step1: First find <m>y_{h}</m> if possible. In this
+        case <m>y_{h}</m>will be given by solving <m>r^{2}+4=0</m> so that <m>r=\pm2i</m>
+        hence 
+        <me>
+        y_{h}(t)=c_{1}\cos(2t)+c_{2}\sin\left(2t\right).
+        </me>
+        Thus <m>y_{1}(t)=\cos(2t)</m> and <m>y_{2}(t)=\sin\left(2t\right)</m>.</p> 
+        <p>Step2: Find the Wronskian:
+        <md>
+        <mrow>W(y_{1},y_{2})(t) \amp =\left|\begin{array}{cc}
+        \cos(2t) \amp \sin\left(2t\right)\\
+        -2\sin(2t) \amp 2\cos(2t)
+        \end{array}\right|</mrow>
+         <mrow>\amp =2\cos^{2}(2t)+2\sin^{2}(2t)</mrow>
+         <mrow>\amp =2\left[\cos^{2}(2t)+\sin^{2}(2t)\right]</mrow>
+         <mrow>\amp =2\cdot1=2.</mrow>
+        </md></p>
+        
+        <p>Step3: Use our formula with <m>g(t)=\frac{1}{\cos\left(2t\right)}</m>
+        and get
+        <md>
+        <mrow>y_{p}(t) \amp =-y_{1}(t)\left[\int\frac{y_{2}(t)g(t)}{W\left(y_{1},y_{2}\right)(t)}dt\right]+y_{2}(t)\left[\int\frac{y_{1}(t)g(t)}{W\left(y_{1},y_{2}\right)(t)}dt\right]</mrow>
+        <mrow> \amp =-\cos(2t)\left[\int\frac{1}{2}\frac{\sin(2t)}{\cos\left(2t\right)}dt\right]+\sin(2t)\left[\int\frac{\cos(2t)}{2}\frac{1}{\cos\left(2t\right)}dt\right]</mrow>
+        <mrow> \amp =-\cos(2t)\left[\frac{1}{2}\int\frac{\sin(2t)}{\cos\left(2t\right)}dt\right]+\frac{t}{2}\sin(2t)</mrow>
+        </md></p>
+        
+        <p>Now you can remember the antiderivative of <m>\int\tan(2t)dt</m> or use
+        <m>u</m>-substitution with <m>u=\cos(2t)</m> and get <m>du=-2\sin(2t)dt</m> so that
+        <me>
+        \int\frac{\sin(2t)}{\cos\left(2t\right)}dt=-\frac{1}{2}\int\frac{du}{u}=-\frac{1}{2}\ln\left|u\right|=-\frac{1}{2}\ln\left|\cos(2t)\right|
+        </me>
+        hence
+        <me>
+        y_{p}(t)=\frac{1}{4}\cos(2t)\ln\left|\cos(2t)\right|+\frac{t}{2}\sin(2t).
+        </me>
+        </p>
+    </example>
+
+
+    <example>
+      <p>Find the general solution to 
+        <me>
+        t^{2}y^{\prime\prime}+2ty^{\prime}-2y=6t
+        </me>
+        given that 
+        <me>
+        y_{1}(t)=t,\,\,\,y_{2}(t)=t^{-2}
+        </me>
+        forms a fundamental set of solution for the corresponding homogeneous
+        differential equation.</p>
+        
+        <p>Step 1: Since <m>y_{1}(t)=t,\,\,\,y_{2}(t)=t^{-2}</m>
+        forms a fundamental set of solution, this means that the general solution
+        for the homogeneous equation is 
+        <me>
+        y_{h}=c_{1}t+c_{2}t^{-2}.
+        </me></p>
+        
+        <p>Step 2: Find the Wronskian:
+      <md>
+        <mrow>W(y_{1},y_{2})(t) \amp =\left|\begin{array}{cc}
+        t \amp t^{-2}\\
+        1 \amp -2t^{-3}
+        \end{array}\right|</mrow>
+        <mrow> \amp =-2t^{-2}-t^{-2}=-3t^{-2}\neq0,</mrow>
+      </md></p>
+        
+    <p>Step 3: Rewrite the equation in the form <m>y^{\prime\prime}+p(t)y^{\prime}+q(t)y=g(t)</m>
+      and hence 
+      <me>
+      y^{\prime\prime}+\frac{2}{t}y^{\prime}-\frac{2}{t^{2}}y=\frac{6}{t}.
+      </me>
+      Use our formula with <m>g(t)=\frac{6}{t}</m> and get
+      <md>
+      <mrow>y_{p}(t) \amp =-y_{1}(t)\left[\int\frac{y_{2}(t)g(t)}{W\left(y_{1},y_{2}\right)(t)}dt\right]+y_{2}(t)\left[\int\frac{y_{1}(t)g(t)}{W\left(y_{1},y_{2}\right)(t)}dt\right]</mrow>
+      <mrow> \amp =-t\left[\int\frac{t^{-2}}{-3t^{-2}}\frac{6}{t}dt\right]+t^{-2}\left[\int\frac{t}{-3t^{-2})}\frac{6}{t}dt\right]</mrow>
+       <mrow>\amp =-t\left[\int\frac{2}{t}dt\right]+t^{-2}\left[\int-2t^{2}dt\right]</mrow>
+       <mrow>\amp =-t\left[2\ln t\right]+t^{-2}\left[-\frac{2}{3}t^{3}\right]</mrow>
+       <mrow>\amp =-2t\ln t-\frac{2}{3}t.</mrow>
+      </md>
+      Hence, the general solution is 
+      <md>
+      <mrow>y(t) \amp =y_{h}+y_{p}</mrow>
+       <mrow>\amp =c_{1}t+c_{2}t^{-2}-2t\ln t-\frac{2}{3}t.</mrow>
+      </md></p>
+    </example>
+
+      
+    <example> 
+      <p>Find the general solution to 
+      <me>
+      t^{2}y^{\prime\prime}-3ty^{\prime}+3y=8t^{3},\,\,\,\,t>0
+      </me>
+      given that 
+      <me>
+      y_{1}(t)=t,\,\,\,y_{2}(t)=t^{3}
+      </me>
+      forms a fundamental set of solution for the corresponding homogeneous
+      differential equation. </p>
+
+      <p>Step 1: Since <m>y_{1}(t)=t,\,\,\,y_{2}(t)=t^{3}</m>
+      forms a fundamental set of solution, this means that the general solution
+      for the homogeneous equation is 
+      <me>
+      y_{h}=c_{1}t+c_{2}t^{3}.
+      </me></p>
+      
+      <p>Step 2: Find the Wronskian:
+      <md>
+      <mrow>W(y_{1},y_{2})(t) \amp =\left|\begin{array}{cc}
+      t \amp t^{3}\\
+      1 \amp 3t^{2}
+      \end{array}\right|</mrow>
+       <mrow>\amp =3t^{3}-t^{3}=2t^{3}\neq0,</mrow>
+      </md></p>
+
+      <p>Step 3: Rewrite the equation in the form <m>y^{\prime\prime}+p(t)y^{\prime}+q(t)y=g(t)</m>
+      and hence 
+      <me>
+      y^{\prime\prime}-\frac{3}{t}y^{\prime}+\frac{3}{t^{2}}y=8t,.
+      </me>
+      Use our formula with <m>g(t)=8t</m> and get
+      <md>
+      <mrow>y_{p}(t) \amp =-y_{1}(t)\left[\int\frac{y_{2}(t)g(t)}{W\left(y_{1},y_{2}\right)(t)}dt\right]+y_{2}(t)\left[\int\frac{y_{1}(t)g(t)}{W\left(y_{1},y_{2}\right)(t)}dt\right]</mrow>
+       <mrow>\amp =-t\left[\int\frac{t^{3}}{2t^{3}}8tdt\right]+t^{3}\left[\int\frac{t}{2t^{3}}8tdt\right]</mrow>
+       <mrow>\amp =-t\left[\int4tdt\right]+t^{3}\left[\int\frac{4}{t}dt\right]</mrow>
+       <mrow>\amp =-t\left[2t^{2}\right]+t^{3}\left[4\ln t\right]</mrow>
+       <mrow>\amp =-2t^{3}+4t^{3}\ln t</mrow>
+      </md>
+      hence the general solution is 
+      <md>
+      <mrow>y(t) \amp =y_{h}+y_{p}</mrow>
+       <mrow>\amp =c_{1}t+c_{2}t^{3}-2t^{3}+4t^{3}\ln t.</mrow>
+      </md></p>
+    </example>
+  </section>
+
+  <section xml:id="ch3-8">
+    <title>Harmonic oscillations</title>
+    <introduction>
+      <p>We'll now take a closer look at the model that motivated our study of second order equations with constant coefficients - harmonic oscillators. The
+      simplest example of a harmonic oscillator are the motions of a spring-mass system.</p>
+    </introduction> 
+
+    <subsection><title>Mass-spring systems</title>
+      <p>Suppose a mass <m>m</m> hangs from a vertical spring of original length
+      <m>l</m>.
+      <sidebyside>
+      <image source = "images/Spring1.jpg"/>
+      <image source = "images/Spring2.jpg"/>
+      </sidebyside></p>
+      <p>We will study the motion of a mass when it is acted on by an external
+      force (forcing function) and/or is initially displaced.
+      Let <m>u(t)=</m>displacement of the mass from its equilibrium position at
+      time <m>t</m>. The motion of the mass <m>u(t)</m> is modeled by the following:
+      <me>
+      mu^{\prime\prime}(t)+\gamma u^{\prime}(t)+ku(t)=F(t)\,\,\,\,\,\,u(0)=u_{0},u^{\prime}(0)=v_{0}.
+      </me>
+      where <m>m,\gamma,k</m> are positive.</p>
+
+      <p>The specific constants depend on the measurement system in use. <m>m</m> is found from <m>w=mg</m>. <m>\gamma</m> is given in units of <m>\frac{\text{weight unit} \cdot s}{\text{distance unit}}</m>.  <m>k</m> is found using Hooke's Law, <m>mg=kL</m>.</p>
+     
+      <example>
+        <p>A <m>4</m> lb mass stretches a spring <m>2</m>
+        inches. The mass is displaced an additional 6 in. and then released;
+        and is in a medium with a damping coefficients <m>\gamma=2\frac{\text{lb sec}}{\text{ft}}</m>.
+        Formulate the IVP that governs the motion of this mass.</p> 
+        
+        <p>Solution:</p>
+        <p>Find <m>m</m>: <m>w=mg</m> which implies
+        <me>
+        m=\frac{w}{g}=\frac{4\text{ lb}}{32\text{ ft/s}^2}=\frac{1}{8}\frac{\text{lb}s^{2}}{ft}
+        </me></p>
+        <p>Find <m>\gamma</m>: Given
+        <me>
+        \gamma=2\frac{\text{lb sec}}{\text{ft}}.
+        </me></p>
+        <p>Find <m>k</m>: (Hooke's Law)
+        <me>
+        k=\frac{mg}{L}=\frac{4\text{ lb}}{2\text{ in}}=\frac{4\text{ lb}}{(1/6)\text{ ft}}=24\frac{\text{lb}}{ft}.
+        </me></p>
+        <p>Thus 
+        <me>
+        \frac{1}{8}u^{\prime\prime}+2u^{\prime}+24u=0
+        </me>
+        hence 
+        <me>
+        u^{\prime\prime}+16u^{\prime}+192u=0,\,\,\,\,u(0)=\frac{1}{2},\,\,\,u^{\prime}(0)=0
+        </me>
+        since <m>u(0)=6\text{in }\frac{1\text{ft}}{12\text{in}}=\frac{1}{2}</m>. </p>
+        <p>Solving this 
+        <me>
+        u(t)=\frac{1}{4}e^{-8t}\left(2\cos\left(8\sqrt{2}t\right)+\sqrt{2}\sin\left(8\sqrt{2}t\right)\right).
+        </me></p>
+        <image source = "images/Spring3.jpg"/>
+      </example>
+
+      <definition>
+        <p> When 
+        <me>
+        u(t)=A\cos\omega_{0}t+B\sin\omega_{0}t=R\cos\left(\omega_{0}t-\delta\right)
+        </me>
+        then <m>\omega_{0}=</m> is the <term>natural frequency</term> of the system.</p>
+      </definition>
+    </subsection>
+
+    <subsection><title>Undamped harmonic oscillator</title>
+
+      <p>When the damping coefficient <m>\gamma=0</m> (nothing stopping it from
+      oscillating forever), we have 
+      <me>
+      mu^{\prime\prime}+ku=0
+      </me>
+      so that <m>mr^{2}+k=0</m> gives <m>r=\pm i\sqrt{\frac{k}{m}}.</m>This is a
+      special number, so we'll denote it <m>\omega_{0}=\sqrt{\frac{k}{m}}.</m>
+      We get 
+      <me>
+      u(t)=A\cos\omega_{0}t+B\sin\omega_{0}t
+      </me>
+      with period <m>\frac{2\pi}{\omega}</m> and the <term>natural frequency</term> of the system is <m>\omega_{0}</m>.</p>
+    </subsection>
+
+    <subsection><title>Damped harmonic oscillator:</title>
+
+      <p>A <term>damper</term> is an applied force that resists velocity (that is, the damping force is always opposite the direction of motion). A common way to model a damping force is as proportional to the velocity <m>u'(t)</m>. When damped, the model equation becomes 
+      <me>
+      mu^{\prime\prime}(t)+\gamma u^{\prime}(t)+ku(t)=0.
+      </me>
+      In general we'll have the following characteristic equation 
+      <me>
+      mr^{2}+\gamma r+k=0,
+      </me>
+      and solving for the roots we get 
+      <me>
+      r=\frac{-\gamma\pm\sqrt{\gamma^{2}-4km}}{2m}.
+      </me></p>
+    </subsection>
+    <subsection><title>Types of oscillating systems</title>
+
+      <p>Different types of behavior are possible depending on the value of <m>b^{2}-4mk</m>. We'll classify the possible cases in the following
+      way:</p>
+      <ul>
+        <li><p>If <m>\gamma=0</m>, 
+        <ul>
+          <li>the oscillator is <term>undamped</term>. </li>
+          <li> Mass oscillates forever </li>
+          <li> The natural period is <m>2\pi\sqrt{\frac{m}{k}}</m>.</li>
+          </ul></p></li>
+        <li><p>If <m>\gamma>0</m> and <m>\gamma^{2}-4km\lt0</m> (which happens when the roots are <m>r=\alpha\pm\beta i</m>)
+        <ul>
+          <li> The oscillator is <term>underdamped</term>. The mass oscillates back and
+          forth as it tends to its rest position. The solutions
+          are
+          <me>
+          u=Re^{-\gamma t/(2m)}\cos\left(\mu t-\delta\right)
+          </me>
+          and <m>u</m> is bounded between <m>\pm Re^{-\gamma t/(2m)}</m>.</li>
+          <li><image width="70%" source="images/Spring5.jpg"/></li>
+        </ul></p></li>
+
+        <li><p>If <m>\gamma>0</m> and <m>\gamma^{2}-4km>0</m> (which happens when there are two
+        distinct <m>r_{1},r_{2}</m>): 
+
+
+        <ul>
+          <li>The oscillator is <term>overdamped</term>. The mass tends to its rest
+          position but does not oscillate.</li>
+          <li>The solutions are 
+          <me>
+          u=c_{1}e^{r_{1}t}+c_{2}e^{r_{2}t},\,\,\,r_{1},r_{2}\lt0
+          </me>
+          </li>
+        </ul></p></li>
+
+        <li><p> If <m>\gamma>0</m> and <m>\gamma^{2}-4km=0</m> (which happens when there is one negative
+        <m>r</m>): 
+
+          <ul>
+          <li> The oscillator is <term>critically damped.</term> The mass tends to its
+          rest position but does not oscillate.</li> 
+          <li>Solutions tend to the origin tangent to the unique line of eigenvectors.</li>
+          <li> The solutions are
+          <me>
+          u=c_{1}e^{-\gamma t/(2m)}+c_{2}te^{-\gamma t/(2m)}
+          </me></li>
+          </ul></p>
+        </li>
+      </ul>
+         
+      <p>The image below illustrates the behavior possible in different cases. Underdamped is in blue, overdamped in green, and critically damped in red and black.</p>
+      <image source="images/Spring6.jpg"/>
+    </subsection>
+
+    <subsection>
+      <title>Electric Circuts</title>
+      <p> The flow of electric charge in certain basic electrical circuits (<term>RLC</term> for resistor (R), inductor (L), capacitor (C)) is
+      modeled by second order linear ODEs with constant coefficients: 
+      <me>
+      LQ^{\prime\prime}(t)+RQ^{\prime}(t)+\frac{1}{C}Q(t)=E(t),\,\,\,\,\,Q(0)=Q_{0},\,\,\,Q^{\prime}(0)=Q_{0}^{\prime}
+      </me>
+      where <m>Q=</m> charge (coulombs).</p>
+      <image source="images/Spring7.jpg"/>
+    </subsection>
+  </section>
+
+  <section xml:id="ch3-9">
+    <title>Forced oscillations</title>
+      <introduction>
+        <p>We consider equations of the form 
+        <me>
+        mu^{\prime\prime}+\gamma u^{\prime}+ku=F(t)
+        </me>
+        where <m>m>0,\gamma>0,k>0</m> are mass, damping coefficients, and spring
+        constant. Here <m>F(t)</m> represents <term>external force</term> done to
+        the mass-spring system. (e.g wind or cars driving on a bridge) While these forcing functions come in many forms, one of the most important cases is where the forcing function is itself a harmonic oscillation (you can think of this as corresponding to an ambient vibration). 
+        </p>
+      </introduction>
+
+    <subsection>
+      <title>Harmonic forcing functions</title>  
+      
+      <p>Suppose that the forcing function is <m>F(t)=F_{0}\cos\omega t</m>, so that the governing equation for the system is
+      <me>
+      mu^{\prime\prime}+\gamma u^{\prime}+ku=F(t).
+      </me>
+      Since this is a linear equation in <m>u</m>, recall that we can write the solution as
+      <md>
+      <mrow>u(t) \amp =c_{1}u_{1}(t)+c_{2}u_{2}(t)+A\cos\omega t+B\sin\omega t</mrow>
+       <mrow>\amp =u_{h}+u_{p},</mrow>
+      </md>
+      and it turns out that <m>\lim_{t\to\infty}u_{h}(t)=0</m>. (See examples
+      above)</p>
+      
+      <p>We call <m>u_{h}(t)</m> a <term>transient solution</term>, as its contribution to the system disappears as time progresses. 
+      The particular solution <m>u_{p}(t)=A\cos\omega t+B\sin\omega t</m> is called the <term>steady-state solution</term>, as it is the long-term, limiting behavior of the system.
+      </p>
+
+      <example> 
+        <p>Consider a undamped harmonic oscillator with model equation
+        <me>
+        u^{\prime\prime}+2u=\cos\left(\omega t\right),\,\,\,\,\omega\neq\sqrt{2}.
+        </me>
+        Find the general solution <m>u(t)</m>. What is the natural frequency of the system?</p>
+
+        <p>Solution:</p>
+        <p>Step 1: Recall that <m>r^{2}+2=0</m> so <m>r=\pm\sqrt{2}i</m>,
+        so that 
+        <me>
+        u_{h}(t)=c_{1}\cos\left(\sqrt{2}t\right)+c_{2}\sin\left(\sqrt{2}t\right).
+        </me></p>
+        
+        <p>Step 2: We make our first guess 
+        <me>
+        u_{p}(t)=A\cos\left(\omega t\right)+B\sin\left(\omega t\right)
+        </me>
+        and there are no repeats with <m>u_{h}</m> as long as <m>\omega\neq0</m>,
+        hence we have the correct guess. Thus 
+        <md>
+        <mrow>u_{p}^{\prime}(t) \amp =-A\omega\sin\left(\omega t\right)+B\omega\cos\left(\omega t\right)</mrow>
+        <mrow>u_{p}^{\prime\prime}(t) \amp =-A\omega^{2}\cos\left(\omega t\right)-B\omega^{2}\sin\left(\omega t\right).</mrow>
+        </md>
+        Plugging this into the LHS, we have
+        <md>
+        <mrow>LHS=u_{p}^{\prime\prime}+2u_{p} \amp =\left[-A\omega^{2}\cos\left(\omega t\right)-B\omega^{2}\sin\left(\omega t\right)\right]</mrow>
+         <mrow>\amp +2A\cos\left(\omega t\right)+2B\sin\left(\omega t\right)</mrow>
+         <mrow>\amp =A\left(2-\omega^{2}\right)\cos\left(\omega t\right)+B\left(2-\omega^{2}\right)\sin\left(\omega t\right)</mrow>
+        </md>
+        Then, setting <m>LHS=RHS=1\cdot\cos\left(\omega t\right)+0\sin\left(\omega t\right)</m>
+        we have 
+        <md>
+        <mrow>A\left(2-\omega^{2}\right)=1 \amp ,\,\,\,\,\,\,B\left(2-\omega^{2}\right)=0</mrow>
+        <mrow>A=\frac{1}{2-\omega^{2}} \amp ,\,\,\,\,\,\,B=0</mrow>
+        </md>
+        so that
+        <me>
+        u(t)=c_{1}\cos\left(\sqrt{2}t\right)+c_{2}\sin\left(\sqrt{2}t\right)+\frac{1}{2-\omega^{2}}\cos\left(\omega t\right).
+        </me></p>
+      </example>
+    </subsection>
+
+    <subsection>
+      <title>Resonance (undamped systems)</title>
+      <image source="images/3.7-1.png"/>
+      <p>When the forcing function of an undamped system  is far from the natural frequency of a undamped system, forcing function and the natural behavior of the system interact in a combination of constructive and destructive interference.
+        <sage>
+          <input>
+            var('x')
+            y = function('y')(x)
+            de = diff(y, x, 2) + 2*y == cos(5*x)
+            f = desolve(de, y, [0,0,0])
+            plot(f, [0,10*pi], title = f)
+          </input>
+        </sage>
+       However, when the frequency of the forcing function approaches the natural frequency of the system, constructive and destructive interference tend to cluster into locally strong or weak oscillations called <term>beats</term>. 
+      <me>
+      \frac{\omega_{0}}{2\pi}\approx\frac{\omega}{2\pi}\iff\omega_{0}\approx\omega.
+      </me>
+      Solutions in this case typically look something like this: 
+      <image source = "images/3.8-2.jpg"/></p>
+    
+
+
+      <p>When the natural and forcing frequencies are equal, the result is <term>harmonic resonance</term>: 
+      <me>
+      \omega_{0}=\omega.
+      </me>
+      We need a new <m>u_{p}</m> to solve for when resonance happens, since we
+      can't plug <m>\omega=\sqrt{2}</m>, into <m>\frac{1}{2-\omega^{2}}\cos\left(\omega t\right)</m>. 
+      We will see that solution looks like this: 
+      <image source="images/3.8-3.jpg"/>
+      That is, the energy of the forcing function is stored in the system with no destructive interference, which results in increasingly wide oscillations.
+      </p>
+      <example> 
+        <p>Solve the following undamped harmonic
+        oscillator:
+        <me>
+        u^{\prime\prime}+2u=\cos\left(\sqrt{2}t\right),\,\,\,\,u(0)=0,\,\,u^{\prime}(0)=0.
+        </me>
+        What is the natural frequency? What is the frequency for the external
+        force? What kind of behavior of the solution will you get get?</p>
+        
+
+        <p>Solution:</p>
+        <p>Step1: Recall that <m>r^{2}+2=0</m> so <m>r=\pm\sqrt{2}i</m>,
+        so that 
+        <me>
+        u_{h}(t)=c_{1}\cos\left(\sqrt{2}t\right)+c_{2}\sin\left(\sqrt{2}t\right).
+        </me>
+        The natural frequency of the system is <m>\omega_{0}=\sqrt{2}</m>.
+        The external frequency is <m>\omega=\sqrt{2}</m>. Since they match, then
+        we will get resonance!</p>
+        
+        <p>Step 2: We make our first guess
+        <me>
+        u_{p}(t)=A\cos\left(\sqrt{2}t\right)+B\sin\left(\sqrt{2}t\right)
+        </me>
+        but we know that this overlaps with the homogeneous solution, so we choose instead our second
+        guess (by multiplying old guess by <m>t</m>)
+        <me>
+        u_{p}(t)=At\cos\left(\sqrt{2}t\right)+Bt\sin\left(\sqrt{2}t\right).
+        </me>
+        Then
+        <md>
+        <mrow>u_{p}^{\prime}(t) \amp =A\cos\sqrt{2t}-A\sqrt{2}t\sin\sqrt{2}t</mrow>
+         <mrow>\amp +B\sin\sqrt{2}t+B\sqrt{2}t\cos\sqrt{2}t</mrow>
+        <mrow>u_{p}^{\prime\prime}(t) \amp =-\sqrt{2}A\sin\sqrt{2}t-A\sqrt{2}\sin\sqrt{2}t</mrow>
+         <mrow>\amp -A2t\cos\sqrt{2}t</mrow>
+         <mrow>\amp B\sqrt{2}\cos\sqrt{2}t+B\sqrt{2}\cos\sqrt{2}t</mrow>
+         <mrow>\amp -B2t\sin\sqrt{2}t</mrow>
+        </md>
+        Plugging this into the LHS we have
+        <md>
+        <mrow>LHS=u_{p}^{\prime\prime}+2u_{p} \amp =\text{simplify}</mrow>
+         <mrow>\amp =2\sqrt{2}B\cos\left(\sqrt{2}t\right)-2\sqrt{2}A\sin\left(\sqrt{2}t\right).</mrow>
+        </md>
+        Now, setting <m>LHS=RHS=1\cdot\cos\left(\sqrt{2}t\right)+0\sin\left(\sqrt{2}t\right),</m>
+        we have 
+        <md>
+        <mrow>2\sqrt{2}B=1 \amp ,\,\,\,\,\,\,-2\sqrt{2}A=0</mrow>
+        <mrow>B=\frac{1}{2\sqrt{2}} \amp ,\,\,\,\,\,\,A=0</mrow>
+        </md>
+        so that
+        <me>
+        u(t)=c_{1}\cos\left(\sqrt{2}t\right)+c_{2}\sin\left(\sqrt{2}t\right)+\frac{1}{2\sqrt{2}}t\sin\left(\sqrt{2}t\right).
+        </me>
+        Using initial condition we have <m>c_{1}=0,c_{2}=0</m>. 
+        <me>
+        u(t)=\frac{1}{2\sqrt{2}}t\sin\left(\sqrt{2}t\right).
+        </me>
+        Hence we get the picture similar to the one above since 
+        <me>
+        \frac{1}{2\sqrt{2}}t\sin\left(\sqrt{2}t\right)\approx\pm\frac{t}{2\sqrt{2}}\text{ when }t\text{ is large.}
+        </me></p>
+        <sage>
+          <input>
+            var('x')
+            y = function('y')(x)
+            de = diff(y, x, 2) + 2*y == cos(sqrt(2)*x)
+            f = desolve(de, y, [0,0,0])
+            plot(f, [0,10*pi], title = f)
+          </input>
+        </sage>
+      </example>
+    </subsection>
+  </section>
+</chapter>

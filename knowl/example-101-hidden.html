@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2020-04-17T14:59:23-04:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body><article class="example-like"><p>Solve</p>
+<div class="displaymath">
+\begin{equation*}
+y^{\prime}=y-4e^{-t},\,\,\,y(0)=1
+\end{equation*}
+</div>
+<p>using Laplace transforms.</p>
+<p>Step 1: Find the Laplace Transform of the ODE (The going forwards part):</p>
+<div class="displaymath">
+\begin{align*}
+\mathcal{L}\left\{ y^{\prime}\right\} =\mathcal{L}\left\{ y\right\} -4\mathcal{L}\left\{ e^{-t}\right\}  \amp \iff s\mathcal{L}\left\{ y\right\} -y(0)=\mathcal{L}\left\{ y\right\} -4\frac{1}{s+1}\\
+\amp \iff s\mathcal{L}\left\{ y\right\} -1=\mathcal{L}\left\{ y\right\} -4\frac{1}{s+1}.
+\end{align*}
+</div>
+<p>Step 2: Solve for \(\mathcal{L}\left\{ y\right\} \) using algebra: and get</p>
+<div class="displaymath">
+\begin{equation*}
+\mathcal{L}\left\{ y\right\} =\frac{1}{s-1}-\frac{4}{\left(s-1\right)\left(s+1\right)}.
+\end{equation*}
+</div>
+<p>Step 3: We want to go backwards and invert this. But first let's do partial fractions:</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{4}{\left(s-1\right)\left(s+1\right)}=\frac{A}{\left(s-1\right)}+\frac{B}{\left(s+1\right)},
+\end{equation*}
+</div>
+<p>hence</p>
+<div class="displaymath">
+\begin{align*}
+4 \amp =A\left(s+1\right)+B\left(s-1\right),\\
+0\cdot s+4 \amp =\left(A+B\right)s+\left(A-B\right)
+\end{align*}
+</div>
+<p>so that</p>
+<div class="displaymath">
+\begin{align*}
+A+B \amp =0\\
+A-B \amp =4
+\end{align*}
+</div>
+<p>and get \(A=2,B=-2\text{.}\) Thus</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{4}{\left(s-1\right)\left(s+1\right)}=\frac{2}{s-1}-\frac{2}{s+1}.
+\end{equation*}
+</div>
+<p>Step 4: Use the inverse Laplace transform to get</p>
+<div class="displaymath">
+\begin{align*}
+y=\mathcal{L}^{-1}\left\{ \mathcal{L}\left\{ y\right\} \right\}  \amp =\mathcal{L}^{-1}\left\{ \frac{1}{s-1}\right\} -\mathcal{L}^{-1}\left\{ \frac{4}{\left(s-1\right)\left(s+1\right)}\right\} \\
+\amp =\mathcal{L}^{-1}\left\{ \frac{1}{s-1}\right\} -\left(\mathcal{L}^{-1}\left\{ \frac{2}{s-1}\right\} -\mathcal{L}^{-1}\left\{ \frac{2}{s+1}\right\} \right)\\
+\amp =e^{t}-\mathcal{L}^{-1}\left\{ \frac{2}{s-1}\right\} +\mathcal{L}^{-1}\left\{ \frac{2}{s+1}\right\} \\
+\amp =e^{t}-2e^{t}+2e^{-t}\\
+\amp =-e^{t}+2e^{-t}.
+\end{align*}
+</div></article></body>
+</html>

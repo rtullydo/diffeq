@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2020-04-17T14:59:23-04:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<h6 class="heading"><span class="type">Paragraph</span></h6>
+<p>If a powre series converges absolutely for some \(x = x_0\text{,}\) then it also converges for every value of \(x\) closer to the center \(a\) than \(x_0\) - that is, the series converges for \(\abs{x - a} \lt \abs{x_0 - a}\text{.}\) The proof of this follows from the squeeze theorem and properties of positive series.</p>
+<div class="displaymath">
+\begin{align*}
+\amp \abs{x - a} \leq \abs{x_0 - a}\\
+\amp \Leftrightarrow \sum_{k=0}^n \abs{a_k}\abs{x - a}^k \leq \sum_{k=0}^m \abs{a_k}\abs{x_0 - a}^k\\
+\amp \Leftrightarrow \lim_{n \to \infty} \sum_{k=0}^n \abs{a_k}\abs{x - a}^k \leq \lim_{n \to \infty} \sum_{k=0}^m \abs{a_k}\abs{x_0 - a}^k
+\end{align*}
+</div>
+<p>and since the larger sum exists, so too must the smaller. This leads to a question of some importance with power series generally - for a given center \(a\text{,}\) what is the largest set around \(a\) on which the series converges? absolutely? The largest number \(\rho\) for which a power series centered at \(a\) converges for every \(x \in (a - \rho, a + \rho)\) (alteratively all \(x\) so that \(\abs{x - a} \lt \rho\)) is called the <dfn class="terminology">radius of convergence</dfn>. How can we find it?</p>
+<span class="incontext"><a href="ch5-1.html#p-506">in-context</a></span>
+</body>
+</html>

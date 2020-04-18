@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--**************************************-->
+<!--*    Generated from PreTeXt source   *-->
+<!--*    on 2020-04-17T14:59:24-04:00    *-->
+<!--*                                    *-->
+<!--*      https://pretextbook.org       *-->
+<!--*                                    *-->
+<!--**************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<article class="example-like"><h6 class="heading">
+<span class="type">Example</span> <span class="codenumber">6.5.2</span>.</h6>
+<p>Solve using Laplace Transforms:</p>
+<div class="displaymath">
+\begin{equation*}
+y^{\prime}=-3y+6u_{4}(t)e^{-\left(t-4\right)},\,\,\,\,\,y(0)=5.
+\end{equation*}
+</div>
+<p>Step 1: Take \(\mathcal{L}\) of both sides</p>
+<div class="displaymath">
+\begin{equation*}
+\mathcal{L}\left\{ y^{\prime}\right\} =-3\mathcal{L}\left\{ y\right\} +6\mathcal{L}\left\{ u_{4}(t)e^{-\left(t-4\right)}\right\} 
+\end{equation*}
+</div>
+<p>and get</p>
+<div class="displaymath">
+\begin{equation*}
+s\mathcal{L}\left\{ y\right\} -y(0)=-3\mathcal{L}\left\{ y\right\} +6\mathcal{L}\left\{ u_{4}(t)e^{-\left(t-4\right)}\right\} 
+\end{equation*}
+</div>
+<p>Step 2: Solve for \(\mathcal{L}\left\{ y\right\} \) and get</p>
+<div class="displaymath">
+\begin{equation*}
+\mathcal{L}\left\{ y\right\} =\frac{5}{s+3}+\frac{6e^{-4s}}{\left(s+3\right)\left(s+1\right)}.
+\end{equation*}
+</div>
+<p>Step 3: We do partial fractions</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{6}{\left(s+3\right)\left(s+1\right)}=\frac{-3}{\left(s+3\right)}+\frac{3}{\left(s+1\right)}.
+\end{equation*}
+</div>
+<p>Step 3: Take the inverse Laplace transform: Using \(\mathcal{L}\left[u_{a}(t)f(t-a)\right]=e^{-as}F(s)\text{,}\) and</p>
+<div class="displaymath">
+\begin{align*}
+y \amp =\mathcal{L}^{-1}\left\{ \frac{5}{s+3}+\frac{6e^{-4s}}{\left(s+3\right)\left(s+1\right)}\right\} \\
+\amp =\mathcal{L}^{-1}\left\{ \frac{5}{s+3}\right\} +\mathcal{L}^{-1}\left\{ -3e^{-4s}\frac{1}{\left(s+3\right)}+3e^{-4s}\frac{1}{\left(s+1\right)}\right\} \\
+\amp =5e^{-3t}-3u_{4}(t)e^{-3\left(t-4\right)}+3u_{4}(t)e^{-\left(t-4\right)}.
+\end{align*}
+</div></article><span class="incontext"><a href="ch6-5.html#example-121">in-context</a></span>
+</body>
+</html>

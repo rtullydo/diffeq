@@ -1,0 +1,393 @@
+<chapter xml:id="introduction">
+<title>Introduction</title>
+<section xml:id="ch1-1">
+  <title>Modeling via differential equations, some solutions and definitions</title>
+  <introduction>
+    <p>We being by asking what a differential equation is. In your calculus career, you have seen quite a number of them already, just in disguise. For example, you might have been asked <q>what function is the antiderivative of <m>x^2</m>?</q> In other words, find a function <m>f(x)</m> so that
+    <me>
+      \frac{d}{dx} f(x) = x^2.
+    </me>
+    In your past life, this sort of equation was solved by using integration, which will also be true in this class. Indeed, the reason that you spent so much time on techniques of integration was to give you the basic toolset needed to solve differential equations.</p>
+  </introduction>
+  <subsection xml:id="ch1-1a"><title>What are differential equations?</title>
+  <p>So let us consider the question <q><em>What is a differential equation and what are its solutions?</em></q> We can compare and contrast what we already know in algebra with what we know in differential equations.</p>
+  <ul>
+    <li> <p><alert>Algebraic equations:</alert> are equations formed from numerical variables.
+      <ul>
+        <li>Examples: <m>x^2 - 1 = 0</m> or <m>x^2 + 1 = 0</m></li>
+        <li> <p>What are solutions? Are there even solutions? If so, how many?
+        <ul>
+          <li>Solutions to algebraic equations are numbers.</li>
+          <li>We can always check if a number is a solution: note that <m>x = 1</m> is a solution of <m>x^2 - 1 = 0</m> since <m>1^2 - 1 = 0</m></li>
+          <li>But notice that there is another solution, <m>x = -1</m> as well. So solutions are not <em>unique</em> in this case.</li>
+        </ul></p></li>
+      </ul>
+    </p></li>
+    <li><p> <alert>Differential equations:</alert> are equations involving variables representing <em>functions and their derivatives</em>.
+    <ul>
+      <li>Examples: <m>\frac{dy}{dt} = 2y</m> or <m>y' = 4y + e^t</m>.</li>
+      <li> <p>What are solutions to differential equations?
+        <ul>
+          <li><alert>They are functions</alert>! This is tricky because functions are more complicated than numbers. Functions have domains, ranges, etc. </li>
+          <li> Solutions to differential equations are <em>not!</em> equations.</li>
+        </ul></p>
+      </li>
+      <li>Is there even a solution? (<term>Existence</term>) If so, how many? (<term>Uniqueness</term>). These are the two main questions that one asks in differential equations.</li>
+      <li><alert>Check:</alert> We can always check that a function is a solution to a differential equation. </li>
+      <li> <p>Example: Show that <m>y(t) = 9e^{2t}</m> is a solution to the differential equation <m>y' = 2y</m>.</p>
+      <p>Solution: Plug <m>y(t)</m> into the left hand side (LHS) of the equation, then plug into the right hand side (RHS) and check that they are equal.</p>
+      <md>
+      <mrow> LHS \overset{?}= RHS</mrow>
+      <mrow> \frac{d}{dt}(9e^{2t}) \overset{?}= 2\cdot (9e^{2t})</mrow>
+      <mrow> 18e^{2t} \overset{\checkmark}= 18e^{2t}</mrow>
+      </md>
+      <p> What about <m>y = 9e^{2t}+1</m>? Is this a solution? Take a pen and paper and try this yourself by hand. You will see that <m>y</m> is NOT actually a solution to the example equation.</p></li>
+      <li><p>Check that <m>y(t) = 1 + t</m> is a solution to the differential equation
+      <me>
+        \frac{dy}{dt} = \frac{y^2 - 1}{t^2 + 2t}.
+      </me></p>
+      <p>You should find that the answer is yes.</p></li>
+    </ul></p></li>
+    </ul>
+  </subsection>
+    <subsection xml:id="ch1-1b">
+      <title>Studying first order equations</title>
+      <p>What are differential equations used for? The answer is pretty much everything in modern science. Derivatives measure rate of change. Since modern science, engineering, and applied mathematics study changing quantities in the physical world, <em>differential equations are the language of science</em>. Differential equations are models of the physical world that are used to make predictions.</p>
+      <ul>
+        <li>Meteorologists try to model the weather constantly (using very complicated differential equations), and they get it wrong all the time. <em>Modeling is hard.</em></li>
+        <li><p>Models frequently follow from qualitative observations about the world. A classical example is known as <term>Newton's Law of Cooling</term>, which states that <q>at a given time, the rate at which an object in an environment of constant ambient temperature is cooling is proportional to the difference between the object's temperature and the ambient temperature.</q></p>
+        <p>Mathematically, we can translate this into a differential equation. Let <m>T</m> be the temperature of the object at time <m>t</m>, and <m>A</m> be the ambient temperature. Then
+          <me>
+            \frac{dT}{dt} = C(T - A),
+          </me>
+          where <m>C</m> is the constant of proportionality. </p>
+        </li>
+        <li> The solution to the equation
+          <me>
+            \frac{dP}{dt} = k\cdot P
+          </me>
+          models the population of a species at time <m>t</m>, assuming unrestricted growth. In words, the equation says <q>the rate at which a population grows at a given time is proportional to the current population at that time</q>.
+        </li>
+        <li> A related equation called the <term>logistic growth model</term> describes population growth in an environment with restricted resources, and is given by
+        <me>
+          \frac{dP}{dt} = C \cdot P(M - P),
+        </me>
+        where the constant <m>C</m> is the constant of proportionality, and the constant <m>M</m> is called the <term>carrying capacity</term> of the model. How does this equation behave for as time progresses?</li>
+      </ul>
+      <definition>
+        <p>The standard form of a <term>first order differential equation</term> (that is, an equation with only first derivatives) is
+        <me>
+          \frac{dy}{dt} = f(t,y),
+        </me>
+        where <m>y = f(t)</m> is a function and <m>t</m> is the independent variable.</p>
+        <p>An <term>initial value problem (IVP)</term> is a differential equation with an intial condition:
+        <me>
+          \frac{dy}{dt} = f(t, y), \text{ and } y(t_0) = y_0.
+        </me>
+        </p>
+      </definition>
+      <ul>
+        <li><p>Consider the IVP
+          <me>
+            \frac{dy}{dt} = 2y, \hspace{.1in} y(0) =9.
+          </me>
+          Is <m>y(t) = 9e^{2t}</m> a solution to the IVP?</p>
+          <p>Yes. We've already checked that <m>y(t) = 9e^{2t}</m> is a solution to the ODE, and furthermore we have that <m>y(0) = 9e^{0} = 9</m>. </p></li>
+      </ul>
+      <definition>
+        <p>A <term>particular solution</term> to an ODE is simply one of the functions <m>y = y(t)</m> that satisfy a differential equation <m>y' = f(t,y)</m> for all <m>t</m>.</p>
+        <p>A <term>general solution</term> to an ODE is a parametrized collection of solutions that contains the solutions to every possible IVP built from that ODE.</p>
+      </definition>
+      <example><title>Finding a general solution</title>
+        To find the general solution to <m>\frac{dy}{dt} = 2y</m>, we can separate the <m>y</m>'s and the <m>t</m>'s to opposite sides and then integrate.
+        <md>
+        <mrow>\frac{dy}{dt}=2y \amp \iff\frac{dy}{y}=2dt</mrow>
+           <mrow>\amp \iff\int\frac{dy}{y}=\int2dt</mrow>
+           <mrow>\amp \iff\ln\left|y\right|=2t+C</mrow>
+           <mrow>\amp \iff\left|y\right|=e^{2t+C}=Ke^{2t},\text{ where }K=e^{C}</mrow>
+           <mrow>\amp \iff y=ce^{2t},\text{ where }c=\pm K.</mrow>
+        </md>
+        Thus, the general solution must be of the form
+        <me>
+          y = ce^{2t}.
+        </me>
+        <em>There will be a whole section on this technique</em> (unsurprisingly named <q>separation of variables</q>).
+      </example>
+      <definition>
+        An <term>equilibrium solution</term> to an ODE is a <em>constant solution</em> <m>y(t) = y_0</m>. That is,
+        <me>
+          \frac{dy}{dt} = 0 \text{ for all } t.
+        </me>
+      </definition>
+      <example><title>Finding an equilibrium solution</title>
+        Find the equilibrium solution of the following equation. Suppose that
+        <me>
+          y' = y^3 + y^2 - 6y.
+        </me>
+        For what values of <m>y(0) = y_0</m> is <m>y(t)</m> equilibrium, increasing, or decreasing? Factor to get
+        <me>
+          y' = y(y-2)(y+3),
+        </me>
+        and create a sign chart (like in calculus!). The equilibrium solutions are <m>y = -3, y=0,</m> and <m>y=2</m>. We can observe that solutions decrease for <m>y_0 \in (-\infty, -3)\cup(0,2)</m> and that they increase for <m>(-3,0)\cup(2,\infty)</m>.
+      </example>
+    </subsection>
+
+    <subsection xml:id="ch1-1c">
+      <title>Solutions to some differential Equations</title>
+      <ul>
+        <li> <p><alert>A Linear Differential Equation:</alert> Pick your favorite real numbers <m>a,b,y_{0}</m>
+        and consider the IVP
+        <me>
+          \frac{dy}{dt}=ay-b,\,\,\,\,\,\,y(0)=y_{0}.
+        </me></p>
+
+
+        <p>The <alert>general solution</alert> to this differential equation is
+        <me>
+        y(t)=\frac{b}{a}+\left(y_{0}-\frac{b}{a}\right)e^{at}
+        </me>
+        <em>We will see how one can get this very soon!</em></p></li>
+
+        <li><p><alert>Example:</alert> Find the solution to
+        <me>
+        \frac{dy}{dt}=-2y+8,\,\,\,\,\,y(0)=5.
+        </me></p>
+
+        <p><alert>Solution:</alert> The mysterious formula above says that <me>a=-2,b=-8</me> and <me>y_{0}=9</me> so the solution is
+        <me>
+        y(t)=4+\left(5-\frac{8}{2}\right)e^{-2t}=4+e^{-2t}.
+        </me></p></li>
+      </ul>
+    </subsection>
+
+    <subsection xml:id="ch1-1d">
+      <title>Studying general differential equations</title>
+    <ul>
+    <li> <p>In this class, we will only study <term>ordinary differential equations</term>
+    (ODE): contains only ordinary derivatives:</p>
+
+    <p> Example: <m>\frac{d^{2}y}{dt^{2}}+\frac{dy}{dt}=-1</m></p></li>
+    <li> <p>There is a whole separate course where one can study <term>partial
+    differential equations</term>(PDE):</p>
+
+    <p> Ex: <m>\frac{\partial^{2}u(x,y)}{\partial x^{2}}+\frac{\partial^{2}u(x,y)}{\partial y^{2}}=-1</m></p></li>
+    <li>System of equations:
+      <md>
+        <mrow>\frac{dx}{dt} \amp =x-xy</mrow>
+        <mrow>\frac{dv}{dt} \amp =y-3x</mrow>
+      </md>
+    </li>
+    <li> The <term>order</term> of the equation speaks to the highest order derivative
+    in the equation
+      <md>
+        <mrow> y^{\prime}+3y \amp =0\,\,\,\text{1st order}</mrow>
+        <mrow>y^{\prime\prime}+3y^{\prime} \amp =2t\,\,\,\text{2nd order}</mrow>
+        <mrow>\frac{d^{5}y}{dt}+\frac{dy}{dt} \amp =y\,\,\,\text{5th order}</mrow>
+        <mrow>u_{xx}+u_{yy} \amp =0\,\,\,\text{2nd order}</mrow>
+      </md>
+    </li>
+    </ul>
+    <definition> An ODE is called <term>linear</term> if it is linear in <m>y</m>, i.e. it
+    is of the form
+    <me>
+    a_{n}(t)y^{(n)}+a_{n-1}(t)y^{(n-1)}+\cdots+a_{0}(t)y=g(t)
+    </me>
+  </definition>
+
+  <ul>
+  <li><p><alert>Linear</alert>:
+    <ul>
+      <li><m>y^{\prime}+4y=0</m>,</li>
+      <li><m>t^{2}y^{\prime\prime}+\cos ty=1</m>,</li>
+      <li> and <m>\frac{y^{\prime}}{t}-y=t^{2}</m>.</li>
+    </ul></p>
+  </li>
+  <li><p><alert> Nonlinear</alert>:
+    <ul>
+      <li><m>\left(\frac{du}{dt}\right)^{2}+y=1</m>,</li>
+      <li> <m>yy^{\prime}+y=1</m>,</li>
+      <li> <m>y^{\prime\prime}+3e^{y}y,</m></li>
+      <li> and <m>\frac{1}{y}-y^{\prime}=1</m>.</li>
+    </ul></p>
+  </li>
+  </ul>
+  <p>Nonlinear ODEs are some of the hardest equations to solve! In fact, most
+  of the time, one won't be able to find an exact formula for the solution
+  of a differential equation. Much of the study of differential equations comes down to qualitative analysis and approximate solutions. But one nice thing about studying ODEs is that we can always check if a function is really a solution to a differential equation
+  or not. Futhermore, the equations can frequently be understood without an explicit solution at all.</p>
+</subsection>
+  </section>
+
+  <section xml:id="ch1-2">
+    <title>Slope fields (direction fields)</title>
+    <introduction><p>In this section, we will learn about a <em>qualitative</em> techinque - that is, we will learn to interpret the behavior of the solutions of differential equations using the equations themselves. </p></introduction>
+    <subsection><title>Slope fields</title>
+    <p>Generally, there are three broad approaches to differential equations:
+    <ol>
+      <li> <alert>Analytically:</alert> This means that one actually finds a
+      formula for the solutions of a differential equations, typically using integral techniques.</li>
+      <li> <alert>Numerically:</alert> But often, it is very difficult to
+      find an actual formula for the solution, even though there may be
+      a solution. Thus one can use computers and algorithms to numerically
+      approximate the solution. Even in the numerical case it is important to understand limitations of the calculated solutions.</li>
+      <li> <alert>Qualitatively:</alert> Maybe we don't need the full solution
+      of a differential equation. We can use our knowledge of ODEs to have an idea of how the solution behaves. For example, maybe the only thing you
+      want to answer about the solution is what the following asymptotic limit is:
+      <me>\lim_{t\to\infty}y(t).</me> </li>
+    </ol></p>
+    <p>When we have an equation of the form <m>\frac{dy}{dt}=f(t,y)</m>. We can
+    always make a <term>slope field</term> for the ODE. A slope field
+    contains minitangets at several points of a graph that describe the behavior of solutions through those points.</p>
+    <example><title>Slope field for <m>y' = t - y</m></title>
+      <tabular top="minor" left="minor">
+        <row bottom="medium">
+          <cell left="minor" right="minor">
+          <m>t</m></cell>
+          <cell right="minor">
+          <m>y</m></cell>
+          <cell right="minor">
+          <m>f(t,y) = t - y</m></cell>
+        </row>
+        <row bottom="minor">
+          <cell left="minor" right="minor">
+          -1</cell>
+          <cell right="minor">
+          1</cell>
+          <cell right="minor">
+          2</cell>
+        </row>
+        <row bottom="minor">
+          <cell left="minor" right="minor">
+          -1</cell>
+          <cell right="minor">
+          0</cell>
+          <cell right="minor">
+          1</cell>
+        </row>
+        <row bottom="minor">
+          <cell left="minor" right="minor">
+          -1</cell>
+          <cell right="minor">
+          -1</cell>
+          <cell right="minor">
+          0</cell>
+        </row>
+        <row bottom="minor">
+          <cell left="minor" right="minor">
+          0</cell>
+          <cell right="minor">
+          1</cell>
+          <cell right="minor">
+          1</cell>
+        </row>
+        <row bottom="minor">
+          <cell left="minor" right="minor">
+          0</cell>
+          <cell right="minor">
+          0</cell>
+          <cell right="minor">
+          0</cell>
+        </row>
+        <row bottom="minor">
+          <cell left="minor" right="minor">
+          0</cell>
+          <cell right="minor">
+          -1</cell>
+          <cell right="minor">
+          -1</cell>
+        </row>
+        <row bottom="minor">
+          <cell left="minor" right="minor">
+          1</cell>
+          <cell right="minor">
+          1</cell>
+          <cell right="minor">
+          0</cell>
+        </row>
+        <row bottom="minor">
+          <cell left="minor" right="minor">
+          1</cell>
+          <cell right="minor">
+          0</cell>
+          <cell right="minor">
+          -1</cell>
+        </row>
+        <row bottom="minor">
+          <cell left="minor" right="minor">
+          1</cell>
+          <cell right="minor">
+          -1</cell>
+          <cell right="minor">
+          -2</cell>
+        </row>
+      </tabular>
+    </example>
+    <p>We can use mathematical software (the open source SageMath platform here) to generate slopefields that are accurate and easy to read.</p>
+    <sage>
+      <input>
+        t, y = var('t,y')
+        plot_slope_field(y - t, (t, -3, 3), (y, -3, 3))
+      </input>
+    </sage>
+    <ul>
+      <li>Qualitatively, given a starting point, we can predict the long-term behavior of a particular solution. One feature to notice in the picture above is that solutions seem to have very different asymptotic behavior depending on whether the initial point is above or below the line <m>y = t + 1</m>.</li>
+      <li> Slope fields like the one above allow us to sketch what solution curves <em>might</em> look like, as curves through a given point must have matching slope there. (Indeed, before computers, working by hand and sketching solutions was a time-consuming and detail-oriented art.)</li>
+      <li> You can find a link to <c>Dfield</c>, an applet that generates slope/direction fields, at <url href="https://math.rice.edu/~dfield/dfpp.html"> this link.</url></li>
+      <li> Slope fields can also be visualized in Desmos in various ways. A simple example can be found <url href="https://www.desmos.com/calculator/v6ft5ichl3">here.</url></li>
+    </ul>
+  </subsection>
+    <subsection xml:id="ch1-2b"><title>Two important cases</title>
+    <p>There are two forms of first order equations that are relatively open to qualitative analysis, the cases where the function <m>f(t,y)</m> on the RHS is a function of just one variable.</p>
+    <p><alert>Type 1:</alert> <m>\frac{dy}{dt} = f(t)</m>.</p>
+    <ul>
+      <li> The slopes are always the same in each <em>vertical line</em>. Draw a picture.</li>
+      <li> These are the simple ODEs corresponding to finding antiderivatives in Calculus II.</li>
+      <li> For example, the slope field of <m>\frac{dy}{dt} = 2t</m> is computed
+      <sage>
+        <input>
+          g = Graphics()
+          t, y = var('t, y')
+          g += plot_slope_field(2*t, (t,-5,5),(y,-5,5))
+          g += plot(t^2 - 4, (t, -5,5), ymin = -5, ymax = 5)
+          g += plot(t^2 - 5, (t, -5,5), ymin = -5, ymax = 5)
+          g.show()
+        </input>
+      </sage></li>
+      <li>Integrating both sides gives the general solution as the family of parabolas <m>y = t^2 + C</m>, which you should be able to see in the slope field.</li>
+    </ul>
+    <p><alert>Type 2:</alert> <m>\frac{dy}{dt} = f(y)</m></p>
+    <ul>
+      <li>These are called <term>autonomous equations</term>. </li>
+      <li>The slopes are always the same in each <em>horizontal line</em>.</li>
+      <li>Autonomous equations have equilibrium solutions whenever <m>f(y) = 0</m>.</li>
+      <li><p>For example, to do a qualitative analysis of the autonomous equation
+        <me>
+          \frac{dy}{dt} = 4y(1-y)
+        </me>
+        first identify the equilibria (in this case <m>y = 0</m> and <m>y = 1</m>).</p>
+        <p>Now check slopes between the equilibrium solutions -
+          <md>
+            <mrow> y'(2) \amp= (-)</mrow>
+            <mrow>y'(.5) \amp= (+)</mrow>
+            <mrow>y'(-1) \amp= (-)</mrow>
+          </md>
+          Before we visualize, we can already see what the long term behavior should be. The equilibrium solution <m> y = 1</m> attracts solutions (this is called a stable equilibrium) while the solution <m>y = 0</m> pushes solutions away (which is called an unstable equilibrium).</p>
+        <sage>
+          <input>
+            t, y  = var('t,y')
+            plot_slope_field(4*y*(1-y), (t,-2,2),(y,-2,2))
+          </input>
+        </sage>
+      </li>
+    </ul>
+    When trying to match slope fields you should always follow these steps:
+    <ol>
+      <li>Factor!</li>
+      <li>Find the equilibrium solutions.</li>
+      <li>Test points between equilibrium solutions.</li>
+    </ol>
+  </subsection>
+  </section>
+</chapter>
+
+
