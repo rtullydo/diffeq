@@ -1,0 +1,8 @@
+This project comprises notes prepared by Phanuel Mariano for a first course in ordinary differential equations.
+The notes largely follow Boyce and DiPrima's text, though certain areas have been expanded, and some areas are currently 
+somwhat thin. Ryan Tully-Doyle edits, expands on, and prepares the original latex notes in the PreTeXt language, 
+which are compiled to html (see https://pretextbook.org).
+
+The current version of the notes can be seen rendered at math.newhaven.edu/rtullydo/diffeqs/diffeqs.html.
+
+
