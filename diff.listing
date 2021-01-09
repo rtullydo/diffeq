@@ -1,0 +1,4 @@
+y =  Graphics();
+y += plot(airy_ai(x), (x,-10,5), ymin = -1, ymax = 1, color = 'red');
+y += plot(airy_bi(x), (x,-10,5), ymin = -1, ymax = 1);
+y.show()
