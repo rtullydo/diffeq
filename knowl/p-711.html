@@ -1,66 +1,21 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
 <html lang="en-US">
-<!--**************************************-->
-<!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-18T16:29:41-04:00    *-->
-<!--*                                    *-->
-<!--*      https://pretextbook.org       *-->
-<!--*                                    *-->
-<!--**************************************-->
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:54-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body>
-<h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Solution:: First we want to write this as a convolution:</p>
-<div class="displaymath">
-\begin{equation*}
-\int_{0}^{5}e^{-x}\sin xdx=e^{-5}\int_{0}^{5}e^{5-x}\sin xdx.
-\end{equation*}
-</div>
-<p>and let</p>
-<div class="displaymath">
-\begin{equation*}
-h(t)=\int_{0}^{t}e^{t-\tau}\sin\tau d\tau.
-\end{equation*}
-</div>
-<p>The Laplace trasnform of this is</p>
-<div class="displaymath">
-\begin{align*}
-\mathcal{L}\left\{ h(t)\right\}  \amp =\mathcal{L}\left\{ \int_{0}^{t}e^{t-\tau}\sin\tau d\tau\right\} \\
-\amp =\mathcal{L}\left\{ \int_{0}^{t}f(t-\tau)g(\tau)d\tau\right\} \\
-\amp =\mathcal{L}\left\{ f(t)\right\} \mathcal{L}\left\{ g(t)\right\} \\
-\amp =\mathcal{L}\left\{ e^{t}\right\} \mathcal{L}\left\{ \sin t\right\} \\
-\amp =\frac{1}{\left(s-1\right)\left(s^{2}+1\right)}
-\end{align*}
-</div>
-<p>Now do partiial fractions on this and get</p>
-<div class="displaymath">
-\begin{equation*}
-\frac{1}{\left(s-1\right)\left(s^{2}+1\right)}=\frac{1}{2}\left(\frac{1}{s-1}-\frac{s+1}{s^{2}+1}\right)
-\end{equation*}
-</div>
-<p>Hence we can now take the inverse Laplace transform of this:</p>
-<div class="displaymath">
-\begin{align*}
-h(t) \amp =\frac{1}{2}\mathcal{L}^{-1}\left\{ \frac{1}{s-1}\right\} -\frac{1}{2}\mathcal{L}^{-1}\left\{ \frac{s}{s^{2}+1}\right\} -\frac{1}{2}\mathcal{L}^{-1}\left\{ \frac{1}{s^{2}+1}\right\} \\
-\amp =\frac{1}{2}e^{t}-\frac{1}{2}\cos t-\frac{1}{2}\sin t.
-\end{align*}
-</div>
-<p>Thus we computed that</p>
-<div class="displaymath">
-\begin{equation*}
-h(t)=\int_{0}^{t}e^{t-\tau}\sin\tau d\tau=\frac{1}{2}e^{t}-\frac{1}{2}\cos t-\frac{1}{2}\sin t
-\end{equation*}
-</div>
-<p>Thus</p>
-<div class="displaymath">
-\begin{align*}
-e^{-5}\int_{0}^{5}e^{5-x}\sin xdx \amp =e^{-5}h(5)\\
-\amp =e^{-5}\left(\frac{1}{2}e^{5}-\frac{1}{2}\cos5-\frac{1}{2}\sin5\right).
-\end{align*}
-</div>
-<span class="incontext"><a href="ch6-7.html#p-711">in-context</a></span>
+<h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
+<p xmlns:svg="http://www.w3.org/2000/svg">Find the Laplace transform of \(f(t)=e^{9t}\text{,}\) \(t\geq0\) .</p>
+<span class="incontext"><a href="ch6-1.html#p-711">in-context</a></span>
 </body>
 </html>

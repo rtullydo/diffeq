@@ -1,25 +1,39 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
 <html lang="en-US">
-<!--**************************************-->
-<!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-18T16:29:40-04:00    *-->
-<!--*                                    *-->
-<!--*      https://pretextbook.org       *-->
-<!--*                                    *-->
-<!--**************************************-->
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:48-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body>
-<h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Step 2: We find \(y_{p}(t)\) by making our guess and to find the undertermined coefficient. So we let \(y_{p}(t)=Ae^{-t}\) and plug \(y_{p}\) into the LHS:</p>
-<div class="displaymath">
-\begin{align*}
-y_{p}^{\prime\prime}+5y_{p}^{\prime}+6y_{p} \amp = \amp Ae^{-t}-5Ae^{-t}+6Ae^{-t}\\
-\amp = \amp 2Ae^{-t}
-\end{align*}
+<h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
+<p>Our guess of \(y_{p}\) will always be the general form of \(g(t)\text{,}\) for nice function. For example, we will guess that polynomial inputs produce polynomial outputs, that exponential inputs produce exponential outputs, and that trigonometric inputs produce trigonometric outputs.</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\begin{array}{|c|c|}
+\hline
+\text{If } g(t) \text{ looks like }  \amp \text{Then } y_{p}(t) \text{ is}\\
+\hline
+\hline
+P_{n}(t)=a_{n}t^{n}+a_{n-1}t^{n-1}+\cdots+a_{0} \amp t^{s}\left[A_{m}t^{m}+A_{m-1}t^{m-1}+\cdots+A_{0}\right]\\
+\hline
+e^{\alpha_0 t}P_{m}(t) \amp t^{s}e^{\alpha_0 t}\left[A_{m}t^{m}+A_{m-1}t^{m-1}+\cdots+A_{0}\right]\\
+\hline
+P_{m}(t)e^{\alpha_0 t}\cos\beta_0 t \text{ or } P_{m}(t)e^{\alpha_0 t}\sin\beta t \amp t^{s}\left[\left(A_{m}t^{m}+\cdots+A_{0}\right)e^{\alpha_0 t}\cos\beta t\right. \\
+\amp \left.+\left(B_{m}t^{m}+\cdots+B_{0}\right)e^{\alpha_0 t}\sin\beta_0 t\right]\\
+\hline
+\end{array}
+\end{equation*}
 </div>
+<p data-braille="continuation">This looks more complicated that it actually is because there's a possibility that \(g(t)\) is actually a solution to the homogeneous equation. So \(s=\) the smallest nonnegative integer (\(s=0,1,\)or \(2\)) such that no term of \(y_{p}\) is a solution to the corresponding homogeneous equation. (For example, given the equation \(x'' + 4x' + 4x = e^{-2t}\text{,}\) we can't guess \(y_p = A e^{-2t}\) because this solves the homogeneous equation.)</p>
 <span class="incontext"><a href="ch3-6.html#p-397">in-context</a></span>
 </body>
 </html>

@@ -1,365 +1,2782 @@
 <chapter xml:id="ch5">
-    <title>Series Solutions</title>
+    <title>Systems of First Order Linear Equations</title>
     <section xml:id="ch5-1">
-        <title>Power Series</title>
-        <p>Suppose that we're given the problem
-        <me>
-            \frac{dy}{dx} = e^{x^2}.
-        </me>
-        This is pretty obviously a separable differential equation, and after resorting we get
-        <me>
-            dy = e^{x^2} \,dx,
-        </me>
-        and so 
-        <me>
-            y = \int e^{x^2} \, dx.
-        </me>
-        Unfortunately, the function <m>e^{x^2}</m> (an enormously useful function that shows up regularly in probability and statistics in the form of the Gaussian or normal distribution), despite being a very nice function, <em>has no closed form antiderivative</em>. That is, there is no function that I can write down for <m>y</m>. Can we really not solve a problem like <m>\int_0^1 e^{x^2}\, dx</m>?</p>
+        <title>Systems of First Order Linear Equations</title>
+        <introduction>
 
-        <p>In calculus, we learn that one approach to a large class of problems like this is to use <term>power series</term>, which are expressions of the form
-        <me>
-            \sum_{k=0}^\infty a_k(x - a)^k = a_0 + a_1 (x-a) + a_2 (x-a)^2 + \ldots
-        </me>
-        where <m>a_0, a_1,\ldots</m> are constants. (We'd really like to think of a power series like giant polynomial, but this is isn't always justified...)</p>
+            <p> We start by giving some examples of systems of differential equations with 2 unknown functions. 
+            </p>
 
-        <p>A power series <term>converges at <m>x_0</m></term> if
-        <me>
-            \lim_{n \to \infty} a_0 + a_1 (x_0 - a) + \ldots + a_n (x_0 -a)^n = \lim_{n\to \infty} \sum_{k=0}^{\infty} a_k (x_0 - a)^k = \lim_{n\to \infty} S_n \text{ exists.}
-        </me>
-        The function <m>S_n(x)</m> is called the <term><m>n</m>th partial sum</term>. Often times, we'll use the shorthand notation
-        <me>
-            \sum_{k=0}^\infty a_k (x - a)^k = \lim_{n\to\infty} \sum_{k=0}^n a_k(x-a)^k
-        </me>
-        to represent the limit of the partial sums.</p>
+        </introduction>
 
-        <p>The constant <m>a</m> is called the center of the power series. A power series centered at <m>a</m> always converges at <m>x = a</m> (since all but one of the terms is <m>0</m>). If there is <em>any</em> other point for the series converges, we call it a <term>convergent power series</term>. If a series fails to converge anywhere except at <m>x = a</m>, we call it a <term>divergent power series</term>. A series is called <term>absolutely convergent</term> at <m>x_0</m> if
-        <me>
-            \sum_{k=0}^\infty \abs{a_k} \abs{ x_0-a}^k \text{ exists.}
-        </me></p>
+        <subsection>
+        <title>Predator-Prey system</title>
 
-        <p>If a powre series converges absolutely for some <m>x = x_0</m>, then it also converges for every value of <m>x</m> closer to the center <m>a</m> than <m>x_0</m> - that is, the series converges for <m>\abs{x - a} \lt \abs{x_0 - a}</m>. The proof of this follows from the squeeze theorem and properties of positive series.
-        <md>
-            <mrow>\amp \abs{x - a} \leq \abs{x_0 - a}</mrow>
-            <mrow>\amp \Leftrightarrow \sum_{k=0}^n \abs{a_k}\abs{x - a}^k \leq \sum_{k=0}^m \abs{a_k}\abs{x_0 - a}^k</mrow>
-            <mrow>\amp \Leftrightarrow \lim_{n \to \infty} \sum_{k=0}^n \abs{a_k}\abs{x - a}^k \leq \lim_{n \to \infty} \sum_{k=0}^m \abs{a_k}\abs{x_0 - a}^k</mrow>
-        </md>
-        and since the larger sum exists, so too must the smaller. This leads to a question of some importance with power series generally - for a given center <m>a</m>, what is the largest set around <m>a</m> on which the series converges? absolutely? The largest number <m>\rho</m> for which a power series centered at <m>a</m> converges for every <m>x \in (a - \rho, a + \rho)</m> (alteratively all <m>x</m> so that <m>\abs{x - a} \lt \rho</m>) is called the <term>radius of convergence</term>. How can we find it?</p>
+            <p>
+            Let <m>R(t)=</m> prey population and let <m>F(t)=</m> predator population.
+            Then the following is a system of first order equations:
 
-        <p>Two of the most powerful tests for convergence we encounter in calculus are the root and ratio tests, both of which work very nicely on power series because power series contain terms of the form <m>(x-a)^n</m>.</p>
+                <md>
+                <mrow> \frac{dR}{dt} \amp = 2R-1.2RF</mrow>
+                <mrow>\frac{dF}{dt}  \amp = -F+0.9RF.</mrow>
 
-        <theorem><title>Ratio test for convergence</title>
-            <p>Let <m>\sum_{k=0}^\infty c_k</m> be an infinite series, and suppose that the limit 
+                </md>
+
+
+            Notice that the prey and predator population are dependent on each
+            other, and thus we need a system of equations. For example, if there
+            are too many predators then normally that would decrease the population
+            of the prey. 
+
+
+            </p>
+
+
+
+
+        </subsection>
+        <subsection>
+        <title>Spring-Mass Systems and Mixing Problems </title>
+
+            <p> Suppose we have mass attached to a spring which is attached to another mass attached to a another spring. The behavior of one mass is affected by the other (and vice versa).
+            We need a system of ODE to solve such problems.
+            </p>
+
+            <p>
+
+            Suppose we have one tank that is being mixed with a solution that flows into another tank. We need systems of equations to determine the amount of mass in each tank. 
+
+
+            </p>
+
+            <example>
+            <title>Double Tank Problem </title>
+            <p>
+
+            Salt water with concentration <m>3</m> g/L of salt flows into tank #1
+            at a rate <m>4</m> L/min. at a rate of <m>4</m> L/min. 
+            <ul>
+             <li> The well mixed mixture from tank #1 flows into tank #2 at a rate
+            of 4 L/min, and the well mixed mixture of tank #2 flows out at a
+            rate of 4 L/min. 
+            </li>
+            <li> Tank #1 initially has 30 L of salt water with <m>6</m> g of salt dissolved
+            in it.</li> 
+            <li> Tank #2 initially has 20 L of fresh water.</li>
+            
+            </ul>
+            <term>Question:</term> Write a system of ODEs representing this problem. 
+
+            <term>Solution: </term>
+            </p>
+
+
+            <p>Step 1: First we define variables.</p>
+
+            <p>Let <m>x_{1}(t)</m> and <m> x_{2}(t)</m>  be the amount of salt in tank #1
+            and tank #2, respectively at time <m> t </m>  (minutes).</p>
+
+
+            <p>Step 2: Use <m> x_{i}^{\prime}=\text{Rate in }-\text{Rate out}</m>.</p>
+            <p>
+            We first get 
+
+                <md>
+                <mrow> x_{1}^{\prime}(t)  \amp =\left(\text{concentration in}\right)\times\text{Rate}-\left(\text{concentration out}\right)\times\text{Rate}   </mrow>                                   
+                <mrow> \amp =3\frac{\text{g}}{L}\cdot4\frac{\text{L}}{\text{min}}-\frac{x_{1}(t)}{\text{water in tank 1 at time t}}\cdot 4\frac{\text{L}}{\text{min}}</mrow>
+                </md>
+
+            but since 
             <me>
-                L = \lim_{n\to\infty} \abs{\frac{c_{k+1}}{c_k}} \text{ exists.}
+               \text{water at time }t=30+\left(4-4\right)t=30
             </me>
-            Then the series converges if <m>L \lt 1</m> and diverges if <m>L > 1</m>. If <m>L = 1</m>, the test is inconclusive.</p>
-        </theorem>
-
-        <p>Now let's apply the ratio test to a power series to see if we can discover for which values of <m>x</m> the series converges. Consider the series <m>S = \sum_{k=0}^\infty a_x (x - a)^k</m>. We can apply the ratio test by computing the limit (if it exists) 
-        <md>
-            <mrow>L \amp = \lim_{k \to \infty} \abs{a_{k+1}(x - a)^{k+1}}{a_k(x -a)^k}</mrow>
-            <mrow>\amp = \lim_{k \to \infty} \abs{\frac{a_{k+1}}{a_k}} \abs{x - a}.</mrow>
-        </md>
-        Presuming that <m>L</m> exists, the ratio test says that the series will converge if <m>L \lt 1</m>. Let <m>A = \lim_{k\to\infty} \abs{\frac{a_{k+1}}{a_k}}</m>. Then <m>L \lt 1</m> is equivalent to
-        <md>
-            <mrow>L  = \lim_{k\to\infty} \abs{\frac{a_{k+1}}{a_k}} \abs{x - a} \amp \lt 1</mrow>
-            <mrow>A \abs{x - a} \amp \lt 1</mrow>
-            <mrow>\abs{x -a} \amp \lt \frac{1}{A}</mrow>
-        </md></p>
-
-        <theorem>
-            <p>Let <m>\sum a_k (x-a)^k</m> be a power series centered at <m>a</m> so that <m>A = \lim_{k\to\infty}\frac{a_{k+1}}{a_k}</m> exists. If <m>A = 0</m>, then the radius of convergence for the series is <m>\rho = \infty</m> (that is, the series converges for every <m>x</m>). Otherwise, the radius of converge is <m>\rho = \frac{1}{A}</m>. (that is, the series converges for <m>x \in (a - \rho, a + \rho)</m>).</p>
-        </theorem>
-
-        <p>A convergent power series defines a very special kind of function on its interval of convergence. Let
-        <me>
-            f(x) = \sum_{k=0}^{\infty} a_k (x - a)^k
-        </me>
-        with domain <m>\mathcal D = (a -\rho, a+\rho)</m>. The function <m>f</m> defined this way is called an <term>analytic function</term>. Such functions are extremely nice - they are smooth, they have derivatives to all orders, they can be integrated as many times as one requires. (n.b.: Functions formed from power series are the central object of study in complex analysis, which consequently is a beautiful subject.) </p>
-
-        <p>In calculus, we learn a method for deriving power series of a function called <term>Taylor series</term>. 
-        <definition>
-            If <m>f</m> is analytic on an open interval <m>I</m> centered at <m>a</m>, then for all <m>x \in I</m>,
+            hence
             <me>
-                f(x) = \sum_{k=0}^\infty \frac{f^{(k)}(a)}{k!}(x-a)^k;
+            x_{1}^{\prime}(t) =12-\frac{4x_{1}(t)}{30},x_{1}(0)=6.
             </me>
-            that is, <m>f</m> has a power series centered at <m>a</m> with <m>a_k = \frac{f^{(k)}(a)}{k!}</m>.
-        </definition>
-        Finite Taylor series, called <term>Taylor polynomials</term>, are typically excellent approximations of functions near <m>x=a</m>.</p>
 
-        <p>So why care about this? We can essentially treat Taylor series like <q>infinitely long polynomials</q> where they converge - convergent power series can be treated algebraically like functions and are easily integrated and differentiated:
-        <md>
-            <mrow>\frac{d}{dx} f(x) \amp = \frac{d}{dx} \left[\sum_{k=0}^\infty a_k (x-a)^k\right]</mrow>
-            <mrow>\amp= \sum_{k=0}^\infty \frac{d}{dx} a_k (x-a)^k</mrow>
-            <mrow> \amp = \sum_{k=0}^\infty k a_k (x-a)^{k-1}</mrow>
-            <mrow> \amp = \sum_{k=1}^\infty k a_k (x-a)^{k-1} \hspace{.1in} \text { (first term was 0)}</mrow>
-            <mrow> \amp = \sum_{k=0}^\infty (k+1) a_{k+1} (x-a)^k \hspace{.1in} \text{ (re-index)}</mrow>
-        </md>
-        Taking another derivative gets us an expression for the second derivative of a power series:
-        <me>
-            \frac{d^2}{dx^2} f(x) = \sum_{k=0}^\infty (k+2)(k+1) a_{k+2} (x-a)^k.
-        </me></p>
 
-        <assemblage>
-            <p>If <m>f(x) = \sum_{k=0}^\infty a_k (x-a)^k</m>, then we have
-            <md>
-                <mrow>f'(x) = \sum_{k=0}^\infty (k+1)a_{k+1} (x-a)^k</mrow>
-                <mrow>f''(x) = \sum_{k=0}^\infty (k+2)(k+1) a_{k+2} (x-a)^k</mrow>
-            </md></p>
-        </assemblage>
+            </p>
 
-        <p>We should generally have the following basic power series of common functions memorized:
-        <me>
-            \begin{array}{c|c|c|c|c}
-                f(x) \amp a \amp \sum a_k (x-a)^k \amp \rho \amp \text{IOC} \\ \hline
-                e^x \amp 0 \amp \sum \frac{x^k}{k!} \amp \infty \amp (-\infty, \infty) \\
-                \cos x \amp 0 \amp \sum (-1)^k \frac{x^{2k}}{(2k)!} \amp \infty \amp (-\infty, \infty) \\
-                \sin x \amp 0 \amp \sum (-1)^k \frac{x^{2k+1}}{(2k+1)!} \amp \infty \amp (-\infty, \infty) \\
-                \ln (1+x) \amp 0 \amp \sum (-1)^{k+1} \frac{x^k}{k} \amp 1 \amp (-1, 1) \\
-                \frac{1}{1-x} \amp 0 \amp \sum x^k \amp 1 \amp (-1,1)
-            \end{array}
-        </me></p>
+            <p>
+            Step 3: Use <m>x_{i}^{\prime}=\text{Rate in }-\text{Rate out}</m>.
+            We first get 
+                <md>
+                <mrow> x_{2}^{\prime}(t)  \amp =\left(\begin{array}{c}
+                    \mbox{concentration}\\
+                    \mbox{of salt coming in}
+                    \end{array}\right)\times\mbox{Rate}-\left(\begin{array}{c}
+                    \mbox{concentration}\\
+                    \mbox{of salt coming out}
+                    \end{array}\right)\times\mbox{Rate}  </mrow>                                   
+                <mrow> \amp =\frac{x_{1}(t)}{30}\frac{\text{g}}{L}\cdot4\frac{\text{L}}{\text{min}}-\frac{x_{2}(t)}{20+(4-4)t}\cdot4\frac{\text{L}}{\text{min}}</mrow>
+                <mrow>  \amp =\frac{4x_{1}(t)}{30}-\frac{4x_{2}(t)}{20},\,\,\,\,\,x_{2}(0)=0</mrow>
+                </md>
 
-        <example><title>Integrate <m>e^{x^2}</m></title>
-        <p>We can now answer the question posed at the beginning of this discussion: since <m>e^x = \sum \frac{x^k}{k!}</m>, we get
-        <me>
-            e^{x^2} = \sum \frac{(x^2)^k}{k!} = \sum \frac{x^{2k}}{k!}.
-        </me>
-        Then
-        <md>
-            <mrow>\int e^{x^2} \, dx \amp = \int \sum \frac{x^{2k}}{k!}\,dx </mrow>
-            <mrow>\amp = \sum \int \frac{x^{2k}}{k!} \, dx </mrow>
-            <mrow>\amp = \left[\sum \frac{x^{2k+1}}{(2k+1) k!}\right] + C</mrow>
-        </md>
-        This function has no closed form, but the result can be worked with easily (for example, in approximation). </p>
-        </example>
-
-        <example><title>Applying the ratio test</title>
-            <p>Find the radius and interval of convergence of the series
+            Putting it together, the system we have is 
                 <me>
-                    \sum_{k=0}^\infty \frac{(-1)^k}{10^k} (x-5)^k.
-                </me></p>
-
-            <p>To apply the ratio test, we need the terms
-                <me>
-                    c_k = \frac{(-1)^k}{10^k}(x-5)^k
+                \begin{cases}
+                x_{1}^{\prime}=12-\frac{2}{15}x_{1} \amp x_{1}(0)=6.\\
+                x_{2}^{\prime}=\frac{4}{30}x_{1}-\frac{1}{5}x_{2} \amp x_{2}(0)=0
+                \end{cases}
                 </me>
-            and
-            <me>
-                c_{k+1} = \frac{(-1)^{k+1}}{10^{k+1}}(x-5)^{k+1}.
-            </me>
-            Then
-            <md>
-                <mrow>\lim_{k\to \infty} \abs{\frac{c_{k+1}}{c_k}} \amp = \lim_{k\to\infty} \abs{\frac{(-1)^{k+1}(x-5)^{k+1}}{10^{k+1}}\cdot\frac{10^k}{(-1)^k}{(-1)^k(x-5)^k}}</mrow>
-                <mrow>\amp = \lim_{k\to\infty} \abs{\frac{1}{10}(x-5)} = \frac{1}{10}\abs{x-5}</mrow>
-            </md>
-            which by the ratio test will converge if
-            <md>
-                <mrow>\frac{1}{10}\abs{x-5} \amp \lt 1</mrow>
-                <mrow>\text{or } \abs{x-5} \lt 10.</mrow>
-            </md>
-            Then the radius of convergence <m>\rho = 10</m>, and the interval of converge, which has endpoints given by <m>a \pm \rho</m>, is <m>(-5,15)</m>.</p>
+
+            </p>
+
+
+
+
         </example>
+        </subsection>
+
+        <subsection>
+        <title>Overview of system of ODEs </title>
+            <p>
+            We will be dealing only with <m>2\times2</m> systems, or sometimes <m>3\times3</m>
+            systems. But in general we can have <m>n\times n</m> systems. 
+            The following is called a <term> linear homogeneous system</term>
+            of <term>First Order Equations</term>:
+            <md>
+            <mrow> x_{1}^{\prime} \amp =a(t)x_{1}+b(t)x_{2}</mrow>
+            <mrow> x_{2}^{\prime} \amp =c(t)x_{1}+d(t)x_{2}</mrow>
+            </md>
+            The following system is called <term>non-homogeneous</term> if 
+            <md>
+            <mrow> x_{1}^{\prime} \amp =a(t)x_{1}+b(t)x_{2}+g_{1}(t)</mrow>
+            <mrow> x_{2}^{\prime} \amp =c(t)x_{1}+d(t)x_{2}+g_{2}(t)</mrow>
+            </md>
+            where <m>g_{1}(t)</m> or <m>g_{2}(t)\neq 0</m>.
+            </p>
+            <p>
+            An <term> initial value problem (IVP)</term> consists of a system of differential
+            equations and intial conditions such as 
+            <me>
+            \begin{cases}
+            x_{1}^{\prime}=a(t)x_{1}+b(t)x_{2} \amp x_{1}(t_{0})=x_{1}^{0}\\
+            x_{2}^{\prime}=c(t)x_{1}+d(t)x_{2} \amp x_{2}(t_{0})=x_{2}^{0}
+            \end{cases}
+            </me>
+
+
+            </p>
+            <p>
+            <term>Existence/Uniqueness?</term> As long as all the coefficient
+            functions are all continuous then we have the existence and uniqueness
+            of a solution <m>\left(x_{1}(t),x_{2}(t)\right) </m> to any IVP.
+
+            </p>
+
+
+      
+        </subsection>
+
+        <subsection>
+        <title>Turning a Second Order ODE into a System of First Order of ODEs</title>
+
+        <p>
+        If we would like to turn a Second Order Linear ODE into a system of equations, the trick is to let 
+        <me>
+        x_{1}=y,x_{2}=y^{\prime}.
+        </me>
+
+        </p>
+
+
+
+
+
+
+         <example>
+            <title>Turning an ODE into a system </title>
+            <p>
+            Turn 
+            <me>
+            y^{\prime\prime}+\frac{1}{2}y^{\prime}+2y=\sin t
+            </me>
+            into a system of differential equations. 
+            </p>
+        <p><term>Solution:</term></p>
+        <p>
+        Goal:  We let <m>x_{1}=y</m> , <m>x_{2}=y^{\prime}</m> and set up
+        the following system:
+        <md>
+        <mrow> x_{1}^{\prime} \amp =?</mrow>
+        <mrow> x_{2}^{\prime} \amp =? </mrow>
+        </md>
+
+        </p>
+
+
+
+        <p>
+        To do so, we start with what we defined and take derivatives:
+        <me>
+        \begin{array}{ccc}
+        x_{1}=y \amp \implies \amp x_{1}^{\prime}=y^{\prime}=x_{2}\\
+        x_{2}=y^{\prime} \amp \implies \amp  x_{2}^{\prime}=y^{\prime\prime}=-\frac{1}{2}y^{\prime}-2y-\sin t
+        \end{array}
+        </me>
+
+        hence 
+        <md>
+        <mrow> x_{2}^{\prime} \amp =-\frac{1}{2}y^{\prime}-2y-\sin t </mrow>
+        <mrow>  \amp =-\frac{1}{2}x_{2}-2x_{1}-\sin t,\text{ by definition} </mrow>
+        </md>
+        thus
+        <me>
+        \begin{cases}
+        x_{1}^{\prime}=x_{2}\\
+        x_{2}^{\prime}=-2x_{1}-\frac{1}{2}x_{2}+\sin t
+        \end{cases}
+        </me>
+        </p>
+
+
+
+
+
+
+        </example>
+
+        
+
+            <assemblage><title>Turning any Second Order Linear ODE into Systems of First Order ODEs</title>
+            <p>If we have 
+            <me>
+            a(t)y^{\prime\prime}+b(t)y^{\prime}+c(t)y=g(t)
+            </me>
+            then we by letting <m>x_{1}=y</m> and <m>x_{2}=y^{\prime}</m>, and using the
+            method in the above example, we can obtain
+            <me>
+            \begin{cases}
+            x_{1}^{\prime}=x_{2}\\
+            x_{2}^{\prime}=-\frac{c}{a}x_{1}-\frac{b}{a}x_{2}+\frac{g}{a}
+            \end{cases}
+            </me>
+            </p>
+            </assemblage>
+
+
+        
+        </subsection>
+
+       
 
     </section>
+
 
     <section xml:id="ch5-2">
-        <title>Method of series solutions</title>
-        <p>The idea of this section is to use series to construct solutions to linear differential equations that don't have obvious closed form solutions (which is most of them). First, we need to know that the differential equation is itself sufficiently well-behaved to have analytic solutions.</p>
+        <title>Review of Matrices, Vector Fields, Phase Planes and Portraits</title>
 
-        <definition xml:id="defordpoint">
-            <p>A point <m>x=x_0</m> is called an <term>ordinary point</term> for a homogeneous second order differential equation of the form
-            <me>
-                y'' + P(x)y' + Q(x)y = 0
-            </me>
-            if <m>P</m> and <m>Q</m> are analytic at <m>x_0</m>. (Typical functions for <m>P,Q</m> are trig functions, exponentials, polynomials, and rational functions, which are analytic away from asymptotes).</p>
-        </definition>
-        <example>
-            <p>Every point <m>x=x_0</m> is ordinary for the differential equation
-            <me>
-                y'' + e^x y = 0.
-            </me></p>
-        </example>
-        <example>
-            <p>Every positive <m>x_0</m> is ordinary for the equation
-            <me>
-                y'' + (\ln x) y = 0.
-            </me>
-            However, <m>\ln x</m> has an asymptote at <m>x=0</m>, so this is a <term>singular point</term> for the equation. (Singular points are important to consider but quite complicated to analyze, and addressed in further advanced courses in ODE).
-            </p>
-        </example>
 
-        <p>The big idea of power series solutions is that if
+        <introduction>
+        <p>
+        We will start by considering the following <term>linear system with
+        constant coefficients</term>:
+        <md>
+        <mrow> x_{1}^{\prime} \amp =  ax_{1}+bx_{2}</mrow>
+        <mrow> x_{2}^{\prime} \amp =  cx_{1}+dx_{2}.</mrow>
+        </md>
+
+        Let 
         <me>
-            y'' + P y' + Q y = 0
+        A=\left(\begin{array}{cc}
+        a \amp b\\
+        c \amp d
+        \end{array}\right)
         </me>
-        then at any ordinary point <m>x = x_0</m> we can find two linearly independent power series centered at <m>x_0</m> that solve the differential equation of the form
+
+        be a matrix and let <m>\mathbf{x}=\left(\begin{array}{c}
+        x_{1}\\
+        x_{2}
+        \end{array}\right)</m> be a vector. We can define <term>matrix-vector</term> product as 
+        
         <me>
-            y = \sum_{k=0}^\infty c_k (x-x_0)^k.
+        A\mathbf{x}=\left(\begin{array}{cc}
+        a \amp b\\
+        c \amp d
+        \end{array}\right)\left(\begin{array}{c}
+        x_{1}\\
+        x_{2}
+        \end{array}\right)=\left(\begin{array}{c}
+        ax_{1}+bx_{2}\\
+        cx_{1}+dx_{2}
+        \end{array}\right).
         </me>
-        The challenge is to find the coefficients <m>c_k</m>.</p>
 
-        <example><title>First order example</title>
-            <p>To illustrate the method, we'll begin with the power series approach to a first order differential equation
-            <me>
-                y' - 2y = 0.
-            </me>
-            Of course, we already know that the solution to this equation should be <m>y = k e^{2x}</m> by the method of characteristic equations, so we should expect our series answer to recover that.</p>
+        For example, if <m>A=\left(\begin{array}{cc}
+        1 \amp 2\\
+        -1 \amp 3
+        \end{array}\right)</m> and <m>\mathbf{x}=\left(\begin{array}{c}
+        2\\
+        1
+        \end{array}\right)</m>, then 
 
-            <p>Since the equation is regular at every point, (2 is analytic), for convenience, we will work at the regular point <m>x = 0</m>. We will assume that the solution <m>y = f(x)</m> is a power series, which gives the expressions
+        <me>
+        A\mathbf{x}=\left(\begin{array}{cc}
+        1 \amp 2\\
+        -1 \amp 3
+        \end{array}\right)\left(\begin{array}{c}
+        2\\
+        1
+        \end{array}\right)=\left(\begin{array}{c}
+        2+2\\
+        -2+3
+        \end{array}\right)=\left(\begin{array}{c}
+        4\\
+        1
+        \end{array}\right)
+        </me>
+
+        One can also <term>add</term> vectors and <term>scale</term> vectors! For
+        example, if <m>\mathbf{x}_{1}=\left(\begin{array}{c}
+        x_{1}\\
+        x_{2}
+        \end{array}\right)</m> and <m>\mathbf{x}_{2}=\left(\begin{array}{c}
+        y_{1}\\
+        y_{2}
+        \end{array}\right)</m>, then 
+
+        <me>
+        \mathbf{x}_{1}+\mathbf{x}_{2}=\left(\begin{array}{c}
+        x_{1}+y_{1}\\
+        x_{1}+y_{2}
+        \end{array}\right)
+        </me>
+
+        and if <m>c\in\mathbb{R}</m> then 
+        <me>
+        c\mathbf{x}_{1}=c\left(\begin{array}{c}
+        x_{1}\\
+        x_{2}
+        \end{array}\right)=\left(\begin{array}{c}
+        cx_{1}\\
+        cx_{2}
+        \end{array}\right)
+        </me>
+        </p>
+        <p>
+        Thus we can write a system of ODES, such as 
+        <md>
+        <mrow> x_{1}^{\prime} \amp =  ax_{1}+bx_{2}</mrow>
+        <mrow> x_{2}^{\prime} \amp =  cx_{1}+dx_{2}.</mrow>
+        </md>
+
+        as 
+        <me>
+        \mathbf{x}^{\prime}=A\mathbf{x}
+        </me>
+
+         where <m>A=\left(\begin{array}{cc}
+        a \amp b\\
+        c \amp d
+        \end{array}\right)</m> and <m>\mathbf{x}=\left(\begin{array}{c}
+        x_{1}\\
+        x_{2}
+        \end{array}\right)</m>. Here <m>A</m> is called the coefficient matrix. One could also write
+        
+        <me>
+        \frac{d\mathbf{x}}{dt}=A\mathbf{x}.
+        </me>
+        </p>
+
+
+
+        </introduction>
+
+        <example>
+        <p>
+        The system 
+        <md>
+        <mrow> x_{1}^{\prime} \amp =-2x_{1}+x_{2}</mrow>
+        <mrow> x_{2}^{\prime} \amp =x_{1}-2x_{2}</mrow>
+        </md>
+        can be represented by 
+        <md>
+        <mrow>
+        \left(\begin{array}{c}
+        x_{1}^{\prime}\\
+        x_{2}
+        \end{array}\right) \amp =\left(\begin{array}{cc}
+        -2 \amp 1\\
+        1 \amp -2
+        \end{array}\right)\left(\begin{array}{c}
+        x_{1}\\
+        x_{2}
+        \end{array}\right) </mrow>
+        <mrow>\mathbf{x}^{\prime} \amp =A\mathbf{x}</mrow>
+        </md>
+
+
+        </p>
+        </example>
+
+
+        <example>
+        <p>
+        Verify that <m>\mathbf{x}=\left(\begin{array}{c}
+        1\\
+        -2
+        \end{array}\right)e^{-4t}</m> is a solution to 
+        <me>
+        \mathbf{x}^{\prime}=\left(\begin{array}{cc}
+        2 \amp 3\\
+        4 \amp -2
+        \end{array}\right)\mathbf{x}.
+        </me>
+        </p>
+        <p>    
+        <term> Solution: </term></p>
+        <p>
+        We plug <m>\mathbf{x}=\left(\begin{array}{c}
+        1\\
+        -2
+        \end{array}\right)e^{-4t}</m> into the LHS and RHS and see if they are equal to each other 
+        <me>
+        \text{LHS}=\mathbf{x}^{\prime}=\left(\begin{array}{c}
+        e^{-4t}\\
+        -2e^{-4t}
+        \end{array}\right)^{\prime}=\left(\begin{array}{c}
+        -4e^{-4t}\\
+        8e^{-4t}
+        \end{array}\right)
+        </me>
+        and 
             <md>
-                <mrow>y \amp = \sum_{k=0}^\infty c_k x^k  = c_0 + c_1 x + c_2 x^2 + \ldots;</mrow>
-                <mrow>y' \amp = \sum_{k=0}^\infty (k+1) c_{k+1} x^k  = c_1 + 2c_2 x + 3c_3 x^2 + \ldots.</mrow>
+            <mrow> \text{RHS} \amp =\left(\begin{array}{cc}
+            2 \amp 3\\
+            4 \amp -2
+            \end{array}\right)\mathbf{x}=\left(\begin{array}{cc}
+            2 \amp 3\\
+            4 \amp -2
+            \end{array}\right)\left(\begin{array}{c}
+            e^{-4t}\\
+            -2e^{-4t}
+            \end{array}\right)</mrow>
+
+            <mrow> \amp =\left(\begin{array}{c}
+            2e^{-4t}-6e^{-4t}\\
+            4e^{-4t}+4e^{-4t}
+            \end{array}\right)</mrow>
+
+            <mrow> \amp =\left(\begin{array}{c}
+            -4e^{-4t}\\
+            8e^{-4t}
+            \end{array}\right)</mrow>
             </md>
-            Plugging into the differential equation, we get
-            <md>
-                <mrow>(c_1 + 2c_2 x + 3c_3 x^2 + \ldots) - 2(c_0 + c_1 x + c_2 x^2 + \ldots) \amp = 0</mrow>
-                <mrow>(c_1 - 2c_0) + (2c_2 - 2c_1)x + (3c_3 - 2c_2)x^2 + \ldots\amp = 0.</mrow>
-            </md>
-            What we get when we set all the coefficients equal to 0 is called a <term>recursion</term>: if we know <m>c_0</m>, we can get <m>c_1</m>, which lets us get <m>c_2</m> and so on. We use substitution to get all the values in terms of the first value <m>c_0</m>.
-            <me>
-                \begin{array}{ccc}
-                c_1 - 2c_0 = 0 \amp \Rightarrow \amp c_1 = 2c_0 \\
-                2c_2 - 2c_1 = 0 \amp \Rightarrow \amp c_2 = c_1 = 2c_0 \\
-                3c_3 - 2c_2 = 0 \amp \Rightarrow \amp c_3 = \frac{2}{3}c_2 = \frac{4}{3}c_0 \\
-                4c_4 - 2c_3 = 0 \amp \Rightarrow \amp c_4 = \frac{2}{4}c_3 = \frac{2}{3} c_0 \\
-                \vdots \amp \vdots \amp \vdots
-                \end{array}
-            </me>
-            Now we can substitute these expressions into our assumed solution <m>y</m>:
-            <md>
-                <mrow>y \amp = c_0 + c_1 x + c_2 x^2 + c_3 x^3 + \ldots</mrow>
-                <mrow> \amp = c_0 + (2c_0) x + (2c_0)x^2 + (\frac{4}{3}c_0)x^3 + \ldots</mrow>
-                <mrow>\amp = c_0\underbrace{\left(1 + 2x + 2x^2 + \frac{4}{3} x^3 + \ldots \right)}_{\text{homogeneous solution}}</mrow>
-            </md>
-            The quantity <m>c_0</m> comes from an intital condition, and the series in this case turns out to be the power series of the function <m>e^{2x}</m> (check if you like!).
+        since 
+        <me>
+        \text{LHS}=\text{RHS}
+        </me>
+        then <m>\mathbf{x}=\left(\begin{array}{c}
+        1\\
+        -2
+        \end{array}\right)e^{-4t}</m> is a solution to this system.                 
+
+        </p>
+        </example>
+
+
+        <subsection>
+        <title>Visualizing solutions to systems of first order ODEs (Phase Planes/Phase Portraits)</title>
+
+            <p> What do solutions <m>\mathbf{x}(t)</m> to <m>\mathbf{x}^{\prime}=A\mathbf{x}</m>
+            look like? <term>They are parametric equations in the
+            plane!</term>. We can graph in the <m>x_{1}-x_{2}</m> plane since 
+                <me>
+                \mathbf{x}(t)=\left(x_{1}(t),x_{2}(t)\right)
+                </me>
+            is a vector (or point) that changes in time. Recall that this requires some knowledge of multivariable
+            Calculus. Also note that there is no axis for time here! Imagine a curve passing through time.</p>
+             
+
+            <p>The <term>Phase Plane </term> is  the <m>x_1-x_2</m> plane in which the parametric curve (or trajectory) of the solution
+            <m>\mathbf{x}(t)=\left(x_{1}(t),x_{2}(t)\right)</m> is drawn.</p>
+
+            <example> <p> Suppose <m>\mathbf{x}(t)=\left(\cos t,\sin t\right)</m>,
+            draw the trajectory of <m>\mathbf{x}(t) </m> for <m>0\leq t\leq2\pi</m> on the Phase plane. 
+                <image source = "images/5-parametric1.png"/> 
+
             </p>
-        </example>
+            </example>
 
-        <example><title>Airy's equation</title>
-            <p>The next example first appeared in work on optics in 1838. It is a very simple second order linear equation, yet does <em>not have any closed form solutions</em>. That is, the only approach to finding solutions is to use series methods. The solutions turn out to have applications in quantum physics as well as in optics. The equation is the straightforward looking
+            <p> A <term>Phase Portrait </term>  is a portrait of several different solutions to the system with different initial conditions
+            conditions.</p>
+
+            <example> <p>Here is an example of a Phase Portrait drawn on the Phase plane. 
+            <image source = "images/7.2-1.png"/>
+            </p>
+            </example>
+            <p>
+            What are the simplest solutions? 
+            An <term>equilibrium solution</term> is a constant solution: <m>\mathbf{x}(t)=(x_{0},y_{0})</m>. 
+            An equilibrum solution is graphed as dot, since as time
+            moves on, the vector stays constant in the same place. 
+            To solve for the equilibrium solution you set the derivatives equal
+            to zero, in this case 
             <me>
-                y'' - x y = 0.
-            </me></p>
-
-            <p>Since <m>P = 0</m> and <m>Q = x</m>, both of which are analytic functions, series solutions exist everywhere, so we assume a center point of <m>x_0 = 0</m>. Then we have the expressions
-            <md>
-                <mrow>y = \sum_{k=0}^\infty c_k x^k = c_0 + c_1 x + c_2 x^2 + c_3 x^3 + c_4 x^4 + \ldots</mrow>
-                <mrow>y' = \sum_{k=0}^\infty (k+1) c_{k+1} x^k = c_1 + 2c_2 x + 3 c_3 x^2 + 4 c_4 x^3 + \ldots</mrow>
-                <mrow>y'' = \sum_{k=0}^\infty (k+2)(k+1) c_{k+2} x^k = 2c_2 + 6c_3 x + 12 c_4 x^2 + 20c_5 x^3 + \ldots</mrow>
-            </md>
-            Plugging into Airy's equation, we get
-            <md>
-                <mrow>\amp(2c_2 + 6c_3 x + 12 c_4 x^2 + 20c_5 x^3 + \ldots)</mrow>
-                <mrow>\amp\hspace{1in} - x(c_0 + c_1 x + c_2 x^2 + c_3 x^3 + c_4 x^4 + \ldots) = 0</mrow>
-                <mrow>\amp(2c_2 + 6c_3 x + 12 c_4 x^2 + 20c_5 x^3 + \ldots)</mrow>
-                <mrow>\amp\hspace{1in} - (c_0 x + c_1 x^2 + c_2 x^3 + c_3 x^4 + c_4 x^5 + \ldots) = 0</mrow>
-                <mrow>\amp\text{which resorts into}</mrow>
-                <mrow>\amp2c_2 + (6c_3 - c_0)x + (12c_4 - c_1)x^2 + (20c_5 - c_2)x^3 </mrow>
-                <mrow>\amp\hspace{1in}+ (30c_6 - c_3)x^4 + (42c_7 - c_4)x^5 + \ldots = 0</mrow>
-            </md>
-            Now we set the coefficients of each term equal to 0.</p> 
-            <p>First, notice that <m>2c_2 =0</m> means that <m>c_2 = 0</m>. But <m>20c_5 - c_2 = 0</m>, and so <m>c_5 =0</m> as well. Since, <m>c_8</m> is given in terms of <m>c_5</m>, <m>c_8</m> is also 0, and so on for the family of coefficients <m>c_2, c_5, c_8, c_{11}, \ldots</m>. The is one family of coefficients.</p>
-
-            <p>The second family is in terms of <m>c_0</m>:
-            <me>
-                \begin{array}{ccc}
-                    6c_3 - c_0 = 0 \amp \Rightarrow \amp c_3 = \frac{1}{6} c_0 \\
-                    30 c_6 - c_3 = 0 \amp \Rightarrow \amp c_6 = \frac{1}{6\cdot 5} c_3 = \frac{1}{6\cdot5\cdot3\cdot2} c_0 \\
-                    72 c_9 - c_6 = 0 \amp \Rightarrow \amp c_9 = \frac{1}{9\cdot 8} c_6 = \frac{1}{9\cdot8\cdot6\cdot5\cdot3\cdot2}c_0\\
-                    \vdots \amp \vdots \amp \vdots
-                \end{array}
+            A\mathbf{x}=\mathbf{0}.
             </me>
-            which gives expressions for <m>c_3, c_6, c_9, c_12, \ldots</m> in terms of <m>c_0</m> (this will correspond to the first linearly independent solution).</p>
+            </p>
 
-            <p>The third family of solutions is given by <m>c_1</m>:
-            <me>
-                \begin{array}{ccc}
-                    12c_4 - c_1 = 0 \amp \Rightarrow \amp c_4 = \frac{1}{4\cdot3}c_1 \\
-                    42c_7 - c_3 = 0 \amp \Rightarrow \amp c_7 = \frac{1}{7\cdot6}c_3 = \frac{1}{7\cdot6\cdot4\cdot3}c_1 \\
-                    90c_{10} -  c_7 \amp \Rightarrow \amp c_{10} = \frac{1}{10\cdot9\cdot 7\cdot6\cdot 4\cdot3}c_1 \\
-                    \vdots \amp \vdots \amp \vdots
-                \end{array}
-            </me>
-            which gives expressions for <m>c_4, c_7, c_{10}, c_{13}, \ldots</m> in terms of <mc>c_1</mc> (this represents the second linearly independent solution).</p>
-
-            <p>Then we are ready to solve the equation. Starting with our assumed solution of the form <m>y = \sum c_k x^k</m> and sorting into the three families we've identified, we get
-            <md>
-                <mrow>y \amp = c_0 + c_1 x + c_2 x^2 + c_3 x^3 \ldots</mrow>
-                <mrow>\amp = c_0 + c_3 x^3 + c_6 x^6 + c_9 x^9 + \ldots \hspace{.5in} c_0 \text{ family}</mrow>
-                <mrow>\amp \phantom{=} + c_1 x + c_4 x^4 + c_7 x^7 + c_{10} x^{10} + \ldots \hspace{.5in} c_1 \text{ family}</mrow>
-                <mrow> \amp \phantom{=} + c_2 x^2 + c_5 x^5 + c_8 x^8 + \ldots \hspace{.5in} c_2 \text{ family}</mrow>
-                 <mrow>\amp = c_0\left( 1 + \frac{1}{3\cdot2} x^3 + \frac{1}{6\cdot5\cdot3\cdot2} x^6 + \frac{1}{9\cdot8\cdot6\cdot5\cdot3\cdot2}x^9 + \ldots \right)</mrow>
-                <mrow>\amp \phantom{=} + c_1\left( x + \frac{1}{4\cdot3} x^4 + \frac{1}{7\cdot6\cdot4\cdot3} x^7 + \frac{1}{10\cdot9\cdot 7\cdot6\cdot 4\cdot3} x^{10} + \ldots\right) </mrow>
-                <mrow> \amp \phantom{=} + 0 + 0 + 0 + 0 + \ldots </mrow>
-            </md></p>
-            
-            <p>Then the two linearly independent solutions to Airy's equation are
-            <me>
-                y_1 = 1 + \frac{1}{3\cdot2} x^3 + \frac{1}{6\cdot5\cdot3\cdot2} x^6 + \frac{1}{9\cdot8\cdot6\cdot5\cdot3\cdot2}x^9 + \ldots
-            </me>
-            and
-            <me>
-                y_2 = x + \frac{1}{4\cdot3} x^4 + \frac{1}{7\cdot6\cdot4\cdot3} x^7 + \frac{1}{10\cdot9\cdot 7\cdot6\cdot 4\cdot3} x^{10} + \ldots
-            </me>
-            where neither function has a closed form. (The complicated behavior of the solutions is part of why there isn't much better than a series or improper integral form, as can be seen from their plots. The plot below is a slight rearrangment of the two solutions into a different fundamental set, but preserves the same behavior - namely, the functions are oscillating and then become exponential.)</p>
-
-            <sage>
-                <input>
-                    y =  Graphics();
-                    y += plot(airy_ai(x), (x,-10,5), ymin = -1, ymax = 1, color = 'red');
-                    y += plot(airy_bi(x), (x,-10,5), ymin = -1, ymax = 1);
-                    y.show()
-                </input>
-            </sage>
-        </example>
-
-        <example><title>Bessel equations</title>
-            <p>Another important example is the so callled <term>Bessel Differential Equation</term>:
+            <example>
+                <p>
+                Find the Equilibrium solutions to 
                 <me>
-                x^{2}y^{\prime\prime}+xy^{\prime}+\left(x^{2}-\nu^{2}\right)y=0,\,\,\,\,\,\,x>0
+                \mathbf{x}^{\prime}=\left(\begin{array}{cc}
+                1 \amp 2\\
+                2 \amp 4
+                \end{array}\right)\mathbf{x}
                 </me>
-                where <m>\nu</m> is some constant. 
-                For sake of simplicity, let us pick <m>\nu=0</m>, so that 
-                <me>
-                x^{2}y^{\prime\prime}+xy^{\prime}+x^{2}y=0\,\,\,\,\,\,x>0
-                </me>
-                and we can rewrite this equation by dividing by <m>x^{2}</m> to get 
-                <me>
-                y^{\prime\prime}+\frac{1}{x}y^{\prime}+y=0,\,\,\,\,\,\,x>0.
-                </me>
-                Much like Airy's equation, this seems like such a simple equation, but it turns out there is no nice solution in terms
-                of elementary functions. In turns out that one way to solve this Bessel ODE is to use
-                power series. (Since <m>x > 0</m>, the function <m>\frac{1}{x}</m> is analytic.)
-                One can find out that 
+
+
+                We must solve 
                 <md>
-                <mrow>y_{1}(x) \amp =J_{0}(x),</mrow>
-                <mrow>y_{2}(x) \amp =Y_{0}(x)</mrow>
+                <mrow>\left(\begin{array}{cc}
+                1 \amp 2\\
+                2 \amp 4
+                \end{array}\right)\mathbf{x}=0 \amp \iff\begin{cases}
+                x_{1}+2x_{2}=0\\
+                2x_{1}+4x_{2}=0
+                \end{cases}</mrow>
+                <mrow> \amp \iff x_{1}=-2x_{2}</mrow>
                 </md>
-                where 
-                <me>
-                J_{0}(x) =\sum_{n=0}^{\infty}\frac{(-1)^{n}}{\left(n!\right)^{2}2^{2n}}x^{2n}.
-                </me></p>
 
-                <p><m>J_{0}(x)</m> is called the Bessel function of first kind of order <m>\nu=0</m>.
-                 <m>Y_{0}(x)</m> is called the Bessel function of second kind of order
-                <m>\nu=0</m>.
-                 <m>Y_{0}(x)</m> can also be represented by a series, but is more complicated. 
-                 Another way to write <m>Y_{0}</m> is as an integral,
+
+                    since these equations are multiple of each other than there is a whole
+                    line of solutions:
+                    <me>
+                    x_{1}=-2x_{2}
+                    </me>
+                    and it turn out that the solution are of then form:
+
+                        <md>
+                        <mrow> \mathbf{x}(t) \amp =\left(\begin{array}{c}
+                        -2x_{2}\\
+                        x_{2}
+                        \end{array}\right)</mrow>
+                        <mrow> \amp =x_{2}\left(\begin{array}{c}
+                        -2\\
+                        1
+                        \end{array}\right).</mrow>
+                        </md>
+
+                    Using a generic constant <m>c </m>, we have that there are an infinite
+                    number of equilibrium solutions:
+                        <me>
+                        \mathbf{x}(t)=c\left(\begin{array}{c}
+                        -2\\
+                        1
+                        \end{array}\right).
+                        </me>
+
+
+
+
+                </p>
+            </example>
+            <example>
+                <p>
+                Find the Equilibrium solutions to 
                 <me>
-                Y_{0}(x)=-\frac{2}{\pi}\int_{1}^{\infty}\frac{\cos\left(tx\right)}{\sqrt{t^{2}-1}}dt,\,\,x>0
+                \mathbf{x}^{\prime}=\left(\begin{array}{cc}
+                1 \amp 2\\
+                3 \amp 4
+                \end{array}\right)\mathbf{x}
                 </me>
+
+
+                We must solve 
+                <md>
+                <mrow>\left(\begin{array}{cc}
+                1 \amp 2\\
+                3 \amp 4
+                \end{array}\right)\mathbf{x}=0 \amp \iff\begin{cases}
+                x_{1}+2x_{2}=0\\
+                3x_{1}+4x_{2}=0
+                \end{cases}</mrow>
+                <mrow> \amp \iff x_{1}=0, x_{2}=0</mrow>
+                </md>
+
+                </p>
+            </example>
+            <p>
+            A <term>vector field</term> is an assignment of a vector to each point in the plane.  We consider vector fields  of the system
+            <me>
+            \mathbf{x}^{\prime}=A\mathbf{x}
+            </me>
+            which can be drawn using the following assignment:
+            <me>
+            \mathbf{F}(x_{1},x_{2})=A\mathbf{x}.
+            </me>           
+            </p>
+            <p>
+
+
+            Or more generally, if the system is written as 
+            <me>
+            \begin{cases}
+            x_{1}^{\prime}=f(x_{1},x_{2})\\
+            x_{2}=g(x_{1},x_{2})
+            \end{cases}
+            </me>
+            then we can rewrite this as 
+            <me>
+            \mathbf{x}^{\prime}=\mathbf{F}\left(\mathbf{x}\right)
+            </me>
+            where the vector field on the right hand side is given by 
+            <me>
+            \mathbf{F}\left(\mathbf{x}\right)=\mathbf{F}\left(x_{1},x_{2}\right)=\left(\begin{array}{c}
+            f(x_{1},x_{2})\\
+            g(x_{1},x_{2})
+            \end{array}\right).
+            </me>
+            Note if we picture <m>\mathbf{x}(t)</m> as particle moving through space,
+            then <m>\mathbf{x}^{\prime}</m> represents the vector tangent to the curve
+            drawn out by <m>\mathbf{x}(t)</m>. Thus the vector field 
+            <me>
+            \mathbf{F}\left(x_{1},x_{2}\right)
+            </me>
+            represents these tangent vector. Thus by drawing out the vector field <m>\mathbf{F}</m> on the plane, we can obtain a general idea
+            of what the solution <m>\mathbf{x}(t)</m> looks like. 
+            </p>
+            <p>
+             
+            A <term>direction field</term> is a vector field, but with all the lengths
+            normalized (all lengths are the same). Most computer software will
+            draw out direction fields, since vector fields can be hard to draw
+            if the length of the vectors get too big.
+
+            </p>
+
+            <example>
+                <p>
+                Consider 
+                <md>
+                <mrow> x_{1}^{\prime} \amp =x_{1}</mrow>
+                <mrow> x_{2}^{\prime} \amp =1. </mrow>
+                </md>
+                Draw a rough sketch of the vector field. Use a computer software to
+                draw a direction field. Then draw a rough Phase portrait based on this
+                direction field. (In later sections, we will be able to draw exactly
+                what the Phase portrait should roughly look like without making guesses)
+                </p>
+
+                <p><term>Solution: </term></p>
+                <p>
+                    Using the vector Field <m>\mathbf{F}(x_{1},x_{2})=\left(x_{1},1\right)</m>. 
+                    One example of an applet that lets you draw direction fields: <url href="https://homepages.bluffton.edu/~nesterd/apps/slopefields.html"> https://homepages.bluffton.edu/~nesterd/apps/slopefields.html </url> 
+                    We get <image source = "images/5-VecField1.png"/> 
+                    Thus a Phase Portrait would look like: <image source = "images/5-VecField1b.png"/> 
+                    Recall that a Phase portrait is simply several examples of solutions (which are Phase planes) to the system. 
+
+                </p>
+            </example>
+
+            <example>
+                <p>
+                     Consider the IVP
+                    <md>
+                    <mrow>x_{1}^{\prime} \amp =x_{1}\,\,\,\,\,\,,x_{1}(0)=-1</mrow>
+                    <mrow>x_{2}^{\prime} \amp =1\,\,\,\,\,\,\,\,,x_{2}(0)=0</mrow>
+                    </md>
+
+                    Using the previous example, draw a rough sketch of the trajectory 
+                    for the solution of this IVP on the Phase plane and predict the long term behavior of
+                    the solution. (In later sections, we will be able to draw better graphs
+                    without using the vector field, and we will be able to find the exact
+                    long term behavior without guessing)               
+
+                </p>
+
+                <p><term>Solution </term></p>
+                <p>
+                    By following the general direction of the vectors in the vector field
+                    above starting at the point <m>(-1,0)</m> in the <m>x_{1}-x_{2}</m> plane
+                    we obtain: <image source = "images/5-VecField1c.png"/> 
+
+                    Note that 
+                    <me>
+                    \lim_{t\to\infty}x_{1}(t)=-\infty
+                    </me>
+                    <me>
+                    \lim_{t\to\infty}x_{2}(t)=+\infty
+                    </me>
                 
-                 Thus the general solution to Bessel Equation 
+                </p>
+            </example>
+
+
+            <example>
+                <p>
+                    Consider 
+                    <md>
+                    <mrow>x_{1}^{\prime} \amp =x_{2}</mrow>
+                    <mrow>x_{2}^{\prime} \amp =-2x_{1}</mrow>
+                    </md>
+                    Draw a rough sketch of the vector field. Use a computer software to
+                    draw a vector field. Then draw a rough Phase portrait based on this
+                    vector field. (In later sections, we will be able to draw exactly
+                    what the Phase portrait should look like without making guesses). 
+
+
+                </p>
+
+                <p><term>Solution </term></p>
+                <p>
+                    We again can use the following applet to draw the vector fields: <url href="https://homepages.bluffton.edu/~nesterd/apps/slopefields.html"> https://homepages.bluffton.edu/~nesterd/apps/slopefields.html </url> Using the vector Field <m>\mathbf{F}(x_{1},x_{2})=\left(x_{2},-2x_{1}\right)</m>. We obtain: <image source = "images/5-VecField2.png"/>
+
+                    A Phase Portrait could be: <image source = "images/5-VecField2b.png"/> 
+                
+                </p>
+            </example>
+
+
+
+        </subsection>
+       
+
+    </section>
+
+
+    <section xml:id="ch5-3">
+        <title>Systems of Linear Equations: Linear Independence, and the General
+        Solution Theorem</title>
+
+
+            <subsection>
+            <title>Crash course in linear algebra</title>
+
+
+                <p> Suppose we want to find solutions to <m>A\mathbf{x}=\mathbf{0}</m> or
                 <me>
-                y^{\prime\prime}+\frac{1}{x}y^{\prime}+y=0,\,\,\,\,x>0
+                \left(\begin{array}{cc}
+                a \amp b\\
+                c \amp  d
+                \end{array}\right)\left(\begin{array}{c}
+                x_{1}\\
+                x_{2}
+                \end{array}\right)=\left(\begin{array}{c}
+                0\\
+                0
+                \end{array}\right)\mbox{ }\iff\begin{array}{c}
+                ax_{1}+bx_{2}=0\\
+                cx_{1}+dx_{2}=0
+                \end{array}\mbox{ }
+                </me>
+                take 
+                <me>
+                \left(\begin{array}{cc}
+                1 \amp  2\\
+                -1 \amp 3
+                \end{array}\right)\left(\begin{array}{c}
+                x_{1}\\
+                x_{2}
+                \end{array}\right)=\left(\begin{array}{c}
+                0\\
+                0
+                \end{array}\right)\mbox{ }\iff\begin{array}{c}
+                x_{1}+2x_{2}=0\\
+                -x_{1}+3x_{2}=0
+                \end{array}
+                </me>
+                or even 
+                <me>
+                \left(\begin{array}{ccc}
+                1 \amp  0 \amp  1\\
+                1 \amp  0 \amp  0\\
+                1 \amp  1 \amp  1
+                \end{array}\right)\left(\begin{array}{c}
+                x_{1}\\
+                x_{2}\\
+                x_{3}
+                \end{array}\right)=\left(\begin{array}{c}
+                x_{1}\\
+                x_{2}\\
+                x_{3}
+                \end{array}\right)\mbox{ }\iff\begin{array}{c}
+                x_{1}+x_{3}=0\\
+                x_{1}=0\\
+                x_{1}+x_{2}+x_{3}=0
+                \end{array}
+                </me>  
+
+                In general, one can find solutions to 
+                <me>
+                A\mathbf{x}=\mathbf{0}
+                </me>
+                by using algebra on the system of equations, or by row-reducing (Gaussian
+                elimination) the matrix. Notice that <m>\mathbf{x}=\left(x_{1},x_{2}\right)=\left(0,0\right)</m>
+                is always a solution to 
+                <me>
+                \begin{array}{c}
+                ax_{1}+bx_{2}=0\\
+                cx_{1}+dx_{2}=0
+                \end{array}.
+                </me>
+                But when do we have non-trivial (non-zero) solutions? In fact, there
+                is a way to knowing if there are any non-trivial solutions without
+                actually soliving the equation <m>A\mathbf{x}=0</m>. 
+                </p>
+                <p>
+
+                Recall, that the <term>determinant</term> of a matrix <m>A=\left(\begin{array}{cc}
+                a \amp b\\
+                c \amp d
+                \end{array}\right)</m> is defined to be 
+                <me>
+                \det A=ad-bc
+                </me>
+                The <term>determinant</term> of a matrix <m>A=\left(\begin{array}{cc}
+                1 \amp 2\\
+                -1 \amp 3
+                \end{array}\right)</m> is defined to be 
+                <me>
+                \det A=3-\left(-2\right)=5
+                </me>
+                Similarly, one can define determinants in higher dimensional setting.
+                For example, 
+                <me>
+                \det\left(\begin{array}{ccc}
+                a_{1,1} \amp a_{1,2} \amp a_{1,3}\\
+                a_{2,1} \amp a_{2,2} \amp a_{2,3}\\
+                a_{3,1} \amp a_{3,2} \amp a_{3,3}
+                \end{array}\right)=a_{1,1}\det\left(\begin{array}{cc}
+                a_{2,2} \amp a_{2,3}\\
+                a_{3,2} \amp a_{3,3}
+                \end{array}\right)-a_{1,2}\det\left(\begin{array}{cc}
+                a_{2,1} \amp a_{2,3}\\
+                a_{3,1} \amp a_{3,3}
+                \end{array}\right)+a_{1,3}\det\left(\begin{array}{cc}
+                a_{2,1} \amp a_{2,2}\\
+                a_{3,1} \amp a_{3,2}
+                \end{array}\right).
+                </me>
+                We have the following theorem: 
+
+                </p> 
+
+
+                        <theorem xml:id="thmlinalg1">
+                        <p>
+                            If <m>A</m> is a matrix and <m>\det A\neq0</m> then the only solutions to the
+                            system <m>A\mathbf{x}=\mathbf{0}</m> is the <m>\mathbf{x}=\mathbf{0}</m>,
+                            the origin.                             
+                        </p>   
+
+                        <p>
+                            If <m>\det A=0</m> then there are infinitely many solutions <m>\mathbf{x}</m>. (In
+                            2 dimensions , this means there is a whole line of solutions)
+                        </p> 
+                        </theorem>
+
+                <p>
+                    Note that <m>\det\left(\begin{array}{cc}
+                    2 \amp 6\\
+                    1 \amp 3
+                    \end{array}\right)=0</m> and hence there are nontrivial solutions to the equation <m>\left(\begin{array}{cc}
+                    2 \amp 6\\
+                    1 \amp 3
+                    \end{array}\right)\mathbf{x}=0</m>.
+
+                    For example, it is easy to check that <m>\left(-3,1\right)</m> is a nontrivial solution since 
+                        <me>
+                        \left(\begin{array}{cc}
+                        2 \amp 6\\
+                        1 \amp 3
+                        \end{array}\right)\left(\begin{array}{c}
+                        -3\\
+                        1
+                        \end{array}\right)=\left(\begin{array}{c}
+                        -6+6\\
+                        -3+3
+                        \end{array}\right)=\left(\begin{array}{c}
+                        0\\
+                        0
+                        \end{array}\right)=\mathbf{0}
+                        </me>
+
+
+                    If <m>\det A=0</m> are then <m>A</m> is <term>singular</term>, or <term>degenerate</term>.
+                    If <m>\det A\neq0</m>, then <m>A</m> is said to be <term>nonsingular</term>, or
+                    <term>nondegenerate</term>, or <term>invertible</term>. When <m>A</m> is invertible
+                    then the inverse matrix <m>A^{-1}</m> exists and we can solve 
+                    <me>
+                    A\mathbf{x}=\mathbf{b}\,\,\,\,(\star)
+                    </me>
+                    by 
+                    <me>
+                    \mathbf{x}=A^{-1}\mathbf{b}
+                    </me>
+                    and this is the <term>unique</term> solution to <m>(\star)</m>. 
+                </p>
+
+            </subsection>
+            <subsection>
+            <title>Linear Independence</title>
+
+
+                <p>
+                    Another important concept in linear algebra is when two vectors are
+                    <term>independent</term> or <term>dependent</term>. 
+
+                    If <m>\mathbf{x}=\left(\begin{array}{c}
+                    x_{1}\\
+                    x_{2}
+                    \end{array}\right)</m> and <m>\mathbf{y}=\left(\begin{array}{c}
+                    y_{1}\\
+                    y_{2}
+                    \end{array}\right)</m> are vectors, then <m>c_{1}\mathbf{x}+c_{2}\mathbf{y}</m> is said to be
+                    a <term>linear combination</term> of the two vectors. For example, the
+                    vector <m>\left(\begin{array}{c}
+                    -3\\
+                    8
+                    \end{array}\right)</m> is a linear combination of <m>\left(\begin{array}{c}
+                    1\\
+                    2
+                    \end{array}\right)</m> and <m>\left(\begin{array}{c}
+                    -2\\
+                    3
+                    \end{array}\right)</m>. Why? Because if we let <m>c_{1}=1</m> and <m>c_{2}=2</m> note that 
+                    <me>
+                    1\left(\begin{array}{c}
+                    1\\
+                    2
+                    \end{array}\right)+2\left(\begin{array}{c}
+                    -2\\
+                    3
+                    \end{array}\right)=\left(\begin{array}{c}
+                    1\\
+                    2
+                    \end{array}\right)+\left(\begin{array}{c}
+                    -4\\
+                    6
+                    \end{array}\right)=\left(\begin{array}{c}
+                    -3\\
+                    8
+                    \end{array}\right).
+                    </me>
+
+                </p>
+                    <assemblage xml:id="lininde">
+                      <p>
+                        The vectors <m>\mathbf{x}=\left(\begin{array}{c}
+                        x_{1}\\
+                        x_{2}
+                        \end{array}\right)</m> and <m>\mathbf{y}=\left(\begin{array}{c}
+                        y_{1}\\
+                        y_{2}
+                        \end{array}\right)</m> are said to be <term>linearly independent</term> if the only solutions
+                        to <m>c_{1}\mathbf{x}+c_{2}\mathbf{y}=\mathbf{0}</m> are the trivial solutions
+                        <m>c_{1}=c_{2}=0</m>.
+                      </p>
+                    </assemblage>
+
+                <p>
+                    A visual (and very useful) way to understand this, is that two vectors
+                    are <term>linearly independent</term> if they do not lie in the same line
+                    through the origin. One can think of two vectors being linearly <term>dependent</term>
+                    if they do lie in the same line. This idea can be generalized in higher
+                    dimension. For example, The 3-dimensional vectors <m>\mathbf{x},\mathbf{y},\textbf{z}</m>
+                    are <term>linearly indepedent</term> if the only solution to <m>c_{1}\mathbf{x}+c_{2}\mathbf{y}+c_{3}\mathbf{z}=\mathbf{0}</m>
+                    are the trivial solutions <m>c_{1}=c_{2}=c_{3}=0</m>.
+
+                </p>
+
+                <example>
+                <p>
+                    Are <m>\mathbf{x}=\left(\begin{array}{c}
+                    1\\
+                    2
+                    \end{array}\right)</m> and <m>\mathbf{y}=\left(\begin{array}{c}
+                    3\\
+                    4
+                    \end{array}\right)</m> linearly independent? 
+                    </p>
+                    <p>
+
+                    <term>Method1:</term> Note 
+                    <md>
+                    <mrow> c_{1}\left(\begin{array}{c}
+                    1\\
+                    2
+                    \end{array}\right)+c_{2}\left(\begin{array}{c}
+                    3\\
+                    4
+                    \end{array}\right)=0 \amp \iff c_{1}\left(\begin{array}{c}
+                    1\\
+                    2
+                    \end{array}\right)+c_{2}\left(\begin{array}{c}
+                    3\\
+                    4
+                    \end{array}\right)=0</mrow>
+                    <mrow> \amp \iff  \left(\begin{array}{c}
+                    c_{1}+3c_{2}\\
+                    2c_{1}+4c_{2}
+                    \end{array}\right)=0</mrow>
+                    <mrow> \amp \iff \left(\begin{array}{cc}
+                    1 \amp 3\\
+                    2 \amp 4
+                    \end{array}\right)\left(\begin{array}{c}
+                    c_{1}\\
+                    c_{2}
+                    \end{array}\right)=0</mrow>
+                    <mrow> \amp \iff  \det\left(\begin{array}{cc}
+                    1 \amp 3\\
+                    2 \amp 4
+                    \end{array}\right)=4-6\neq 0</mrow>
+                    </md>
+                    and from <xref ref="thmlinalg1"/> this tells us that they only solution is the
+                    trivial solution <m>c_{1}=c_{2}=0</m> . 
+                    Hence yes! <term>linearly independent</term>!
+                    </p>
+                    <p>
+                    Note that to check linear independence, all we needed to check was
+                    if 
+                    <me>
+                    \det\left(\begin{array}{cc}
+                    \mathbf{x} \amp \mathbf{y}\end{array}\right)\neq0.
+                    </me>
+                    </p>
+                    <p>
+                    <term>Method2:</term> Draw this on the <m>x-y</m> plane and note they're NOT
+                    on the same line through the origin. Hence they are linearly independent. 
+
+
+
+                    </p>
+
+                </example>
+
+                <example>
+                <p>
+                   Are <m>\mathbf{x}=\left(\begin{array}{c}
+                    3\\
+                    -5
+                    \end{array}\right)</m> and <m>\mathbf{y}=\left(\begin{array}{c}
+                    -6\\
+                    10
+                    \end{array}\right)</m> linearly independent? 
+
+                </p>
+                <p>
+
+
+                    <term>Method1:</term> Note that 
+                    <md>
+                    <mrow> c_{1}\left(\begin{array}{c}
+                    3\\
+                    -5
+                    \end{array}\right)+c_{2}\left(\begin{array}{c}
+                    -6\\
+                    10
+                    \end{array}\right)=0  \amp \iff  \left(\begin{array}{cc}
+                    3 \amp -6\\
+                    -5 \amp 10
+                    \end{array}\right)\left(\begin{array}{c}
+                    c_{1}\\
+                    c_{2}
+                    \end{array}\right)=0</mrow>
+
+                    <mrow> \amp \iff  \det\left(\begin{array}{cc}
+                    3 \amp -6\\
+                    -5 \amp 10
+                    \end{array}\right)=30-30=0 </mrow>
+                    </md>
+                    and from <xref ref="thmlinalg1"/> this tells us there are infinitely many solutions.
+                    Hence these vectors are <term> linearly dependent!</term>.
+                </p>
+                <p>
+                    Again, note that alternatively, to check <m>\mathbf{x}</m> and <m>\mathbf{y}</m>
+                    are linearly dependent, then it suffices to check that 
+                    <me>
+                    \det\left(\begin{array}{cc}
+                    \mathbf{x} \amp \mathbf{y}\end{array}\right)=\det\left(\begin{array}{cc}
+                    3 \amp -6\\
+                    -5 \amp 10
+                    \end{array}\right)=0.
+                    </me>
+                </p>
+                <p>
+                    <term>Method2:</term> Draw this on the <m>x-y</m> plane and note they ARE
+                    on the same line through the origin. Hence, they are linearly dependent.
+
+
+                </p>
+                </example>
+
+            </subsection>
+
+            <subsection>
+            <title> Equilibrium Solutions </title>
+                <p>
+                    Let's get back to differential equations. Consider the system:
+                    <me>
+                    \frac{d\mathbf{x}}{dt}=A\mathbf{x}
+                    </me>
+                    which we sometimes also write as 
+                    <me>
+                    \mathbf{x}^{\prime}=A\mathbf{x}
+                    </me>
+                    where <m>A=\left(\begin{array}{cc}
+                    a \amp b\\
+                    c \amp d
+                    \end{array}\right)</m> and <m>\mathbf{x}=\left(\begin{array}{c}
+                    x_{1}\\
+                    x_{2}
+                    \end{array}\right)</m>. Recall that an <term>Equilibrium Solution</term>, is a constant function
+                    <m>\mathbf{x}(t)=\left(x_{0},y_{0}\right)</m> such that <m>\frac{d\mathbf{x}}{dt}=A\mathbf{x}=\mathbf{0}</m>.
+                    That is if 
+                    <me>
+                    \left(\begin{array}{cc}
+                    a \amp b\\
+                    c \amp d
+                    \end{array}\right)\left(\begin{array}{c}
+                    x_{1}\\
+                    X_{2}
+                    \end{array}\right)=0\iff\left(\begin{array}{c}
+                    ax_{1}+bx_{2}\\
+                    cx_{1}+dx_{2}
+                    \end{array}\right)=\left(\begin{array}{c}
+                    0\\
+                    0
+                    \end{array}\right).
+                    </me>
+                    So this just boiled downed to a linear algebra problem and we can
+                    restate <xref ref="thmlinalg1"/> in differential equations language. 
+                </p>
+                        <theorem xml:id="diffeq-system-eqsol">
+                            <p>
+                            If <m>A</m> is the coefficient matrix then 
+                            </p>
+                            <p>
+
+                            (1) If <m>\det A\neq0</m>, then the only equilibrium solution to <m>\frac{d\mathbf{x}}{dt}=A\mathbf{x}</m>
+                            is <m>\mathbf{x}=(x_{1}(t),x_{2}(t))=\left(0,0\right)</m>.
+                            </p>
+                            <p>
+                            (2) If <m>\det A=0</m> , then we have an infinite number of equilibrium
+                            solution. (In fact, an entire line of equilibrum solutions in
+                            2 dimensions)
+                            </p> 
+                        </theorem>
+
+                    <example>
+                    <p>
+                        Consider, <m>\frac{d\mathbf{x}}{dt}=A\mathbf{x}</m>
+                        for <m>A=\left(\begin{array}{cc}
+                        1 \amp 2\\
+                        3 \amp 4
+                        \end{array}\right)</m> , then <m>\det A=4-6=-2</m> which means <m>\mathbf{x}(t)=\left(0,0\right)</m>
+                        is the only Equilibrium Solution. 
+
+                    </p>
+                    </example>
+
+                    <example>
+                    <p>
+                        Consider <m>\frac{d\mathbf{x}}{dt}=A\mathbf{x}</m>
+                        for <m>A=\left(\begin{array}{cc}
+                        2 \amp -4\\
+                        -1 \amp 2
+                        \end{array}\right)</m> . Then since <m>\det A=0</m> then there are an infinite number of equilibrium
+                        solutions. 
+
+
+
+                    </p>
+                    </example>
+
+
+            </subsection>
+
+            <subsection>
+            <title>Linearity principle and the General Solution Theorem </title>
+
+                <p>
+
+                We start with the Linearity principle.
+
+                </p>
+
+                <theorem xml:id="diffeq-system-linprin">
+                <p>
+                Suppose <m>\mathbf{x}^{\prime}=A\mathbf{x}</m> is a linear system
+                of differential equations.
+                </p>
+                <p>
+
+                (1) If <m>\mathbf{x}(t)</m> is a solution of this system and <m>c</m> is any
+                constnat, then <m>c\mathbf{x}(t)</m> is also a solution.
+                </p>
+                <p>
+
+                (2) If <m>\mathbf{x}^{(1)}(t)</m> and <m>\mathbf{x}^{(2)}(t)</m> are two solutions
+                of this system, then <m>c_{1}\mathbf{x}^{(1}(t)+c_{2}\mathbf{x}^{(2)}(t)</m>
+                is also a solution. 
+                </p>
+                </theorem>
+                <p>
+                The point is that we can create new solutions from ones we already
+                know are solutions via linear combinations! In fact, as long as I
+                have one solution then I have infinitely many. We'll see that if as
+                long as we have two solutions that are <term>linearly independent</term>,
+                then we have all possible solutions. (i.e. the general solution)
+                </p>
+
+                <theorem xml:id="diffeq-system-Wronskian">
+                <p>
+                Two solutions <m>\mathbf{x}^{(1)}(t),\mathbf{x}^{(1)}(t)</m> are <term>linearly
+                independent</term> if and only if the <term>Wronskian</term> 
+                <me>
+                W\left[\mathbf{x}^{(1)},\mathbf{x}^{(2)}\right]:=\det\left(\mathbf{x}^{(1)}(t),\mathbf{x}^{(2)}(t)\right)\neq0,
+                </me>
+                for some <m>t=t_{0}</m>. 
+                </p>
+                </theorem>
+                <proof>
+                <p>The idea of the proof is to check <m>\mathbf{x}^{(1)}(t),\mathbf{x}^{(1)}(t)</m>
+                are linearly independent, then we must check that the only solutions
+                two 
+                <me>
+                c_{1}\mathbf{x}^{(1)}(t)+\mathbf{x}^{(1)}(t)=\mathbf{0}
+                </me>
+                is the trivial solution <m>c_{1}=0</m> and <m>c_{2}=0</m> for all <m>t</m>. But,
+                by <xref ref="thmlinalg1"/>, this happens if and only if 
+                <me>
+                \det\left(\mathbf{x}^{(1)}(t),\mathbf{x}^{(2)}(t)\right)\neq0.
+                </me>
+                We leave it as an excercise to show that if <m>\det\left(\mathbf{x}^{(1)}(t),\mathbf{x}^{(2)}(t)\right)\neq0</m>
+                for some <m>t_{0}</m>, then it must be true for all <m>t</m>. 
+                </p>
+                </proof>
+                <p> We can finally state the General Solution Theorem. </p>
+
+                <theorem xml:id="diffeq-system-genthm">
+                <title>The General Solution theorem </title> 
+
+                <p>
+                Suppose <m>\mathbf{x}^{(1)}(t)</m> and
+                <m>\mathbf{x}^{(2)}(t)</m> are solutions of the system <m>\mathbf{x}^{\prime}=A\mathbf{x}</m>.
+                If <m>\mathbf{x}^{(1)}(0)</m> and <m>\mathbf{x}^{(1)}(0)</m> are linearly
+                independent, then for any initial condition <m>\mathbf{x}(0)=\left(x_{0},y_{0}\right)</m>,
+                we can find constants <m>c_{1}</m> and <m>c_{2}</m> such that <m>\mathbf{x}(t)=c_{1}\mathbf{x}^{(1)}(t)+c_{2}\mathbf{x}^{(1)}(t)</m>
+                is the solution to the IVP 
+                <me>
+                \mathbf{x}^{\prime}=A\mathbf{x},\,\,\,\,\mathbf{x}(0)=\left(\begin{array}{c}
+                x_{0}\\
+                y_{0}
+                \end{array}\right).
+                </me>
+                </p>
+                <p>
+                Moreover, this means that if the Wronskian, <m>W\left[\mathbf{x}^{(1)},\mathbf{x}^{(2)}\right]=\det\left(\mathbf{x}^{(1)}(t),\mathbf{x}^{(2)}(t)\right)\neq0</m>,
+                then the general solution to 
+                <me>
+                \mathbf{x}^{\prime}=A\mathbf{x}
                 </me>
                 is given by 
+                <me>
+                \mathbf{x}(t)=c_{1}\mathbf{x}^{(1)}(t)+c_{2}\mathbf{x}^{(1)}(t)
+                </me>
+                </p>
+                </theorem>
+
+                <p>
+                <term>Overview:</term> 
+                </p>
+                <p>Thus <xref ref="diffeq-system-genthm"/> says that as long as we can
+                find two <term>linearly independent</term> solutions <m>\mathbf{x}^{(1)}(t)</m>
+                and <m>\mathbf{x}^{(2)}(t)</m> (that is <m>W\left[\mathbf{x}^{(1)},\mathbf{x}^{(2)}\right]\neq 0</m>
+                for some <m>t</m>) then every solution (i.e. the <term>General Solution</term>
+                ) is of the form 
+                <me>
+                \mathbf{x}(t)=c_{1}\mathbf{x}^{(1)}(t)+c_{2}\mathbf{x}^{(1)}(t).
+                </me>
+
+                </p>
+
+                <example>
+                <p>
+                    Suppose you already know that <m>\mathbf{x}^{(1)}(t)=\left(\begin{array}{c}
+                    1\\
+                    -2
+                    \end{array}\right)e^{-4t}</m> and <m>\mathbf{x}^{(2)}(t)=\left(\begin{array}{c}
+                    3\\
+                    2
+                    \end{array}\right)e^{4t}</m> are solutions to 
+                    <me>
+                    \mathbf{x}^{\prime}=\left(\begin{array}{cc}
+                    2 \amp 3\\
+                    4 \amp -2
+                    \end{array}\right)\mathbf{x}.
+                    </me>
+                    (In fact, part of this was checked in the previous section) Can you
+                    find the General solution to this system?
+                </p>
+                <p><term>Solution:</term></p>
+                <p>
+                    We simply need to check if these solutions are linearly independent,
+                    that is we need to check that <m>W\left[\mathbf{x}^{(1)},\mathbf{x}^{(2)}\right]=\det\left(\mathbf{x}^{(1)}(t),\mathbf{x}^{(2)}(t)\right)\neq0</m>
+                    for some <m>t</m>. Since 
+                    <md>
+                    <mrow> W\left[\mathbf{x}^{(1)},\mathbf{x}^{(2)}\right] \amp =\left|\begin{array}{cc}
+                    e^{-4t} \amp 3e^{4t}\\
+                    -2e^{4t} \amp 2e^{4t}
+                    \end{array}\right|</mrow>
+                    <mrow> \amp =2-(-6)</mrow>
+                    <mrow> \amp =8</mrow>
+                    <mrow> \amp \neq 0 </mrow>
+                    </md>
+                    then these solutions are linearly independent. Hence by the General
+                    Solution Theorem <xref ref="diffeq-system-genthm"/> we have that the General Solution is given by 
+                    <me>
+                    \mathbf{x}(t)=c_{1}\left(\begin{array}{c}
+                    1\\
+                    -2
+                    \end{array}\right)e^{-4t}+c_{2}\left(\begin{array}{c}
+                    3\\
+                    2
+                    \end{array}\right)e^{4t}.
+                    </me>                  
+                </p>
+                </example>
+
+
+
+            </subsection>
+
+
+
+
+       
+
+    </section>
+
+
+    <section xml:id="ch5-4">
+        <title>Basic Theory of Systems of 1st Order Linear EQs - Straight Line Solutions</title>
+
+
+        <subsection>
+        <title>Eigenvalues and Eigenvectors </title>
+
+        <p>Geometrically, an <term>eigenvector</term> is a vector where the vector
+        field points in the same or opposite direction as the vector itself.
+        For example, consider the following vector field:
+        </p>
+
+
+        <image width="100%" source="images/3.2 - system1.png"/>
+
+        <p>
+        Then note that, the vectors in the directions of the straight-line
+        are called <term>eigenvectors</term>. 
+
+        </p>
+
+            <assemblage>
+            <title> Eigenvalue/Eigenvectors</title>
+            <p>
+                Given a matrix <m>A</m>, a number <m>\lambda</m> is called an <term>eigenvalue</term>
+                of <m>A</m> if there is a nonzero vector <m>\mathbf{v}</m> such that 
+                <me>
+                A\mathbf{v}=\lambda\mathbf{v}.
+                </me>
+                The corresponding vector <m>\mathbf{v}</m> is called an <term> eigenvector
+                of the eigenvalue</term>  <m>\lambda</m>.
+            </p>
+            </assemblage>
+
+        <p>
+            Our goal is to demonstrate how to find eigenvalues and their corresponding
+            eigenvectors of a given matrix 
+            <me>
+            A=\left(\begin{array}{cc}
+            a \amp b\\
+            c \amp d
+            \end{array}\right).
+            </me>          
+
+            First we find the eigenvalues, then we use the eigenvalue
+            to find the corresponding eigenvectors. Let <m>I=\left(\begin{array}{cc}
+            1 \amp 0\\
+            0 \amp 1
+            \end{array}\right)</m> be the identity matrix then <m>\lambda I=\left(\begin{array}{cc}
+            \lambda \amp 0\\
+            0 \amp \lambda
+            \end{array}\right)</m>. Note that by the definition of an eigenvalue, we must have that
+            for some nonzero <m>\mathbf{v}</m>, we have 
+            <md>
+            <mrow>A\mathbf{v}=\lambda\mathbf{v} \amp \iff  A\mathbf{v}=\lambda\mathbf{v}</mrow>
+            <mrow> \amp \iff  A\mathbf{v}-\lambda\mathbf{v}=\mathbf{0} </mrow>
+            <mrow> \amp \iff  A\mathbf{v}-\lambda I\mathbf{v}=\mathbf{0}</mrow>
+            <mrow> \amp \iff  \left(A-\lambda I\right)\mathbf{v}=\mathbf{0}.</mrow>
+            </md>
+            Now <m>A-\lambda I</m> is actually another matrix. What matrix? Let's
+            see, 
+            <md>
+            <mrow>A-\lambda I \amp =  \left(\begin{array}{cc}
+            a \amp b\\
+            c \amp d
+            \end{array}\right)-\left(\begin{array}{cc}
+            \lambda \amp 0\\
+            0 \amp \lambda
+            \end{array}\right)</mrow>
+
+            <mrow> \amp =  \left(\begin{array}{cc}
+            a-\lambda \amp b\\
+            c \amp d-\lambda
+            \end{array}\right). </mrow>
+            </md>
+        </p>
+        <p>
+            So using <xref ref="thmlinalg1"/> from  <xref ref="ch5-3"/>, when do we know that
+            the equation <m>\left(A-\lambda I\right)\mathbf{v}=\mathbf{0}</m> has
+            nontrivial solution? Recall that <xref ref="thmlinalg1"/>  says that if
+            <me>
+            \det\left(A-\lambda I\right)=0,
+            </me>
+            then we have nontrivial solutions! Let's solve for <m>\lambda</m>, because
+            we know how to find determinants. 
+            <md>
+            <mrow>\det\left(A-\lambda I\right)=0 \amp \iff  \det\left(\begin{array}{cc}
+            a-\lambda \amp b\\
+            c \amp d-\lambda
+            \end{array}\right)=0</mrow>
+            <mrow> \amp \iff  \left(a-\lambda\right)\left(d-\lambda\right)-bc=0.</mrow>
+            <mrow> \amp \iff  \left(\mbox{something}\right)\lambda^{2}+(\mbox{something})\lambda+(\mbox{something})=0 </mrow>
+            </md>
+            so solve for <m>\lambda</m> and that will be your eigenvalue! This polynomial
+            is called the <term>characteristic polynomial</term>. 
+
+        </p>
+
+        <example xml:id="example-ch5-4-1">
+        <title>Finding eigenvalues and eigenvectors</title>
+        <p> 
+            Find the eigenvalues and a
+            corresponding eigenvector of the matrix
+            <me>A=\left(\begin{array}{cc}
+            2 \amp 3\\
+            0 \amp -4
+            \end{array}\right).
+            </me> 
+        </p>
+
+        <p>
+
+            <term> Step1:</term>Solve 
+            <md>
+            <mrow> \det\left(A-\lambda I\right)=0 \amp \iff  \det\left(\begin{array}{cc}
+            2-\lambda \amp 3\\
+            0 \amp -4-\lambda
+            \end{array}\right)=0</mrow>
+            <mrow> \amp \iff  \left(2-\lambda\right)\left(-4-\lambda\right)-0\cdot3=0.</mrow>
+            <mrow> \amp \iff \left(2-\lambda\right)\left(-4-\lambda\right)=0</mrow>
+            <mrow> \amp \iff  \lambda=-4,2.</mrow>
+            </md>
+
+
+        </p>
+
+        <p>
+
+            <term>Step2:</term> Find the eigenvectors: Let's start with
+            <m>\lambda_{1}=2</m> then <m>\mathbf{v}_{1}=\left(\begin{array}{c}
+            x_{1}\\
+            x_{2}
+            \end{array}\right)</m> is an eigenvector if 
+
+            <md>
+            <mrow> A\mathbf{v}=2\mathbf{v} \amp \iff  \left(\begin{array}{cc}
+            2 \amp 3\\
+            0 \amp -4
+            \end{array}\right)\left(\begin{array}{c}
+            x_{1}\\
+            x_{2}
+            \end{array}\right)=2\left(\begin{array}{c}
+            x_{1}\\
+            x_{2}
+            \end{array}\right)</mrow>
+
+            <mrow> \amp \iff  \left(\begin{array}{c}
+            2x_{1}+3x_{2}\\
+            -4x_{2}
+            \end{array}\right)=2\left(\begin{array}{c}
+            x_{1}\\
+            x_{2}
+            \end{array}\right)</mrow>
+
+            <mrow> \amp \iff  \begin{cases}
+            2x_{1}+3x_{2}=2x_{1}\\
+            -4x_{2}=2x_{2}
+            \end{cases}</mrow>
+
+            <mrow> \amp \iff  x_{2}=0\mbox{ and }x_{1}=\mbox{can be anything.} </mrow>
+            </md>
+
+            so choose <m>\mathbf{v}_{1}=\left(\begin{array}{c}
+            1\\
+            0
+            \end{array}\right)</m> as an eigenvector. 
+
+        </p>
+
+
+            <term>Step3:</term> Find the corresponding eigenvectors: Now
+            let <m>\lambda_{2}=-4</m> then <m>\mathbf{v_{2}}=\left(\begin{array}{c}
+            x_{1}\\
+            x_{2}
+            \end{array}\right)</m> is an eigenvector if 
+
+            <md>
+            <mrow> A\mathbf{v}=-4\mathbf{v} \amp \iff \begin{cases}
+            2x_{1}+3x_{2}=-4x_{1}\\
+            -4x_{2}=-4x_{2}
+            \end{cases}</mrow>
+            <mrow> \amp \iff  \begin{cases}
+            6x_{1}+3x_{2}=0 \amp \implies x_{2}=-2x_{1}\\
+            -4x_{2}=-4x_{2}
+            \end{cases} </mrow>
+            </md>
+
+            so plugging the equation <m>x_{2}=-2x_{1}</m> back into the vector we
+            get
+            <md>
+            <mrow> \mathbf{v}_{2} \amp =\left(\begin{array}{c}
+            x_{1}\\
+            x_{2}
+            \end{array}\right) </mrow>
+            <mrow> \amp =\left(\begin{array}{c}
+            x_{1}\\
+            -2x_{1}
+            \end{array}\right)</mrow>
+            </md>
+            and since <m>x_{1}</m> can be anything, we can choose <m>x_{1}=1</m> and <m>\mathbf{v}_{2}=\left(\begin{array}{c}
+            x_{1}\\
+            -2x_{1}
+            \end{array}\right)</m> is an eigenvector of the matrix <m>A</m>. 
+
+        <p>
+            Notice that any multiple of an eigenvector would also be an eigenvector
+            themselves. So we could also have chosen 
+            <me>
+            \mathbf{v}_{2}=-3\left(\begin{array}{c}
+            1\\
+            -2
+            \end{array}\right)=\left(\begin{array}{c}
+            -3\\
+            6
+            \end{array}\right).
+            </me>
+            Hence for any eigenvalue <m>\lambda</m> there are an infinite number of
+            possible eigenvectors <m>\mathbf{v}</m> corresponding to <m>\lambda</m>. 
+        </p>        
+
+        </example>
+
+
+
+        </subsection>
+
+
+        <subsection>
+        <title>Back to Systems of Differential Equations</title>
+
+        <p>
+
+            Why are eigenvalues and eigenvectors important and useful in differential equations? Consider the system
+            <me>
+            \mathbf{x}^{\prime}=\left(\begin{array}{cc}
+            2 \amp 3\\
+            0 \amp -4
+            \end{array}\right)\mathbf{x}
+            </me>
+            Its vector field looks like this:
+        </p>
+
+                <image width="100%" source="images/3.2 - system1.png"/>
+
+        <p>
+
+
+            We want to search for <term>straight line solutions</term>.  Note that you see them
+            on this vector field. We'd like to search for them because, for one, they probably have easy explicit formulas. And more
+            importantly they are <term>linearly independent</term> (why? Because
+            they are not in the same line), which will help build the general solution. 
+        </p>
+        <p>
+
+
+            So how do we find them? From the geometry of the phase plane. If <m>\mathbf{x}(t)</m> is a straight-line
+            solution, then notice that <m>A\mathbf{x}=\lambda\mathbf{x}</m> for some
+            <m>\lambda</m>. Because the vector <m>A\mathbf{x}</m> points
+            in the same direction as the vector from <m>(0,0)</m> to <m>\mathbf{x}</m>.
+            This means the solution <m>\mathbf{x}(t)</m> are formed from eigenvectors. So if we can find an eigenvector and its eigenvalue then we would
+            have found a straight line solution. 
+        </p> 
+
+        <theorem xml:id="thm-ch5-4-1">
+        <p>
+            Suppose <m>\lambda</m> is an eigenvalue and <m>\mathbf{v}=\left(\begin{array}{c}
+            x\\
+            y
+            \end{array}\right)</m> is a corresponding eigevenvector. Then 
+            <me>
+            \mathbf{x}(t)=e^{\lambda t}\left(\begin{array}{c}
+            x\\
+            y
+            \end{array}\right)=\left(\begin{array}{c}
+            e^{\lambda t}x\\
+            e^{\lambda t}y
+            \end{array}\right)
+            </me>
+            is a straight-line solution to the differential equation 
+            <me>
+            \frac{d\mathbf{x}}{dt}=A\mathbf{x}.
+            </me>
+        </p>
+        </theorem>
+
+        <proof>
+        <p>
+            We just have to check that the LHS and RHS are equal to each other
+            in 
+            <me>
+            \frac{d\mathbf{x}}{dt}=A\mathbf{x}.
+            </me>
+        </p>
+        <p>
+            The Left-Hand-Side is 
+            <me>
+            \frac{d\mathbf{x}}{dt}=\frac{d}{dt}\left(\begin{array}{c}
+            e^{\lambda t}x\\
+            e^{\lambda t}y
+            \end{array}\right)=\left(\begin{array}{c}
+            \lambda e^{\lambda t}x\\
+            \lambda e^{\lambda t}y
+            \end{array}\right)=\lambda\left(\begin{array}{c}
+            e^{\lambda t}x\\
+            e^{\lambda t}y
+            \end{array}\right)=\lambda\mathbf{x}
+            </me>
+            and the Right-Hand-Side is 
+            <me>
+            A\mathbf{x}=Ae^{\lambda t}\mathbf{v}=e^{\lambda t}A\mathbf{v}=e^{\lambda t}\lambda\mathbf{v}=\lambda\left(e^{\lambda t}\mathbf{v}\right)=\lambda\mathbf{x}.
+            </me>
+            So yes they are equal, hence <m>\mathbf{x}(t)=e^{\lambda t}\left(\begin{array}{c}
+            x\\
+            y
+            \end{array}\right)</m> is a solution, and plotting this solution in the <m>x_{1}-x_{2}</m> plane,
+            shows a moving particle moving in a straight-line. 
+
+
+
+        </p> 
+        </proof>
+        <p>
+        We are now ready to solve  a vector differential equation with straight-line solutions. 
+        </p>
+
+        <example>
+        <p>
+            Find the General solution to
+            <me>
+            \frac{d\mathbf{x}}{dt}=\left(\begin{array}{cc}
+            2 \amp 3\\
+            0 \amp -4
+            \end{array}\right)\mathbf{x}
+            </me>
+        </p>
+        <p>
+            Recall that from <xref ref="example-ch5-4-1"/>, the matrix <m>A=\left(\begin{array}{cc}
+            2 \amp 3\\
+            0 \amp -4
+            \end{array}\right)</m> has the eigenvalue <m>\lambda_{1}=2</m> with an eigenvector <m>\mathbf{v}_{1}=\left(\begin{array}{c}
+            1\\
+            0
+            \end{array}\right)</m>, and <m>\lambda_{2}=-4</m> with eigenvector <m>\mathbf{v}_{2}=\left(\begin{array}{c}
+            1\\
+            -2
+            \end{array}\right)</m>. From <xref ref="thm-ch5-4-1"/>, which we have just proved: Then we know two straight
+            line solutions:
+            <me>
+            \mathbf{x}^{(1)}(t)=e^{2t}\left(\begin{array}{c}
+            1\\
+            0
+            \end{array}\right),\mbox{ and }\mathbf{x}^{(2)}(t)=e^{-4t}\left(\begin{array}{c}
+            1\\
+            -2
+            \end{array}\right).
+            </me>
+            If these are independent, then we can form the general solution using
+            <xref ref="diffeq-system-genthm"/>, the general solution theorem.  Take the Wronkian:
+            <me>
+            W\left[\mathbf{x}^{(1)},\mathbf{x}^{(2)}\right]=\left|\begin{array}{cc}
+            e^{2t} \amp e^{-4t}\\
+            0 \amp -2e^{-4t}
+            \end{array}\right|=-2e^{-2t}\neq0
+            </me>
+            hence <m>\left\{ \mathbf{x}^{(1)},\mathbf{x}^{(2)}\right\} </m> forms
+            a <term> fundamental set of solutions</term>. Another way to show they
+            are linearly indepenent is to remember that these vectors are in completely
+            different lines and are not multiples of each other. Therefore they
+            are independent!
+
+            Thus the <term>general solution</term> is 
+            <me>
+            \mathbf{x}(t)=c_{1}e^{2t}\left(\begin{array}{c}
+            1\\
+            0
+            \end{array}\right)+c_{2}e^{-4t}\left(\begin{array}{c}
+            1\\
+            -2
+            \end{array}\right).
+            </me>
+
+
+        </p>
+
+        </example>
+
+        <p>
+        We summarize this example into a Theorem. The key thing to remember here is that this theorem applies only to
+        when you have <term>distinct</term> and <term>real</term> eigenvalues <m>\lambda_{1},\lambda_{2}</m>. 
+        </p>
+
+        <theorem xml:id="thm-ch5-4-2">
+        <title>Real and distinct eigenvalues</title>
+        <p>
+            Suppose <m>A</m> is a matrix with distinct, real eigenvalues <m>\lambda_{1},\lambda_{2}</m>
+            with corresponding eigenvectors <m>\mathbf{v}_{1},\mathbf{v}_{2}</m>,
+            respectively. Then the <term>general solution</term> of the system 
+            <me>
+            \mathbf{x}^{\prime}=A\mathbf{x}
+            </me>
+            is 
+            <me>
+            \mathbf{x}(t)=c_{1}e^{\lambda_{1}t}\mathbf{v}_{1}+c_{2}e^{\lambda_{2}t}\mathbf{v}_{2}.
+            </me>
+            Moreover, the solutions <m>\mathbf{x}^{(1)}(t)=e^{\lambda_{1}t}\mathbf{v}_{1},\mathbf{x}^{(2)}(t)=e^{\lambda_{2}t}\mathbf{v}_{2}</m>
+            are linearly independent.        
+
+        </p>
+        </theorem>
+
+
+
+        </subsection>
+       
+
+    </section>
+
+
+    <section xml:id="ch5-5">
+        <title>Phase Portraits for systems with real eigenvalues</title>
+        <introduction>
+        <p>
+            Here are two facts we may have not noticed last time: If the eigenvalue <m>\lambda</m> is negative, then the straight line solution
+            <me>\mathbf{x}(t)=e^{\lambda t}\mathbf{v}</me> tends to the origin <m>\mathbf{0}</m>
+            as <m>t\to\infty</m>. Take for example <me>\mathbf{x}(t)=e^{-t}\left(\begin{array}{c}
+            1\\
+            2
+            \end{array}\right)</me>, and note that 
+            <me>
+            \lim_{t\to\infty}\mathbf{x}(t)=\left(\begin{array}{c}
+            0\\
+            0
+            \end{array}\right).
+            </me>
+            If the eigenvalue <m>\lambda</m> is positive, then straight line solution
+            <m>\mathbf{x}(t)=e^{\lambda t}\mathbf{v}</m> tends away from the origin
+            as <m>t\to\infty</m>. 
+            In this section, we will consider the different types of behaviors one can obtain in the
+            Phase plane for the trajectories of solutions. We study only the case when you have distinct real eigenvalues. 
+
+        </p>
+        </introduction>
+
+        <subsection>
+        <title>Saddles</title>
+        <p>
+        We start with a definition. 
+        </p>
+            <assemblage>
+            <p>
+            A linear system for which we have one positive and one negative eigenvalue
+            has an equilibrium point that is called a <term>saddle</term>. 
+            </p>
+            </assemblage>
+
+            <example xml:id="ex-ch5-5-1">
+            <p>
+                Consider 
+                <me>
+                \boldsymbol{x}^{\prime}=\left(\begin{array}{cc}
+                -3 \amp 0\\
+                0 \amp 2
+                \end{array}\right)\mathbf{x}
+                </me>
+                Draw a Phase portrait for this system. 
+            </p>
+                <p><term>Solution:</term></p>
+            <p>
+                If we solve this system we get 
+                <me>
+                \mathbf{x}(t)=c_{1}e^{-3t}\left(\begin{array}{c}
+                1\\
+                0
+                \end{array}\right)+c_{2}e^{2t}\left(\begin{array}{c}
+                0\\
+                1
+                \end{array}\right).
+                </me>
+
+                First draw straight line solutions in Phase Plane. The one associated to the negative eigenvalue will go towards the
+                origin, while the one associated to the positive eigenvalue will go
+                away from the origin. (as remarked in the introduction) Then draw other solutions in Phase Plane by following the vectors in the direction field.
+                Recall by the Existence and Uniqueness Theorem that solutions can't
+                cross. Hence other solutions can't cross the straight line soluions. 
+                Remember to include arrows in your trajectories to specify the direction
+                that the solution is moving. 
+                And the Phase portrait looks like this:          
+                <image width="100%" source="images/7.5b-1.png"/>
+            </p>
+            <p>
+                One thing to keep in mind is to note that the other solutions are moving in the general direction of the straight-line solutions without touching them. 
+
+            </p>
+            </example>
+            <example xml:id="ex-ch5-5-2">
+            <p>
+                Consider the IVP
+                <me>
+                \mathbf{x}^{\prime}=\left(\begin{array}{cc}
+                -3 \amp 0\\
+                0 \amp 2
+                \end{array}\right)\mathbf{x},\,\,\,\,\mathbf{x}(0)=\left(\begin{array}{c}
+                -1\\
+                -1
+                \end{array}\right).
+                </me>
+                Draw the solution to this IVP in the Phase plane. 
+            </p>
+            
+            <p>    <term>Solution:</term>
+            </p>
+            <p>
+                Using the Phase portrait from <xref ref="ex-ch5-5-1"/>, then the solution
+                will have the following sketch:
+
+                <image width="100%" source="images/Ex5-5-1b.png"/>
+            </p>
+            </example>
+
+            <example xml:id="ex-ch5-5-3">
+            <p>
+                Consider 
+                <me>
+                \mathbf{x}^{\prime}=\left(\begin{array}{cc}
+                8 \amp -11\\
+                6 \amp -9
+                \end{array}\right)\mathbf{x}
+                </me>
+                Draw a Phase portrait for this system. 
+            </p>
+                <p><term>Solution:</term></p>
+            <p>
+                Solving for the eigenvalues/eigenvectors, we have
+                <me>
+                \begin{array}{ccc}
+                \lambda_{1}=-3, \amp  \amp \mathbf{v}_{1}=\left(\begin{array}{c}
+                1\\
+                1
+                \end{array}\right)\\
+                \lambda_{2}=2, \amp  \amp \mathbf{v}_{2}=\left(\begin{array}{c}
+                11\\
+                6
+                \end{array}\right)
+                \end{array}
+                </me>
+                hence we get 
+                <me>
+                \mathbf{x}(t)=c_{1}e^{-3t}\left(\begin{array}{c}
+                1\\
+                1
+                \end{array}\right)+c_{2}e^{2t}\left(\begin{array}{c}
+                11\\
+                6
+                \end{array}\right).
+                </me>
+            </p>
+            <p>
+
+                Using the same instructions as in <xref ref="ex-ch5-5-1"/>, 
+                the Phase Portrait looks like this:          
+                <image width="100%" source="images/Ex5-5-3.png"/>
+            </p>
+            </example>
+
+
+
+
+        </subsection>
+
+        <subsection>
+        <title>Asymptotically stable node (sink)</title>
+        <p>
+        We start with a definition. 
+        </p>
+            <assemblage>
+            <p>
+                A linear system for which we have both negative, distinct
+                eigenvalues has an equilibrium point that is called a <term>asymptotically
+                stable node (sink)</term>. 
+            </p>
+            </assemblage>
+
+            <example xml:id="ex-ch5-5-4">
+            <p>
+                Consider 
+                <me>
+                \frac{d\mathbf{x}}{dt}=\left(\begin{array}{cc}
+                -1 \amp 0\\
+                0 \amp -4
+                \end{array}\right)\mathbf{x}.
+                </me>
+                Draw the Phase portrait. 
+            </p>
+            <p><term>Solution: </term></p>
+            <p>
+                Solving for eigenvalues and eigenvectors we have 
+                <me>
+                \begin{array}{ccc}
+                \lambda_{1}=-1, \amp  \amp \mathbf{v}_{1}=\left(\begin{array}{c}
+                1\\
+                0
+                \end{array}\right)\\
+                \lambda_{2}=-4, \amp  \amp \mathbf{v}_{2}=\left(\begin{array}{c}
+                0\\
+                1
+                \end{array}\right)
+                \end{array}
+                </me>
+                hence the general solution is given by 
+                <me>
+                \mathbf{x}(t)=c_{1}e^{-t}\left(\begin{array}{c}
+                1\\
+                0
+                \end{array}\right)+c_{2}e^{-4t}\left(\begin{array}{c}
+                0\\
+                1
+                \end{array}\right).
+                </me>
+            </p>
+            <p>
+                Now we draw the Phase portrait. First draw the straight line solutions in Phase Plane with arrows
+                pointing inwards towards the origin. (This is because both eigenvalues
+                are negative). Then draw the other solutions in the plane, which all
+                converge to the origin. Note that the solutions come from the direction
+                of the eigenvector that has the biggest magnitude. Note that <m>\left|\lambda_{2}\right|=4>1=\left|\lambda_{1}\right|</m>,
+                hence the straight line solution <m>c_{2}e^{-4t}\left(\begin{array}{c}
+                0\\
+                1
+                \end{array}\right)</m> has more strength. Hence all the other solution are coming from the
+                direction <m>e^{-4t}\left(\begin{array}{c}
+                0\\
+                1
+                \end{array}\right)</m> pointing inwards.  And the Phase portrait looks like this:          
+                <image width="100%" source="images/7.5b-2.png"/>
+
+                Note that soluions "sink" in. 
+
+            </p>
+
+            </example>
+
+            <example xml:id="ex-ch5-5-5">
+            <p>
+                Consider 
+                <me>
+                \frac{d\mathbf{x}}{dt}=\left(\begin{array}{cc}
+                -2 \amp -2\\
+                -1 \amp -3
+                \end{array}\right)\mathbf{x},
+                </me>
+                and suppose you know the eigenvalues/eigenvectors are given by 
+                <me>
+                \begin{array}{ccc}
+                \lambda_{1}=-4, \amp  \amp \mathbf{v}_{1}=\left(\begin{array}{c}
+                1\\
+                1
+                \end{array}\right)\\
+                \lambda_{2}=-1, \amp  \amp \mathbf{v}_{2}=\left(\begin{array}{c}
+                -2\\
+                1
+                \end{array}\right)
+                \end{array}.
+                </me>
+
+
+
+                Draw the Phase portrait. 
+            </p>
+            <p><term>Solution: </term></p>
+
+            <p>
+                First draw the straight line solutions in Phase Plane with arrows
+                pointing inwards towards the origin. (This is because both eigenvalues
+                are negative). Then draw the other solutions in the plane, which all
+                converge to the origin. Note that the solutions come from the direction
+                of the eigenvector that has the biggest magnitude. Note that <m>\left|\lambda_{1}\right|=4>1=\left|\lambda_{2}\right|</m>,
+                hence the straight line solution <m>e^{-4t}\left(\begin{array}{c}
+                1\\
+                1
+                \end{array}\right)</m> has more strength. Hence all the other solution are coming from the
+                direction <m>e^{-4t}\left(\begin{array}{c}
+                1\\
+                1
+                \end{array}\right)</m> pointing inwards.  And the Phase portrait looks like this:          
+                <image width="100%" source="images/Ex5-5-5.png"/>
+
+                Note that soluions "sink" in. 
+
+            </p>
+
+            </example>
+
+
+
+        </subsection>
+
+        <subsection>
+        <title>Asymptotically unstable node (source)</title>
+        <p>
+        We start with a definition. 
+        </p>
+            <assemblage>
+            <p>
+                A linear system for which we have both positive, distinct
+                eigenvalues has an equilibrium point that is called a <term>asymptotically
+                unstable node (source)</term>. 
+            </p>
+            </assemblage>
+
+            <example xml:id="ex-ch5-5-6">
+            <p>
+                Consider 
+                <me>
+                \frac{d\mathbf{x}}{dt}=\left(\begin{array}{cc}
+                2 \amp 2\\
+                1 \amp 3
+                \end{array}\right)\mathbf{x}.
+                </me>
+                Draw the Phase portrait. 
+            </p>
+            <p><term>Solution: </term></p>
+            <p>
+                Solving for eigenvalues and eigenvectors we have 
+                <me>
+                \begin{array}{ccc}
+                \lambda_{1}=4, \amp  \amp \mathbf{v}_{1}=\left(\begin{array}{c}
+                1\\
+                1
+                \end{array}\right)\\
+                \lambda_{2}=1, \amp  \amp \mathbf{v}_{2}=\left(\begin{array}{c}
+                -2\\
+                1
+                \end{array}\right)
+                \end{array}
+                </me>
+                hence the general solution is given by 
+                <me>
+                \mathbf{x}(t)=c_{1}e^{4t}\left(\begin{array}{c}
+                1\\
+                1
+                \end{array}\right)+c_{2}e^{t}\left(\begin{array}{c}
+                -2\\
+                1
+                \end{array}\right).
+                </me>
+            </p>
+            <p>
+                Now we draw the Phase portrait. First draw the straight line solutions in Phase Plane with arrows
+                pointing outwards towards the origin. (This is because both eigenvalues
+                are positive, hence the exponential explode away from the origin). Then draw the other solutions in the plane, which all
+                converge explode away from the origin. Note that the solutions go towards the direction
+                of the eigenvector that has the biggest magnitude. Note that <m>\left|\lambda_{1}\right|=4>1=\left|\lambda_{2}\right|</m>,
+                hence the straight line solution <m>c_{2}e^{4t}\left(\begin{array}{c}
+                1\\
+                1
+                \end{array}\right)</m> has more strength. Hence all the other solution are going towards the
+                direction of <m>e^{4t}\left(\begin{array}{c}
+                1\\
+                1
+                \end{array}\right)</m> pointing outwards.  And the Phase portrait looks like this:          
+                <image width="100%" source="images/7.5b-3.png"/>
+
+                Note that solutions "source" out. 
+
+            </p>
+
+            </example>
+
+
+
+        </subsection>       
+       
+
+    </section>
+
+
+    <section xml:id="ch5-6">
+        <title>Complex Eigenvalues</title>
+
+        <introduction>
+        <p>
+            We have only worked when we have distinct real eigenvalues.
+            But what if we get complex numbers as eigenvalues? When could this even happen?
+            Consider the followig system:
+            <me>
+            \frac{d\mathbf{x}}{dt}=\left(\begin{array}{cc}
+            1 \amp -3\\
+            3 \amp 1
+            \end{array}\right)\mathbf{x}.
+            </me>
+            Before even trying to solve this system, let's plot its direction field:
+        </p>
+        <p>
+            <image width="100%" source="images/3.4-pic1.png"/>
+        </p>
+        <p>
+            The intuition from the previous two section no longer works. This is because ther are no straight line
+            solutions. It looks like solutions will be spirals. So we shall proceed as have done before, by obtaining eigenvalues and eigenvector. But this time you will see
+            that we will have complex eigenvalues and eigenvectors. 
+        </p>
+        </introduction>
+
+    <subsection>
+      <title>Complex numbers:</title>
+
+      <p>To make this section self-contained, we recall some basic facts about complex numbers. 
+      Complex numbers are of the form <m>z = a+bi</m> where
+      <m>a,b\in\mathbb{R}</m> and <m>i=\sqrt{-1}</m>. Thus <m>i^{2}=-1</m>. Complex numbers have a <term>polar representation</term> <m>z = r e^{i\theta}</m>, where <m>r = \sqrt{a^2 + b^2}</m> and <m>\theta = \arctan\frac{y}{x}</m>. In the polar representation, we should think about <m>r</m> as a radius and <m>e^{i\theta}</m> as a point on the unit circle.</p>
+
+      <p> We should think about the exponential part as representing motion on a circle. The unit circle from trigonometry gives <m>(x,y) = (\cos \theta, \sin \theta)</m> for an angle <m>\theta</m> on the unit circle. This connection is made explicit in what is known as <term>Euler's formula:</term>
+      <men xml:id="Euler-chpt5">e^{i\theta}=\cos \theta+i\sin \theta.</men>
+      So
+      <me>
+      e^{a+ib}=e^{a}e^{ib}=e^{a}\left(\cos b+i\sin b\right)=e^{a}\cos b+ie^{a}\sin b.
+      </me></p>
+    </subsection>
+
+
+
+
+
+        <subsection>
+        <title> Complex eigenvalues and eigenvectors </title>
+
+        <p>The key ingredient when dealing with complex eigenvalues and eigenvectors is the following result. The following theorem should seem familiar. In fact, we saw a version of it in <xref ref="ch3-4"/> in <xref ref="thm-3-4-1"/>. 
+        </p>
+
+        <theorem xml:id="thm-5-6-1">
+        <p>
+        If <m>\mathbf{x}_{c}(t)=\mathbf{x}_{re}(t)+i\mathbf{x}_{im}(t)</m> is
+        a solution to the linear system <m>\frac{d\mathbf{x}}{dt}=A\mathbf{x}</m>.
+        Then <m>\mathbf{x}_{re}(t),\mathbf{x}_{im}(t)</m> are themselves two linearly
+        independent solutions to the system as well. 
+        </p>
+
+        </theorem>
+
+        <p>Now we can consider the following example:
+        </p>
+
+        <example xml:id="ex-ch5-6-1">
+        <p>
+        Find the general solution to the following system:
+            <me>
+            \frac{d\mathbf{x}}{dt}=\left(\begin{array}{cc}
+            1 \amp -3\\
+            3 \amp 1
+            \end{array}\right)\mathbf{x}.
+            </me>
+        </p>
+        <p><term>Solution:</term>
+        </p>
+        <p>
+
+            First we find the eigenvalues:
+            <md>
+            <mrow> \det\left(A-\lambda I\right)=0 \amp \iff\left|\begin{array}{cc}
+            1 \amp -\lambda-3\\
+            3 \amp 1-\lambda
+            \end{array}\right|=0</mrow>
+            <mrow> \amp \iff\left(1-\lambda\right)^{2}+9=0</mrow>
+            <mrow> \amp \iff\lambda=\frac{2\pm\sqrt{-36}}{2}=1\pm3i.</mrow>
+            </md>
+            <term>Pick one eigenvalue:</term> Say we pick <m>\lambda_1 =-1+3i</m>. Now we find an eigenvector related to this eigenvalue. That is, we need to solve the eigenvalue-eigenvector equation:
+            <me>
+            A\mathbf{v}=\lambda\mathbf{v}
+            </me>
+            so that
+            <me>
+            \begin{cases}
+            x_{1}-3x_{2}=\left(1+3i\right)x_{1}\\
+            3x_{1}+x_{2}=\left(1+3i\right)x_{2}
+            \end{cases}
+            </me>
+            One of these equations will be redundant. So pick one equation to
+            find an eigenvector:
+            <md>
+            <mrow>3x_{1}+x_{2}=\left(1+3i\right)x_{2} \amp \iff  3x_{1}=3ix_{2}</mrow>
+            <mrow> \amp \iff  x_{1}=ix_{2}</mrow>
+            <mrow> \amp \iff  \mbox{pick }x_{2}=1\mbox{ and get }x_{1}=i.</mrow>
+            </md>
+
+            So the eigenvector <m>\mathbf{v}=\left(\begin{array}{c}
+            i\\
+            1
+            \end{array}\right)</m> is associated with the eigenvalue <m>\lambda=1+3i</m>. 
+        </p>
+        <p>
+
+            <term>Find the corresponding complex solution:</term> (Let's call this solution <m>\mathbf{x}_{c}(t)</m>)
+
+            <md> 
+            <mrow>\mathbf{x}_{c}(t) \amp =  \mathbf{v}e^{\lambda t}</mrow>
+            <mrow> \amp =  \left(\begin{array}{c}
+            i\\
+            1
+            \end{array}\right)e^{\left(1+3i\right)t}</mrow>
+
+            <mrow> \amp =  \left(\begin{array}{c}
+            i\\
+            1
+            \end{array}\right)e^{t}e^{3ti}</mrow>
+
+            <mrow> \amp =  \left(\begin{array}{c}
+            i\\
+            1
+            \end{array}\right)e^{t}\left(\cos3t+i\sin3t\right)\mbox{ by Euler's Formula} <xref ref="Euler-chpt5"/></mrow>
+
+            <mrow> \amp =  \left(\begin{array}{c}
+            ie^{t}\left(\cos3t+i\sin3t\right)\\
+            1e^{t}\left(\cos3t+i\sin3t\right)
+            \end{array}\right)</mrow>
+
+            <mrow> \amp =  \left(\begin{array}{c}
+            ie^{t}\cos3t-e^{t}\sin3t\\
+            e^{t}\cos3t+ie^{t}\sin3t
+            \end{array}\right)</mrow>
+
+            <mrow> \amp =  \left(\begin{array}{c}
+            -e^{t}\sin3t+ie^{t}\cos3t\\
+            e^{t}\cos3t+ie^{t}\sin3t
+            \end{array}\right)\mbox{put }i\mbox{'s together}</mrow>
+
+            <mrow> \amp =  \left(\begin{array}{c}
+            -e^{t}\sin3t\\
+            e^{t}\cos3t
+            \end{array}\right)+i\left(\begin{array}{c}
+            e^{t}\cos3t\\
+            e^{t}\sin3t
+            \end{array}\right)</mrow>
+
+            <mrow> \amp =  \mathbf{x}_{re}(t)+i\mathbf{x}_{im}(t).</mrow>
+            </md>
+        </p>
+        <p>
+        By <xref ref="thm-5-6-1"/>, we know that <m>\mathbf{x}_{re}(t)</m> and <m>i\mathbf{x}_{im}(t)</m> are two linearly independent solution. Thus by <xref ref="diffeq-system-genthm"/>, the General Solution is given by 
+            <me>
+            \mathbf{x}(t)=c_{1}\left(\begin{array}{c}
+            -e^{t}\sin3t\\
+            e^{t}\cos3t
+            \end{array}\right)+c_{2}\left(\begin{array}{c}
+            e^{t}\cos3t\\
+            e^{t}\sin3t
+            \end{array}\right)
+            </me>       
+        </p>
+        </example>
+
+        </subsection>
+
+        <subsection>
+        <title>Phase Portraits for complex eigenvalues </title>
+        <p>
+        We now discuss how to draw Phase portraits for complex eigenvalues case. We noted that in the beginning of the section that there were no straight-line solutions in this case. In fact, we usually see spirals. 
+        </p>
+
+       <proposition xml:id="prop-5-6-1">
+            <p>
+            If a linear system <m>\mathbf{x}^{\prime}=A\mathbf{x}</m> has an eigenvalue
+            <m>\lambda=\alpha\pm\beta i</m>. Then the solution curves form spirals
+            about the origin with natural period <m>\frac{2\pi}{\beta}</m>, natural
+            frequency <m>\frac{\beta}{2\pi}</m> and
+            </p>
+
+            <p>
+            (1) If <m>\alpha  \lt 0 </m>, we call this an <term>asymptotically stable
+            spiral point</term>. All solutions spiral in towards the origin <m>\mathbf{0}</m>.
+            </p>
+            <p>
+            (2) If <m>\alpha \gt 0</m>, we call this an <term>asymptotically unstable
+            spiral point</term>. All solutions spiral away from the origin <m>\mathbf{0}</m>.
+            </p>
+            <p>
+            (3) If <m>\alpha = 0</m>, we call this a <term>center</term>. All solutions
+            are elliptical shaped. 
+
+            </p>
+       </proposition>
+
+       <example xml:id="ex-ch5-6-2">
+
+       <p>
+       Draw the Phase portrait for the system: 
+            <me>
+            \frac{d\mathbf{x}}{dt}=\left(\begin{array}{cc}
+            1 \amp -3\\
+            3 \amp 1
+            \end{array}\right)\mathbf{x}.
+            </me>
+        which is solved in <xref ref="ex-ch5-6-1"/>. 
+
+        </p>
+        <p><term>Solution: </term></p>
+        <p>
+            Recall from <xref ref="ex-ch5-6-1"/> that we have the complex roots <m>\lambda=1\pm 3i </m>. Thus by <xref ref="prop-5-6-1"/>, since <m>\alpha=1 \gt 0 </m>, then the solution will have an <term>asymptotically unstable spiral </term> point. This means the solutions will be spirals coming from origin <m>\mathbf{0}</m>. 
+            All that is left to do, is found out the direction of the spirals. 
+            To do this, it is enough to check the vector field <m>\mathbf{F}(x,y)=A\mathbf{x}</m>
+            at two points. I usually check the vector field at points <m>\(1,0)</m> and <m>(0,1)</m>. We
+            know that 
+            <me>
+            \mathbf{F}\left(1,0\right)=\left(\begin{array}{cc}
+            1 \amp -3\\
+            3 \amp 1
+            \end{array}\right)\left(\begin{array}{c}
+            1\\
+            0
+            \end{array}\right)=\left(\begin{array}{c}
+            1\\
+            3
+            \end{array}\right)
+            </me>
+            while
+            <me>
+            \mathbf{F}\left(0,1\right)=\left(\begin{array}{cc}
+            1 \amp -3\\
+            3 \amp 1
+            \end{array}\right)\left(\begin{array}{c}
+            0\\
+            1
+            \end{array}\right)=\left(\begin{array}{c}
+            -3\\
+            1
+            \end{array}\right).
+            </me>
+            By drawing these two vectors in their respective positions we get:
+                <image width="100%" source="images/5.6-1c.png"/>
+
+            and from these two vector alone, we cansee that the direction of the spirals must be counter-clockwise.
+            Hence, since these are unstable spirals 
+            we have the following Phase portrait: 
+                <image width="100%" source="images/7.6-1.png"/>
+       </p>
+       </example>
+
+
+
+        </subsection>
+    </section>
+
+
+    <section xml:id="ch5-7">
+        <title>Repeated and zero eigenvalues</title>
+
+        <subsection>
+        <title>Repeated real eigenvalues</title>
+        <p>
+
+            Suppose 
+            <me>
+            \frac{d\mathbf{x}}{dt}=\left(\begin{array}{cc}
+            1 \amp -2\\
+            2 \amp 5
+            \end{array}\right)\mathbf{x}.
+            </me>
+            Let's first find the <term>eigenvalues</term>: 
+            <md>
+            <mrow>
+            \det\left(\begin{array}{cc}
+            1-\lambda  -2\\
+            2 \amp 5-\lambda
+            \end{array}\right)=0 
+             \amp \iff  \left(1-\lambda\right)\left(5-\lambda\right)+4=0</mrow>
+            <mrow> \amp \iff  \lambda^{2}-6\lambda+9=0</mrow>
+            <mrow> \amp \iff  \left(\lambda-3\right)^{2}=0,</mrow>
+            <mrow> \amp \iff \lambda=3,3.</mrow>
+            </md>
+        </p>
+        <p>
+            Based on the intuition we've built from second order ODEs, in <xref ref="ch3-5"/>, it is reasonable to guess that the solution to this system will be
+            of the form 
+            <me>
+            \mathbf{x}(t)=e^{\lambda t}\mathbf{v}_{0}+te^{\lambda t}\mathbf{v}_{1}.
+            </me>
+            where <m>\mathbf{x}(0)=\mathbf{v}_{0}</m> is the initial condition. So
+            what will <m>\mathbf{v}_{1}</m> be? Let's try figure it out. For this
+            solution to work, we check that when plugging this <m>\mathbf{x}</m> into
+            <me>
+            \frac{d\mathbf{x}}{dt}=A\mathbf{x},
+            </me>
+            the Left-hand-side (LHS) equals to Right-hand-side(RHS) of the equation.
+        </p>
+        <p>
+            First let's compute the LHS, when plugging our guess into the equation,
+            <md>
+            <mrow>\frac{d\mathbf{x}}{dt} \amp =  \frac{d}{dt}\left(e^{\lambda t}\mathbf{v}_{0}+te^{\lambda t}\mathbf{v}_{1}\right)</mrow>
+            <mrow> \amp =  \lambda e^{\lambda t}\mathbf{v}_{0}+e^{\lambda t}\mathbf{v}_{1}+\lambda te^{\lambda t}\mathbf{v}_{1}</mrow>
+            <mrow> \amp =  \left(\lambda\mathbf{v}_{0}+\mathbf{v}_{1}\right)e^{\lambda t}+\left(\lambda\mathbf{v}_{1}\right)te^{\lambda t}</mrow>
+            </md>
+        </p>
+        <p>
+
+            Now we plug our guess into the RHS, 
+
+            <md>
+            <mrow>A\mathbf{x} \amp =  A\left(e^{\lambda t}\mathbf{v}_{0}+te^{\lambda t}\mathbf{v}_{1}\right)</mrow>
+            <mrow> \amp =  \left(A\mathbf{v}_{0}\right)e^{\lambda t}+\left(A\mathbf{v}_{1}\right)te^{\lambda t}</mrow>
+            </md>
+            So matching the coefficients of <m>e^{\lambda t}</m> and <m>te^{\lambda t}</m>
+            in the LHS and RHS, we get that 
+            <me>
+            \lambda\mathbf{v}_{1}=A\mathbf{v}_{1}\mbox{ and }\lambda\mathbf{v}_{0}+\mathbf{v}_{1}=A\mathbf{v}_{0}.
+            </me>
+            The first equation says that <m>\mathbf{v}_{1}</m> is either an eigenvector
+            or the zero vector. But also, it must satisfy the second equation. 
+            Thus, by solving for $\mathbf{v}_{1}$ in the second equation, we get that 
+            <md>
+            <mrow>\lambda\mathbf{v}_{0}+\mathbf{v}_{1}=A\mathbf{v}_{0} \amp \iff  \mathbf{v}_{1}=A\mathbf{v}_{0}-\lambda\mathbf{v}_{0}</mrow>
+            <mrow> \amp \iff  \mathbf{v}_{1}=\left(A-\lambda I\right)\mathbf{v}_{0}.</mrow>
+            </md>
+        </p>
+        <p>
+            Thus we summarize these computations in a theorem. 
+        </p>
+            <theorem xml:id="thm-5-7-1">
+            <title>General Solution for repeated real eigenvalues</title>
+        <p>
+            Suppose <m>\frac{d\mathbf{x}}{dt}=A\mathbf{x}</m> is a system of which
+            <m>\lambda</m> is a repeated real eigenvalue. Then the general solution
+            is of the form:
+            <me>
+            \mathbf{x}(t)=e^{\lambda t}\mathbf{v}_{0}+te^{\lambda t}\mathbf{v}_{1}
+            </me>
+            where
+            <md>
+            <mrow>\mathbf{v}_{0} \amp =\mathbf{x}(0)\text{ (initial condition)}</mrow>
+            <mrow>\mathbf{v}_{1} \amp =\left(A-\lambda I\right)\mathbf{v}_{0}.</mrow>
+            </md>
+
+            Moreover, if <m>\mathbf{v}_{1}\neq\mathbf{0}</m> then it is an eigenvector
+            with eigenvalue <m>\lambda</m>, and if <m>\mathbf{v}_{1}=0</m> then <m>\mathbf{v}_{0}</m>
+            is an eigenvector and <m>\mathbf{x}(t)</m> is a straight-line solution. 
+        </p>
+            </theorem>
+
+            <assemblage>
+            <title>Warning</title>
+        <p>
+            Never think that <m>e^{\lambda t}\mathbf{v}_{0},te^{\lambda t}\mathbf{v}_{1}</m>
+            are generally solutions by themselves. This method is different than
+            our usual method of finding two linearly independent solutions <m>\mathbf{x}^{(1)}</m>
+            and <m>\mathbf{x}^{(2)}</m>. 
+        </p>
+            </assemblage>
+        <p>
+        We can now do an example.
+        </p>
+
+        <example>
+        <p>
+            Find the solution to the following IVP:
+            <me>
+            \frac{d\mathbf{x}}{dt}=\left(\begin{array}{cc}
+            1 \amp -2\\
+            2 \amp 5
+            \end{array}\right)\mathbf{x},\,\,\,\,\,\mathbf{x}(0)=\left(\begin{array}{c}
+            2\\
+            1
+            \end{array}\right).
+            </me>
+        Then graph the phase portrait for the system and on a separate graph plot the particular solution to the IVP above. 
+        </p>
+
+        <p>
+        <term>Solution:</term>
+        </p>
+        <p>
+
+            <term>Step 1:</term> Recall we found <m>\lambda=3</m> to be an eigenvalue
+            in the discusion in the beginning of the section. We repeat the calculation here:
+            <md>
+            <mrow>
+            \det\left(\begin{array}{cc}
+            1-\lambda  -2\\
+            2 \amp 5-\lambda
+            \end{array}\right)=0 
+             \amp \iff  \left(1-\lambda\right)\left(5-\lambda\right)+4=0</mrow>
+            <mrow> \amp \iff  \lambda^{2}-6\lambda+9=0</mrow>
+            <mrow> \amp \iff  \left(\lambda-3\right)^{2}=0,</mrow>
+            <mrow> \amp \iff \lambda=3,3.</mrow>
+            </md>
+        </p>
+        <p>
+
+
+            <term>Step 2: </term> Suppose <m>\mathbf{v}_{0}=\left(\begin{array}{c}
+            x_{0}\\
+            y_{0}
+            \end{array}\right)</m> is the initial condition. Then we can compute <m>\mathbf{v}_{1}</m>,
+            <md>
+            <mrow>\mathbf{v}_{1} \amp =  \left(A-\lambda I\right)\mathbf{v}_{0}</mrow>
+            <mrow> \amp =  \left(\begin{array}{cc}
+            -2 \amp -2\\
+            2 \amp 2
+            \end{array}\right)\left(\begin{array}{c}
+            x_{0}\\
+            y_{0}
+            \end{array}\right)</mrow>
+            <mrow> \amp =  \left(\begin{array}{c}
+            -2x_{0}-2y_{0}\\
+            2x_{0}+2y_{0}
+            \end{array}\right). </mrow>
+            </md>
+        </p>
+        <p>
+            <term>Step 3:</term> Write the <term>general solution</term>
+            <md>
+            <mrow> \mathbf{x}(t) \amp =  e^{3t}\mathbf{v}_{0}+te^{3t}\mathbf{v}_{1}</mrow>
+            <mrow> \amp =  e^{3t}\left(\begin{array}{c}
+            x_{0}\\
+            y_{0}
+            \end{array}\right)+te^{\lambda3t}\left(\begin{array}{c}
+            -2x_{0}-2y_{0}\\
+            2x_{0}+2y_{0}
+            \end{array}\right)</mrow>
+            </md>
+
+            and plugging the inital condition we have 
+            <me>
+            \mathbf{x}(t)=e^{3t}\left(\begin{array}{c}
+            1\\
+            2
+            \end{array}\right)+te^{3t}\left(\begin{array}{c}
+            -6\\
+            6
+            \end{array}\right).
+            </me>
+
+        </p>
+        <p>
+
+            <term>Step4: </term> We now make a phase portrait for the system.
+            We plot the solutions by plotting the straight line solutions first
+            (<m>y=-x</m>) which is associated to the eigenvector <m>\mathbf{v}_1</m> 
+            and then making the following graphs (an <term>almost
+            spiral</term>, or more formally an <term>asymptotically unstable improper
+            node</term>) with arrows pointing outwards (because <m>\lambda=3>0</m>). We
+            call this an <term>almost spiral</term>, because solutions look like they
+            are trying spiral around the equilibrium point <m>\mathbf{0}</m>, but
+            there's are straight-line solution blocking the other solutions from
+            going around the origin. You should still check if the direction of
+            the almost spirals are clockwise/counterclockwise . 
+        </p>
+                        <image width="100%" source="images/7.8-1.png"/>
+        <p>
+             The particular solution to the IVP is given by:
+        </p>
+                        <image width="100%" source="images/7.8-1b.png"/>
+
+        </example>
+
+        <p>
+
+        In the case when we get repeated negative eigenvalues. Then we classify the equilibrium solution as an <term>asymptotically stable improper node </term>. The solutions look like almost spirals going towards the origin. 
+        </p>
+
+
+        </subsection>
+
+        <subsection>
+        <title>Systems with a zero eigenvalue (<m>\det A=0 </m>)</title>
+
+        <p>
+
+            Recall that when <m>\det A=0</m> then by <xref ref="thmlinalg1"/>, we must
+            have infinitely many equilibrium solutions. Note that in all examples
+            we've worked with so far, the only equilibrium solution was the trivial
+            equilibrium solution, which means we've only worked with systems where
+            <m>\det A\neq0</m>. It turns out that when <m>\det A=0</m> then there will
+            always exist be a zero eigenvalue, say
+            <me>
+            \lambda_{1}=0.
+            </me>
+        </p>
+
+            <proposition xml:id="prop-5-7-1">
+            <p>
+            Let <m>A</m> be a <m>2\times 2</m> matrix. If <m>\det A=0</m>, then one of the
+            eigenvalues will be <m>0</m>. 
+            </p>
+            </proposition>
+
+            <proof>
+            <p>
+            We leave this as an exercise. 
+            </p>
+            </proof>
+        <p>
+            Now when <m>\det A=0</m>, then 
+            <me>
+            \lambda_{1}=0\,\,\,\,\,\lambda_{1}=\text{ some other real number},
+            </me>
+            with corresponding eigenvectors <m>\mathbf{v}_{1}</m> and <m>\mathbf{v}_{2}</m>,
+            respectively. Let's assume for now that <m>\lambda_{2}</m> is distinct
+            from <m>\lambda_{1}</m>. Then we are back at the distinct, real eigenvalue
+            case, and hence everything from <xref ref="ch5-4"/> still hold. Thus the general
+            solution to 
+
+            <me>
+            \mathbf{x}^{\prime}=A\mathbf{x}
+            </me>
+
+            is given by 
+            <md>
+            <mrow>\mathbf{x}(t) \amp =c_{1}e^{\lambda_{1}t}\mathbf{v}_{1}+c_{2}e^{\lambda_{2}t}\mathbf{v}_{2}</mrow>
+            <mrow> \amp =c_{1}e^{0}\mathbf{v}_{1}+c_{2}e^{\lambda_{2}t}\mathbf{v}_{2}</mrow>
+            <mrow> \amp =c_{1}\mathbf{v}_{1}+c_{2}e^{\lambda_{2}t}\mathbf{v}_{2}.</mrow>
+            </md>
+        </p>
+        <p>
+
+            The only main difference is that the Phase portrait will look different,
+            since now there are infinitely many equilibrium solutions for this
+            system. In fact, all solutions are either straight line solutions, or are equilibrium solutions. We describe this case, in the following example. 
+        </p>
+
+            <example xml:id="ex-5-7-2">
+            <p>
+                Consider the system
+                <me>
+                \frac{d\mathbf{x}}{dt}=\left(\begin{array}{cc}
+                -3 \amp 1\\
+                3 \amp -1
+                \end{array}\right)\mathbf{x}.
+                </me>
+
+                Find the general solution and draw its Phase portrait. 
+            </p>
+            <p>
+                <term>Solution:</term>
+            </p>
+            <p>
+                Note <m>\det A=0</m> then this will always tell us that one of the eigenvalues
+                is <m>\lambda_{1}=0</m>. One can easily find that 
+                <me>
+                \lambda_{2}=-4.
+                </me>
+
+                After some work,  one obtains that 
+                      <ol>
+                        <li> The eigenvalue <m>\lambda_{1}=0</m> has all eigenvectors on the
+                        line <m>x_{2}=3x_{1}</m>, so choose <m>\mathbf{v}_{1}=\left(\begin{array}{c}
+                        1\\
+                        3
+                        \end{array}\right)</m>.</li>
+                        <li>The eigenvalue <m>\lambda_{1}=-4</m> has all eigenvectrs on the
+                         line <m>x_{1}=-x_{2}</m>, so choose <m>\mathbf{v}_{2}=\left(\begin{array}{c}
+                        -1\\
+                            1
+                        \end{array}\right)</m>.</li>
+                      </ol>
+            </p>
+            <p>
+                 The general solution is given by 
                 <md>
-                <mrow>y(x) \amp =c_{1}J_{0}(x)+c_{2}Y_{0}(x)</mrow>
-                <mrow> \amp =c_{1}\sum_{n=0}^{\infty}\frac{(-1)^{n}}{\left(n!\right)^{2}2^{2n}}x^{2n}-c_{2}\int_{1}^{\infty}\frac{2}{\pi}\frac{\cos\left(tx\right)}{\sqrt{t^{2}-1}}dt.</mrow>
+                <mrow>\mathbf{x}(t) \amp =  c_{1}e^{0t}\left(\begin{array}{c}
+                1\\
+                3
+                \end{array}\right)+c_{2}e^{-4t}\left(\begin{array}{c}
+                -1\\
+                1
+                \end{array}\right)</mrow>
+                <mrow> \amp =  c_{1}\left(\begin{array}{c}
+                1\\
+                3
+                \end{array}\right)+c_{2}e^{-4t}\left(\begin{array}{c}
+                -1\\
+                1
+                \end{array}\right).</mrow>
                 </md>
             </p>
-        </example>
+            <p>
+                <term>Draw the Phase portrait:</term>
+            </p>
+            <p>
+                Where are the infinite equilibrium solutions? The line corresponding
+                to the eigenvectors for the zero eigenvalue is where all the equilibrium
+                solutions are located. All other solutions are straight-solutions
+                that either source out or sink in (depending on the sign of <m>\lambda_{2}</m>). In this example, 
+                all the straight-line solutions point inwards because <m>\lambda_{2}=-4</m>.
+                The slope of the straight-line solutions are given by direction of
+                the eigenvector <m>\mathbf{v}_{2}=\left(\begin{array}{c}
+                -1\\
+                1
+                \end{array}\right)</m>. 
+            </p>
+            <p>
+                 Here is a graph of the Phase portrait:
+            </p>
+                        <image width="100%" source="images/7.8-1c.png"/>
+
+            </example>
+
+
+                <example>
+                <p>
+
+                    Draw a sketch of the solution to the following IVP:
+                    <me>
+                    \frac{d\mathbf{x}}{dt}=\left(\begin{array}{cc}
+                    -3 \amp 1\\
+                    3 \amp -1
+                    \end{array}\right)\mathbf{x},\,\,\,\,\,\mathbf{x}(0)=\left(\begin{array}{c}
+                    -1\\
+                    1
+                    \end{array}\right).
+                    </me>
+                </p>
+                <p>
+                    <term>Solution:</term>
+                </p>
+                <p>
+                        Using the previous <xref ref="ex-5-7-2"/>, we have
+                </p>
+
+                        <image width="100%" source="images/7.8-1d.png"/>
+                </example>
+
+
+        </subsection>
+       
+
     </section>
+
+
+
 </chapter>

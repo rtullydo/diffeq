@@ -1,0 +1,70 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:56-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<article class="example example-like"><h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.6.3</span><span class="period">.</span>
+</h6>
+<p>Solve the IVP</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+y^{\prime\prime}+4y=\delta\left(t-\pi\right)-\delta\left(t-2\pi\right),\,\,\,\,y(0)=0,y^{\prime}(0)=0.
+\end{equation*}
+</div>
+<p>Step 1: Take \(\mathcal{L}\) of both sides and solve for \(\mathcal{L}\left\{ y\right\} \text{:}\)</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+\mathcal{L}\left\{ y^{\prime\prime}\right\} +4\mathcal{L}\left\{ y\right\} =\mathcal{L}\left\{ \delta\left(t-\pi\right)\right\} -\mathcal{L}\left\{ \delta\left(t-2\pi\right)\right\}  \amp \implies\\
+s^{2}\mathcal{L}\left\{ y\right\} -sy(0)-y^{\prime}(0)+4\mathcal{L}\left\{ y\right\} =e^{-\pi s}-e^{-2\pi s} \amp \implies\\
+\left(s^{2}+4\right)\mathcal{L}\left\{ y\right\} =e^{-\pi s}-e^{-2\pi s} \amp \implies\\
+\mathcal{L}\left\{ y\right\} =\frac{e^{-\pi s}}{s^{2}+4}-\frac{e^{-2\pi s}}{s^{2}+4}.
+\end{align*}
+</div>
+<p xmlns:svg="http://www.w3.org/2000/svg">Step 2: Notice that we don't need to do partial fractions or complete the square here since \(s^{2}+4\) is already a sum of two squares.</p>
+<p>Step3: Take an inverse Laplace transform: Using \(\mathcal{L}\left[u_{a}(t)f(t-a)\right]=e^{-as}F(s)\) and \(\mathcal{L}\left\{ \sin(at)\right\} =\frac{a}{s^{2}+a^{2}}\) we get</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+y \amp =\mathcal{L}^{-1}\left\{ \frac{e^{-\pi s}}{s^{2}+4}\right\} -\mathcal{L}^{-1}\left\{ \frac{e^{-2\pi s}}{s^{2}+4}\right\} \\
+\amp =\frac{1}{2}\mathcal{L}^{-1}\left\{ e^{-\pi s}\frac{2}{s^{2}+2^{2}}\right\} -\frac{1}{2}\mathcal{L}^{-1}\left\{ e^{-2\pi s}\frac{2}{s^{2}+2^{2}}\right\} \\
+\amp =\frac{1}{2}u_{\pi}(t)f_{1}\left(t-\pi\right)-\frac{1}{2}u_{2\pi}(t)f_{2}\left(t-2\pi\right)\\
+\amp =\frac{1}{2}u_{\pi}(t)\sin\left(2\left(t-\pi\right)\right)-\frac{1}{2}u_{2\pi}(t)\sin\left(2\left(t-2\pi\right)\right)
+\end{align*}
+</div>
+<p data-braille="continuation">where \(f_{1},f_{2}=\sin(2t)\text{.}\) Now it turns out, that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\sin\left(2\left(t-\pi\right)\right)=\sin\left(2t-2\pi\right)=\sin(2t)
+\end{equation*}
+</div>
+<p data-braille="continuation">and</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\sin\left(2\left(t-2\pi\right)\right)=\sin\left(2t-4\pi\right)=\sin(2t).
+\end{equation*}
+</div>
+<p data-braille="continuation">or in general</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\sin\left(x\right)=\sin\left(x+2\pi\right).
+\end{equation*}
+</div>
+<p data-braille="continuation">Hence a possible multiple choice answer could be:</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+y=\frac{1}{2}u_{\pi}(t)\sin\left(2t\right)-\frac{1}{2}u_{2\pi}(t)\sin\left(2t\right).
+\end{equation*}
+</div></article><span class="incontext"><a href="ch6-6.html#example-149">in-context</a></span>
+</body>
+</html>

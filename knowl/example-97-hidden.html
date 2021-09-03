@@ -1,64 +1,57 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
 <html lang="en-US">
-<!--**************************************-->
-<!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-18T16:29:41-04:00    *-->
-<!--*                                    *-->
-<!--*      https://pretextbook.org       *-->
-<!--*                                    *-->
-<!--**************************************-->
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:51-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body><article class="example-like"><p>Find the Laplace transform of \(f(t)=\sin(at)\text{.}\)</p>
-<p>Solution: We compute</p>
-<div class="displaymath">
+<body><article class="example example-like"><p xmlns:svg="http://www.w3.org/2000/svg">Are \(\mathbf{x}=\left(\begin{array}{c}
+3\\
+-5
+\end{array}\right)\) and \(\mathbf{y}=\left(\begin{array}{c}
+-6\\
+10
+\end{array}\right)\) linearly independent?</p>
+<p><dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">Method1:</dfn> Note that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{align*}
-\mathcal{L}\left\{ \sin at\right\} =F(s) \amp =\int_{0}^{\infty}e^{-st}\sin(at)dt\\
-\amp =\lim_{B\to\infty}\int_{0}^{B}e^{-st}\sin(at)dt.
+c_{1}\left(\begin{array}{c}
+3\\
+-5
+\end{array}\right)+c_{2}\left(\begin{array}{c}
+-6\\
+10
+\end{array}\right)=0  \amp \iff  \left(\begin{array}{cc}
+3 \amp -6\\
+-5 \amp 10
+\end{array}\right)\left(\begin{array}{c}
+c_{1}\\
+c_{2}
+\end{array}\right)=0\\
+\amp \iff  \det\left(\begin{array}{cc}
+3 \amp -6\\
+-5 \amp 10
+\end{array}\right)=30-30=0 
 \end{align*}
 </div>
-<p>Using integration by parts, we get</p>
-<div class="displaymath">
-\begin{align*}
-u=\sin(at)\,\,\,\,\,\,\,\, \amp dv=e^{-st}dt\\
-du=a\cos(at)dt\,\,\,\,\,\,\,\, \amp v=-\frac{e^{-st}}{s}
-\end{align*}
-</div>
-<p>so we have</p>
-<div class="displaymath">
-\begin{align*}
-F(s) \amp =\lim_{B\to\infty}\left[\left.-\frac{e^{-st}\sin(at)}{s}\right|_{t=0}^{t=B}+\int_{0}^{B}\frac{e^{-st}}{s}a\cos(at)dt\right]\\
-\amp =\lim_{B\to\infty}\left[-\frac{e^{-sB}\sin(aB)}{s}+0+\int_{0}^{B}\frac{e^{-st}}{s}a\cos(at)dt\right]\\
-\amp =0+\frac{a}{s}\int_{0}^{\infty}e^{-st}\cos(at)dt.\,\,\,\,\,\,\,\,(\star)
-\end{align*}
-</div>
-<p>Integrating \(\int_{0}^{\infty}e^{-st}\cos(at)dt\) again we get</p>
-<div class="displaymath">
-\begin{align*}
-u=\cos(at)\,\,\,\,\,\,\,\, \amp dv=e^{-st}dt\\
-du=-a\sin(at)dt\,\,\,\,\,\,\,\, \amp v=-\frac{e^{-st}}{s}
-\end{align*}
-</div>
-<div class="displaymath">
-\begin{align*}
-\int_{0}^{\infty}e^{-st}\cos(at)dt \amp =\lim_{B\to\infty}\left[\left.-\frac{e^{-st}\cos(at)}{s}\right|_{t=0}^{t=B}-\int_{0}^{B}\frac{e^{-st}}{s}a\sin(at)dt\right]\\
-\amp =\lim_{B\to\infty}\left[-\frac{e^{-sB}\cos(aB)}{s}+\frac{e^{-st}}{s}-\frac{a}{s}\int_{0}^{B}\frac{e^{-st}}{s}a\sin(at)dt\right]\\
-\amp =\left[0+\frac{t}{s}-\frac{a}{s}\int_{0}^{\infty}e^{-st}\sin(at)dt\right].
-\end{align*}
-</div>
-<p>Plugging this back into \((\star)\) we have</p>
-<div class="displaymath">
-\begin{align*}
-F(t) \amp =\frac{a}{s}\left[\frac{1}{s}-\frac{a}{s}\int_{0}^{\infty}e^{-st}\sin(at)dt\right]\\
-\amp =\frac{a}{s}\left[\frac{1}{s}-\frac{a}{s}F(s)\right]
-\end{align*}
-</div>
-<p>Then we can solve this equation using algebra for \(F(s)\) and get</p>
-<div class="displaymath">
+<p data-braille="continuation">and from <a class="xref" data-knowl="./knowl/thmlinalg1.html" title="Theorem 5.3.1">Theorem 5.3.1</a> this tells us there are infinitely many solutions. Hence these vectors are <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">linearly dependent!</dfn>.</p>
+<p>Again, note that alternatively, to check \(\mathbf{x}\) and \(\mathbf{y}\) are linearly dependent, then it suffices to check that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-F(s)=\frac{a}{s^{2}+a^{2}},\,\,\,\,s&gt;0.
+\det\left(\begin{array}{cc}
+\mathbf{x} \amp \mathbf{y}\end{array}\right)=\det\left(\begin{array}{cc}
+3 \amp -6\\
+-5 \amp 10
+\end{array}\right)=0.
 \end{equation*}
-</div></article></body>
+</div>
+<p xmlns:svg="http://www.w3.org/2000/svg"><dfn class="terminology">Method2:</dfn> Draw this on the \(x-y\) plane and note they ARE on the same line through the origin. Hence, they are linearly dependent.</p></article></body>
 </html>

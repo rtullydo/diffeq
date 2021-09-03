@@ -1,0 +1,220 @@
+\RequireVersions{
+  *{application}{pdfTeX}  {0000/00/00 v1.40.21}
+  *{format} {LaTeX2e}     {2020-02-02 v2.e}
+  *{package}{snapshot}    {2020/06/17 v2.14}
+  *{class}  {book}        {2019/12/20 v1.4l}
+  *{file}   {bk10.clo}    {2019/12/20 v1.4l}
+  *{package}{geometry}    {2020/01/02 v5.9}
+  *{package}{keyval}      {2014/10/28 v1.15}
+  *{package}{ifvtex}      {2019/10/25 v1.7}
+  *{package}{iftex}       {2020/03/06 v1.0d}
+  *{file}   {geometry.cfg}{0000/00/00 v0.0}
+  *{package}{ifthen}      {2014/09/29 v1.1c}
+  *{package}{etoolbox}    {2020/08/24 v2.5j}
+  *{package}{ifxetex}     {2019/10/25 v0.7}
+  *{package}{ifluatex}    {2019/10/25 v1.5}
+  *{package}{graphicx}    {2019/11/30 v1.2a}
+  *{package}{graphics}    {2019/11/30 v1.4a}
+  *{package}{trig}        {2016/01/03 v1.10}
+  *{file}   {graphics.cfg}{2016/06/04 v1.11}
+  *{file}   {pdftex.def}  {2020/08/26 v1.2}
+  *{package}{xcolor}      {2016/05/11 v2.12}
+  *{file}   {color.cfg}   {2016/01/02 v1.6}
+  *{package}{colortbl}    {2020/01/04 v1.0e}
+  *{package}{array}       {2019/08/31 v2.4l}
+  *{file}   {dvipsnam.def}{2016/06/17 v3.0m}
+  *{file}   {svgnam.def}  {2016/05/11 v2.12}
+  *{package}{tcolorbox}   {2020/07/31 v4.31}
+  *{package}{pgf}         {2020/01/08 v3.1.5b}
+  *{package}{pgfrcs}      {2020/01/08 v3.1.5b}
+  *{package}{everyshi}    {2001/05/15 v3.00}
+  *{file}   {pgfrcs.code.tex}{0000/00/00 v0.0}
+  *{package}{pgfcore}     {2020/01/08 v3.1.5b}
+  *{package}{pgfsys}      {2020/01/08 v3.1.5b}
+  *{file}   {pgfsys.code.tex}{0000/00/00 v0.0}
+  *{file}   {pgfsyssoftpath.code.tex}{2020/01/08 v3.1.5b}
+  *{file}   {pgfsysprotocol.code.tex}{2020/01/08 v3.1.5b}
+  *{file}   {pgfcore.code.tex}{0000/00/00 v0.0}
+  *{package}{pgfcomp-version-0-65}{2020/01/08 v3.1.5b}
+  *{package}{pgfcomp-version-1-18}{2020/01/08 v3.1.5b}
+  *{package}{verbatim}    {2019/11/10 v1.5r}
+  *{package}{environ}     {2014/05/04 v0.3}
+  *{package}{trimspaces}  {2009/09/17 v1.1}
+  *{package}{tikz}        {2020/01/08 v3.1.5b}
+  *{package}{pgffor}      {2020/01/08 v3.1.5b}
+  *{package}{pgfkeys}     {0000/00/00 v0.0}
+  *{file}   {pgfkeys.code.tex}{0000/00/00 v0.0}
+  *{package}{pgfmath}     {0000/00/00 v0.0}
+  *{file}   {pgfmath.code.tex}{0000/00/00 v0.0}
+  *{file}   {pgffor.code.tex}{0000/00/00 v0.0}
+  *{file}   {tikz.code.tex}{0000/00/00 v0.0}
+  *{package}{xparse}      {2020-05-15 v3}
+  *{package}{expl3}       {2020-09-03 v3}
+  *{file}   {l3backend-pdftex.def}{2020-09-01 v3}
+  *{file}   {xparse-generic.tex}{0000/00/00 v0.0}
+  *{package}{xstring}     {2019/02/06 v1.83}
+  *{package}{inputenc}    {2018/08/11 v1.3c}
+  *{package}{lmodern}     {2009/10/30 v1.6}
+  *{package}{fontenc}     {0000/00/00 v0.0}
+  *{file}   {t1lmr.fd}    {2009/10/30 v1.6}
+  *{package}{inconsolata} {2019/05/17 v1.12}
+  *{package}{textcomp}    {2020/02/02 v2.0n}
+  *{package}{xkeyval}     {2014/12/03 v2.7a}
+  *{file}   {xkeyval.tex} {2014/12/03 v2.7a}
+  *{package}{microtype}   {2019/11/18 v2.7d}
+  *{file}   {microtype-pdftex.def}{2019/11/18 v2.7d}
+  *{file}   {microtype.cfg}{2019/11/18 v2.7d}
+  *{package}{amsmath}     {2020/01/20 v2.17e}
+  *{package}{amstext}     {2000/06/29 v2.01}
+  *{package}{amsgen}      {1999/11/30 v2.0}
+  *{package}{amsbsy}      {1999/11/29 v1.2d}
+  *{package}{amsopn}      {2016/03/08 v2.02}
+  *{package}{amscd}       {2017/04/14 v2.1}
+  *{package}{amssymb}     {2013/01/14 v3.01}
+  *{package}{amsfonts}    {2013/01/14 v3.01}
+  *{package}{titlesec}    {2019/10/16 v2.13}
+  *{package}{titleps}     {0000/00/00 v0.0}
+  *{package}{titletoc}    {2019/10/16 v2.13}
+  *{package}{listings}    {2020/03/24 v1.8d}
+  *{package}{lstmisc}     {2020/03/24 v1.8d}
+  *{file}   {listings.cfg}{2020/03/24 v1.8d}
+  *{package}{pdftexcmds}  {2020-06-27 v0.33}
+  *{package}{infwarerr}   {2019/12/03 v1.5}
+  *{package}{ltxcmds}     {2019/12/15 v1.24}
+  *{package}{shellesc}    {2019/11/08 v1.0c}
+  *{package}{listingsutf8}{2019-12-10 v1.5}
+  *{package}{stringenc}   {2019/11/29 v1.12}
+  *{package}{pdfescape}   {2019/12/09 v1.15}
+  *{package}{enumitem}    {2019/06/20 v3.9}
+  *{package}{hyperref}    {2020-05-15 v7.00e}
+  *{package}{kvsetkeys}   {2019/12/15 v1.18}
+  *{package}{kvdefinekeys}{2019-12-19 v1.6}
+  *{package}{hycolor}     {2020-01-27 v1.10}
+  *{package}{letltxmacro} {2019/12/03 v1.6}
+  *{package}{auxhook}     {2019-12-17 v1.6}
+  *{package}{kvoptions}   {2019/11/29 v3.13}
+  *{file}   {pd1enc.def}  {2020-05-15 v7.00e}
+  *{package}{intcalc}     {2019/12/15 v1.3}
+  *{package}{etexcmds}    {2019/12/15 v1.7}
+  *{package}{url}         {2013/09/16 v3.4}
+  *{package}{bitset}      {2019/12/09 v1.3}
+  *{package}{bigintcalc}  {2019/12/15 v1.5}
+  *{package}{atbegshi}    {2019/12/05 v1.19}
+  *{file}   {hpdftex.def} {2020-05-15 v7.00e}
+  *{package}{atveryend}   {2019-12-11 v1.11}
+  *{package}{rerunfilecheck}{2019/12/05 v1.9}
+  *{package}{uniquecounter}{2019/12/15 v1.4}
+  *{package}{extpfeil}    {2009/10/31 v0.4}
+  *{package}{mathtools}   {2020/03/24 v1.24}
+  *{package}{calc}        {2017/05/25 v4.3}
+  *{package}{mhsetup}     {2017/03/31 v1.3}
+  *{package}{stmaryrd}    {1994/03/03 v0.0}
+  *{file}   {ot1lmr.fd}   {2009/10/30 v1.6}
+  *{file}   {omllmm.fd}   {2009/10/30 v1.6}
+  *{file}   {omslmsy.fd}  {2009/10/30 v1.6}
+  *{file}   {omxlmex.fd}  {2009/10/30 v1.6}
+  *{file}   {umsa.fd}     {2013/01/14 v3.01}
+  *{file}   {umsb.fd}     {2013/01/14 v3.01}
+  *{file}   {ustmry.fd}   {0000/00/00 v0.0}
+  *{file}   {ts1lmr.fd}   {2009/10/30 v1.6}
+  *{file}   {t1zi4.fd}    {2018/01/14 v1/zi4}
+  *{file}   {ts1zi4.fd}   {2018/01/14 v1/zi4}
+  *{file}   {t1cmtt.fd}   {2019/12/16 v2.5j}
+  *{file}   {ts1cmtt.fd}  {2019/12/16 v2.5j}
+  *{-------}{Document-specific files:}{----}
+  *{file}   {supp-pdf.mkii}{0000/00/00 v0.0}
+  *{package}{epstopdf-base}{2020-01-24 v2.11}
+  *{package}{upquote}     {2012/04/19 v1.3}
+  *{file}   {mt-cmr.cfg}  {2013/05/19 v2.2}
+  *{package}{nameref}     {2019/09/16 v2.46}
+  *{package}{refcount}    {2019/12/15 v3.6}
+  *{package}{gettitlestring}{2019/12/15 v1.6}
+  *{file}   {diffeqs.out} {0000/00/00 v0.0}
+  *{file}   {diffeqs.out} {0000/00/00 v0.0}
+  *{file}   {mt-msa.cfg}  {2006/02/04 v1.1}
+  *{file}   {mt-msb.cfg}  {2005/06/01 v1.0}
+  *{package}{lstlang1}    {2020/03/24 v1.8d}
+  *{file}   {diffeqs.listing}{0000/00/00 v0.0}
+  *{file}   {diffeqs.listing}{0000/00/00 v0.0}
+  *{file}   {diffeqs.listing}{0000/00/00 v0.0}
+  *{file}   {diffeqs.listing}{0000/00/00 v0.0}
+  *{file}   {diffeqs.listing}{0000/00/00 v0.0}
+  *{file}   {diffeqs.listing}{0000/00/00 v0.0}
+  *{file}   {diffeqs.listing}{0000/00/00 v0.0}
+  *{file}   {diffeqs.listing}{0000/00/00 v0.0}
+  *{file}   {diffeqs.listing}{0000/00/00 v0.0}
+  *{file}   {diffeqs.listing}{0000/00/00 v0.0}
+  *{file}   {images/1.6-Phase1.png}{0000/00/00 v0.0}
+  *{file}   {images/1.6-Sketch1.png}{0000/00/00 v0.0}
+  *{file}   {images/1.6-Phase2.png}{0000/00/00 v0.0}
+  *{file}   {images/1.6-Sketch2.png}{0000/00/00 v0.0}
+  *{file}   {diffeqs.listing}{0000/00/00 v0.0}
+  *{file}   {diffeqs.listing}{0000/00/00 v0.0}
+  *{file}   {images/1.6-Phase3.png}{0000/00/00 v0.0}
+  *{file}   {diffeqs.listing}{0000/00/00 v0.0}
+  *{file}   {images/1.6-Classif-1.png}{0000/00/00 v0.0}
+  *{file}   {images/1.6-f(y).png}{0000/00/00 v0.0}
+  *{file}   {diffeqs.listing}{0000/00/00 v0.0}
+  *{file}   {diffeqs.listing}{0000/00/00 v0.0}
+  *{file}   {diffeqs.listing}{0000/00/00 v0.0}
+  *{file}   {diffeqs.listing}{0000/00/00 v0.0}
+  *{file}   {diffeqs.listing}{0000/00/00 v0.0}
+  *{file}   {images/1.4-1.png}{0000/00/00 v0.0}
+  *{file}   {diffeqs.listing}{0000/00/00 v0.0}
+  *{file}   {images/spring_no_mass.jpg}{0000/00/00 v0.0}
+  *{file}   {images/spring_eq.jpg}{0000/00/00 v0.0}
+  *{file}   {images/hookes.jpg}{0000/00/00 v0.0}
+  *{file}   {images/spring_diff_1.jpg}{0000/00/00 v0.0}
+  *{file}   {images/spring_diff_2.jpg}{0000/00/00 v0.0}
+  *{file}   {images/damped1.jpg}{0000/00/00 v0.0}
+  *{file}   {images/damped2.jpg}{0000/00/00 v0.0}
+  *{file}   {images/damped3.jpg}{0000/00/00 v0.0}
+  *{file}   {images/Spring1.jpg}{0000/00/00 v0.0}
+  *{file}   {images/Spring2.jpg}{0000/00/00 v0.0}
+  *{file}   {images/Spring3.jpg}{0000/00/00 v0.0}
+  *{file}   {images/Spring5.jpg}{0000/00/00 v0.0}
+  *{file}   {images/Spring6.jpg}{0000/00/00 v0.0}
+  *{file}   {images/Spring7.jpg}{0000/00/00 v0.0}
+  *{file}   {diffeqs.listing}{0000/00/00 v0.0}
+  *{file}   {images/3.8-2.jpg}{0000/00/00 v0.0}
+  *{file}   {diffeqs.listing}{0000/00/00 v0.0}
+  *{file}   {images/3.8-3.jpg}{0000/00/00 v0.0}
+  *{file}   {diffeqs.listing}{0000/00/00 v0.0}
+  *{file}   {diffeqs.listing}{0000/00/00 v0.0}
+  *{file}   {images/5-parametric1.png}{0000/00/00 v0.0}
+  *{file}   {images/7.2-1.png}{0000/00/00 v0.0}
+  *{file}   {images/5-VecField1.png}{0000/00/00 v0.0}
+  *{file}   {images/5-VecField1b.png}{0000/00/00 v0.0}
+  *{file}   {images/5-VecField1c.png}{0000/00/00 v0.0}
+  *{file}   {images/5-VecField2.png}{0000/00/00 v0.0}
+  *{file}   {images/5-VecField2b.png}{0000/00/00 v0.0}
+  *{file}   {images/3.2 - system1.png}{0000/00/00 v0.0}
+  *{file}   {images/3.2 - system1.png}{0000/00/00 v0.0}
+  *{file}   {images/7.5b-1.png}{0000/00/00 v0.0}
+  *{file}   {images/Ex5-5-1b.png}{0000/00/00 v0.0}
+  *{file}   {images/Ex5-5-3.png}{0000/00/00 v0.0}
+  *{file}   {images/7.5b-2.png}{0000/00/00 v0.0}
+  *{file}   {images/Ex5-5-5.png}{0000/00/00 v0.0}
+  *{file}   {images/7.5b-3.png}{0000/00/00 v0.0}
+  *{file}   {images/3.4-pic1.png}{0000/00/00 v0.0}
+  *{file}   {images/5.6-1c.png}{0000/00/00 v0.0}
+  *{file}   {images/7.6-1.png}{0000/00/00 v0.0}
+  *{file}   {images/7.8-1.png}{0000/00/00 v0.0}
+  *{file}   {images/7.8-1b.png}{0000/00/00 v0.0}
+  *{file}   {images/7.8-1c.png}{0000/00/00 v0.0}
+  *{file}   {images/7.8-1d.png}{0000/00/00 v0.0}
+  *{file}   {images/6.1-1.jpg}{0000/00/00 v0.0}
+  *{file}   {images/6.3-1.jpg}{0000/00/00 v0.0}
+  *{file}   {images/6.3-2.jpg}{0000/00/00 v0.0}
+  *{file}   {images/6.5-1.jpg}{0000/00/00 v0.0}
+  *{file}   {images/6.5-2.jpg}{0000/00/00 v0.0}
+  *{file}   {diffeqs.listing}{0000/00/00 v0.0}
+  *{file}   {images/HWc1s2-1.png}{0000/00/00 v0.0}
+  *{file}   {images/HWc1s2-4.png}{0000/00/00 v0.0}
+  *{file}   {images/HWc1s2-2.png}{0000/00/00 v0.0}
+  *{file}   {images/HWc1s2-3b.png}{0000/00/00 v0.0}
+  *{file}   {images/2.7-4.png}{0000/00/00 v0.0}
+  *{file}   {images/2.9-4.png}{0000/00/00 v0.0}
+  *{file}   {images/HW5-2-1.png}{0000/00/00 v0.0}
+  *{file}   {images/HW5-2-2a.png}{0000/00/00 v0.0}
+}

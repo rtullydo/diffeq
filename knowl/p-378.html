@@ -1,30 +1,37 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
 <html lang="en-US">
-<!--**************************************-->
-<!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-18T16:29:40-04:00    *-->
-<!--*                                    *-->
-<!--*      https://pretextbook.org       *-->
-<!--*                                    *-->
-<!--**************************************-->
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:47-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body>
-<h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>To check that we have a fundamental set, we can compute the Wronskian \(W(y_1, t y_1)\text{:}\)</p>
-<div class="displaymath">
-\begin{equation*}
-W(y_1, t y_1) = \left| \begin{array}{cc} y_1 \amp t y_1 \\
-y_1' \amp y_1 + t y_1' \end{array}\right| = y_1^2 = e^{-\frac{b}{a}t} \neq 0 \text{ for any } t.
-\end{equation*}
+<h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
+<p>So suppose that \(y_2 = u y_1\) solves the equation. We'll need to compute expressions for \(y_2''\) and \(y_2'\) so that we can plug our “solution” into the differential equation.</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+y_2 \amp= u e^{-\frac{b}{2a}t}\\
+y_2' \amp= u' e^{-\frac{b}{2a}t} -\frac{b}{2a} u e^{-\frac{b}{2a}t}\\
+y_2'' \amp= u'' e^{-\frac{b}{2a} t} - \frac{b}{2a} u' e^{-\frac{b}{2a}t} - \frac{b}{2a} u' e^{-\frac{b}{2a}t} + \frac{b^2}{4a^2} u e^{-\frac{b}{2a}t}
+\end{align*}
 </div>
-<p>We conclude that the set \(y_1 = e^{-\frac{b}{2a}t}, y_2 = t e^{-\frac{b}{2a}t}\) is a fundemental set of solutions, and so the general solution for an equation with repeated roots is</p>
-<div class="displaymath">
-\begin{equation*}
-y(t) = c_1 e^{-\frac{b}{2a}t} + c_2t e^{-\frac{b}{2a}t}.
-\end{equation*}
+<p data-braille="continuation">Then</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+0 \amp= ay_2'' + b y_2' + cy_2\\
+\amp= ay_2'' + by_2' + \frac{b^2}{4a}y\\
+\amp= a(u'' e^{-\frac{b}{2a} t} - \frac{b}{a} u' e^{-\frac{b}{2a}t} + \frac{b^2}{4a^2} u e^{-\frac{b}{2a}t})\\
+\amp\hspace{.5in} + b(u' e^{-\frac{b}{2a}t} -\frac{b}{2a} u e^{-\frac{b}{2a}t}) + \frac{b^2}{4a}(u e^{-\frac{b}{2a}t})\\
+\amp = a u'' e^{-\frac{b}{2a}t}.
+\end{align*}
 </div>
 <span class="incontext"><a href="ch3-5.html#p-378">in-context</a></span>
 </body>

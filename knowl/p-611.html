@@ -1,27 +1,62 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
 <html lang="en-US">
-<!--**************************************-->
-<!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-18T16:29:41-04:00    *-->
-<!--*                                    *-->
-<!--*      https://pretextbook.org       *-->
-<!--*                                    *-->
-<!--**************************************-->
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:52-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body>
-<h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Step 1: Find the Laplace Transform of the ODE (The going forwards part). Recall the formulas \(\mathcal{L}\left\{ f^{\prime}(t)\right\} =s\mathcal{L}\left\{ f(t)\right\} -f(0)\) and \(\mathcal{L}\left\{ f^{\prime\prime}(t)\right\} =s^{2}\mathcal{L}\left\{ f(t)\right\} -sf(0)-f^{\prime}(0)\text{.}\) Applying \(\mathcal{L}\) to both sides we get</p>
-<div class="displaymath">
-\begin{align*}
-\mathcal{L}\left\{ y^{\prime\prime}-4y^{\prime}+5y\right\}  \amp =\mathcal{L}\left\{ 2e^{t}\right\} ,\iff\\
-\left[s^{2}\mathcal{L}\left\{ y\right\} -sy(0)-y^{\prime}(0)\right]-4\left[s\mathcal{L}\left\{ y\right\} -y(0)\right]+5\mathcal{L}\left\{ y\right\}  \amp =\frac{2}{s-1},\iff\\
-s^{2}\mathcal{L}\left\{ y\right\} -3s-1-4s\mathcal{L}\left\{ y\right\} +12+5\mathcal{L}\left\{ y\right\}  \amp =\frac{2}{s-1},\iff\\
-\mathcal{L}\left\{ y\right\} \left(s^{2}-4s+5\right) \amp =\frac{2}{s-1}+3s-11,\iff
-\end{align*}
+<h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
+<p>Recall that from <a class="xref" data-knowl="./knowl/example-ch5-4-1.html" title="Example 5.4.1: Finding eigenvalues and eigenvectors">Example 5.4.1</a>, the matrix \(A=\left(\begin{array}{cc}
+2 \amp 3\\
+0 \amp -4
+\end{array}\right)\) has the eigenvalue \(\lambda_{1}=2\) with an eigenvector \(\mathbf{v}_{1}=\left(\begin{array}{c}
+1\\
+0
+\end{array}\right)\text{,}\) and \(\lambda_{2}=-4\) with eigenvector \(\mathbf{v}_{2}=\left(\begin{array}{c}
+1\\
+-2
+\end{array}\right)\text{.}\) From <a class="xref" data-knowl="./knowl/thm-ch5-4-1.html" title="Theorem 5.4.2">Theorem 5.4.2</a>, which we have just proved: Then we know two straight line solutions:</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\mathbf{x}^{(1)}(t)=e^{2t}\left(\begin{array}{c}
+1\\
+0
+\end{array}\right),\mbox{ and }\mathbf{x}^{(2)}(t)=e^{-4t}\left(\begin{array}{c}
+1\\
+-2
+\end{array}\right).
+\end{equation*}
 </div>
-<span class="incontext"><a href="ch6-3.html#p-611">in-context</a></span>
+<p data-braille="continuation">If these are independent, then we can form the general solution using <a class="xref" data-knowl="./knowl/diffeq-system-genthm.html" title="Theorem 5.3.9: The General Solution theorem">Theorem 5.3.9</a>, the general solution theorem.  Take the Wronkian:</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+W\left[\mathbf{x}^{(1)},\mathbf{x}^{(2)}\right]=\left|\begin{array}{cc}
+e^{2t} \amp e^{-4t}\\
+0 \amp -2e^{-4t}
+\end{array}\right|=-2e^{-2t}\neq0
+\end{equation*}
+</div>
+<p data-braille="continuation">hence \(\left\{ \mathbf{x}^{(1)},\mathbf{x}^{(2)}\right\} \) forms a <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">fundamental set of solutions</dfn>. Another way to show they are linearly indepenent is to remember that these vectors are in completely different lines and are not multiples of each other. Therefore they are independent! Thus the <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">general solution</dfn> is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\mathbf{x}(t)=c_{1}e^{2t}\left(\begin{array}{c}
+1\\
+0
+\end{array}\right)+c_{2}e^{-4t}\left(\begin{array}{c}
+1\\
+-2
+\end{array}\right).
+\end{equation*}
+</div>
+<span class="incontext"><a href="ch5-4.html#p-611">in-context</a></span>
 </body>
 </html>

@@ -1,51 +1,75 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
 <html lang="en-US">
-<!--**************************************-->
-<!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-18T16:29:41-04:00    *-->
-<!--*                                    *-->
-<!--*      https://pretextbook.org       *-->
-<!--*                                    *-->
-<!--**************************************-->
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:55-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body>
-<article class="example-like"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">6.7.4</span>.</h6>
-<p>Find the inverse Laplace transform of</p>
-<div class="displaymath">
+<article class="example example-like"><h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.3.8</span><span class="period">.</span>
+</h6>
+<p>Use Laplace Transforms to solve:</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-H(s)=\frac{30}{\left(s-3\right)^{3}(s^{2}+25)}
+y^{\prime\prime}-4y^{\prime}+5y=2e^{t},\,\,\,y(0)=3,y^{\prime}(0)=1.
 \end{equation*}
 </div>
-<p>Split up \(H(S)=F(s)G(s)\) where \(F(s)=\frac{2}{(s-3)^{3}}\) and \(G(s)=\frac{5}{s^{2}+25}\) so that</p>
-<div class="displaymath">
+<p>Step 1: Find the Laplace Transform of the ODE (The going forwards part). Recall the formulas \(\mathcal{L}\left\{ f^{\prime}(t)\right\} =s\mathcal{L}\left\{ f(t)\right\} -f(0)\) and \(\mathcal{L}\left\{ f^{\prime\prime}(t)\right\} =s^{2}\mathcal{L}\left\{ f(t)\right\} -sf(0)-f^{\prime}(0)\text{.}\) Applying \(\mathcal{L}\) to both sides we get</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+\mathcal{L}\left\{ y^{\prime\prime}-4y^{\prime}+5y\right\}  \amp =\mathcal{L}\left\{ 2e^{t}\right\} ,\iff\\
+\left[s^{2}\mathcal{L}\left\{ y\right\} -sy(0)-y^{\prime}(0)\right]-4\left[s\mathcal{L}\left\{ y\right\} -y(0)\right]+5\mathcal{L}\left\{ y\right\}  \amp =\frac{2}{s-1},\iff\\
+s^{2}\mathcal{L}\left\{ y\right\} -3s-1-4s\mathcal{L}\left\{ y\right\} +12+5\mathcal{L}\left\{ y\right\}  \amp =\frac{2}{s-1},\iff\\
+\mathcal{L}\left\{ y\right\} \left(s^{2}-4s+5\right) \amp =\frac{2}{s-1}+3s-11,\iff
+\end{align*}
+</div>
+<p>Step 2: Solve for \(\mathcal{L}\left\{ y\right\} \) using algebra: and get</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-H(s)=3\cdot\frac{2!}{(s-3)^{2+1}}\cdot\frac{5}{s^{2}+5^{2}}
+\mathcal{L}\left\{ y\right\} =\frac{2}{\left(s-1\right)\left(s^{2}-4s+5\right)}+\frac{3s-11}{s^{2}-4s+5}.
 \end{equation*}
 </div>
-<p>and since</p>
-<div class="displaymath">
+<p>Step 3: Do Partial Fractions and complete the square:</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\frac{2}{\left(s-1\right)\left(s^{2}-4s+5\right)}=\frac{A}{s-1}+\frac{Bs+C}{s^{2}-4s+5}
+\end{equation*}
+</div>
+<p data-braille="continuation">and get \(A=1,B=-1,C=3\) so that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\frac{2}{\left(s-1\right)\left(s^{2}-4s+5\right)}=\frac{1}{s-1}+\frac{-s+3}{s^{2}-4s+5}
+\end{equation*}
+</div>
+<p>Step 4: The inverse Laplace transform:</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{align*}
-\mathcal{L}^{-1}\left\{ F\right\}  \amp =\mathcal{L}^{-1}\left\{ \frac{2!}{(s-3)^{2+1}}\right\} =t^{2}e^{3t},\\
-\mathcal{L}^{-1}\left\{ G\right\}  \amp =\mathcal{L}^{-1}\left\{ \frac{5}{s^{2}+5^{2}}\right\} =\sin\left(5t\right)
+\amp y=\mathcal{L}^{-1}\left\{ \mathcal{L}\left\{ y\right\} \right\} \\
+\amp =\mathcal{L}^{-1}\left\{ \frac{1}{s-1}+\frac{-s+3}{s^{2}-4s+5}+\frac{3s-11}{s^{2}-4s+5}\right\} \\
+\amp =\mathcal{L}^{-1}\left\{ \frac{1}{s-1}\right\} +\mathcal{L}^{-1}\left\{ \frac{2s-8}{s^{2}-4s+5}\right\} 
 \end{align*}
 </div>
-<p>so that</p>
-<div class="displaymath">
-\begin{align*}
-\mathcal{L}^{-1}\left\{ H(s)\right\}  \amp =3\int_{0}^{t}f(t-\tau)g(\tau)d\tau\\
-\amp =3\int_{0}^{t}(t-\tau)^{2}e^{3(t-\tau)}\sin\left(5\tau\right)d\tau
-\end{align*}
+<p data-braille="continuation">and recall that from an above example</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\mathcal{L}^{-1}\left\{ \frac{2s-8}{s^{2}-4s+5}\right\} =2e^{2t}\cos t-4e^{2t}\sin t
+\end{equation*}
 </div>
-<p>but you also need to be prepared that one of the possible solutions is</p>
-<div class="displaymath">
+<p data-braille="continuation">hence</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{align*}
-\mathcal{L}^{-1}\left\{ H(s)\right\}  \amp =3\int_{0}^{t}f(\tau)g(t-\tau)d\tau\\
-\amp =3\int_{0}^{t}\tau^{2}e^{3\tau}\sin\left(5\left(t-\tau\right)\right)d\tau.
+y \amp =\mathcal{L}^{-1}\left\{ \frac{1}{s-1}\right\} +\mathcal{L}^{-1}\left\{ \frac{2s-8}{s^{2}-4s+5}\right\} \\
+\amp =e^{t}+2e^{2t}\cos t-4e^{2t}\sin t.
 \end{align*}
-</div></article><span class="incontext"><a href="ch6-7.html#example-131">in-context</a></span>
+</div></article><span class="incontext"><a href="ch6-3.html#example-131">in-context</a></span>
 </body>
 </html>

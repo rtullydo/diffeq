@@ -1,17 +1,19 @@
-<!DOCTYPE html>
-<!--**************************************-->
-<!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-18T16:29:38-04:00    *-->
-<!--*                                    *-->
-<!--*      https://pretextbook.org       *-->
-<!--*                                    *-->
-<!--**************************************-->
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:24-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
 <html lang="en-US">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>The Method of Undetermined Coefficients</title>
 <meta name="Keywords" content="Authored in PreTeXt">
-<meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
@@ -24,7 +26,7 @@ MathJax.Hub.Config({
     jax: ["input/AsciiMath"],
     extensions: ["asciimath2jax.js"],
     TeX: {
-        extensions: ["extpfeil.js", "autobold.js", "https://pretextbook.org/js/lib/mathjaxknowl.js", ],
+        extensions: ["extpfeil.js", "autobold.js", "https://pretextbook.org/js/lib/mathjaxknowl.js", "AMScd.js", ],
         // scrolling to fragment identifiers is controlled by other Javascript
         positionToHash: false,
         equationNumbers: { autoNumber: "none", useLabelIds: true, },
@@ -41,23 +43,21 @@ MathJax.Hub.Config({
         mtextFontInherit: true,
     },
 });
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.12/pretext.js"></script><script src="https://pretextbook.org/js/0.12/pretext_add_on.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/pretext.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/toc.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/colors_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/setcolors.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/features.css" rel="stylesheet" type="text/css">
-<script>var logged_in = false;
-var role = 'student';
-var guest_access = true;
-var login_required = false;
-var js_version = 0.12;
-</script>
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="mathbook-book has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div class="hidden-content" style="display:none">\(\DeclareMathOperator{\RE}{Re}
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" class="hidden-content" style="display:none">\(\DeclareMathOperator{\RE}{Re}
   \DeclareMathOperator{\IM}{Im}
   \DeclareMathOperator{\ess}{ess}
   \DeclareMathOperator{\intr}{int}
@@ -160,7 +160,7 @@ var js_version = 0.12;
 <p class="byline">Phanuel Mariano, Ryan Tully-Doyle</p>
 </div>
 </div></div>
-<nav id="primary-navbar" class="navbar"><div class="container">
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
 <div class="navbar-top-buttons">
 <button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="ch4-1.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch-4.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="ch5.html" title="Next">Next</a></span></div>
 </div>
@@ -168,9 +168,9 @@ var js_version = 0.12;
 <button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="ch4-1.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch-4.html" title="Up">Up</a><a class="next-button button toolbar-item" href="ch5.html" title="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
-<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
 <nav id="toc"><ul>
-<li class="link"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
 <li class="link">
 <a href="introduction.html" data-scroll="introduction"><span class="codenumber">1</span> <span class="title">Introduction</span></a><ul>
 <li><a href="ch1-1.html" data-scroll="ch1-1">Modeling via differential equations, some solutions and definitions</a></li>
@@ -198,9 +198,9 @@ var js_version = 0.12;
 <li><a href="ch3-4.html" data-scroll="ch3-4">Complex roots of the characteristic equation</a></li>
 <li><a href="ch3-5.html" data-scroll="ch3-5">Repeated roots; Reduction of order</a></li>
 <li><a href="ch3-6.html" data-scroll="ch3-6">Non-homogeneous equations - Undetermined coefficients</a></li>
-<li><a href="ch3-7.html" data-scroll="ch3-7">Variation of Parameters</a></li>
 <li><a href="ch3-8.html" data-scroll="ch3-8">Harmonic oscillations</a></li>
 <li><a href="ch3-9.html" data-scroll="ch3-9">Forced oscillations</a></li>
+<li><a href="ch3-7.html" data-scroll="ch3-7">Variation of Parameters</a></li>
 </ul>
 </li>
 <li class="link">
@@ -210,9 +210,14 @@ var js_version = 0.12;
 </ul>
 </li>
 <li class="link">
-<a href="ch5.html" data-scroll="ch5"><span class="codenumber">5</span> <span class="title">Series Solutions</span></a><ul>
-<li><a href="ch5-1.html" data-scroll="ch5-1">Power Series</a></li>
-<li><a href="ch5-2.html" data-scroll="ch5-2">Method of series solutions</a></li>
+<a href="ch5.html" data-scroll="ch5"><span class="codenumber">5</span> <span class="title">Systems of First Order Linear Equations</span></a><ul>
+<li><a href="ch5-1.html" data-scroll="ch5-1">Systems of First Order Linear Equations</a></li>
+<li><a href="ch5-2.html" data-scroll="ch5-2">Review of Matrices, Vector Fields, Phase Planes and Portraits</a></li>
+<li><a href="ch5-3.html" data-scroll="ch5-3">Systems of Linear Equations: Linear Independence, and the General Solution Theorem</a></li>
+<li><a href="ch5-4.html" data-scroll="ch5-4">Basic Theory of Systems of 1st Order Linear EQs - Straight Line Solutions</a></li>
+<li><a href="ch5-5.html" data-scroll="ch5-5">Phase Portraits for systems with real eigenvalues</a></li>
+<li><a href="ch5-6.html" data-scroll="ch5-6">Complex Eigenvalues</a></li>
+<li><a href="ch5-7.html" data-scroll="ch5-7">Repeated and zero eigenvalues</a></li>
 </ul>
 </li>
 <li class="link">
@@ -226,7 +231,13 @@ var js_version = 0.12;
 <li><a href="ch6-7.html" data-scroll="ch6-7">The convolution integral</a></li>
 </ul>
 </li>
-<li class="link"><a href="backmatter-1.html" data-scroll="backmatter-1"><span class="title">Back Matter</span></a></li>
+<li class="link">
+<a href="ch7.html" data-scroll="ch7"><span class="codenumber">7</span> <span class="title">Series Solutions</span></a><ul>
+<li><a href="ch7-1.html" data-scroll="ch7-1">Power Series</a></li>
+<li><a href="ch7-2.html" data-scroll="ch7-2">Method of series solutions</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1"><span class="title">Back Matter</span></a></li>
 <li class="link"><a href="quadratic.html" data-scroll="quadratic"><span class="codenumber">A</span> <span class="title">A fast quadratic method</span></a></li>
 <li class="link">
 <a href="exercises.html" data-scroll="exercises"><span class="codenumber">B</span> <span class="title">Exercises for Chapter 1</span></a><ul>
@@ -254,8 +265,9 @@ var js_version = 0.12;
 <li><a href="ex3-4.html" data-scroll="ex3-4">Section 3.4</a></li>
 <li><a href="ex3-5.html" data-scroll="ex3-5">Section 3.5</a></li>
 <li><a href="ex3-6.html" data-scroll="ex3-6">Section 3.6</a></li>
-<li><a href="ex3-7.html" data-scroll="ex3-7">Section 3.7</a></li>
-<li><a href="ex3-8.html" data-scroll="ex3-8">Section 3.8/Section 3.9</a></li>
+<li><a href="ex3-8.html" data-scroll="ex3-8">Section 3.7</a></li>
+<li><a href="ex3-9.html" data-scroll="ex3-9">Section 3.8</a></li>
+<li><a href="ex3-7.html" data-scroll="ex3-7">Section 3.9</a></li>
 </ul>
 </li>
 <li class="link">
@@ -265,7 +277,18 @@ var js_version = 0.12;
 </ul>
 </li>
 <li class="link">
-<a href="appendix-6.html" data-scroll="appendix-6"><span class="codenumber">F</span> <span class="title">Exercises for Chapter 6</span></a><ul>
+<a href="appendix-6.html" data-scroll="appendix-6"><span class="codenumber">F</span> <span class="title">Exercises for Chapter 5</span></a><ul>
+<li><a href="ex5-1.html" data-scroll="ex5-1">Section 5.1</a></li>
+<li><a href="ex5-2.html" data-scroll="ex5-2">Section 5.2</a></li>
+<li><a href="ex5-3.html" data-scroll="ex5-3">Section 5.3</a></li>
+<li><a href="ex5-4.html" data-scroll="ex5-4">Section 5.4</a></li>
+<li><a href="ex5-5.html" data-scroll="ex5-5">Section 5.5</a></li>
+<li><a href="ex5-6.html" data-scroll="ex5-6">Section 5.6</a></li>
+<li><a href="ex5-7.html" data-scroll="ex5-7">Section 5.7</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="appendix-7.html" data-scroll="appendix-7"><span class="codenumber">G</span> <span class="title">Exercises for Chapter 6</span></a><ul>
 <li><a href="ex6-1.html" data-scroll="ex6-1">Section 6.1</a></li>
 <li><a href="ex6-2.html" data-scroll="ex6-2">Section 6.2</a></li>
 <li><a href="ex6-3.html" data-scroll="ex6-3">Section 6.3</a></li>
@@ -275,32 +298,33 @@ var js_version = 0.12;
 </li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
-<main class="main"><div id="content" class="pretext-content"><section class="section" id="ch4-2"><h2 class="heading hide-type">
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="ch4-2"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">4.2</span> <span class="title">The Method of Undetermined Coefficients</span>
 </h2>
-<a href="ch4-2.html" class="permalink">¶</a><p id="p-488">We consider</p>
+<p id="p-498">We consider</p>
 <div class="displaymath">
 \begin{equation*}
 y^{(n)}+p_{n-1}(t)y^{(n-1)}+\cdots+p_{1}(t)y^{\prime}+p_{0}(t)y=g(t)
 \end{equation*}
 </div>
-<p>where \(g(t)\) can be a polynomial, sin, cos, exp or products of these. Recall the general solution is of the form: \(y=y_{h}+y_{p}\) where \(y_{h}\) is the general solution of the corresponding homogeneous equation and \(y_{p}\) is a particular solution to the non-homogeneous equation.</p>
-<article class="example-like" id="example-81"><a data-knowl="" class="id-ref" data-refid="hk-example-81"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">4.2.1</span>.</h6></a></article><div id="hk-example-81" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-489">Find the general solution of</p>
+<p data-braille="continuation">where \(g(t)\) can be a polynomial, sin, cos, exp or products of these. Recall the general solution is of the form: \(y=y_{h}+y_{p}\) where \(y_{h}\) is the general solution of the corresponding homogeneous equation and \(y_{p}\) is a particular solution to the non-homogeneous equation.</p>
+<article class="example example-like" id="example-81"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-81"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.1</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-81"><article class="example example-like"><p id="p-499">Find the general solution of</p>
 <div class="displaymath">
 \begin{equation*}
 y^{\prime\prime\prime}-y^{\prime\prime}-y^{\prime}+y=2e^{-t}+3.
 \end{equation*}
 </div>
-<p>(Hint: \(r^{3}-r^{2}-r+1=\left(r-1\right)\left(r-1\right)\left(r+1\right)\))</p>
-<p id="p-490">Step 1: We find \(y_{h}\text{:}\) Solve \(r^{3}-r^{2}-r+1=0\text{,}\) but by the hint</p>
+<p data-braille="continuation">(Hint: \(r^{3}-r^{2}-r+1=\left(r-1\right)\left(r-1\right)\left(r+1\right)\))</p>
+<p id="p-500">Step 1: We find \(y_{h}\text{:}\) Solve \(r^{3}-r^{2}-r+1=0\text{,}\) but by the hint</p>
 <div class="displaymath">
 \begin{equation*}
 \left(r-1\right)\left(r-1\right)\left(r+1\right)=0
 \end{equation*}
 </div>
-<p>so that \(y_{h}=c_{1}e^{t}+c_{2}te^{t}+c_{3}e^{-t}\text{.}\)</p>
-<p id="p-491">Step 2: Find \(y_{p}\text{:}\) We first guess \(y_{p}=Ae^{-t}+B\text{,}\) but there are repeats with \(y_{h}\) hence we get a second guess of</p>
+<p data-braille="continuation">so that \(y_{h}=c_{1}e^{t}+c_{2}te^{t}+c_{3}e^{-t}\text{.}\)</p>
+<p id="p-501">Step 2: Find \(y_{p}\text{:}\) We first guess \(y_{p}=Ae^{-t}+B\text{,}\) but there are repeats with \(y_{h}\) hence we get a second guess of</p>
 <div class="displaymath">
 \begin{align*}
 y_{p} \amp =Ate^{-t}+B\\
@@ -309,7 +333,7 @@ y_{p}^{\prime\prime} \amp =-Ae^{-t}-Ae^{-t}+Ate^{-t}=-2Ae^{-t}+Ate^{-t}\\
 y_{p}^{\prime\prime\prime} \amp =2Ae^{-t}+Ae^{-t}-Ate^{-t}=3Ae^{-t}-Ate^{-t}
 \end{align*}
 </div>
-<p>Hence</p>
+<p data-braille="continuation">Hence</p>
 <div class="displaymath">
 \begin{align*}
 LHS \amp =3Ae^{-t}-Ate^{-t}\\
@@ -319,97 +343,98 @@ LHS \amp =3Ae^{-t}-Ate^{-t}\\
 \amp =4Ae^{-t}+B
 \end{align*}
 </div>
-<p id="p-492">Step 3: Set LHS=RHS so that</p>
+<p id="p-502">Step 3: Set LHS=RHS so that</p>
 <div class="displaymath">
 \begin{equation*}
 LHS=4Ae^{-t}+B=2e^{-t}+3=RHS
 \end{equation*}
 </div>
-<p>hence</p>
+<p data-braille="continuation">hence</p>
 <div class="displaymath">
 \begin{align*}
 4A=2 \amp ,B=3\\
 A=\frac{1}{2}
 \end{align*}
 </div>
-<p>hence</p>
+<p data-braille="continuation">hence</p>
 <div class="displaymath">
 \begin{equation*}
 y_{p}=\frac{1}{2}te^{-t}+3
 \end{equation*}
 </div>
-<p>so that the General Solution is</p>
+<p data-braille="continuation">so that the General Solution is</p>
 <div class="displaymath">
 \begin{equation*}
 y=c_{1}e^{t}+c_{2}te^{t}+c_{3}e^{-t}+\frac{1}{2}te^{-t}+3.
 \end{equation*}
 </div></article></div>
-<article class="example-like" id="example-82"><a data-knowl="" class="id-ref" data-refid="hk-example-82"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">4.2.2</span>.</h6></a></article><div id="hk-example-82" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-493">Consider</p>
+<article class="example example-like" id="example-82"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-82"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.2</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-82"><article class="example example-like"><p id="p-503">Consider</p>
 <div class="displaymath">
 \begin{equation*}
 y^{\prime\prime\prime}+4y^{\prime}=t+\sin(4t).
 \end{equation*}
 </div>
-<p>Find the general form of \(y_{p}\text{.}\)</p>
-<p id="p-494">Step 1: We find \(y_{h}\text{:}\) Solve</p>
+<p data-braille="continuation">Find the general form of \(y_{p}\text{.}\)</p>
+<p id="p-504">Step 1: We find \(y_{h}\text{:}\) Solve</p>
 <div class="displaymath">
 \begin{align*}
 r^{3}+4r \amp =0\\
 r\left(r^{2}+4\right) \amp =0
 \end{align*}
 </div>
-<p>so that \(y_{h}=c_{1}+c_{2}\cos2t+c_{3}\sin2t\text{.}\)</p>
-<p id="p-495">Step 2: Find \(y_{p}\text{:}\) We first guess \(y_{p}=At+B+C\cos(4t)+D\sin(4t)\text{.}\) But \(B\) is already in \(y_{c}\) as \(c_{1}\text{.}\) So instead make the second guess \(y_{p}=t\left(At+B\right)+C\cos(4t)+D\sin(4t)\) which is correct.</p></article></div>
-<article class="example-like" id="example-83"><a data-knowl="" class="id-ref" data-refid="hk-example-83"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">4.2.3</span>.</h6></a></article><div id="hk-example-83" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-496">Consider</p>
+<p data-braille="continuation">so that \(y_{h}=c_{1}+c_{2}\cos2t+c_{3}\sin2t\text{.}\)</p>
+<p id="p-505">Step 2: Find \(y_{p}\text{:}\) We first guess \(y_{p}=At+B+C\cos(4t)+D\sin(4t)\text{.}\) But \(B\) is already in \(y_{c}\) as \(c_{1}\text{.}\) So instead make the second guess \(y_{p}=t\left(At+B\right)+C\cos(4t)+D\sin(4t)\) which is correct.</p></article></div>
+<article class="example example-like" id="example-83"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-83"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.3</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-83"><article class="example example-like"><p id="p-506">Consider</p>
 <div class="displaymath">
 \begin{equation*}
 y^{(4)}-2y^{\prime\prime}+y=e^{t}+te^{-t}.
 \end{equation*}
 </div>
-<p>Find the general form of \(y_{p}\text{.}\) (Hint: \(r^{4}-2r^{2}+1=\left(r^{2}-1\right)^{2}\))</p>
-<p id="p-497">Step 1: We find \(y_{h}\text{:}\) Solve</p>
+<p data-braille="continuation">Find the general form of \(y_{p}\text{.}\) (Hint: \(r^{4}-2r^{2}+1=\left(r^{2}-1\right)^{2}\))</p>
+<p id="p-507">Step 1: We find \(y_{h}\text{:}\) Solve</p>
 <div class="displaymath">
 \begin{align*}
 r^{4}-2r^{2}+1 \amp =0\\
 \left(r^{2}-1\right)^{2} \amp =0
 \end{align*}
 </div>
-<p>so that \(y_{h}=c_{1}e^{t}+c_{2}te^{t}+c_{3}e^{-t}+c_{4}te^{-t}\text{.}\)</p>
-<p id="p-498">Step 2: Find \(y_{p}\text{:}\)</p>
+<p data-braille="continuation">so that \(y_{h}=c_{1}e^{t}+c_{2}te^{t}+c_{3}e^{-t}+c_{4}te^{-t}\text{.}\)</p>
+<p id="p-508">Step 2: Find \(y_{p}\text{:}\)</p>
 <ol class="decimal">
 <li id="li-217">First guess: \(y_{p}=Ae^{t}+\left(Bt+C\right)e^{-t}\text{.}\)</li>
 <li id="li-218">Second Guess: \(y_{p}=Ate^{t}+\left(Bt^{2}+Ct\right)e^{-t}\text{.}\)</li>
 <li id="li-219">Third Guess: \(y_{p}=At^{2}e^{t}+\left(Bt^{3}+Ct^{2}\right)e^{-t}\text{.}\)</li>
 </ol></article></div>
-<article class="example-like" id="example-84"><a data-knowl="" class="id-ref" data-refid="hk-example-84"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">4.2.4</span>.</h6></a></article><div id="hk-example-84" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-499">Suppose</p>
+<article class="example example-like" id="example-84"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-84"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.4</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-84"><article class="example example-like"><p id="p-509">Suppose</p>
 <div class="displaymath">
 \begin{equation*}
 y^{(5)}=t^{3},
 \end{equation*}
 </div>
-<p>find the general form for \(y_{p}\text{.}\)</p>
-<p id="p-500">We find \(y_{h}\text{:}\) The roots to \(r^{5}=0\) are</p>
+<p data-braille="continuation">find the general form for \(y_{p}\text{.}\)</p>
+<p id="p-510">We find \(y_{h}\text{:}\) The roots to \(r^{5}=0\) are</p>
 <div class="displaymath">
 \begin{equation*}
 r=0,0,0,0,0
 \end{equation*}
 </div>
-<p>so that</p>
+<p data-braille="continuation">so that</p>
 <div class="displaymath">
 \begin{equation*}
 y_{c} =c_{1}+c_{2}t+c_{3}t^{2}+c_{4}t^{3}+c_{4}t^{4}
 \end{equation*}
 </div>
-<p id="p-501">Step 2: Find \(y_{p}\text{:}\)</p>
+<p id="p-511">Step 2: Find \(y_{p}\text{:}\)</p>
 <ol class="decimal">
 <li id="li-220">First Guess: \(y_{p}=At^{3}+Bt^{2}+Ct+D\)</li>
 <li id="li-221">Final Guess:}} \(y_{p}=t^{5}\left(At^{3}+Bt^{2}+Ct+D\right)\)</li>
 </ol></article></div></section></div></main>
 </div>
-<div class="login-link"><span id="loginlogout" class="login">login</span></div>
-<script src="https://pretextbook.org/js/0.12/login.js"></script>
 </body>
 </html>

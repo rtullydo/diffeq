@@ -1,34 +1,73 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
 <html lang="en-US">
-<!--**************************************-->
-<!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-18T16:29:40-04:00    *-->
-<!--*                                    *-->
-<!--*      https://pretextbook.org       *-->
-<!--*                                    *-->
-<!--**************************************-->
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:50-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body>
-<article class="example-like"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">5.1.4</span>. <span class="title">Integrate \(e^{x^2}\).</span>
+<article class="example example-like"><h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Double Tank Problem.</span>
 </h6>
-<p>We can now answer the question posed at the beginning of this discussion: since \(e^x = \sum \frac{x^k}{k!}\text{,}\) we get</p>
-<div class="displaymath">
-\begin{equation*}
-e^{x^2} = \sum \frac{(x^2)^k}{k!} = \sum \frac{x^{2k}}{k!}.
-\end{equation*}
-</div>
-<p>Then</p>
-<div class="displaymath">
+<p>Salt water with concentration \(3\) g/L of salt flows into tank #1 at a rate \(4\) L/min. at a rate of \(4\) L/min.</p>
+<ul class="disc">
+<li>The well mixed mixture from tank #1 flows into tank #2 at a rate of 4 L/min, and the well mixed mixture of tank #2 flows out at a rate of 4 L/min.</li>
+<li>Tank #1 initially has 30 L of salt water with \(6\) g of salt dissolved in it.</li>
+<li>Tank #2 initially has 20 L of fresh water.</li>
+</ul>
+<p data-braille="continuation"><dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">Question:</dfn> Write a system of ODEs representing this problem. <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">Solution:</dfn></p>
+<p xmlns:svg="http://www.w3.org/2000/svg">Step 1: First we define variables.</p>
+<p xmlns:svg="http://www.w3.org/2000/svg">Let \(x_{1}(t)\) and \(x_{2}(t)\)  be the amount of salt in tank #1 and tank #2, respectively at time \(t \)  (minutes).</p>
+<p xmlns:svg="http://www.w3.org/2000/svg">Step 2: Use \(x_{i}^{\prime}=\text{Rate in }-\text{Rate out}\text{.}\)</p>
+<p>We first get</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{align*}
-\int e^{x^2} \, dx \amp = \int \sum \frac{x^{2k}}{k!}\,dx \\
-\amp = \sum \int \frac{x^{2k}}{k!} \, dx \\
-\amp = \left[\sum \frac{x^{2k+1}}{(2k+1) k!}\right] + C
+x_{1}^{\prime}(t)  \amp =\left(\text{concentration in}\right)\times\text{Rate}-\left(\text{concentration out}\right)\times\text{Rate}   \\
+\amp =3\frac{\text{g}}{L}\cdot4\frac{\text{L}}{\text{min}}-\frac{x_{1}(t)}{\text{water in tank 1 at time t}}\cdot 4\frac{\text{L}}{\text{min}}
 \end{align*}
 </div>
-<p>This function has no closed form, but the result can be worked with easily (for example, in approximation).</p></article><span class="incontext"><a href="ch5-1.html#example-85">in-context</a></span>
+<p data-braille="continuation">but since</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\text{water at time }t=30+\left(4-4\right)t=30
+\end{equation*}
+</div>
+<p data-braille="continuation">hence</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+x_{1}^{\prime}(t) =12-\frac{4x_{1}(t)}{30},x_{1}(0)=6.
+\end{equation*}
+</div>
+<p>Step 3: Use \(x_{i}^{\prime}=\text{Rate in }-\text{Rate out}\text{.}\) We first get</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+x_{2}^{\prime}(t)  \amp =\left(\begin{array}{c}
+\mbox{concentration}\\
+\mbox{of salt coming in}
+\end{array}\right)\times\mbox{Rate}-\left(\begin{array}{c}
+\mbox{concentration}\\
+\mbox{of salt coming out}
+\end{array}\right)\times\mbox{Rate}  \\
+\amp =\frac{x_{1}(t)}{30}\frac{\text{g}}{L}\cdot4\frac{\text{L}}{\text{min}}-\frac{x_{2}(t)}{20+(4-4)t}\cdot4\frac{\text{L}}{\text{min}}\\
+\amp =\frac{4x_{1}(t)}{30}-\frac{4x_{2}(t)}{20},\,\,\,\,\,x_{2}(0)=0
+\end{align*}
+</div>
+<p data-braille="continuation">Putting it together, the system we have is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\begin{cases}
+x_{1}^{\prime}=12-\frac{2}{15}x_{1} \amp x_{1}(0)=6.\\
+x_{2}^{\prime}=\frac{4}{30}x_{1}-\frac{1}{5}x_{2} \amp x_{2}(0)=0
+\end{cases}
+\end{equation*}
+</div></article><span class="incontext"><a href="ch5-1.html#example-85">in-context</a></span>
 </body>
 </html>

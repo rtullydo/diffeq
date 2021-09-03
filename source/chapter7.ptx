@@ -1,0 +1,365 @@
+<chapter xml:id="ch7">
+    <title>Series Solutions</title>
+    <section xml:id="ch7-1">
+        <title>Power Series</title>
+        <p>Suppose that we're given the problem
+        <me>
+            \frac{dy}{dx} = e^{x^2}.
+        </me>
+        This is pretty obviously a separable differential equation, and after resorting we get
+        <me>
+            dy = e^{x^2} \,dx,
+        </me>
+        and so 
+        <me>
+            y = \int e^{x^2} \, dx.
+        </me>
+        Unfortunately, the function <m>e^{x^2}</m> (an enormously useful function that shows up regularly in probability and statistics in the form of the Gaussian or normal distribution), despite being a very nice function, <em>has no closed form antiderivative</em>. That is, there is no function that I can write down for <m>y</m>. Can we really not solve a problem like <m>\int_0^1 e^{x^2}\, dx</m>?</p>
+
+        <p>In calculus, we learn that one approach to a large class of problems like this is to use <term>power series</term>, which are expressions of the form
+        <me>
+            \sum_{k=0}^\infty a_k(x - a)^k = a_0 + a_1 (x-a) + a_2 (x-a)^2 + \ldots
+        </me>
+        where <m>a_0, a_1,\ldots</m> are constants. (We'd really like to think of a power series like giant polynomial, but this is isn't always justified...)</p>
+
+        <p>A power series <term>converges at <m>x_0</m></term> if
+        <me>
+            \lim_{n \to \infty} a_0 + a_1 (x_0 - a) + \ldots + a_n (x_0 -a)^n = \lim_{n\to \infty} \sum_{k=0}^{\infty} a_k (x_0 - a)^k = \lim_{n\to \infty} S_n \text{ exists.}
+        </me>
+        The function <m>S_n(x)</m> is called the <term><m>n</m>th partial sum</term>. Often times, we'll use the shorthand notation
+        <me>
+            \sum_{k=0}^\infty a_k (x - a)^k = \lim_{n\to\infty} \sum_{k=0}^n a_k(x-a)^k
+        </me>
+        to represent the limit of the partial sums.</p>
+
+        <p>The constant <m>a</m> is called the center of the power series. A power series centered at <m>a</m> always converges at <m>x = a</m> (since all but one of the terms is <m>0</m>). If there is <em>any</em> other point for the series converges, we call it a <term>convergent power series</term>. If a series fails to converge anywhere except at <m>x = a</m>, we call it a <term>divergent power series</term>. A series is called <term>absolutely convergent</term> at <m>x_0</m> if
+        <me>
+            \sum_{k=0}^\infty \abs{a_k} \abs{ x_0-a}^k \text{ exists.}
+        </me></p>
+
+        <p>If a powre series converges absolutely for some <m>x = x_0</m>, then it also converges for every value of <m>x</m> closer to the center <m>a</m> than <m>x_0</m> - that is, the series converges for <m>\abs{x - a} \lt \abs{x_0 - a}</m>. The proof of this follows from the squeeze theorem and properties of positive series.
+        <md>
+            <mrow>\amp \abs{x - a} \leq \abs{x_0 - a}</mrow>
+            <mrow>\amp \Leftrightarrow \sum_{k=0}^n \abs{a_k}\abs{x - a}^k \leq \sum_{k=0}^m \abs{a_k}\abs{x_0 - a}^k</mrow>
+            <mrow>\amp \Leftrightarrow \lim_{n \to \infty} \sum_{k=0}^n \abs{a_k}\abs{x - a}^k \leq \lim_{n \to \infty} \sum_{k=0}^m \abs{a_k}\abs{x_0 - a}^k</mrow>
+        </md>
+        and since the larger sum exists, so too must the smaller. This leads to a question of some importance with power series generally - for a given center <m>a</m>, what is the largest set around <m>a</m> on which the series converges? absolutely? The largest number <m>\rho</m> for which a power series centered at <m>a</m> converges for every <m>x \in (a - \rho, a + \rho)</m> (alteratively all <m>x</m> so that <m>\abs{x - a} \lt \rho</m>) is called the <term>radius of convergence</term>. How can we find it?</p>
+
+        <p>Two of the most powerful tests for convergence we encounter in calculus are the root and ratio tests, both of which work very nicely on power series because power series contain terms of the form <m>(x-a)^n</m>.</p>
+
+        <theorem><title>Ratio test for convergence</title>
+            <p>Let <m>\sum_{k=0}^\infty c_k</m> be an infinite series, and suppose that the limit 
+            <me>
+                L = \lim_{n\to\infty} \abs{\frac{c_{k+1}}{c_k}} \text{ exists.}
+            </me>
+            Then the series converges if <m>L \lt 1</m> and diverges if <m>L > 1</m>. If <m>L = 1</m>, the test is inconclusive.</p>
+        </theorem>
+
+        <p>Now let's apply the ratio test to a power series to see if we can discover for which values of <m>x</m> the series converges. Consider the series <m>S = \sum_{k=0}^\infty a_x (x - a)^k</m>. We can apply the ratio test by computing the limit (if it exists) 
+        <md>
+            <mrow>L \amp = \lim_{k \to \infty} \abs{a_{k+1}(x - a)^{k+1}}{a_k(x -a)^k}</mrow>
+            <mrow>\amp = \lim_{k \to \infty} \abs{\frac{a_{k+1}}{a_k}} \abs{x - a}.</mrow>
+        </md>
+        Presuming that <m>L</m> exists, the ratio test says that the series will converge if <m>L \lt 1</m>. Let <m>A = \lim_{k\to\infty} \abs{\frac{a_{k+1}}{a_k}}</m>. Then <m>L \lt 1</m> is equivalent to
+        <md>
+            <mrow>L  = \lim_{k\to\infty} \abs{\frac{a_{k+1}}{a_k}} \abs{x - a} \amp \lt 1</mrow>
+            <mrow>A \abs{x - a} \amp \lt 1</mrow>
+            <mrow>\abs{x -a} \amp \lt \frac{1}{A}</mrow>
+        </md></p>
+
+        <theorem>
+            <p>Let <m>\sum a_k (x-a)^k</m> be a power series centered at <m>a</m> so that <m>A = \lim_{k\to\infty}\frac{a_{k+1}}{a_k}</m> exists. If <m>A = 0</m>, then the radius of convergence for the series is <m>\rho = \infty</m> (that is, the series converges for every <m>x</m>). Otherwise, the radius of converge is <m>\rho = \frac{1}{A}</m>. (that is, the series converges for <m>x \in (a - \rho, a + \rho)</m>).</p>
+        </theorem>
+
+        <p>A convergent power series defines a very special kind of function on its interval of convergence. Let
+        <me>
+            f(x) = \sum_{k=0}^{\infty} a_k (x - a)^k
+        </me>
+        with domain <m>\mathcal D = (a -\rho, a+\rho)</m>. The function <m>f</m> defined this way is called an <term>analytic function</term>. Such functions are extremely nice - they are smooth, they have derivatives to all orders, they can be integrated as many times as one requires. (n.b.: Functions formed from power series are the central object of study in complex analysis, which consequently is a beautiful subject.) </p>
+
+        <p>In calculus, we learn a method for deriving power series of a function called <term>Taylor series</term>. 
+        <definition>
+            If <m>f</m> is analytic on an open interval <m>I</m> centered at <m>a</m>, then for all <m>x \in I</m>,
+            <me>
+                f(x) = \sum_{k=0}^\infty \frac{f^{(k)}(a)}{k!}(x-a)^k;
+            </me>
+            that is, <m>f</m> has a power series centered at <m>a</m> with <m>a_k = \frac{f^{(k)}(a)}{k!}</m>.
+        </definition>
+        Finite Taylor series, called <term>Taylor polynomials</term>, are typically excellent approximations of functions near <m>x=a</m>.</p>
+
+        <p>So why care about this? We can essentially treat Taylor series like <q>infinitely long polynomials</q> where they converge - convergent power series can be treated algebraically like functions and are easily integrated and differentiated:
+        <md>
+            <mrow>\frac{d}{dx} f(x) \amp = \frac{d}{dx} \left[\sum_{k=0}^\infty a_k (x-a)^k\right]</mrow>
+            <mrow>\amp= \sum_{k=0}^\infty \frac{d}{dx} a_k (x-a)^k</mrow>
+            <mrow> \amp = \sum_{k=0}^\infty k a_k (x-a)^{k-1}</mrow>
+            <mrow> \amp = \sum_{k=1}^\infty k a_k (x-a)^{k-1} \hspace{.1in} \text { (first term was 0)}</mrow>
+            <mrow> \amp = \sum_{k=0}^\infty (k+1) a_{k+1} (x-a)^k \hspace{.1in} \text{ (re-index)}</mrow>
+        </md>
+        Taking another derivative gets us an expression for the second derivative of a power series:
+        <me>
+            \frac{d^2}{dx^2} f(x) = \sum_{k=0}^\infty (k+2)(k+1) a_{k+2} (x-a)^k.
+        </me></p>
+
+        <assemblage>
+            <p>If <m>f(x) = \sum_{k=0}^\infty a_k (x-a)^k</m>, then we have
+            <md>
+                <mrow>f'(x) = \sum_{k=0}^\infty (k+1)a_{k+1} (x-a)^k</mrow>
+                <mrow>f''(x) = \sum_{k=0}^\infty (k+2)(k+1) a_{k+2} (x-a)^k</mrow>
+            </md></p>
+        </assemblage>
+
+        <p>We should generally have the following basic power series of common functions memorized:
+        <me>
+            \begin{array}{c|c|c|c|c}
+                f(x) \amp a \amp \sum a_k (x-a)^k \amp \rho \amp \text{IOC} \\ \hline
+                e^x \amp 0 \amp \sum \frac{x^k}{k!} \amp \infty \amp (-\infty, \infty) \\
+                \cos x \amp 0 \amp \sum (-1)^k \frac{x^{2k}}{(2k)!} \amp \infty \amp (-\infty, \infty) \\
+                \sin x \amp 0 \amp \sum (-1)^k \frac{x^{2k+1}}{(2k+1)!} \amp \infty \amp (-\infty, \infty) \\
+                \ln (1+x) \amp 0 \amp \sum (-1)^{k+1} \frac{x^k}{k} \amp 1 \amp (-1, 1) \\
+                \frac{1}{1-x} \amp 0 \amp \sum x^k \amp 1 \amp (-1,1)
+            \end{array}
+        </me></p>
+
+        <example><title>Integrate <m>e^{x^2}</m></title>
+        <p>We can now answer the question posed at the beginning of this discussion: since <m>e^x = \sum \frac{x^k}{k!}</m>, we get
+        <me>
+            e^{x^2} = \sum \frac{(x^2)^k}{k!} = \sum \frac{x^{2k}}{k!}.
+        </me>
+        Then
+        <md>
+            <mrow>\int e^{x^2} \, dx \amp = \int \sum \frac{x^{2k}}{k!}\,dx </mrow>
+            <mrow>\amp = \sum \int \frac{x^{2k}}{k!} \, dx </mrow>
+            <mrow>\amp = \left[\sum \frac{x^{2k+1}}{(2k+1) k!}\right] + C</mrow>
+        </md>
+        This function has no closed form, but the result can be worked with easily (for example, in approximation). </p>
+        </example>
+
+        <example><title>Applying the ratio test</title>
+            <p>Find the radius and interval of convergence of the series
+                <me>
+                    \sum_{k=0}^\infty \frac{(-1)^k}{10^k} (x-5)^k.
+                </me></p>
+
+            <p>To apply the ratio test, we need the terms
+                <me>
+                    c_k = \frac{(-1)^k}{10^k}(x-5)^k
+                </me>
+            and
+            <me>
+                c_{k+1} = \frac{(-1)^{k+1}}{10^{k+1}}(x-5)^{k+1}.
+            </me>
+            Then
+            <md>
+                <mrow>\lim_{k\to \infty} \abs{\frac{c_{k+1}}{c_k}} \amp = \lim_{k\to\infty} \abs{\frac{(-1)^{k+1}(x-5)^{k+1}}{10^{k+1}}\cdot\frac{10^k}{(-1)^k}{(-1)^k(x-5)^k}}</mrow>
+                <mrow>\amp = \lim_{k\to\infty} \abs{\frac{1}{10}(x-5)} = \frac{1}{10}\abs{x-5}</mrow>
+            </md>
+            which by the ratio test will converge if
+            <md>
+                <mrow>\frac{1}{10}\abs{x-5} \amp \lt 1</mrow>
+                <mrow>\text{or } \abs{x-5} \lt 10.</mrow>
+            </md>
+            Then the radius of convergence <m>\rho = 10</m>, and the interval of converge, which has endpoints given by <m>a \pm \rho</m>, is <m>(-5,15)</m>.</p>
+        </example>
+
+    </section>
+
+    <section xml:id="ch7-2">
+        <title>Method of series solutions</title>
+        <p>The idea of this section is to use series to construct solutions to linear differential equations that don't have obvious closed form solutions (which is most of them). First, we need to know that the differential equation is itself sufficiently well-behaved to have analytic solutions.</p>
+
+        <definition xml:id="defordpoint">
+            <p>A point <m>x=x_0</m> is called an <term>ordinary point</term> for a homogeneous second order differential equation of the form
+            <me>
+                y'' + P(x)y' + Q(x)y = 0
+            </me>
+            if <m>P</m> and <m>Q</m> are analytic at <m>x_0</m>. (Typical functions for <m>P,Q</m> are trig functions, exponentials, polynomials, and rational functions, which are analytic away from asymptotes).</p>
+        </definition>
+        <example>
+            <p>Every point <m>x=x_0</m> is ordinary for the differential equation
+            <me>
+                y'' + e^x y = 0.
+            </me></p>
+        </example>
+        <example>
+            <p>Every positive <m>x_0</m> is ordinary for the equation
+            <me>
+                y'' + (\ln x) y = 0.
+            </me>
+            However, <m>\ln x</m> has an asymptote at <m>x=0</m>, so this is a <term>singular point</term> for the equation. (Singular points are important to consider but quite complicated to analyze, and addressed in further advanced courses in ODE).
+            </p>
+        </example>
+
+        <p>The big idea of power series solutions is that if
+        <me>
+            y'' + P y' + Q y = 0
+        </me>
+        then at any ordinary point <m>x = x_0</m> we can find two linearly independent power series centered at <m>x_0</m> that solve the differential equation of the form
+        <me>
+            y = \sum_{k=0}^\infty c_k (x-x_0)^k.
+        </me>
+        The challenge is to find the coefficients <m>c_k</m>.</p>
+
+        <example><title>First order example</title>
+            <p>To illustrate the method, we'll begin with the power series approach to a first order differential equation
+            <me>
+                y' - 2y = 0.
+            </me>
+            Of course, we already know that the solution to this equation should be <m>y = k e^{2x}</m> by the method of characteristic equations, so we should expect our series answer to recover that.</p>
+
+            <p>Since the equation is regular at every point, (2 is analytic), for convenience, we will work at the regular point <m>x = 0</m>. We will assume that the solution <m>y = f(x)</m> is a power series, which gives the expressions
+            <md>
+                <mrow>y \amp = \sum_{k=0}^\infty c_k x^k  = c_0 + c_1 x + c_2 x^2 + \ldots;</mrow>
+                <mrow>y' \amp = \sum_{k=0}^\infty (k+1) c_{k+1} x^k  = c_1 + 2c_2 x + 3c_3 x^2 + \ldots.</mrow>
+            </md>
+            Plugging into the differential equation, we get
+            <md>
+                <mrow>(c_1 + 2c_2 x + 3c_3 x^2 + \ldots) - 2(c_0 + c_1 x + c_2 x^2 + \ldots) \amp = 0</mrow>
+                <mrow>(c_1 - 2c_0) + (2c_2 - 2c_1)x + (3c_3 - 2c_2)x^2 + \ldots\amp = 0.</mrow>
+            </md>
+            What we get when we set all the coefficients equal to 0 is called a <term>recursion</term>: if we know <m>c_0</m>, we can get <m>c_1</m>, which lets us get <m>c_2</m> and so on. We use substitution to get all the values in terms of the first value <m>c_0</m>.
+            <me>
+                \begin{array}{ccc}
+                c_1 - 2c_0 = 0 \amp \Rightarrow \amp c_1 = 2c_0 \\
+                2c_2 - 2c_1 = 0 \amp \Rightarrow \amp c_2 = c_1 = 2c_0 \\
+                3c_3 - 2c_2 = 0 \amp \Rightarrow \amp c_3 = \frac{2}{3}c_2 = \frac{4}{3}c_0 \\
+                4c_4 - 2c_3 = 0 \amp \Rightarrow \amp c_4 = \frac{2}{4}c_3 = \frac{2}{3} c_0 \\
+                \vdots \amp \vdots \amp \vdots
+                \end{array}
+            </me>
+            Now we can substitute these expressions into our assumed solution <m>y</m>:
+            <md>
+                <mrow>y \amp = c_0 + c_1 x + c_2 x^2 + c_3 x^3 + \ldots</mrow>
+                <mrow> \amp = c_0 + (2c_0) x + (2c_0)x^2 + (\frac{4}{3}c_0)x^3 + \ldots</mrow>
+                <mrow>\amp = c_0\underbrace{\left(1 + 2x + 2x^2 + \frac{4}{3} x^3 + \ldots \right)}_{\text{homogeneous solution}}</mrow>
+            </md>
+            The quantity <m>c_0</m> comes from an intital condition, and the series in this case turns out to be the power series of the function <m>e^{2x}</m> (check if you like!).
+            </p>
+        </example>
+
+        <example><title>Airy's equation</title>
+            <p>The next example first appeared in work on optics in 1838. It is a very simple second order linear equation, yet does <em>not have any closed form solutions</em>. That is, the only approach to finding solutions is to use series methods. The solutions turn out to have applications in quantum physics as well as in optics. The equation is the straightforward looking
+            <me>
+                y'' - x y = 0.
+            </me></p>
+
+            <p>Since <m>P = 0</m> and <m>Q = x</m>, both of which are analytic functions, series solutions exist everywhere, so we assume a center point of <m>x_0 = 0</m>. Then we have the expressions
+            <md>
+                <mrow>y = \sum_{k=0}^\infty c_k x^k = c_0 + c_1 x + c_2 x^2 + c_3 x^3 + c_4 x^4 + \ldots</mrow>
+                <mrow>y' = \sum_{k=0}^\infty (k+1) c_{k+1} x^k = c_1 + 2c_2 x + 3 c_3 x^2 + 4 c_4 x^3 + \ldots</mrow>
+                <mrow>y'' = \sum_{k=0}^\infty (k+2)(k+1) c_{k+2} x^k = 2c_2 + 6c_3 x + 12 c_4 x^2 + 20c_5 x^3 + \ldots</mrow>
+            </md>
+            Plugging into Airy's equation, we get
+            <md>
+                <mrow>\amp(2c_2 + 6c_3 x + 12 c_4 x^2 + 20c_5 x^3 + \ldots)</mrow>
+                <mrow>\amp\hspace{1in} - x(c_0 + c_1 x + c_2 x^2 + c_3 x^3 + c_4 x^4 + \ldots) = 0</mrow>
+                <mrow>\amp(2c_2 + 6c_3 x + 12 c_4 x^2 + 20c_5 x^3 + \ldots)</mrow>
+                <mrow>\amp\hspace{1in} - (c_0 x + c_1 x^2 + c_2 x^3 + c_3 x^4 + c_4 x^5 + \ldots) = 0</mrow>
+                <mrow>\amp\text{which resorts into}</mrow>
+                <mrow>\amp2c_2 + (6c_3 - c_0)x + (12c_4 - c_1)x^2 + (20c_5 - c_2)x^3 </mrow>
+                <mrow>\amp\hspace{1in}+ (30c_6 - c_3)x^4 + (42c_7 - c_4)x^5 + \ldots = 0</mrow>
+            </md>
+            Now we set the coefficients of each term equal to 0.</p> 
+            <p>First, notice that <m>2c_2 =0</m> means that <m>c_2 = 0</m>. But <m>20c_5 - c_2 = 0</m>, and so <m>c_5 =0</m> as well. Since, <m>c_8</m> is given in terms of <m>c_5</m>, <m>c_8</m> is also 0, and so on for the family of coefficients <m>c_2, c_5, c_8, c_{11}, \ldots</m>. The is one family of coefficients.</p>
+
+            <p>The second family is in terms of <m>c_0</m>:
+            <me>
+                \begin{array}{ccc}
+                    6c_3 - c_0 = 0 \amp \Rightarrow \amp c_3 = \frac{1}{6} c_0 \\
+                    30 c_6 - c_3 = 0 \amp \Rightarrow \amp c_6 = \frac{1}{6\cdot 5} c_3 = \frac{1}{6\cdot5\cdot3\cdot2} c_0 \\
+                    72 c_9 - c_6 = 0 \amp \Rightarrow \amp c_9 = \frac{1}{9\cdot 8} c_6 = \frac{1}{9\cdot8\cdot6\cdot5\cdot3\cdot2}c_0\\
+                    \vdots \amp \vdots \amp \vdots
+                \end{array}
+            </me>
+            which gives expressions for <m>c_3, c_6, c_9, c_12, \ldots</m> in terms of <m>c_0</m> (this will correspond to the first linearly independent solution).</p>
+
+            <p>The third family of solutions is given by <m>c_1</m>:
+            <me>
+                \begin{array}{ccc}
+                    12c_4 - c_1 = 0 \amp \Rightarrow \amp c_4 = \frac{1}{4\cdot3}c_1 \\
+                    42c_7 - c_3 = 0 \amp \Rightarrow \amp c_7 = \frac{1}{7\cdot6}c_3 = \frac{1}{7\cdot6\cdot4\cdot3}c_1 \\
+                    90c_{10} -  c_7 \amp \Rightarrow \amp c_{10} = \frac{1}{10\cdot9\cdot 7\cdot6\cdot 4\cdot3}c_1 \\
+                    \vdots \amp \vdots \amp \vdots
+                \end{array}
+            </me>
+            which gives expressions for <m>c_4, c_7, c_{10}, c_{13}, \ldots</m> in terms of <mc>c_1</mc> (this represents the second linearly independent solution).</p>
+
+            <p>Then we are ready to solve the equation. Starting with our assumed solution of the form <m>y = \sum c_k x^k</m> and sorting into the three families we've identified, we get
+            <md>
+                <mrow>y \amp = c_0 + c_1 x + c_2 x^2 + c_3 x^3 \ldots</mrow>
+                <mrow>\amp = c_0 + c_3 x^3 + c_6 x^6 + c_9 x^9 + \ldots \hspace{.5in} c_0 \text{ family}</mrow>
+                <mrow>\amp \phantom{=} + c_1 x + c_4 x^4 + c_7 x^7 + c_{10} x^{10} + \ldots \hspace{.5in} c_1 \text{ family}</mrow>
+                <mrow> \amp \phantom{=} + c_2 x^2 + c_5 x^5 + c_8 x^8 + \ldots \hspace{.5in} c_2 \text{ family}</mrow>
+                 <mrow>\amp = c_0\left( 1 + \frac{1}{3\cdot2} x^3 + \frac{1}{6\cdot5\cdot3\cdot2} x^6 + \frac{1}{9\cdot8\cdot6\cdot5\cdot3\cdot2}x^9 + \ldots \right)</mrow>
+                <mrow>\amp \phantom{=} + c_1\left( x + \frac{1}{4\cdot3} x^4 + \frac{1}{7\cdot6\cdot4\cdot3} x^7 + \frac{1}{10\cdot9\cdot 7\cdot6\cdot 4\cdot3} x^{10} + \ldots\right) </mrow>
+                <mrow> \amp \phantom{=} + 0 + 0 + 0 + 0 + \ldots </mrow>
+            </md></p>
+            
+            <p>Then the two linearly independent solutions to Airy's equation are
+            <me>
+                y_1 = 1 + \frac{1}{3\cdot2} x^3 + \frac{1}{6\cdot5\cdot3\cdot2} x^6 + \frac{1}{9\cdot8\cdot6\cdot5\cdot3\cdot2}x^9 + \ldots
+            </me>
+            and
+            <me>
+                y_2 = x + \frac{1}{4\cdot3} x^4 + \frac{1}{7\cdot6\cdot4\cdot3} x^7 + \frac{1}{10\cdot9\cdot 7\cdot6\cdot 4\cdot3} x^{10} + \ldots
+            </me>
+            where neither function has a closed form. (The complicated behavior of the solutions is part of why there isn't much better than a series or improper integral form, as can be seen from their plots. The plot below is a slight rearrangment of the two solutions into a different fundamental set, but preserves the same behavior - namely, the functions are oscillating and then become exponential.)</p>
+
+            <sage>
+                <input>
+                    y =  Graphics();
+                    y += plot(airy_ai(x), (x,-10,5), ymin = -1, ymax = 1, color = 'red');
+                    y += plot(airy_bi(x), (x,-10,5), ymin = -1, ymax = 1);
+                    y.show()
+                </input>
+            </sage>
+        </example>
+
+        <example><title>Bessel equations</title>
+            <p>Another important example is the so callled <term>Bessel Differential Equation</term>:
+                <me>
+                x^{2}y^{\prime\prime}+xy^{\prime}+\left(x^{2}-\nu^{2}\right)y=0,\,\,\,\,\,\,x>0
+                </me>
+                where <m>\nu</m> is some constant. 
+                For sake of simplicity, let us pick <m>\nu=0</m>, so that 
+                <me>
+                x^{2}y^{\prime\prime}+xy^{\prime}+x^{2}y=0\,\,\,\,\,\,x>0
+                </me>
+                and we can rewrite this equation by dividing by <m>x^{2}</m> to get 
+                <me>
+                y^{\prime\prime}+\frac{1}{x}y^{\prime}+y=0,\,\,\,\,\,\,x>0.
+                </me>
+                Much like Airy's equation, this seems like such a simple equation, but it turns out there is no nice solution in terms
+                of elementary functions. In turns out that one way to solve this Bessel ODE is to use
+                power series. (Since <m>x > 0</m>, the function <m>\frac{1}{x}</m> is analytic.)
+                One can find out that 
+                <md>
+                <mrow>y_{1}(x) \amp =J_{0}(x),</mrow>
+                <mrow>y_{2}(x) \amp =Y_{0}(x)</mrow>
+                </md>
+                where 
+                <me>
+                J_{0}(x) =\sum_{n=0}^{\infty}\frac{(-1)^{n}}{\left(n!\right)^{2}2^{2n}}x^{2n}.
+                </me></p>
+
+                <p><m>J_{0}(x)</m> is called the Bessel function of first kind of order <m>\nu=0</m>.
+                 <m>Y_{0}(x)</m> is called the Bessel function of second kind of order
+                <m>\nu=0</m>.
+                 <m>Y_{0}(x)</m> can also be represented by a series, but is more complicated. 
+                 Another way to write <m>Y_{0}</m> is as an integral,
+                <me>
+                Y_{0}(x)=-\frac{2}{\pi}\int_{1}^{\infty}\frac{\cos\left(tx\right)}{\sqrt{t^{2}-1}}dt,\,\,x>0
+                </me>
+                
+                 Thus the general solution to Bessel Equation 
+                <me>
+                y^{\prime\prime}+\frac{1}{x}y^{\prime}+y=0,\,\,\,\,x>0
+                </me>
+                is given by 
+                <md>
+                <mrow>y(x) \amp =c_{1}J_{0}(x)+c_{2}Y_{0}(x)</mrow>
+                <mrow> \amp =c_{1}\sum_{n=0}^{\infty}\frac{(-1)^{n}}{\left(n!\right)^{2}2^{2n}}x^{2n}-c_{2}\int_{1}^{\infty}\frac{2}{\pi}\frac{\cos\left(tx\right)}{\sqrt{t^{2}-1}}dt.</mrow>
+                </md>
+            </p>
+        </example>
+    </section>
+</chapter>

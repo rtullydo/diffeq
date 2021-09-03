@@ -71,7 +71,7 @@
             f(t)\overset{\mathcal{L}}{\longrightarrow}F(s).
             </me></p>
 
-            <p>Generally, a <term>transform</term> of a function <m>f(t)</m> turns <m>f(t)</m>m> into a different function with potentially more tractible properties. 
+            <p>Generally, a <term>transform</term> of a function <m>f(t)</m> turns <m>f(t)</m> into a different function with potentially more tractible properties. 
             
              We will transform functions <m>f(t)</m> of <m>t</m> in the <term>time domain</term> into functions <m>F(s)</m>
             of <m>s</m> in the <term>frequency domain</term>. The use of these terms is deliberate and will become clear on further study.</p> 
@@ -95,7 +95,7 @@
                  then <m>\mathcal{L}\left[f(t)\right]=F(s)</m> exists.</p>
              </assemblage>
 
-            <p>The following examples may seem cumbersome, but rest easy! After using the defintion to get a feel for how the Laplace transform works, we'll develop a table of known and useful transforms and our study will be more algebraic.</p>
+            <p>The following examples may seem cumbersome, but rest easy! After using the definition to get a feel for how the Laplace transform works, we'll develop a table of known and useful transforms and our study will be more algebraic.</p>
 
             <example>
                 <p>Find the Laplace transform of <m>f(t)=e^{9t}</m>,
@@ -219,7 +219,7 @@
                 Transforms. Recall that our previous methods for approaching IVPs involve solving first a homogeneous equation and then using another method, such as undertermined coefficients, to find a particular solution. Using the Laplace transform, we will be able to do this all at once.</p>
 
                 <p>First, we need to look at how the Laplace transform acts on derivatives.</p>
-                <theorem><title>Laplace transform of <m>\frac{df}{dt}</m></title>
+                <theorem xml:id="thm-Lapl1"><title>Laplace transform of <m>\frac{df}{dt}</m></title>
                     <p>Suppose <m>f</m> has a Laplace transform <m>\mathcal{L}\left\{ f\right\} = F(s) </m> and is controlled by some exponential <m>Ke^at</m>.
                     Then the Laplace transform
                     of <m>f^{\prime}</m> is given by 
@@ -236,8 +236,8 @@
                 </me>
                 and we use integration by parts
                 <md>
-                u=e^{-st} \amp \,\,\,\,\,\,\,\,\,\,\,dv=f^{\prime}(t)dt\\
-                du=-se^{-st}dt \amp \,\,\,\,\,\,\,\,\,\,\,v=f(t)
+                <mrow> u \amp=e^{-st} \amp \,\,\,\,\,\,\,\,\,\,\,dv=f^{\prime}(t)dt</mrow>
+                <mrow> du \amp =-se^{-st}dt \amp \,\,\,\,\,\,\,\,\,\,\,v=f(t)</mrow>
                 </md>
                 we have 
                 <md>
@@ -245,12 +245,12 @@
                 <mrow> \amp =\left[0-f(0)\right]+s\int_{0}^{\infty}f(t)e^{-st}dt</mrow>
                 <mrow> \amp =-f(0)+s\mathcal{L}\left\{ f(t)\right\} ,</mrow>
                 </md>
-                here we use the condition from Theorem 6.2.1 that says <m>\left|f(t)\right|\leq Ke^{at}</m>
+                here we use the condition from <xref ref="thm-Lapl1"/> that says <m>\left|f(t)\right|\leq Ke^{at}</m>
                 for <m>t\geq M</m> which implies that <m>\lim_{B\to\infty}f(B)e^{-sB}=0</m>
                 when <m>s>a</m>.  Rearranging gives us the desired result. 
                 </p></proof>
 
-                <corollary>
+                <corollary xml:id="chp6-cor1">
                     <p>Suppose <m>f,f^{\prime},\dots,f^{(n)}</m> are nice functions that have
                     Laplace transforms, then 
                     <me>
@@ -344,8 +344,8 @@
                 </example>
             </subsection>
             <subsection>
-                <title>Higher order IVPs</title>
-                <p>We'll now combine the partial fraction technique with the Laplace transform to solve higher order examples.</p>
+                <title>Solving IVPs using Laplace Transforms</title>
+                <p>We'll now combine the partial fraction technique with the Laplace transform to solve first order IVPS.</p>
 
                 <example>
                 
@@ -457,9 +457,14 @@
                      <li><m>\mathcal{L}\left\{ f^{\prime\prime\prime}(t)\right\} =s^{3}\mathcal{L}\left\{ f(t)\right\} -s^{2}f(0)-sf^{\prime}(0)-f^{\prime\prime}(0)</m>. </li>
                     </ol></p>
                 </assemblage>
-                
+            
+
+            </introduction>
+
+            <subsection xml:id="laplace-table"><title>Laplace Transforms Table</title>
+
                 <p>Typically, we use a table to compute Laplace transforms and inverse transforms. The examples below refer to the transforms listed on the following table.</p>
-                <assemblage>
+                <assemblage >
                     <p><me>
                     \begin{array}{l|l}
                     f(t) = \mathcal{L}\inv\{F(s)\} \amp F(s) = \mathcal{L}\{f(t)\} \\[4pt] \hline
@@ -477,7 +482,10 @@
                     \end{array}
                     </me></p>
                 </assemblage>
-            </introduction>
+
+            </subsection>
+
+
 
             <subsection><title>Partial fractions</title>
                 <p>The essential step in computing an inverse Laplace transform is separating the function <m>F</m> into pieces that we can apply the inverse transform to. This is typically done via partial fractions. Make sure you first factor the denominator as much as possible

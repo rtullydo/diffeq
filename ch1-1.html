@@ -1,17 +1,19 @@
-<!DOCTYPE html>
-<!--**************************************-->
-<!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-18T16:29:37-04:00    *-->
-<!--*                                    *-->
-<!--*      https://pretextbook.org       *-->
-<!--*                                    *-->
-<!--**************************************-->
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:17-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
 <html lang="en-US">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Modeling via differential equations, some solutions and definitions</title>
 <meta name="Keywords" content="Authored in PreTeXt">
-<meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
@@ -24,7 +26,7 @@ MathJax.Hub.Config({
     jax: ["input/AsciiMath"],
     extensions: ["asciimath2jax.js"],
     TeX: {
-        extensions: ["extpfeil.js", "autobold.js", "https://pretextbook.org/js/lib/mathjaxknowl.js", ],
+        extensions: ["extpfeil.js", "autobold.js", "https://pretextbook.org/js/lib/mathjaxknowl.js", "AMScd.js", ],
         // scrolling to fragment identifiers is controlled by other Javascript
         positionToHash: false,
         equationNumbers: { autoNumber: "none", useLabelIds: true, },
@@ -41,23 +43,21 @@ MathJax.Hub.Config({
         mtextFontInherit: true,
     },
 });
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.12/pretext.js"></script><script src="https://pretextbook.org/js/0.12/pretext_add_on.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/pretext.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/toc.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/colors_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/setcolors.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/features.css" rel="stylesheet" type="text/css">
-<script>var logged_in = false;
-var role = 'student';
-var guest_access = true;
-var login_required = false;
-var js_version = 0.12;
-</script>
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="mathbook-book has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div class="hidden-content" style="display:none">\(\DeclareMathOperator{\RE}{Re}
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" class="hidden-content" style="display:none">\(\DeclareMathOperator{\RE}{Re}
   \DeclareMathOperator{\IM}{Im}
   \DeclareMathOperator{\ess}{ess}
   \DeclareMathOperator{\intr}{int}
@@ -160,7 +160,7 @@ var js_version = 0.12;
 <p class="byline">Phanuel Mariano, Ryan Tully-Doyle</p>
 </div>
 </div></div>
-<nav id="primary-navbar" class="navbar"><div class="container">
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
 <div class="navbar-top-buttons">
 <button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="introduction.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="introduction.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="ch1-2.html" title="Next">Next</a></span></div>
 </div>
@@ -168,9 +168,9 @@ var js_version = 0.12;
 <button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="introduction.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="introduction.html" title="Up">Up</a><a class="next-button button toolbar-item" href="ch1-2.html" title="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
-<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
 <nav id="toc"><ul>
-<li class="link"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
 <li class="link">
 <a href="introduction.html" data-scroll="introduction"><span class="codenumber">1</span> <span class="title">Introduction</span></a><ul>
 <li><a href="ch1-1.html" data-scroll="ch1-1" class="active">Modeling via differential equations, some solutions and definitions</a></li>
@@ -198,9 +198,9 @@ var js_version = 0.12;
 <li><a href="ch3-4.html" data-scroll="ch3-4">Complex roots of the characteristic equation</a></li>
 <li><a href="ch3-5.html" data-scroll="ch3-5">Repeated roots; Reduction of order</a></li>
 <li><a href="ch3-6.html" data-scroll="ch3-6">Non-homogeneous equations - Undetermined coefficients</a></li>
-<li><a href="ch3-7.html" data-scroll="ch3-7">Variation of Parameters</a></li>
 <li><a href="ch3-8.html" data-scroll="ch3-8">Harmonic oscillations</a></li>
 <li><a href="ch3-9.html" data-scroll="ch3-9">Forced oscillations</a></li>
+<li><a href="ch3-7.html" data-scroll="ch3-7">Variation of Parameters</a></li>
 </ul>
 </li>
 <li class="link">
@@ -210,9 +210,14 @@ var js_version = 0.12;
 </ul>
 </li>
 <li class="link">
-<a href="ch5.html" data-scroll="ch5"><span class="codenumber">5</span> <span class="title">Series Solutions</span></a><ul>
-<li><a href="ch5-1.html" data-scroll="ch5-1">Power Series</a></li>
-<li><a href="ch5-2.html" data-scroll="ch5-2">Method of series solutions</a></li>
+<a href="ch5.html" data-scroll="ch5"><span class="codenumber">5</span> <span class="title">Systems of First Order Linear Equations</span></a><ul>
+<li><a href="ch5-1.html" data-scroll="ch5-1">Systems of First Order Linear Equations</a></li>
+<li><a href="ch5-2.html" data-scroll="ch5-2">Review of Matrices, Vector Fields, Phase Planes and Portraits</a></li>
+<li><a href="ch5-3.html" data-scroll="ch5-3">Systems of Linear Equations: Linear Independence, and the General Solution Theorem</a></li>
+<li><a href="ch5-4.html" data-scroll="ch5-4">Basic Theory of Systems of 1st Order Linear EQs - Straight Line Solutions</a></li>
+<li><a href="ch5-5.html" data-scroll="ch5-5">Phase Portraits for systems with real eigenvalues</a></li>
+<li><a href="ch5-6.html" data-scroll="ch5-6">Complex Eigenvalues</a></li>
+<li><a href="ch5-7.html" data-scroll="ch5-7">Repeated and zero eigenvalues</a></li>
 </ul>
 </li>
 <li class="link">
@@ -226,7 +231,13 @@ var js_version = 0.12;
 <li><a href="ch6-7.html" data-scroll="ch6-7">The convolution integral</a></li>
 </ul>
 </li>
-<li class="link"><a href="backmatter-1.html" data-scroll="backmatter-1"><span class="title">Back Matter</span></a></li>
+<li class="link">
+<a href="ch7.html" data-scroll="ch7"><span class="codenumber">7</span> <span class="title">Series Solutions</span></a><ul>
+<li><a href="ch7-1.html" data-scroll="ch7-1">Power Series</a></li>
+<li><a href="ch7-2.html" data-scroll="ch7-2">Method of series solutions</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1"><span class="title">Back Matter</span></a></li>
 <li class="link"><a href="quadratic.html" data-scroll="quadratic"><span class="codenumber">A</span> <span class="title">A fast quadratic method</span></a></li>
 <li class="link">
 <a href="exercises.html" data-scroll="exercises"><span class="codenumber">B</span> <span class="title">Exercises for Chapter 1</span></a><ul>
@@ -254,8 +265,9 @@ var js_version = 0.12;
 <li><a href="ex3-4.html" data-scroll="ex3-4">Section 3.4</a></li>
 <li><a href="ex3-5.html" data-scroll="ex3-5">Section 3.5</a></li>
 <li><a href="ex3-6.html" data-scroll="ex3-6">Section 3.6</a></li>
-<li><a href="ex3-7.html" data-scroll="ex3-7">Section 3.7</a></li>
-<li><a href="ex3-8.html" data-scroll="ex3-8">Section 3.8/Section 3.9</a></li>
+<li><a href="ex3-8.html" data-scroll="ex3-8">Section 3.7</a></li>
+<li><a href="ex3-9.html" data-scroll="ex3-9">Section 3.8</a></li>
+<li><a href="ex3-7.html" data-scroll="ex3-7">Section 3.9</a></li>
 </ul>
 </li>
 <li class="link">
@@ -265,7 +277,18 @@ var js_version = 0.12;
 </ul>
 </li>
 <li class="link">
-<a href="appendix-6.html" data-scroll="appendix-6"><span class="codenumber">F</span> <span class="title">Exercises for Chapter 6</span></a><ul>
+<a href="appendix-6.html" data-scroll="appendix-6"><span class="codenumber">F</span> <span class="title">Exercises for Chapter 5</span></a><ul>
+<li><a href="ex5-1.html" data-scroll="ex5-1">Section 5.1</a></li>
+<li><a href="ex5-2.html" data-scroll="ex5-2">Section 5.2</a></li>
+<li><a href="ex5-3.html" data-scroll="ex5-3">Section 5.3</a></li>
+<li><a href="ex5-4.html" data-scroll="ex5-4">Section 5.4</a></li>
+<li><a href="ex5-5.html" data-scroll="ex5-5">Section 5.5</a></li>
+<li><a href="ex5-6.html" data-scroll="ex5-6">Section 5.6</a></li>
+<li><a href="ex5-7.html" data-scroll="ex5-7">Section 5.7</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="appendix-7.html" data-scroll="appendix-7"><span class="codenumber">G</span> <span class="title">Exercises for Chapter 6</span></a><ul>
 <li><a href="ex6-1.html" data-scroll="ex6-1">Section 6.1</a></li>
 <li><a href="ex6-2.html" data-scroll="ex6-2">Section 6.2</a></li>
 <li><a href="ex6-3.html" data-scroll="ex6-3">Section 6.3</a></li>
@@ -275,19 +298,19 @@ var js_version = 0.12;
 </li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
-<main class="main"><div id="content" class="pretext-content"><section class="section" id="ch1-1"><h2 class="heading hide-type">
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="ch1-1"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">1.1</span> <span class="title">Modeling via differential equations, some solutions and definitions</span>
 </h2>
-<a href="ch1-1.html" class="permalink">¶</a><section class="introduction" id="introduction-1"><p id="p-2">We being by asking what a differential equation is. In your calculus career, you have seen quite a number of them already, just in disguise. For example, you might have been asked “what function is the antiderivative of \(x^2\text{?}\)” In other words, find a function \(f(x)\) so that</p>
+<section class="introduction" id="introduction-1"><p id="p-2">We start by asking what a differential equation is. In your calculus career, you have seen quite a number of them already, just in disguise. For example, you might have been asked “what function is the antiderivative of \(x^2\text{?}\)” In other words, find a function \(f(x)\) so that</p>
 <div class="displaymath">
 \begin{equation*}
 \frac{d}{dx} f(x) = x^2.
 \end{equation*}
 </div>
-<p>In your past life, this sort of equation was solved by using integration, which will also be true in this class. Indeed, the reason that you spent so much time on techniques of integration was to give you the basic toolset needed to solve differential equations.</p></section><section class="subsection" id="ch1-1a"><h3 class="heading hide-type">
+<p data-braille="continuation">In your past life, this sort of equation was solved by using integration, which will also be true in this class. Indeed, the reason that you spent so much time on techniques of integration was to give you the basic toolset needed to solve differential equations.</p></section><section class="subsection" id="ch1-1a"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">1.1.1</span> <span class="title">What are differential equations?</span>
 </h3>
-<a href="ch1-1.html#ch1-1a" class="permalink">¶</a><p id="p-3">So let us consider the question “<em class="emphasis">What is a differential equation and what are its solutions?</em>” We can compare and contrast what we already know in algebra with what we know in differential equations.</p>
+<p id="p-3">So let us consider the question “<em class="emphasis">What is a differential equation and what are its solutions?</em>” We can compare and contrast what we already know in algebra with what we know in differential equations.</p>
 <ul class="disc">
 <li id="li-1">
 <p id="p-4"><em class="alert">Algebraic equations:</em> are equations formed from numerical variables.</p>
@@ -344,7 +367,7 @@ LHS \overset{?}= RHS\\
 </ul></section><section class="subsection" id="ch1-1b"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">1.1.2</span> <span class="title">Studying first order equations</span>
 </h3>
-<a href="ch1-1.html#ch1-1b" class="permalink">¶</a><p id="p-13">What are differential equations used for? The answer is pretty much everything in modern science. Derivatives measure rate of change. Since modern science, engineering, and applied mathematics study changing quantities in the physical world, <em class="emphasis">differential equations are the language of science</em>. Differential equations are models of the physical world that are used to make predictions.</p>
+<p id="p-13">What are differential equations used for? The answer is pretty much everything in modern science. Derivatives measure rate of change. Since modern science, engineering, and applied mathematics study changing quantities in the physical world, <em class="emphasis">differential equations are the language of science</em>. Differential equations are models of the physical world that are used to make predictions.</p>
 <ul class="disc">
 <li id="li-16">Meteorologists try to model the weather constantly (using very complicated differential equations), and they get it wrong all the time. <em class="emphasis">Modeling is hard.</em>
 </li>
@@ -356,7 +379,7 @@ LHS \overset{?}= RHS\\
 \frac{dT}{dt} = C(T - A),
 \end{equation*}
 </div>
-<p>where \(C\) is the constant of proportionality.</p>
+<p data-braille="continuation">where \(C\) is the constant of proportionality.</p>
 </li>
 <li id="li-18">The solution to the equation<div class="displaymath">
 \begin{equation*}
@@ -369,15 +392,16 @@ LHS \overset{?}= RHS\\
 \end{equation*}
 </div>where the constant \(C\) is the constant of proportionality, and the constant \(M\) is called the <dfn class="terminology">carrying capacity</dfn> of the model. How does this equation behave for as time progresses?</li>
 </ul>
-<article class="definition-like" id="definition-1"><h6 class="heading">
-<span class="type">Definition</span> <span class="codenumber">1.1.1</span>.</h6>
+<article class="definition definition-like" id="definition-1"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.1.1</span><span class="period">.</span>
+</h6>
 <p id="p-16">The standard form of a <dfn class="terminology">first order differential equation</dfn> (that is, an equation with only first derivatives) is</p>
 <div class="displaymath">
 \begin{equation*}
 \frac{dy}{dt} = f(t,y),
 \end{equation*}
 </div>
-<p>where \(y = f(t)\) is a function and \(t\) is the independent variable.</p>
+<p data-braille="continuation">where \(y = y(t)\) is a function and \(t\) is the independent variable.</p>
 <p id="p-17">An <dfn class="terminology">initial value problem (IVP)</dfn> is a differential equation with an intial condition:</p>
 <div class="displaymath">
 \begin{equation*}
@@ -390,15 +414,16 @@ LHS \overset{?}= RHS\\
 \frac{dy}{dt} = 2y, \hspace{.1in} y(0) =9.
 \end{equation*}
 </div>
-<p>Is \(y(t) = 9e^{2t}\) a solution to the IVP?</p>
+<p data-braille="continuation">Is \(y(t) = 9e^{2t}\) a solution to the IVP?</p>
 <p id="p-19">Yes. We've already checked that \(y(t) = 9e^{2t}\) is a solution to the ODE, and furthermore we have that \(y(0) = 9e^{0} = 9\text{.}\)</p>
 </li></ul>
-<article class="definition-like" id="definition-2"><h6 class="heading">
-<span class="type">Definition</span> <span class="codenumber">1.1.2</span>.</h6>
+<article class="definition definition-like" id="definition-2"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.1.2</span><span class="period">.</span>
+</h6>
 <p id="p-20">A <dfn class="terminology">particular solution</dfn> to an ODE is simply one of the functions \(y = y(t)\) that satisfy a differential equation \(y' = f(t,y)\) for all \(t\text{.}\)</p>
-<p id="p-21">A <dfn class="terminology">general solution</dfn> to an ODE is a parametrized collection of solutions that contains the solutions to every possible IVP built from that ODE.</p></article><article class="example-like" id="example-1"><a data-knowl="" class="id-ref" data-refid="hk-example-1"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">1.1.3</span>. <span class="title">Finding a general solution.</span>
-</h6></a></article><div id="hk-example-1" class="hidden-content tex2jax_ignore"><article class="example-like"> To find the general solution to \(\frac{dy}{dt} = 2y\text{,}\) we can separate the \(y\)'s and the \(t\)'s to opposite sides and then integrate.<div class="displaymath">
+<p id="p-21">A <dfn class="terminology">general solution</dfn> to an ODE is a parametrized collection of solutions that contains the solutions to every possible IVP built from that ODE.</p></article><article class="example example-like" id="example-1"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-1"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.3</span><span class="period">.</span><span class="space"> </span><span class="title">Finding a general solution.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-1"><article class="example example-like"> To find the general solution to \(\frac{dy}{dt} = 2y\text{,}\) we can separate the \(y\)'s and the \(t\)'s to opposite sides and then integrate.<div class="displaymath">
 \begin{align*}
 \frac{dy}{dt}=2y \amp \iff\frac{dy}{y}=2dt\\
 \amp \iff\int\frac{dy}{y}=\int2dt\\
@@ -412,14 +437,15 @@ y = ce^{2t}.
 \end{equation*}
 </div>
 <em class="emphasis">There will be a whole section on this technique</em> (unsurprisingly named “separation of variables”).</article></div>
-<article class="definition-like" id="definition-3"><h6 class="heading">
-<span class="type">Definition</span> <span class="codenumber">1.1.4</span>.</h6>An <dfn class="terminology">equilibrium solution</dfn> to an ODE is a <em class="emphasis">constant solution</em>\(y(t) = y_0\text{.}\) That is,<div class="displaymath">
+<article class="definition definition-like" id="definition-3"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.1.4</span><span class="period">.</span>
+</h6>An <dfn class="terminology">equilibrium solution</dfn> to an ODE is a <em class="emphasis">constant solution</em>\(y(t) = y_0\text{.}\) That is,<div class="displaymath">
 \begin{equation*}
 \frac{dy}{dt} = 0 \text{ for all } t.
 \end{equation*}
-</div></article><article class="example-like" id="example-2"><a data-knowl="" class="id-ref" data-refid="hk-example-2"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">1.1.5</span>. <span class="title">Finding an equilibrium solution.</span>
-</h6></a></article><div id="hk-example-2" class="hidden-content tex2jax_ignore"><article class="example-like"> Find the equilibrium solution of the following equation. Suppose that<div class="displaymath">
+</div></article><article class="example example-like" id="example-2"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-2"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.5</span><span class="period">.</span><span class="space"> </span><span class="title">Finding an equilibrium solution.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-2"><article class="example example-like"> Find the equilibrium solution of the following equation. Suppose that<div class="displaymath">
 \begin{equation*}
 y' = y^3 + y^2 - 6y.
 \end{equation*}
@@ -430,7 +456,7 @@ y' = y(y-2)(y+3),
 </div>and create a sign chart (like in calculus!). The equilibrium solutions are \(y = -3, y=0,\) and \(y=2\text{.}\) We can observe that solutions decrease for \(y_0 \in (-\infty, -3)\cup(0,2)\) and that they increase for \((-3,0)\cup(2,\infty)\text{.}\)</article></div></section><section class="subsection" id="ch1-1c"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">1.1.3</span> <span class="title">Solutions to some differential Equations</span>
 </h3>
-<a href="ch1-1.html#ch1-1c" class="permalink">¶</a><ul class="disc">
+<ul class="disc">
 <li id="li-21">
 <p id="p-22"><em class="alert">A Linear Differential Equation:</em> Pick your favorite real numbers \(a,b,y_{0}\) and consider the IVP</p>
 <div class="displaymath">
@@ -444,7 +470,7 @@ y' = y(y-2)(y+3),
 y(t)=\frac{b}{a}+\left(y_{0}-\frac{b}{a}\right)e^{at}
 \end{equation*}
 </div>
-<p><em class="emphasis">We will see how one can get this very soon!</em></p>
+<p data-braille="continuation"><em class="emphasis">We will see how one can get this very soon!</em></p>
 </li>
 <li id="li-22">
 <p id="p-24"><em class="alert">Example:</em> Find the solution to</p>
@@ -459,13 +485,13 @@ y(t)=\frac{b}{a}+\left(y_{0}-\frac{b}{a}\right)e^{at}
 a=-2,b=-8
 \end{equation*}
 </div>
-<p>and</p>
+<p data-braille="continuation">and</p>
 <div class="displaymath">
 \begin{equation*}
 y_{0}=9
 \end{equation*}
 </div>
-<p>so the solution is</p>
+<p data-braille="continuation">so the solution is</p>
 <div class="displaymath">
 \begin{equation*}
 y(t)=4+\left(5-\frac{8}{2}\right)e^{-2t}=4+e^{-2t}.
@@ -475,7 +501,7 @@ y(t)=4+\left(5-\frac{8}{2}\right)e^{-2t}=4+e^{-2t}.
 </ul></section><section class="subsection" id="ch1-1d"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">1.1.4</span> <span class="title">Studying general differential equations</span>
 </h3>
-<a href="ch1-1.html#ch1-1d" class="permalink">¶</a><ul class="disc">
+<ul class="disc">
 <li id="li-23">
 <p id="p-26">In this class, we will only study <dfn class="terminology">ordinary differential equations</dfn> (ODE): contains only ordinary derivatives:</p>
 <p id="p-27">Example: \(\frac{d^{2}y}{dt^{2}}+\frac{dy}{dt}=-1\)</p>
@@ -501,8 +527,9 @@ u_{xx}+u_{yy} \amp =0\,\,\,\text{2nd order}
 </div>
 </li>
 </ul>
-<article class="definition-like" id="definition-4"><h6 class="heading">
-<span class="type">Definition</span> <span class="codenumber">1.1.6</span>.</h6>An ODE is called <dfn class="terminology">linear</dfn> if it is linear in \(y\text{,}\) i.e. it is of the form<div class="displaymath">
+<article class="definition definition-like" id="definition-4"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.1.6</span><span class="period">.</span>
+</h6>An ODE is called <dfn class="terminology">linear</dfn> if it is linear in \(y\text{,}\) i.e. it is of the form<div class="displaymath">
 \begin{equation*}
 a_{n}(t)y^{(n)}+a_{n-1}(t)y^{(n-1)}+\cdots+a_{0}(t)y=g(t)
 \end{equation*}
@@ -520,14 +547,12 @@ a_{n}(t)y^{(n)}+a_{n-1}(t)y^{(n-1)}+\cdots+a_{0}(t)y=g(t)
 <ul class="circle">
 <li id="li-32">\(\left(\frac{du}{dt}\right)^{2}+y=1\text{,}\)</li>
 <li id="li-33">\(yy^{\prime}+y=1\text{,}\)</li>
-<li id="li-34">\(y^{\prime\prime}+3e^{y}y,\)</li>
+<li id="li-34">\(\displaystyle y^{\prime\prime}+3e^{y}y,\)</li>
 <li id="li-35">and \(\frac{1}{y}-y^{\prime}=1\text{.}\)</li>
 </ul>
 </li>
 </ul>
 <p id="p-32">Nonlinear ODEs are some of the hardest equations to solve! In fact, most of the time, one won't be able to find an exact formula for the solution of a differential equation. Much of the study of differential equations comes down to qualitative analysis and approximate solutions. But one nice thing about studying ODEs is that we can always check if a function is really a solution to a differential equation or not. Futhermore, the equations can frequently be understood without an explicit solution at all.</p></section></section></div></main>
 </div>
-<div class="login-link"><span id="loginlogout" class="login">login</span></div>
-<script src="https://pretextbook.org/js/0.12/login.js"></script>
 </body>
 </html>

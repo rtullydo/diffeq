@@ -1,17 +1,19 @@
-<!DOCTYPE html>
-<!--**************************************-->
-<!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-18T16:29:37-04:00    *-->
-<!--*                                    *-->
-<!--*      https://pretextbook.org       *-->
-<!--*                                    *-->
-<!--**************************************-->
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:19-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
 <html lang="en-US">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Modeling with differential equations - more problems</title>
 <meta name="Keywords" content="Authored in PreTeXt">
-<meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
@@ -24,7 +26,7 @@ MathJax.Hub.Config({
     jax: ["input/AsciiMath"],
     extensions: ["asciimath2jax.js"],
     TeX: {
-        extensions: ["extpfeil.js", "autobold.js", "https://pretextbook.org/js/lib/mathjaxknowl.js", ],
+        extensions: ["extpfeil.js", "autobold.js", "https://pretextbook.org/js/lib/mathjaxknowl.js", "AMScd.js", ],
         // scrolling to fragment identifiers is controlled by other Javascript
         positionToHash: false,
         equationNumbers: { autoNumber: "none", useLabelIds: true, },
@@ -41,23 +43,21 @@ MathJax.Hub.Config({
         mtextFontInherit: true,
     },
 });
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.12/pretext.js"></script><script src="https://pretextbook.org/js/0.12/pretext_add_on.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/pretext.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/toc.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/colors_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/setcolors.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/features.css" rel="stylesheet" type="text/css">
-<script>var logged_in = false;
-var role = 'student';
-var guest_access = true;
-var login_required = false;
-var js_version = 0.12;
-</script>
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="mathbook-book has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div class="hidden-content" style="display:none">\(\DeclareMathOperator{\RE}{Re}
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" class="hidden-content" style="display:none">\(\DeclareMathOperator{\RE}{Re}
   \DeclareMathOperator{\IM}{Im}
   \DeclareMathOperator{\ess}{ess}
   \DeclareMathOperator{\intr}{int}
@@ -160,7 +160,7 @@ var js_version = 0.12;
 <p class="byline">Phanuel Mariano, Ryan Tully-Doyle</p>
 </div>
 </div></div>
-<nav id="primary-navbar" class="navbar"><div class="container">
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
 <div class="navbar-top-buttons">
 <button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="ch2-4.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch2.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="ch2-6.html" title="Next">Next</a></span></div>
 </div>
@@ -168,9 +168,9 @@ var js_version = 0.12;
 <button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="ch2-4.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch2.html" title="Up">Up</a><a class="next-button button toolbar-item" href="ch2-6.html" title="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
-<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
 <nav id="toc"><ul>
-<li class="link"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
 <li class="link">
 <a href="introduction.html" data-scroll="introduction"><span class="codenumber">1</span> <span class="title">Introduction</span></a><ul>
 <li><a href="ch1-1.html" data-scroll="ch1-1">Modeling via differential equations, some solutions and definitions</a></li>
@@ -198,9 +198,9 @@ var js_version = 0.12;
 <li><a href="ch3-4.html" data-scroll="ch3-4">Complex roots of the characteristic equation</a></li>
 <li><a href="ch3-5.html" data-scroll="ch3-5">Repeated roots; Reduction of order</a></li>
 <li><a href="ch3-6.html" data-scroll="ch3-6">Non-homogeneous equations - Undetermined coefficients</a></li>
-<li><a href="ch3-7.html" data-scroll="ch3-7">Variation of Parameters</a></li>
 <li><a href="ch3-8.html" data-scroll="ch3-8">Harmonic oscillations</a></li>
 <li><a href="ch3-9.html" data-scroll="ch3-9">Forced oscillations</a></li>
+<li><a href="ch3-7.html" data-scroll="ch3-7">Variation of Parameters</a></li>
 </ul>
 </li>
 <li class="link">
@@ -210,9 +210,14 @@ var js_version = 0.12;
 </ul>
 </li>
 <li class="link">
-<a href="ch5.html" data-scroll="ch5"><span class="codenumber">5</span> <span class="title">Series Solutions</span></a><ul>
-<li><a href="ch5-1.html" data-scroll="ch5-1">Power Series</a></li>
-<li><a href="ch5-2.html" data-scroll="ch5-2">Method of series solutions</a></li>
+<a href="ch5.html" data-scroll="ch5"><span class="codenumber">5</span> <span class="title">Systems of First Order Linear Equations</span></a><ul>
+<li><a href="ch5-1.html" data-scroll="ch5-1">Systems of First Order Linear Equations</a></li>
+<li><a href="ch5-2.html" data-scroll="ch5-2">Review of Matrices, Vector Fields, Phase Planes and Portraits</a></li>
+<li><a href="ch5-3.html" data-scroll="ch5-3">Systems of Linear Equations: Linear Independence, and the General Solution Theorem</a></li>
+<li><a href="ch5-4.html" data-scroll="ch5-4">Basic Theory of Systems of 1st Order Linear EQs - Straight Line Solutions</a></li>
+<li><a href="ch5-5.html" data-scroll="ch5-5">Phase Portraits for systems with real eigenvalues</a></li>
+<li><a href="ch5-6.html" data-scroll="ch5-6">Complex Eigenvalues</a></li>
+<li><a href="ch5-7.html" data-scroll="ch5-7">Repeated and zero eigenvalues</a></li>
 </ul>
 </li>
 <li class="link">
@@ -226,7 +231,13 @@ var js_version = 0.12;
 <li><a href="ch6-7.html" data-scroll="ch6-7">The convolution integral</a></li>
 </ul>
 </li>
-<li class="link"><a href="backmatter-1.html" data-scroll="backmatter-1"><span class="title">Back Matter</span></a></li>
+<li class="link">
+<a href="ch7.html" data-scroll="ch7"><span class="codenumber">7</span> <span class="title">Series Solutions</span></a><ul>
+<li><a href="ch7-1.html" data-scroll="ch7-1">Power Series</a></li>
+<li><a href="ch7-2.html" data-scroll="ch7-2">Method of series solutions</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1"><span class="title">Back Matter</span></a></li>
 <li class="link"><a href="quadratic.html" data-scroll="quadratic"><span class="codenumber">A</span> <span class="title">A fast quadratic method</span></a></li>
 <li class="link">
 <a href="exercises.html" data-scroll="exercises"><span class="codenumber">B</span> <span class="title">Exercises for Chapter 1</span></a><ul>
@@ -254,8 +265,9 @@ var js_version = 0.12;
 <li><a href="ex3-4.html" data-scroll="ex3-4">Section 3.4</a></li>
 <li><a href="ex3-5.html" data-scroll="ex3-5">Section 3.5</a></li>
 <li><a href="ex3-6.html" data-scroll="ex3-6">Section 3.6</a></li>
-<li><a href="ex3-7.html" data-scroll="ex3-7">Section 3.7</a></li>
-<li><a href="ex3-8.html" data-scroll="ex3-8">Section 3.8/Section 3.9</a></li>
+<li><a href="ex3-8.html" data-scroll="ex3-8">Section 3.7</a></li>
+<li><a href="ex3-9.html" data-scroll="ex3-9">Section 3.8</a></li>
+<li><a href="ex3-7.html" data-scroll="ex3-7">Section 3.9</a></li>
 </ul>
 </li>
 <li class="link">
@@ -265,7 +277,18 @@ var js_version = 0.12;
 </ul>
 </li>
 <li class="link">
-<a href="appendix-6.html" data-scroll="appendix-6"><span class="codenumber">F</span> <span class="title">Exercises for Chapter 6</span></a><ul>
+<a href="appendix-6.html" data-scroll="appendix-6"><span class="codenumber">F</span> <span class="title">Exercises for Chapter 5</span></a><ul>
+<li><a href="ex5-1.html" data-scroll="ex5-1">Section 5.1</a></li>
+<li><a href="ex5-2.html" data-scroll="ex5-2">Section 5.2</a></li>
+<li><a href="ex5-3.html" data-scroll="ex5-3">Section 5.3</a></li>
+<li><a href="ex5-4.html" data-scroll="ex5-4">Section 5.4</a></li>
+<li><a href="ex5-5.html" data-scroll="ex5-5">Section 5.5</a></li>
+<li><a href="ex5-6.html" data-scroll="ex5-6">Section 5.6</a></li>
+<li><a href="ex5-7.html" data-scroll="ex5-7">Section 5.7</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="appendix-7.html" data-scroll="appendix-7"><span class="codenumber">G</span> <span class="title">Exercises for Chapter 6</span></a><ul>
 <li><a href="ex6-1.html" data-scroll="ex6-1">Section 6.1</a></li>
 <li><a href="ex6-2.html" data-scroll="ex6-2">Section 6.2</a></li>
 <li><a href="ex6-3.html" data-scroll="ex6-3">Section 6.3</a></li>
@@ -275,10 +298,10 @@ var js_version = 0.12;
 </li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
-<main class="main"><div id="content" class="pretext-content"><section class="section" id="ch2-5"><h2 class="heading hide-type">
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="ch2-5"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">2.5</span> <span class="title">Modeling with differential equations - more problems</span>
 </h2>
-<a href="ch2-5.html" class="permalink">¶</a><section class="subsection" id="subsection-11"><h3 class="heading hide-type">
+<section class="subsection" id="subsection-11"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.5.1</span> <span class="title">Newton's Law of Cooling</span>
 </h3>
 <p id="p-150"><dfn class="terminology">Newton's Law of Cooling</dfn> states that the temperature of an object changes at a rate proportional to the difference between its temperature and its surroundings.</p>
@@ -288,9 +311,9 @@ var js_version = 0.12;
 \frac{dT}{dt}=k\left(T-T_{s}\right).
 \end{equation*}
 </div>
-<article class="example-like" id="example-22"><a data-knowl="" class="id-ref" data-refid="hk-example-22"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">2.5.1</span>. <span class="title">Newton's Law of Cooling.</span>
-</h6></a></article><div id="hk-example-22" class="hidden-content tex2jax_ignore"><article class="example-like">Suppose there was a murder in a room that is 70° F. Assume the victim had a temperature of 98.6° when murdered. Let \(t_{c}\) be the time it took for someone to finally discover the corpse since its death. As a detective, your goal is to find out how long ago the body died. Here is the given information <ul class="disc">
+<article class="example example-like" id="example-22"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-22"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.5.1</span><span class="period">.</span><span class="space"> </span><span class="title">Newton's Law of Cooling.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-22"><article class="example example-like">Suppose there was a murder in a room that is 70° F. Assume the victim had a temperature of 98.6° when murdered. Let \(t_{c}\) be the time it took for someone to finally discover the corpse since its death. As a detective, your goal is to find out how long ago the body died. Here is the given information <ul class="disc">
 <li id="li-111">Fact 1: At the time time someone discovered the body, the temperature of the corpse was \(72.5\text{.}\)</li>
 <li id="li-112">Fact 2: One hour after the body was discovered, the temperature of the corpse was \(72\text{.}\)</li>
 <li id="li-113">Question: Find the critical value of \(t_{c}\)</li>
@@ -301,14 +324,14 @@ var js_version = 0.12;
 \frac{dT}{dt}=k\left(T-70\right),\,\,\,\,\,T\left(0\right)=98.6
 \end{equation*}
 </div>
-<p>and need to use the information</p>
+<p data-braille="continuation">and need to use the information</p>
 <div class="displaymath">
 \begin{align*}
 T(t_{c}) \amp =72.5,\\
 T(t_{c}+1) \amp =72.
 \end{align*}
 </div>
-<p>to solve for \(k\text{.}\)</p>
+<p data-braille="continuation">to solve for \(k\text{.}\)</p>
 <p id="p-153">First solving for \(T(t)\) we get</p>
 <div class="displaymath">
 \begin{align*}
@@ -329,19 +352,19 @@ T(t) \amp =70+\left(98.6-70\right)e^{kt}\\
 k=\frac{1}{t_{c}}\ln\frac{2.5}{28.6}
 \end{equation*}
 </div>
-<p>and plugging this into second equation we get</p>
+<p data-braille="continuation">and plugging this into second equation we get</p>
 <div class="displaymath">
 \begin{equation*}
 72=70+28.6e^{\frac{1}{t_{c}}\ln\frac{2.5}{28.6}(t_{c}+1)}
 \end{equation*}
 </div>
-<p>and hence</p>
+<p data-braille="continuation">and hence</p>
 <div class="displaymath">
 \begin{equation*}
 t_{c}\approx10.92\text{ hours}.
 \end{equation*}
 </div>
-<p>and \(k=-0.223\text{.}\)</p></article></div></section><section class="subsection" id="subsection-12"><h3 class="heading hide-type">
+<p data-braille="continuation">and \(k=-0.223\text{.}\)</p></article></div></section><section class="subsection" id="subsection-12"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.5.2</span> <span class="title">Free fall with friction</span>
 </h3>
 <p id="p-156">We will consider problems involving <dfn class="terminology">free-fall</dfn> with and without initial velocities. We will also consider when there is some <dfn class="terminology">air resistance</dfn> of magnitude \(R(v)\) directed opposite to the velocity \(v\text{.}\)</p>
@@ -355,13 +378,14 @@ t_{c}\approx10.92\text{ hours}.
 m\frac{dv}{dt}=\pm R(v) - mg.
 \end{equation*}
 </div>
-<p>The plus/minus symbol is present as friction/resistance is always in the opposite direction of motion.</p>
+<p data-braille="continuation">The plus/minus symbol is present as friction/resistance is always in the opposite direction of motion.</p>
 <ul class="disc">
 <li id="li-114">We'll have \(-R(v)\text{:}\) If object is going up, i.e. \(v&gt;0\text{.}\) (Since air resistance \(R(v)\) is directed opposite to the velocity \(v\))</li>
 <li id="li-115">We'll have \(+R(v)\) if the object is going down, i.e. \(v\lt0\) (Since air resistance \(R(v)\) is directed opposite to the velocity \(v\))</li>
 </ul>
-<article class="example-like" id="example-23"><a data-knowl="" class="id-ref" data-refid="hk-example-23"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">2.5.2</span>.</h6></a></article><div id="hk-example-23" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-162">Suppose an object with mass \(10\) kg is launched upward with initial velocity \(20\) m/s from a platform that is \(3\) meters high. Suppose there is a force due to air resistance of magnitude \(\left|v\right|\) directed opposite to the velocity, where the velocity \(v\) is measured in m/s. We neglect the variation of the earth's gravitational fields with distance. (Since it's not going very high anyways)</p>
+<article class="example example-like" id="example-23"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-23"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.5.2</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-23"><article class="example example-like"><p id="p-162">Suppose an object with mass \(10\) kg is launched upward with initial velocity \(20\) m/s from a platform that is \(3\) meters high. Suppose there is a force due to air resistance of magnitude \(\left|v\right|\) directed opposite to the velocity, where the velocity \(v\) is measured in m/s. We neglect the variation of the earth's gravitational fields with distance. (Since it's not going very high anyways)</p>
 <ul class="disc">
 <li id="li-116">
 <p id="p-163"><em class="alert">Part (a):</em> Find the maximum height above the ground that the object reaches.</p>
@@ -371,7 +395,7 @@ m\frac{dv}{dt}=\pm R(v) - mg.
 m\frac{dv}{dt}=-R(v)-mg,
 \end{equation*}
 </div>
-<p>and we have \(-R(v)\) since the object is still going up. Since the object is going up then \(v&gt;0\text{.}\) Recall that</p>
+<p data-braille="continuation">and we have \(-R(v)\) since the object is still going up. Since the object is going up then \(v&gt;0\text{.}\) Recall that</p>
 <div class="displaymath">
 \begin{equation*}
 \left|v\right|=\begin{cases}
@@ -380,13 +404,13 @@ v \amp v&gt;0\\
 \end{cases}
 \end{equation*}
 </div>
-<p>then</p>
+<p data-braille="continuation">then</p>
 <div class="displaymath">
 \begin{equation*}
 m\frac{dv}{dt}=-\left|v\right|-mg=-v-mg.
 \end{equation*}
 </div>
-<p>Hence</p>
+<p data-braille="continuation">Hence</p>
 <div class="displaymath">
 \begin{equation*}
 m\frac{dv}{dt}=-v-mg.
@@ -408,7 +432,7 @@ v(t) \amp =\left(20+mg\right)e^{-t/m}-mg,\\
 \amp =118e^{-t/10}-98.
 \end{align*}
 </div>
-<p>and this equation is valid only when the object is going up.</p>
+<p data-braille="continuation">and this equation is valid only when the object is going up.</p>
 <p id="p-167">The maximum happens when velocity is equal to zero. Thus set \(v(t_{1})=0\) and we get that</p>
 <div class="displaymath">
 \begin{align*}
@@ -423,7 +447,7 @@ x(t) \amp =\int v(t)dt+C\\
 \amp =-1180e^{-t/10}-98t+C.
 \end{align*}
 </div>
-<p>Since \(x(0)=3\text{,}\) then</p>
+<p data-braille="continuation">Since \(x(0)=3\text{,}\) then</p>
 <div class="displaymath">
 \begin{align*}
 3=-1180e^{0}-98\cdot0+C \amp \iff3=-1180+C\\
@@ -436,7 +460,7 @@ x(t) \amp =\int v(t)dt+C\\
 x(t)=-1180e^{-t/10}-98t+1183.
 \end{equation*}
 </div>
-<p>Then</p>
+<p data-braille="continuation">Then</p>
 <div class="displaymath">
 \begin{align*}
 \text{maximum height} \amp =x(1.86)\\
@@ -452,7 +476,7 @@ x(t)=-1180e^{-t/10}-98t+1183.
 m\frac{dv}{dt}=R(v)-mg,
 \end{equation*}
 </div>
-<p>and we have \(R(v)\) since the object is going down. Thus since the object is going <em class="emphasis">down</em> then \(v\lt0\text{.}\) Recall that</p>
+<p data-braille="continuation">and we have \(R(v)\) since the object is going down. Thus since the object is going <em class="emphasis">down</em> then \(v\lt0\text{.}\) Recall that</p>
 <div class="displaymath">
 \begin{equation*}
 \left|v\right|=\begin{cases}
@@ -461,13 +485,13 @@ v \amp v&gt;0\\
 \end{cases}
 \end{equation*}
 </div>
-<p>then \(\left|v\right|=-v\) so that</p>
+<p data-braille="continuation">then \(\left|v\right|=-v\) so that</p>
 <div class="displaymath">
 \begin{equation*}
 m\frac{dv}{dt}=\left|v\right|-mg=-v-mg.
 \end{equation*}
 </div>
-<p>hence</p>
+<p data-braille="continuation">hence</p>
 <div class="displaymath">
 \begin{equation*}
 m\frac{dv}{dt}=-v-mg.
@@ -485,13 +509,13 @@ x_{2}(t) \amp =\int v_{2}(t)dt+C\\
 \amp =-980e^{-t/10}-98t+C
 \end{align*}
 </div>
-<p>since</p>
+<p data-braille="continuation">since</p>
 <div class="displaymath">
 \begin{equation*}
 x_{2}(0)=\text{maximum height}=21
 \end{equation*}
 </div>
-<p>then solving for \(C\) we have</p>
+<p data-braille="continuation">then solving for \(C\) we have</p>
 <div class="displaymath">
 \begin{equation*}
 x_{2}(t)=-980e^{-t/10}-98t+1001.
@@ -511,8 +535,9 @@ t_{0}=t_{1}+t_{2}=1.86+2.14=4\text{ seconds}.
 </div>
 </li>
 </ul></article></div>
-<article class="example-like" id="example-24"><a data-knowl="" class="id-ref" data-refid="hk-example-24"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">2.5.3</span>.</h6></a></article><div id="hk-example-24" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-176">Consider the same scenario as before. A object with mass \(10\) kg is launched upward with initial velocity \(20\) m/s from a platform that is \(3\) meters high. Except, there is a force due to air resistance of magnitude \(v^{2}/5\) directed opposite to the velocity, where the velocity \(v\) is measured in m/s.</p>
+<article class="example example-like" id="example-24"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-24"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.5.3</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-24"><article class="example example-like"><p id="p-176">Consider the same scenario as before. A object with mass \(10\) kg is launched upward with initial velocity \(20\) m/s from a platform that is \(3\) meters high. Except, there is a force due to air resistance of magnitude \(v^{2}/5\) directed opposite to the velocity, where the velocity \(v\) is measured in m/s.</p>
 <ul class="disc">
 <li id="li-118">
 <p id="p-177"><em class="alert">Part (a):</em> Write the differential equation for velocity, when the object is still going up.</p>
@@ -522,7 +547,7 @@ t_{0}=t_{1}+t_{2}=1.86+2.14=4\text{ seconds}.
 m\frac{dv}{dt}=-R(v)-mg,
 \end{equation*}
 </div>
-<p>and we have \(-R(v)\) since the object is still going up. Thus</p>
+<p data-braille="continuation">and we have \(-R(v)\) since the object is still going up. Thus</p>
 <div class="displaymath">
 \begin{equation*}
 m\frac{dv}{dt}=-\frac{v^{2}}{5}-mg\iff m\frac{dv}{dt}=-\frac{v^{2}}{5}-98
@@ -537,7 +562,7 @@ m\frac{dv}{dt}=-\frac{v^{2}}{5}-mg\iff m\frac{dv}{dt}=-\frac{v^{2}}{5}-98
 m\frac{dv}{dt}=R(v)-mg,
 \end{equation*}
 </div>
-<p>and we have \(R(v)\) since the object is going down. Thus</p>
+<p data-braille="continuation">and we have \(R(v)\) since the object is going down. Thus</p>
 <div class="displaymath">
 \begin{equation*}
 m\frac{dv}{dt}=\frac{v^{2}}{5}-98.
@@ -545,8 +570,9 @@ m\frac{dv}{dt}=\frac{v^{2}}{5}-98.
 </div>
 </li>
 </ul></article></div>
-<article class="example-like" id="example-25"><a data-knowl="" class="id-ref" data-refid="hk-example-25"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">2.5.4</span>.</h6></a></article><div id="hk-example-25" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-181">Suppose we fly a plane at an altitude of \(5000\) ft and drop a watermelon that weighs \(64\) pounds vertically downward. Assume that the force of air resistance, which is directed opposite to the velocity, is of magnitude \(\left|v\right|/128\text{.}\) (Use \(g=32\) ft/sec\(^2\))</p>
+<article class="example example-like" id="example-25"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-25"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.5.4</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-25"><article class="example example-like"><p id="p-181">Suppose we fly a plane at an altitude of \(5000\) ft and drop a watermelon that weighs \(64\) pounds vertically downward. Assume that the force of air resistance, which is directed opposite to the velocity, is of magnitude \(\left|v\right|/128\text{.}\) (Use \(g=32\) ft/sec\(^2\))</p>
 <p id="p-182"><em class="alert">Question:</em> Find how long it takes for the watermelon to hit the ground.</p>
 <p id="p-183"><em class="alert">Solution:</em> Since the watermelon is falling down, \(v\lt0\text{.}\) Hence</p>
 <div class="displaymath">
@@ -554,13 +580,13 @@ m\frac{dv}{dt}=\frac{v^{2}}{5}-98.
 m\frac{dv}{dt}=R(v)-mg,
 \end{equation*}
 </div>
-<p>where \(R(v)\) is positive. Now recall that</p>
+<p data-braille="continuation">where \(R(v)\) is positive. Now recall that</p>
 <div class="displaymath">
 \begin{equation*}
 \text{weight}=mg
 \end{equation*}
 </div>
-<p>then \(m=\frac{64}{32}=2\text{.}\)</p>
+<p data-braille="continuation">then \(m=\frac{64}{32}=2\text{.}\)</p>
 <p id="p-184">Then \(R(v)=\left|v\right|/128=v/128\text{,}\) and so</p>
 <div class="displaymath">
 \begin{align*}
@@ -570,7 +596,7 @@ m\frac{dv}{dt}=\frac{v}{128}-mg \amp \iff2\frac{dv}{dt}=\frac{v}{128}-64\\
 \amp \iff v(t)=Ce^{t/256}+256\cdot32.
 \end{align*}
 </div>
-<p>and since \(v(0)=0\) then</p>
+<p data-braille="continuation">and since \(v(0)=0\) then</p>
 <div class="displaymath">
 \begin{equation*}
 v(t)=-256\cdot32e^{t/256}+256\cdot32.
@@ -582,20 +608,18 @@ v(t)=-256\cdot32e^{t/256}+256\cdot32.
 x(t)=-\left(256\right)^{2}\cdot32e^{t/256}+32\cdot\left(256\right)t+C
 \end{equation*}
 </div>
-<p>and letting \(x(0)=0\text{,}\) then</p>
+<p data-braille="continuation">and letting \(x(0)=0\text{,}\) then</p>
 <div class="displaymath">
 \begin{equation*}
 x(t)=-\left(256\right)^{2}\cdot32e^{t/256}+32\cdot\left(256\right)t+\left(256\right)^{2}\cdot32
 \end{equation*}
 </div>
-<p>Then, noting that since we chose the plane to be altitude 0 and the melon falls 5000ft down,</p>
+<p data-braille="continuation">Then, noting that since we chose the plane to be altitude 0 and the melon falls 5000ft down,</p>
 <div class="displaymath">
 \begin{align*}
 x(t_{0})=-5000 \amp \iff t_{0}\approx17.88\text{ seconds.}
 \end{align*}
 </div></article></div></section></section></div></main>
 </div>
-<div class="login-link"><span id="loginlogout" class="login">login</span></div>
-<script src="https://pretextbook.org/js/0.12/login.js"></script>
 </body>
 </html>

@@ -1,37 +1,45 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
 <html lang="en-US">
-<!--**************************************-->
-<!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-18T16:29:40-04:00    *-->
-<!--*                                    *-->
-<!--*      https://pretextbook.org       *-->
-<!--*                                    *-->
-<!--**************************************-->
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:50-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body>
-<h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Suppose that we're given the problem</p>
-<div class="displaymath">
+<h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
+<p>Step 3: Set LHS=RHS so that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-\frac{dy}{dx} = e^{x^2}.
+LHS=4Ae^{-t}+B=2e^{-t}+3=RHS
 \end{equation*}
 </div>
-<p>This is pretty obviously a separable differential equation, and after resorting we get</p>
-<div class="displaymath">
+<p data-braille="continuation">hence</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+4A=2 \amp ,B=3\\
+A=\frac{1}{2}
+\end{align*}
+</div>
+<p data-braille="continuation">hence</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-dy = e^{x^2} \,dx,
+y_{p}=\frac{1}{2}te^{-t}+3
 \end{equation*}
 </div>
-<p>and so</p>
-<div class="displaymath">
+<p data-braille="continuation">so that the General Solution is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-y = \int e^{x^2} \, dx.
+y=c_{1}e^{t}+c_{2}te^{t}+c_{3}e^{-t}+\frac{1}{2}te^{-t}+3.
 \end{equation*}
 </div>
-<p>Unfortunately, the function \(e^{x^2}\) (an enormously useful function that shows up regularly in probability and statistics in the form of the Gaussian or normal distribution), despite being a very nice function, <em class="emphasis">has no closed form antiderivative</em>. That is, there is no function that I can write down for \(y\text{.}\) Can we really not solve a problem like \(\int_0^1 e^{x^2}\, dx\text{?}\)</p>
-<span class="incontext"><a href="ch5-1.html#p-502">in-context</a></span>
+<span class="incontext"><a href="ch4-2.html#p-502">in-context</a></span>
 </body>
 </html>

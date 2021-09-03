@@ -71,29 +71,31 @@
   <title>Exercises for Chapter 1</title>
   <section xml:id="ex1-1"><title><xref ref="ch1-1"/></title>
     <exercises>
-      <exercise> What does it mean to be a solution to a differential equation?</exercise>
+      <exercise> <p> What does it mean to be a solution to a differential equation?</p></exercise>
 
-      <exercise> Check if the function <m>y(t)=t+1</m> a particular solution to the following
+      <exercise> <p>Check if the function <m>y(t)=t+1</m> a particular solution to the following
       differential equation:
       <me>
       \frac{dy}{dt}=\frac{y^{2}-1}{t^{2}+2t}.
-      </me></exercise>
+      </me></p></exercise>
 
-      <exercise>Check if the function <m>y(x)=x+x\ln x</m> solves the following initial
+      <exercise><p>Check if the function <m>y(x)=x+x\ln x</m> solves the following initial
       value problem:
       <me>
       x\frac{dy}{dx}=x+y,\,\,\,\,\,\,y(1)=3.
-      </me></exercise>
+      </me></p></exercise>
 
-      <exercise> Find the equilibrium solutions to the equation
+      <exercise><p> Find the equilibrium solutions to the equation
       <me>
       \frac{dy}{dt}=y^{2}+2y
-      </me></exercise>
-      <exercise>Find the equilibrium solutions to the equation
+      </me></p></exercise>
+
+      <exercise><p>Find the equilibrium solutions to the equation
       <me>
       \frac{dy}{dt}=y^{4}t-3y^{3}t+2y^{2}t.
-      </me></exercise>
-      <exercise>Classify the following equations as ODEs or PDEs.
+      </me></p></exercise>
+
+      <exercise><p>Classify the following equations as ODEs or PDEs.</p>
       <ol>
       <li> <m>\frac{dy}{dt}=2yt</m></li>
       <li> <m>\frac{\partial u}{\partial t}=\frac{\partial^{2}u}{\partial x^{2}}</m>
@@ -111,8 +113,8 @@
       <li> <m>2y^{\prime\prime}-y^{\prime}+y=0</m></li>
       </ol></exercise>
 
-      <exercise> Classify the order of the following differential equations. Also classify
-      if it is linear or nonlinear.
+      <exercise> <p>Classify the order of the following differential equations. Also classify
+      if it is linear or nonlinear.</p>
       <ol>
       <li> <m>\frac{dy}{dt}=2yt</m></li>
       <li> <m>y\frac{d^{2}y}{dt^{2}}=\cos t</m></li>
@@ -130,21 +132,30 @@
 
   <section xml:id="ex1-2"><title><xref ref="ch1-2"/></title>
   <exercises>
-      <exercise> Match the following slope fields with their equations.
-        <image source="images/1.2-1.png"/>
+      <exercise> <p>Match the following slope fields with their equations.
+        <image source="images/HWc1s2-1.png"/>
       <ol>
       <li> <m>\frac{dy}{dt}=\sin t</m></li>
       <li> <m>\frac{dy}{dt}=t-y</m></li>
       <li> <m>\frac{dy}{dt}=2-y</m></li>
       <li> <m>\frac{dy}{dt}=t</m></li>
-      </ol></exercise>
+      </ol></p></exercise>
 
-      <exercise> Suppose the following ODE
+      <exercise> <p>Match the following slope fields with their equations.
+        <image source="images/HWc1s2-4.png"/>
+      <ol>
+      <li> <m>\frac{dy}{dt}=t^4(y^2-1)</m></li>
+      <li> <m>\frac{dy}{dt}=t^3(t^2-1)</m></li>
+      <li> <m>\frac{dy}{dt}=(y-1)(y+1)</m></li>
+      <li> <m>\frac{dy}{dt}=-\sqrt{1+y^4}</m></li>
+      </ol></p></exercise>
+
+      <exercise> <p>Suppose the following ODE
       <me>
       \frac{dy}{dt}=y^{2}-t
       </me>
-      has the following slope field:
-      <image source="images/1.2-2.png"/>
+      has the following slope field:</p>
+      <image source="images/HWc1s2-2.png"/>
       <ol>
       <li> Suppose <m>y(t)</m> is a solution to this ODE and also you know that <m>y\left(-1\right)=1</m>.
       Then based on the slope field, what is your prediction for the long
@@ -159,13 +170,13 @@
       \lim_{t\to\infty}y(t)=?
       </me></li>
       </ol></exercise>
-      <exercise> Let <m>P(t)</m> represent the population of the Phan fish breed. Suppose
+      <exercise> <p>Let <m>P(t)</m> represent the population of the Phan fish breed. Suppose
       you come up with the following differential equation that models <m>P(t)</m>:
       <me>
       \frac{dP}{dt}=P\left(P-100\right)\left(P+100\right)/100000
       </me>
-      Its slope field is given by:
-      <image source = "images/1.2-3b.png"/>
+      Its slope field is given by:</p>
+      <image source = "images/HWc1s2-3b.png"/>
       <ol>
       <li> Suppose that the population of the Phan fish is <m>80</m> at time <m>t=0</m>.
       What is the long term behavior for the population of the Phan fish?
@@ -220,14 +231,14 @@
     <exercise>
     <p>Find the general solutions for the following differential equations.
     Find the <em>explicit</em> solutions if you can. If you can't solve
-    for <m>y</m> exactly, then leave it as an \emph{implicit} solution:
+    for <m>y</m> exactly, then leave it as an <em>implicit</em> solution:
     <ol>
     <li><m>y^{\prime}=ky</m> where <m>k</m> is a parameter.</li>
-    <li> <m>y^{\prime}=\frac{x^{2}}{y}}</m></li>
-    <li> <m>\frac{dy}{dx}=\frac{3x^{2}-1}{3+2y}}</m></li>
+    <li> <m>y^{\prime}=\frac{x^{2}}{y}</m></li>
+    <li> <m>\frac{dy}{dx}=\frac{3x^{2}-1}{3+2y}</m></li>
     <li> <m>xy^{\prime}=\frac{\left(1-y^{2}\right)^{1/2}}{y}</m></li>
-    <li> <m>\frac{dy}{dx}=\frac{x^{2}}{1+y^{2}}}</m></li>
-    <li> <m>\frac{dy}{dx}=\frac{x}{\cos\left(y^{2}\right)y}}</m></li>
+    <li> <m>\frac{dy}{dx}=\frac{x^{2}}{1+y^{2}}</m></li>
+    <li> <m>\frac{dy}{dx}=\frac{x}{\cos\left(y^{2}\right)y}</m></li>
     </ol></p>
   </exercise>
   <exercise>
@@ -258,9 +269,9 @@
     <exercise>
       <p> First check each if the following differential equations are homogeneous. Then find the general solutions for the following differential equations.
       <ol>
-      <li> <m>x^{2}\frac{dy}{dx}=-\left(y^{2}-yx\right).}</m></li>
-      <li> <m>\frac{dy}{dx}=\frac{x+3y+2\frac{y^{2}}{x}}{3x+y}.}</m></li>
-      <li> <m>\frac{dy}{dx}=\frac{y}{x}-\frac{x^{2}-y^{2}}{2xy}.}</m></li>
+      <li> <m>x^{2}\frac{dy}{dx}=-\left(y^{2}-yx\right).</m></li>
+      <li> <m>\frac{dy}{dx}=\frac{x+3y+2\frac{y^{2}}{x}}{3x+y}.</m></li>
+      <li> <m>\frac{dy}{dx}=\frac{y}{x}-\frac{x^{2}-y^{2}}{2xy}.</m></li>
       </ol></p>
     </exercise>
     <exercise>
@@ -278,7 +289,7 @@
     </exercise>
 
 
-    <exercise> Consider the following homogeneous equation:
+    <exercise> <p>Consider the following homogeneous equation:</p>
       <me>
       \frac{dy}{dx}=\frac{-y^{2}-yx}{x^{2}}.
       </me>
@@ -293,9 +304,9 @@
     <exercise>
       <p>Using the given substitution, solve the differential equation:</p>
       <ol>
-      <li> Rewrite <m>\frac{dy}{dx}+xy=x^{2}y^{2}}</m> using the substitution
+      <li> Rewrite <m>\frac{dy}{dx}+xy=x^{2}y^{2}</m> using the substitution
       <m>u=\frac{1}{y}</m>, only in terms of <m>u,x</m>.</li>
-      <li> Rewrite <m>\frac{dy}{dx}+y=\frac{x}{y^{2}}}</m> using the
+      <li> Rewrite <m>\frac{dy}{dx}+y=\frac{x}{y^{2}}</m> using the
       substitution <m>u=y^{3}</m>, only in terms of <m>u,x</m>.</li>
       </ol>
     </exercise>
@@ -528,24 +539,24 @@
   <section xml:id="ex2-8"><title><xref ref="ch2-8"/></title>
     <exercises>
       <exercise>
-      Determine whether each of the following equations are exact. If it
-      is exact, find the solution. Implicit solutions are fine.
+      <p>Determine whether each of the following equations are exact. If it
+      is exact, find the solution. Implicit solutions are fine.</p>
       <ol>
-      <li><m>\left(2x+3\right)+\left(2y-2\right)y^{\prime}=0}</m></li>
-      <li> <m>\left(2x+4y\right)+\left(2x-2y\right)y^{\prime}=0}</m></li>
+      <li><m>\left(2x+3\right)+\left(2y-2\right)y^{\prime}=0</m></li>
+      <li> <m>\left(2x+4y\right)+\left(2x-2y\right)y^{\prime}=0</m></li>
       <li> <m>\left(3x^{2}-2xy+2\right)dx+\left(6y^{2}-x^{2}+3\right)dy=0</m></li>
-      <li> <m>\left(2xy^{2}+2y\right)+\left(2x^{2}y+2x\right)y^{\prime}=0}</m></li>
-      <li> <m>\frac{dy}{dx}=-\frac{ax+by}{bx+cy}}</m></li>
-      <li> <m>\left(e^{x}\sin y+3y\right)dx-\left(3x-e^{x}\sin y\right)dy=0}</m></li>
-      <li> <m>\left(\frac{y}{x}+6x\right)dx+\left(\ln x-2\right)dy=0},</m><m>x>0</m></li>
+      <li> <m>\left(2xy^{2}+2y\right)+\left(2x^{2}y+2x\right)y^{\prime}=0</m></li>
+      <li> <m>\frac{dy}{dx}=-\frac{ax+by}{bx+cy}</m></li>
+      <li> <m>\left(e^{x}\sin y+3y\right)dx-\left(3x-e^{x}\sin y\right)dy=0</m></li>
+      <li> <m>\left(\frac{y}{x}+6x\right)dx+\left(\ln x-2\right)dy=0,</m><m>x>0</m></li>
       </ol>
       </exercise>
-      <exercise>Find the implicit particular solution to the initial value problem
+      <exercise><p>Find the implicit particular solution to the initial value problem</p>
       <me>
       \left(9x^{2}+y-1\right)dx-\left(4y-x\right)dy=0,\,\,\,\,\,\,y(1)=0.
       </me>
       </exercise>
-      <exercise> Find the values of <m>b</m> for which the given equation is exact.
+      <exercise><p> Find the values of <m>b</m> for which the given equation is exact.</p>
       <me>
       \left(ye^{2xy}+x\right)dx+bxe^{2xy}dy=0.
       </me>
@@ -592,7 +603,7 @@
   <section xml:id="ex3-2"><title><xref ref="ch3-2"/></title>
   <exercises>
     <exercise>
-      <p>Check if the following function are solutions to the given EQ.
+      <p>Check if the following functions are solutions to the given EQ.
       <ol>
       <li> Check directly if <m>y_{1}=2e^{5t}</m> is a solution or not to <m>y^{\prime\prime}-6y^{\prime}+5y=0</m>.</li>
       <li>Check directly if <m>y_{2}=2e^{t}</m> is a solution or not to <m>y^{\prime\prime}-6y^{\prime}+5y=t</m>.</li>
@@ -610,19 +621,19 @@
       to the equation above, then the number <m>r</m> must satisfy the characteristic equation <m>ar^{2}+br+c=0</m> or <m>A=0</m>. </p>
     </exercise>
     <exercise>
-      <p>Use the method given in Section 3.1 to find the general solution to
+      <p>Use the method given in <xref ref="ch3-2"/> to find the general solution to
       <me>
       y^{\prime\prime}+5y^{\prime}-6y=0
       </me></p>
     </exercise>
     <exercise>
-      <p>Use the method given in Section 3.1 to find the general solution to
+      <p>Use the method given in <xref ref="ch3-2"/> to find the general solution to
       <me>
       y^{\prime\prime}-7y^{\prime}=0
       </me></p>
     </exercise>
     <exercise>
-      <p> Use the method given in Section 3.1 to find the particular solution
+      <p> Use the method given in <xref ref="ch3-2"/> to find the particular solution
       to the IVP
       <me>
       y^{\prime\prime}+y^{\prime}-20y=0,\,\,\,\,\,y(0)=18,y^{\prime}(0)=9
@@ -650,13 +661,13 @@
       </me>
       is guaranteed to exist by <xref ref="thm2ndexist"/>?</p>
     </exercise>
-    <exercise>Consider the equation
+    <exercise><p>Consider the equation
       <me>
       y^{\prime\prime}+p(t)y^{\prime}+q(t)y=0,
       </me>
       where <m>p,q</m> are continuous in some interval <m>I</m>. What are the two
       things you have to do by <xref ref="thmgensol"/> in order to
-      find the general solution to the ODE above?
+      find the general solution to the ODE above?</p>
     </exercise>
     <exercise>
       <p>Consider the equation
@@ -682,18 +693,18 @@
   <title><xref ref="ch3-4"/></title>
   <exercises>
     <exercise>
-      Find the general solution of the following second order linear ODEs with
-      constant coefficients.
+      <p>Find the general solution of the following second order linear ODEs with
+      constant coefficients.</p>
       <ol>
-        <li><m>y^{\prime\prime}+16y=0}</m></li>
+        <li><m>y^{\prime\prime}+16y=0</m></li>
         <li><m>y^{\prime\prime}-4y^{\prime}+9y=0</m></li>
         <li><m>y^{\prime\prime}-4y^{\prime}+29y=0</m></li>
       </ol>
     </exercise>
     <exercise>
-      Find the particular solution to the following IVP:
+      <p>Find the particular solution to the following IVP:</p>
       <me>
-      y^{\prime\prime}-8y^{\prime}+17y=0},\,\,\,\,\,\,y(0)=-4,y^{\prime}(0)=-1.
+      y^{\prime\prime}-8y^{\prime}+17y=0,\,\,\,\,\,\,y(0)=-4,y^{\prime}(0)=-1.
       </me>
     </exercise>
 
@@ -706,17 +717,17 @@
       <title>Repeated roots</title>
       <exercises>
         <exercise>
-          Find the general solution of the following 2nd Order Linear ODEs with
-          constant coefficients.
+          <p>Find the general solution of the following 2nd Order Linear ODEs with
+          constant coefficients.</p>
           <ol>
-          <li> <m>y^{\prime\prime}+14y^{\prime}+49y=0}</m></li>
+          <li> <m>y^{\prime\prime}+14y^{\prime}+49y=0</m></li>
           <li> <m>y^{\prime\prime}-18y^{\prime}+81y=0</m></li>
           </ol>
         </exercise>
         <exercise>
-          Find the particular solution to the following IVP:
+          <p>Find the particular solution to the following IVP:</p>
           <me>
-          y^{\prime\prime}-4y^{\prime}+4y=0},\,\,\,\,\,\,y(0)=12,y^{\prime}(0)=-3.
+          y^{\prime\prime}-4y^{\prime}+4y=0,\,\,\,\,\,\,y(0)=12,y^{\prime}(0)=-3.
           </me>
         </exercise>
       </exercises>
@@ -725,36 +736,36 @@
       <title>Reduction of order</title>
       <exercises>
         <exercise>
-          Suppose you know that <m>y_{1}(t)=t</m> is a solution to
+          <p>Suppose you know that <m>y_{1}(t)=t</m> is a solution to
           <me>
           t^{2}y^{\prime\prime}-3ty^{\prime}+3y=0,\,\,\,\,\,t>0.
           </me>
           Find a second solution <m>y_{2}(t)</m> that makes <m>y=c_{1}y_{1}+c_{2}y_{2}</m>
-          the general solution of this ODE.
+          the general solution of this ODE.</p>
         </exercise>
         <exercise>
-          Suppose you know that <m>y_{1}(t)=t^{-1}</m> is a solution to
+          <p>Suppose you know that <m>y_{1}(t)=t^{-1}</m> is a solution to
           <me>
           2t^{2}y^{\prime\prime}+ty^{\prime}-3y=0,\,\,\,\,\,t>0.
           </me>
           Find a second solution <m>y_{2}(t)</m> that makes <m>y=c_{1}y_{1}+c_{2}y_{2}</m>
-          the general solution of this ODE.
+          the general solution of this ODE.</p>
         </exercise>
         <exercise>
-          Suppose you know that <m>y_{1}(t)=t</m> is a solution to
+          <p>Suppose you know that <m>y_{1}(t)=t</m> is a solution to
           <me>
           t^{2}y^{\prime\prime}+2ty^{\prime}-2y=0,\,\,\,\,\,t>0.
           </me>
           Find a second solution <m>y_{2}(t)</m> that makes <m>y=c_{1}y_{1}+c_{2}y_{2}</m>
-          the general solution of this ODE.
+          the general solution of this ODE.</p>
         </exercise>
         <exercise>
-          Suppose you know that <m>y_{1}(t)=t^{2}</m> is a solution to
+          <p>Suppose you know that <m>y_{1}(t)=t^{2}</m> is a solution to
           <me>
           t^{2}y^{\prime\prime}-3ty^{\prime}+4y=0,\,\,\,\,\,t>0.
           </me>
           Find a second solution <m>y_{2}(t)</m> that makes <m>y=c_{1}y_{1}+c_{2}y_{2}</m>
-          the general solution of this ODE.
+          the general solution of this ODE.</p>
         </exercise>
     </exercises>
   </subsection>
@@ -762,7 +773,7 @@
 <section xml:id="ex3-6">
   <title><xref ref="ch3-6"/></title>
   <exercises>
-    <exercise> Consider the following non-homogeneous 2nd order ODE:
+    <exercise> <p>Consider the following non-homogeneous 2nd order ODE:</p>
       <me>
       y^{\prime\prime}+y^{\prime}-2y=e^{3t}.
       </me>
@@ -778,8 +789,8 @@
     </exercise>
 
     <exercise>
-      Find the general solution to the following non-homogeneous 2nd order
-      ODE:
+      <p>Find the general solution to the following non-homogeneous 2nd order
+      ODE:</p>
       <me>
       y^{\prime\prime}-2y^{\prime}+2y=e^{2t}.
       </me>
@@ -813,6 +824,16 @@
       </me></p>
     </exercise>
     <exercise>
+      <p>Find the general solution to the following non-homogeneous 2nd order
+      ODE:
+      <me>
+      y^{\prime\prime}+9y=27t^2.
+      </me></p>
+    </exercise>
+
+
+
+    <exercise>
       <p>For the following ODEs. Use the method of undertermined coefficients
       (MOUC) to make the correct guess for the <m>y_{p}</m>. You DO NOT have
       to solve for the coefficients, <m>A,B,C\dots</m>. Simply make the correct
@@ -826,6 +847,70 @@
       </ol></p>
     </exercise>
   </exercises>
+  </section>
+
+  <section xml:id="ex3-8">
+    <title><xref ref="ch3-8"/></title>
+    <exercises>
+      <exercise>
+        <p>A mass weighing <m>8</m> lb stretches a spring <m>\frac{1}{2}</m> feet. The
+        mass is pulled down an additional 1 feet. and then set in motion with
+        an upward velocity of 2 ft/sec. Assume that there is no damping force
+        and that the downward direction is the positive direction. The gravity
+        constant <m>g</m> is 32 <m>\frac{\text{ft}}{s^{2}}</m> . The function <m>u(t)</m>
+        describing the displacement of the mass from the equilibrium position
+        as a function of time <m>t</m> satisfies what initial value problem?</p>
+      </exercise>
+      <exercise>
+        <p>A mass of 5 kg stretches spring 10 cm. The mass is acted on by an
+        external force of <m>10\sin(t/2)</m> N (newtons) and moves in a medium
+        that imparts a viscous force of <m>2</m> N when the speed of the mass
+        is 4 cm/sec. If the mass is set in motion from its equilibrium position
+        with an initial velocity of 3 cm/sec, formulate the initial value
+        problem describing the motion of the mass.</p>
+      </exercise>
+    </exercises>
+  </section>
+
+
+
+  <section xml:id="ex3-9">
+    <title><xref ref="ch3-9"/></title>
+    <exercises>
+      <exercise>
+        <p>A <m>64</m> lb mass stretches a spring 4 feet. The mass is displaced an
+        additional 5 feet. and then released; and is in a medium with a damping
+        coefficients <m>\gamma=7\frac{\text{lb sec}}{\text{ft}}</m>. Suppose there
+        is no external forcing. Formulate the IVP that governs the motion
+        of this mass.</p>
+      </exercise>
+      <exercise>
+        <p>A <m>32</m> lb mass stretches a spring 4 feet. The mass is displaced an
+        additional 6 feet. and then released with an initial velocity of 3
+        <m>\frac{\text{ft}}{\text{sec}}</m>; and is in a medium with a damping
+        coefficients <m>\gamma=2\frac{\text{lb sec}}{\text{ft}}</m>. Suppose there
+        is an external forcing due to wind given by <m>F(t)=3\cos\left(3t\right)</m>.
+        Formulate the IVP that governs the motion of this mass.</p>
+      </exercise>
+      <exercise>
+        <p>Consider the following undamped harmonic oscillator with external forcing:
+        <me>
+        u^{\prime\prime}+5u=\sin\left(3t\right),\,\,\,\,u(0)=1,\,\,u^{\prime}(0)=-1.
+        </me>
+        What is the natural frequency? What is the frequency for the external
+        force? Will you get resonance? What is your guess for <m>u_{p}</m>? Solve
+the IVP.  </p>
+      </exercise>
+      <exercise>
+        <p>Consider the following undamped harmonic oscillator with external forcing:
+        <me>
+        u^{\prime\prime}+16u=7\cos\left(4t\right),\,\,\,\,u(0)=0,\,\,u^{\prime}(0)=0.
+        </me>
+        What is the natural frequency? What is the frequency for the external
+        force? Will you get resonance? What is your guess for <m>u_{p}</m>? Solve
+the IVP.</p>
+      </exercise>
+    </exercises>
   </section>
 
   <section xml:id="ex3-7">
@@ -883,42 +968,7 @@
     </exercises>
   </section>
 
-  <section xml:id="ex3-8">
-    <title><xref ref="ch3-8"/>/<xref ref="ch3-9"/></title>
-    <exercises>
-      <exercise>
-        <p>A <m>64</m> lb mass stretches a spring 4 feet. The mass is displaced an
-        additional 5 feet. and then released; and is in a medium with a damping
-        coefficients <m>\gamma=7\frac{\text{lb sec}}{\text{ft}}</m>. Suppose there
-        is no external forcing. Formulate the IVP that governs the motion
-        of this mass.</p>
-      </exercise>
-      <exercise>
-        <p>A <m>32</m> lb mass stretches a spring 4 feet. The mass is displaced an
-        additional 6 feet. and then released with an initial velocity of 3
-        <m>\frac{\text{ft}}{\text{sec}}</m>; and is in a medium with a damping
-        coefficients <m>\gamma=2\frac{\text{lb sec}}{\text{ft}}</m>. Suppose there
-        is an external forcing due to wind given by <m>F(t)=3\cos\left(3t\right)</m>.
-        Formulate the IVP that governs the motion of this mass.</p>
-      </exercise>
-      <exercise>
-        <p>Consider the following undamped harmonic oscillator with forcing:
-        <me>
-        u^{\prime\prime}+5u=\sin\left(3t\right),\,\,\,\,u(0)=0,\,\,u^{\prime}(0)=0.
-        </me>
-        What is the natural frequency? What is the frequency for the external
-        force? Will you get resonance? What is your guess for <m>u_{p}</m>?</p>
-      </exercise>
-      <exercise>
-        <p>Consider the following undamped harmonic oscillator with forcing:
-        <me>
-        u^{\prime\prime}+16u=7\cos\left(4t\right),\,\,\,\,u(0)=0,\,\,u^{\prime}(0)=0.
-        </me>
-        What is the natural frequency? What is the frequency for the external
-        force? Will you get resonance? What is your guess for <m>u_{p}</m>?</p>
-      </exercise>
-    </exercises>
-  </section>
+
 </appendix>
 
 <appendix><title>Exercises for Chapter 4</title>
@@ -954,7 +1004,7 @@
     <exercise>
       <p>Find general solution of 
       <me>
-      y^{(5)}-4y^{(4)}+13y^{\prime\prime\prime}-36y^{\prime\prime}+36y=0.
+      y^{(5)}-4y^{(4)}+13y^{\prime\prime\prime}-36y^{\prime\prime}+36y^{\prime}=0.
       </me>
       (Hint: <m>r^{5}-4r^{4}+13r^{3}-36r^{2}+36r=r\left(r-2\right)^{2}\left(r^{2}+9\right)</m>)</p>
     </exercise>
@@ -980,7 +1030,7 @@
     <exercise>
       <p>Consider
       <me>
-      y^{(4)}+8y^{\prime\prime\prime}+16y^{\prime\prime}=4e^{-3t}+\cos t.
+      y^{\prime\prime\prime}-4y^{\prime\prime}-11y^{\prime}+30y=4e^{-3t}+\cos t.
       </me>
       Find the general form of <m>y_{p}</m>. (Hint: <m>r^{3}-4r^{2}-11r+30=\left(r+3\right)\left(r-2\right)\left(r-5\right)</m>)</p>
     </exercise>
@@ -1009,6 +1059,1304 @@
   </exercises>
   </section>
 </appendix>
+
+
+<appendix><title>Exercises for Chapter 5</title>
+  <section xml:id="ex5-1">
+    <title><xref ref="ch5-1"/>  </title>
+    <exercises>
+      <exercise> 
+        <p>
+         Show that the functions 
+        <md>
+        <mrow> x_{1}(t) \amp =\frac{1}{3}e^{t}+\frac{2}{3}e^{-2t}</mrow>
+        <mrow> x_{2}(t) \amp =\frac{1}{3}e^{t}-\frac{4}{3}e^{-2t}</mrow>
+        </md>
+        solve the following system of first order differential equations IVP
+        <me>
+        \begin{cases}
+        x_{1}^{\prime}=x_{2} \amp x_{1}(0)=1\\
+        x_{2}^{\prime}=2x_{1}-x_{2} \amp x_{2}(0)=-1
+        \end{cases}.
+        </me>
+        </p>
+      </exercise>
+      <exercise>
+        <p>
+        Show that the functions 
+        <md>
+        <mrow> x_{1}(t) \amp =\sin\left(2t\right)</mrow>
+        <mrow> x_{2}(t) \amp =\cos\left(2t\right)</mrow>
+        </md>
+        solve the following system of first order differential equations IVP
+        <me>
+        \begin{cases}
+        x_{1}^{\prime}=2x_{2} \amp x_{1}(0)=0\\
+        x_{2}^{\prime}=-2x_{1} \amp x_{2}(0)=1
+        \end{cases}.
+        </me>
+        </p>
+      </exercise>
+      <exercise>
+        <p>
+        Turn the following second order ODE
+        <me>
+        y^{\prime\prime}+y^{\prime}+2y=t^{2}
+        </me>
+        into a system of first differential equations.
+        </p>
+      </exercise>
+      <exercise>
+        <p>
+        Turn the following second order ODE
+        <me>
+        y^{\prime\prime}-2y^{\prime}+10y=0.
+        </me>
+        into a system of first differential equations. 
+        </p>
+
+
+      </exercise>
+
+    </exercises>
+  </section>
+
+
+  <section xml:id="ex5-2">
+    <title><xref ref="ch5-2"/>  </title>
+    <exercises>
+      <exercise> 
+      <p>
+        Let <m>A=\left(\begin{array}{cc}
+        1 \amp 2\\
+        5 \amp 3
+        \end{array}\right)</m>, <m>\mathbf{x}=\left(\begin{array}{c}
+        -2\\
+        1
+        \end{array}\right)</m> and <m>\mathbf{y}=\left(\begin{array}{c}
+        3\\
+        5
+        \end{array}\right)</m>, find <m>A\mathbf{x}</m>, <m>4\mathbf{x}</m>, and <m>\mathbf{x}+\mathbf{y}</m>. 
+      </p>
+
+
+      </exercise>
+
+      <exercise> 
+      <p>
+        Turn the following system of first order equations into matrix-product
+        form:
+      </p>
+
+      <ol>
+        <li>
+        <p>
+          Given by: 
+          <me>
+          \begin{cases}
+          x_{1}^{\prime}=3x_{2}\\
+          x_{2}^{\prime}=9x_{1}-3x_{2}
+          \end{cases}
+          </me>
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Given by: 
+          <me>
+          \begin{cases}
+          x_{1}^{\prime}=-x_{1}+2x_{2}\\
+          x_{2}^{\prime}=7x_{1}+5x_{2}
+          \end{cases}
+          </me>
+        
+        </p>
+        </li>
+
+
+      </ol>
+      </exercise>
+
+      <exercise> 
+      <p>
+
+        Turn the following vector valued ODE into a system of first order
+        equations. 
+      </p>
+
+      <ol>
+        <li>
+        <p>
+          Given by: 
+          <me>
+          \mathbf{x}^{\prime}=\left(\begin{array}{cc}
+          3 \amp -2\\
+          3 \amp 17
+          \end{array}\right)\mathbf{x}
+          </me>
+
+          where <m>\boldsymbol{x}(t)=\left(\begin{array}{c}
+          x_{1}(t)\\
+          x_{2}(t)
+          \end{array}\right)</m>
+        
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Given by: 
+          <me>
+          \boldsymbol{Y}^{\prime}=\left(\begin{array}{cc}
+          0 \amp 4\\
+          7 \amp 3
+          \end{array}\right)\boldsymbol{Y}
+          </me>
+
+          where <m>\boldsymbol{Y}(t)=\left(\begin{array}{c}
+          x(t)\\
+          y(t)
+          \end{array}\right)</m>.
+        </p>
+        </li>
+
+
+      </ol>
+      </exercise>
+
+      <exercise> 
+      <p>
+        Find the equilibrium solutions of the following system: 
+        <me>
+        \mathbf{x}^{\prime}=\left(\begin{array}{cc}
+        1 \amp 2\\
+        1 \amp 3
+        \end{array}\right)\mathbf{x}.
+        </me>
+
+      </p>
+
+      </exercise>
+
+
+      <exercise> 
+      <p>
+
+        Find the equilibrium solutions of the following system: 
+        <me>
+        \mathbf{x}^{\prime}=\left(\begin{array}{cc}
+        3 \amp -1\\
+        9 \amp -3
+        \end{array}\right)\mathbf{x}.
+        </me>
+      </p>
+
+      </exercise>
+
+
+
+      <exercise> 
+      <p>
+
+        Check if the following vector functions satisfy the following differential
+        equations. 
+      </p>
+
+      <ol>
+        <li>
+        <p>
+
+          Where
+          <me>
+          \mathbf{x}^{\prime}=\left(\begin{array}{cc}
+          3 \amp -2\\
+          2 \amp -2
+          \end{array}\right)\mathbf{x}\,\,\,\,\mathbf{x}(t)=\left(\begin{array}{c}
+          4e^{2t}\\
+          2e^{2t}
+          \end{array}\right).
+          </me>
+        
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Where
+          <me>
+          \mathbf{x}^{\prime}=\left(\begin{array}{cc}
+          1 \amp 3\\
+          2 \amp 2
+          \end{array}\right)\mathbf{x},\,\,\,\,\mathbf{x}(t)=\left(\begin{array}{c}
+          1\\
+          2
+          \end{array}\right)e^{3t}.
+          </me>
+        
+        </p>
+        </li>
+
+
+      </ol>
+      </exercise>
+
+
+      <exercise> 
+      <p>
+
+        Consider the following differential equation
+        <me>
+        \mathbf{x}^{\prime}=\left(\begin{array}{cc}
+        1 \amp 4\\
+        2 \amp 3
+        \end{array}\right)\mathbf{x},
+        </me>
+
+        with corresponding direction field:
+        <image width="100%" source="images/HW5-2-1.png"/>
+
+      </p>
+
+      <ol>
+        <li>
+        <p>
+          Using the direction field draw a Phase portrait. (A Phase portrait
+          is graph a several possible different solutions of the ODE)
+        
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Consider the following IVP:
+          <me>
+          \mathbf{x}^{\prime}=\left(\begin{array}{cc}
+          1 \amp 4\\
+          2 \amp 3
+          \end{array}\right)\mathbf{x},\,\,\,\,\,\mathbf{x}(0)=\left(\begin{array}{c}
+          -2\\
+          1.5
+          \end{array}\right)
+          </me>
+
+          <term>draw</term> the unique soluton to this IVP and use it to <term>predict</term>
+          long term behavior of <m>\lim_{t\to\infty}x_{1}(t)</m> and <m>\lim_{t\to\infty}x_{2}(t)</m>.
+        
+        </p>
+        </li>
+
+
+      </ol>
+      </exercise>
+
+
+
+      <exercise> 
+      <p>
+
+        Consider the following differential equation
+        <me>
+        \mathbf{x}^{\prime}=\left(\begin{array}{cc}
+        1 \amp -4\\
+        1 \amp -2
+        \end{array}\right)\mathbf{x},
+        </me>
+
+        with corresponding direction field:
+                <image width="100%" source="images/HW5-2-2a.png"/>
+      </p>
+
+      <ol>
+        <li>
+        <p>
+          Using the direction field draw a Phase portrait. (A Phase portrait
+          is graph a several possible different solutions of the ODE)
+        
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Consider the following IVP:
+          <me>
+          \mathbf{x}^{\prime}=\left(\begin{array}{cc}
+          1 \amp -4\\
+          1 \amp -2
+          \end{array}\right)\mathbf{x},\,\,\,\,\,\mathbf{x}(0)=\left(\begin{array}{c}
+          -2.5\\
+          0
+          \end{array}\right)
+          </me>
+
+          <term>draw</term> the unique soluton to this IVP and use it to <term>predict</term>
+          long term behavior of <m>\lim_{t\to\infty}x_{1}(t)</m> and <m>\lim_{t\to\infty}x_{2}(t)</m>. 
+        
+        </p>
+        </li>
+
+        <li>
+        <p>
+
+          Try to draw what the graphs of <m>x_{1}(t)</m> and <m>x_{2}(t)</m> are individually
+          as functions of <m>t</m>, for the same IVP above. 
+
+        </p>
+        </li>
+
+
+      </ol>
+      </exercise>
+
+
+
+    </exercises>
+  </section>
+
+
+
+  <section xml:id="ex5-3">
+    <title><xref ref="ch5-3"/>  </title>
+    <exercises>
+      <exercise> 
+      <p>
+
+        Consider the linear system
+        <me>
+        \frac{d\mathbf{x}}{dt}=\left(\begin{array}{cc}
+        2 \amp 0\\
+        1 \amp 1
+        \end{array}\right)\mathbf{x}
+        </me>
+
+
+      </p>
+
+      <ol>
+        <li>
+        <p>
+          Show that the two functions 
+          <me>
+          \mathbf{x}^{(1)}(t)=\left(\begin{array}{c}
+          0\\
+          e^{t}
+          \end{array}\right)\text{ and }\mathbf{x}^{(2)}(t)=\left(\begin{array}{c}
+          e^{2t}\\
+          e^{2t}
+          \end{array}\right)
+          </me>
+
+          are solutions to the system above.
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Solve the initial value problem 
+          <me>
+          \frac{d\mathbf{x}}{dt}=\left(\begin{array}{cc}
+          2 \amp 0\\
+          1 \amp 1
+          \end{array}\right)\mathbf{x},\,\,\,\,\mathbf{x}(0)=\left(\begin{array}{c}
+          -2\\
+          -1
+          \end{array}\right).
+          </me>        
+        </p>
+        </li>
+
+      </ol>
+
+
+      </exercise>
+
+      <exercise> 
+      <p>
+
+        Consider the linear system
+        <me>
+        \frac{d\mathbf{x}}{dt}=\left(\begin{array}{cc}
+        -2 \amp -1\\
+        2 \amp -5
+        \end{array}\right)\mathbf{x}
+        </me>
+
+
+
+      </p>
+
+      <ol>
+        <li>
+        <p>
+          Check that the two functions are solutions to the system. If they
+          are not solutions, then stop and do not do parts (b) and (c). 
+          <me>
+          \mathbf{x}^{(1)}(t)=\left(\begin{array}{c}
+          e^{-3t}\\
+          e^{-3t}
+          \end{array}\right)\text{ and }\mathbf{x}^{(2)}(t)=\left(\begin{array}{c}
+          4e^{-3t}\\
+          4e^{-3t}
+          \end{array}\right)
+          </me>
+
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Are <m>\mathbf{x}^{(1)}(t)</m> and <m>\mathbf{x}^{(2)}(t)</m> linearly independent?
+          If they are not, then stop and do not move on to part (c).         
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Find the general solution of 
+          <me>
+          \frac{d\mathbf{x}}{dt}=\left(\begin{array}{cc}
+          -2 \amp -1\\
+          2 \amp -5
+          \end{array}\right)\mathbf{x}.
+          </me>        
+        </p>
+        </li>
+
+      </ol>
+
+
+      </exercise>
+
+      <exercise> 
+      <p>
+        Consider the linear system
+        <me>
+        \frac{d\mathbf{x}}{dt}=\left(\begin{array}{cc}
+        -2 \amp -1\\
+        2 \amp -5
+        \end{array}\right)\mathbf{x}
+        </me>
+
+      </p>
+
+      <ol>
+        <li>
+        <p>
+          Check that the two functions are solutions to the system. If they
+          are not solutions, then stop and do not do parts (b) and (c). 
+          <me>
+          \mathbf{x}^{(1)}(t)=\left(\begin{array}{c}
+          e^{-3t}-2e^{-4t}\\
+          e^{-3t}-4e^{-4t}
+          \end{array}\right)\text{ and }\mathbf{x}^{(2)}(t)=\left(\begin{array}{c}
+          2e^{-3t}+e^{-4t}\\
+          2e^{-3t}+2e^{-4t}
+          \end{array}\right)
+          </me>
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Are <m>\mathbf{x}^{(1)}(t)</m> and <m>\mathbf{x}^{(2)}(t)</m> linearly independent?
+          If they are not, then stop and do not move on to part (c).         
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Find the general solution of 
+          <me>
+          \frac{d\mathbf{x}}{dt}=\left(\begin{array}{cc}
+          -2 \amp -1\\
+          2 \amp -5
+          \end{array}\right)\mathbf{x}.
+          </me>       
+        </p>
+        </li>
+
+      </ol>
+
+
+      </exercise>
+
+    </exercises>
+  </section>
+
+
+
+
+
+
+
+
+
+  <section xml:id="ex5-4">
+    <title><xref ref="ch5-4"/>  </title>
+    <exercises>
+      <exercise> 
+      <p>
+
+        Find the general solution of the given system of differential equations:
+
+      </p>
+
+      <ol>
+        <li>
+        <p>
+          <m>{\displaystyle \mathbf{x}^{\prime}=\left(\begin{array}{cc}
+          1 \amp -2\\
+          3 \amp -4
+          \end{array}\right)\mathbf{x}}</m>
+
+        </p>
+        </li>
+
+        <li>
+        <p>
+          <m>{\displaystyle \mathbf{x}^{\prime}=\left(\begin{array}{cc}
+          1 \amp 1\\
+          4 \amp -2
+          \end{array}\right)\mathbf{x}}</m>       
+        </p>
+        </li>
+
+        <li>
+        <p>
+          <m>{\displaystyle \frac{d\mathbf{x}}{dt}=\left(\begin{array}{cc}
+          3 \amp 2\\
+          0 \amp -2
+          \end{array}\right)\mathbf{x}}</m>        
+        </p>
+        </li>
+
+        <li>
+        <p>
+          The system 
+          <md>
+          <mrow> x_{1}^{\prime} \amp =3x_{1}+4x_{2}</mrow>
+          <mrow> x_{2}^{\prime} \amp =x_{1} </mrow>
+          </md>        
+        </p>
+        </li>
+
+      </ol>
+
+
+      </exercise>
+
+
+      <exercise> 
+      <p>
+
+        Solve the following initial value problems and find <m>x_{1}(t)</m> and
+        <m>x_{2}(t)</m>. 
+      </p>
+
+      <ol>
+        <li>
+        <p>
+          Where the IVP is given by
+          <me>
+          \mathbf{x}^{\prime}=\left(\begin{array}{cc}
+          -4 \amp 1\\
+          2 \amp -3
+          \end{array}\right)\mathbf{x}\,\,\,\,\,\,\,,\mathbf{x}(0)=\left(\begin{array}{c}
+          1\\
+          0
+          \end{array}\right)
+          </me>
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Where the IVP is given by
+          <me>
+          \mathbf{x}^{\prime}=\left(\begin{array}{cc}
+          -4 \amp 1\\
+          2 \amp -3
+          \end{array}\right)\mathbf{x}\,\,\,\,\,\,\,,\mathbf{x}(0)=\left(\begin{array}{c}
+          1\\
+          2
+          \end{array}\right)
+          </me>       
+        </p>
+        </li>
+
+      </ol>
+
+
+      </exercise>
+
+    </exercises>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <section xml:id="ex5-5">
+    <title><xref ref="ch5-5"/>  </title>
+    <exercises>
+      <exercise> 
+      <p>
+        Sketch the Phase portrait for the following systems and classify the
+        equilibrium solution for the following systems.
+      </p>
+
+      <ol>
+        <li>
+        <p>
+          <m>{\displaystyle \mathbf{x}^{\prime}=\left(\begin{array}{cc}
+          1 \amp -2\\
+          3 \amp -4
+          \end{array}\right)\mathbf{x}}</m> and assume you know that the associated eigenvalues and eigenvector
+          are 
+
+          <me>
+          \begin{array}{ccc}
+          \lambda_{1}=-1, \amp  \amp \mathbf{v}_{1}=\left(\begin{array}{c}
+          1\\
+          1
+          \end{array}\right)\\
+          \lambda_{2}=-2, \amp  \amp \mathbf{v}_{2}=\left(\begin{array}{c}
+          2\\
+          3
+          \end{array}\right)
+          \end{array}
+          </me>
+        </p>
+        </li>
+
+        <li>
+        <p>
+          <m>{\displaystyle \mathbf{x}^{\prime}=\left(\begin{array}{cc}
+          1 \amp 1\\
+          4 \amp -2
+          \end{array}\right)\mathbf{x}}</m> and assume you know that the associated eigenvalues and eigenvector
+          are 
+          <me>
+          \begin{array}{ccc}
+          \lambda_{1}=2, \amp  \amp \mathbf{v}_{1}=\left(\begin{array}{c}
+          1\\
+          1
+          \end{array}\right)\\
+          \lambda_{2}=-3, \amp  \amp \mathbf{v}_{2}=\left(\begin{array}{c}
+          1\\
+          -4
+          \end{array}\right)
+          \end{array}
+          </me>        
+        </p>
+        </li>
+
+        <li>
+        <p>
+           <m>{\displaystyle \frac{d\mathbf{x}}{dt}=A\mathbf{x}}</m> and assume you
+          know that the associated eigenvalues and eigenvector are 
+          <me>
+          \begin{array}{ccc}
+          \lambda_{1}=2, \amp  \amp \mathbf{v}_{1}=\left(\begin{array}{c}
+          1\\
+          1
+          \end{array}\right)\\
+          \lambda_{2}=5, \amp  \amp \mathbf{v}_{2}=\left(\begin{array}{c}
+          1\\
+          -1
+          \end{array}\right)
+          \end{array}
+          </me>       
+        </p>
+        </li>
+
+        <li>
+        <p>
+           The system 
+          <md>
+          <mrow> x_{1}^{\prime} \amp =3x_{1}+4x_{2}</mrow>
+          <mrow> x_{2}^{\prime} \amp =x_{1} </mrow>
+          </md>
+
+          and assume you know that the associated eigenvalues and eigenvector
+          are 
+          <me>
+          \begin{array}{ccc}
+          \lambda_{1}=4, \amp  \amp \mathbf{v}_{1}=\left(\begin{array}{c}
+          4\\
+          1
+          \end{array}\right)\\
+          \lambda_{2}=-1, \amp  \amp \mathbf{v}_{2}=\left(\begin{array}{c}
+          -1\\
+          1
+          \end{array}\right)
+          \end{array}
+          </me>       
+        </p>
+        </li>
+
+      </ol>
+
+
+      </exercise>
+
+      <exercise> 
+      <p>
+
+        Suppose <m>A</m> is a matrix and consider the following system
+        <me>
+        \mathbf{x}^{\prime}=A\mathbf{x}.
+        </me>
+
+
+      </p>
+
+      <ol>
+        <li>
+        <p>
+          Suppose the matrix <m>A</m> has the following associated eigenvalues with
+          corresponding eigenvectors
+
+          <me>
+          \begin{array}{ccc}
+          \lambda_{1}=-4, \amp  \amp \mathbf{v}_{1}=\left(\begin{array}{c}
+          1\\
+          1
+          \end{array}\right)\\
+          \lambda_{2}=-2, \amp  \amp \mathbf{v}_{2}=\left(\begin{array}{c}
+          -2\\
+          1
+          \end{array}\right)
+          \end{array}.
+          </me>
+
+          Draw the Phase portrait for <m>\mathbf{x}^{\prime}=A\mathbf{x}</m>.
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Consider the same matrix as in Part (a). Draw the trajectory curve
+          for <m>t\geq0 </m> of the solution of the following IVP:
+          <me>
+          \mathbf{x}^{\prime}=A\mathbf{x}\,\,\,\,\,\mathbf{x}(0)=\left(\begin{array}{c}
+          6\\
+          2
+          \end{array}\right)
+          </me>       
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Consider the same matrix as in Part (a). Draw the trajectory curve
+          for <m>t\geq0</m> of the solution of the following IVP:
+          <me>
+          \mathbf{x}^{\prime}=A\mathbf{x}\,\,\,\,\,\mathbf{x}(0)=\left(\begin{array}{c}
+          -4\\
+          -4
+          \end{array}\right)
+          </me>        
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Consider the same matrix as in Part (a). Draw the trajectory curve
+          for <m>t\geq0</m> of the solution of the following IVP:
+          <me>
+          \mathbf{x}^{\prime}=A\mathbf{x}\,\,\,\,\,\mathbf{x}(0)=\left(\begin{array}{c}
+          1\\
+          6
+          \end{array}\right)
+          </me>       
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Consider the same matrix as in Part (a). Draw the trajectory curve
+          for <m>t\geq0</m> of the solution of the following IVP:
+          <me>
+          \mathbf{x}^{\prime}=A\mathbf{x}\,\,\,\,\,\mathbf{x}(0)=\left(\begin{array}{c}
+          0\\
+          0
+          \end{array}\right).
+          </me>        
+        </p>
+        </li>
+
+      </ol>
+
+
+      </exercise>
+
+    </exercises>
+  </section>
+
+
+
+
+
+
+
+
+
+  <section xml:id="ex5-6">
+    <title><xref ref="ch5-6"/>  </title>
+    <exercises>
+      <exercise> 
+      <p>
+        Consider the following system
+        <me>
+        \mathbf{x}^{\prime}=\left(\begin{array}{cc}
+        0 \amp 9\\
+        -9 \amp 0
+        \end{array}\right)\mathbf{x}
+        </me>
+
+      </p>
+
+      <ol>
+        <li>
+        <p>
+          Find the general solution
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Solve the IVP:
+          <me>
+          \mathbf{x}^{\prime}=\left(\begin{array}{cc}
+          0 \amp 9\\
+          -9 \amp 0
+          \end{array}\right)\mathbf{x},\,\,\,\,\,\mathbf{x}(0)=\left(\begin{array}{c}
+          1\\
+          2
+          \end{array}\right)
+          </me>
+
+          and find <m>x_{1}(t)</m> and <m>x_{2}(t)</m>.         
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Determine the direction of the oscillations in the phase plane (do
+          solutions go clockwise or counterclockwise)        
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Classify the Equilibrium solution        
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Draw the Phase Portrait        
+        </p>
+        </li>
+
+      </ol>
+
+
+      </exercise>
+
+      <exercise> 
+      <p>
+
+        Consider the following system
+        <me>
+        \mathbf{x}^{\prime}=\left(\begin{array}{cc}
+        -1 \amp -4\\
+        1 \amp -1
+        \end{array}\right)\mathbf{x}
+        </me>
+
+
+
+      </p>
+
+      <ol>
+        <li>
+        <p>
+          Find the general solution
+
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Determine the direction of the oscillations in the phase plane (do
+          solutions go clockwise or counterclockwise)
+      
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Classify the Equilibrium solution        
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Draw the Phase Portrait      
+        </p>
+        </li>
+
+
+      </ol>
+
+
+      </exercise>
+
+      <exercise> 
+      <p>
+        Consider the following system
+        <me>
+        \mathbf{x}^{\prime}=\left(\begin{array}{cc}
+        2 \amp -5\\
+        1 \amp -2
+        \end{array}\right)\mathbf{x}
+        </me>
+
+      </p>
+
+      <ol>
+        <li>
+        <p>
+          Find the general solution
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Determine the direction of the oscillations in the phase plane (do
+          solutions go clockwise or counterclockwise)
+       
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Classify the Equilibrium solution
+         
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Draw the Phase Portrait
+     
+        </p>
+        </li>
+
+
+      </ol>
+
+
+      </exercise>
+
+      <exercise> 
+      <p>
+        Consider the following system
+        <me>
+        \mathbf{x}^{\prime}=\left(\begin{array}{cc}
+        1 \amp -1\\
+        5 \amp -3
+        \end{array}\right)\mathbf{x}
+        </me>
+
+      </p>
+
+      <ol>
+        <li>
+        <p>
+          Find the general solution
+
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Determine the direction of the oscillations in the phase plane (do
+          solutions go clockwise or counterclockwise)       
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Classify the Equilibrium solution       
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Draw the Phase Portrait
+        
+        </p>
+        </li>
+
+      </ol>
+
+
+      </exercise>
+
+
+      <exercise> 
+      <p>
+        Draw the Phase portrait of the following system 
+        <me>
+        \mathbf{x}^{\prime}=\left(\begin{array}{cc}
+        1 \amp 1\\
+        -1 \amp 0
+        \end{array}\right)\mathbf{x}.
+        </me>
+      </p>
+
+      </exercise>
+
+      <exercise> 
+      <p>
+        Draw the Phase portrait of the following system 
+        <me>
+        \mathbf{x}^{\prime}=\left(\begin{array}{cc}
+        1 \amp 2\\
+        -2 \amp -2
+        \end{array}\right)\mathbf{x}.
+        </me>
+
+      </p>
+
+      </exercise>
+
+    </exercises>
+  </section>
+
+
+
+
+
+
+
+
+  <section xml:id="ex5-7">
+    <title><xref ref="ch5-7"/>  </title>
+    <exercises>
+      <exercise> 
+      <p>
+        Consider the following system
+        <me>
+        \mathbf{x}^{\prime}=\left(\begin{array}{cc}
+        -2 \amp 0\\
+        1 \amp -2
+        \end{array}\right)\mathbf{x}
+        </me>
+
+      </p>
+
+      <ol>
+        <li>
+        <p>
+          Find the general solution
+
+        </p>
+        </li>
+
+        <li>
+        <p>
+           Solve the IVP
+          <me>
+          \mathbf{x}^{\prime}=\left(\begin{array}{cc}
+          -2 \amp 0\\
+          1 \amp -2
+          \end{array}\right)\mathbf{x},\,\,\,\,\,\mathbf{x}(0)=\left(\begin{array}{c}
+          1\\
+          2
+          \end{array}\right)
+          </me>
+     
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Determine the direction of the oscillations in the phase plane (do
+          solutions go clockwise or counterclockwise)        
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Classify the Equilibrium solution         
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Draw the Phase Portrait        
+        </p>
+        </li>
+
+      </ol>
+
+
+      </exercise>
+
+      <exercise> 
+      <p>
+        Consider the following system
+        <me>
+        \mathbf{x}^{\prime}=\left(\begin{array}{cc}
+        -2 \amp -1\\
+        1 \amp -4
+        \end{array}\right)\mathbf{x}
+        </me>
+
+      </p>
+
+      <ol>
+        <li>
+        <p>
+          Find the general solution
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Solve the IVP
+          <me>
+          \mathbf{x}^{\prime}=\left(\begin{array}{cc}
+          -2 \amp -1\\
+          1 \amp -4
+          \end{array}\right)\mathbf{x},\,\,\,\,\,\mathbf{x}(0)=\left(\begin{array}{c}
+          -1\\
+          3
+          \end{array}\right)
+          </me>
+        
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Determine the direction of the oscillations in the phase plane (do
+          solutions go clockwise or counterclockwise)      
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Classify the Equilibrium solution
+     
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Draw the Phase Portrait
+         
+        </p>
+        </li>
+
+      </ol>
+
+
+      </exercise>
+
+
+      <exercise> 
+      <p>
+        Consider the following system
+        <me>
+        \mathbf{x}^{\prime}=\left(\begin{array}{cc}
+        0 \amp 2\\
+        0 \amp -1
+        \end{array}\right)\mathbf{x}
+        </me>
+
+      </p>
+
+      <ol>
+        <li>
+        <p>
+          Find the general solution
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Draw the Phase Portrait        
+        </p>
+        </li>
+
+
+      </ol>
+
+
+      </exercise>
+
+      <exercise> 
+      <p>
+        Consider the following system
+        <me>
+        \mathbf{x}^{\prime}=\left(\begin{array}{cc}
+        4 \amp 2\\
+        2 \amp 1
+        \end{array}\right)\mathbf{x}
+        </me>
+
+      </p>
+
+      <ol>
+        <li>
+        <p>
+          Find the general solution
+        </p>
+        </li>
+
+        <li>
+        <p>
+          Draw the Phase Portrait        
+        </p>
+        </li>
+
+
+      </ol>
+
+
+      </exercise>
+
+    </exercises>
+  </section>
+
+
+
+
+
+</appendix>
+
+
+
+
+
+
+
+
+
+
 
 <appendix><title>Exercises for Chapter 6</title>
   <section xml:id="ex6-1">
@@ -1052,7 +2400,7 @@
   <section xml:id="ex6-2">
     <title><xref ref="ch6-2"/></title>
     <exercises>
-      <exercise> <p>Use the table of Laplace Transforms to help you compute the following
+      <exercise> <p>Use the table of Laplace Transform given in <xref ref="laplace-table"/> to help you compute the following
       inverse Laplace transforms.</p>
         <ol>
          <li><m>\mathcal{L}^{-1}\left\{ \frac{5}{s-6}\right\}</m> </li>
@@ -1132,6 +2480,10 @@
          <li><m>f(t)=u_{2}(t)\left(t-2\right)^{3}</m></li>
          <li><m>f(t)=u_{6}(t)\sin\left(3\left(t-6\right)\right)</m></li>
          <li><m>f(t)=u_{1}(t)\cos\left(7\left(t-1\right)\right)</m></li>
+         <li><m>{\displaystyle f(t)=\begin{cases}
+              5 \amp t \lt 7\\
+              8 \amp t\geq7
+              \end{cases}} </m></li>
         </ol></p>
       </exercise>
       <exercise>
@@ -1163,19 +2515,19 @@
     <title><xref ref="ch6-5"/></title>
         <exercises>
           <exercise>
-             Find the solution to the following IVP using Laplace Transforms
+             <p>Find the solution to the following IVP using Laplace Transforms</p>
             <me>
             y^{\prime}+9y=u_{5}(t),\,\,\,\,\,y(0)=-2.
             </me>
           </exercise>
           <exercise>
-             Find the solution to the following IVP using Laplace Transforms
+             <p>Find the solution to the following IVP using Laplace Transforms</p>
             <me>
             y^{\prime}+y=u_{7}(t)e^{-2\left(t-7\right)},\,\,\,\,\,y(0)=1.
             </me>
           </exercise>
           <exercise>
-             Find the solution to the following IVP using Laplace Transforms
+             <p>Find the solution to the following IVP using Laplace Transforms </p>
             <me>
             y^{\prime\prime}+9y=u_{3}(t)\sin\left(2\left(t-3\right)\right),\,\,\,\,\,y(0)=2.
             </me>

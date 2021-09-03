@@ -18,23 +18,68 @@
 \BOOKMARK [1][-]{section.3.4}{Complex roots of the characteristic equation}{chapter.3}% 18
 \BOOKMARK [1][-]{section.3.5}{Repeated roots; Reduction of order}{chapter.3}% 19
 \BOOKMARK [1][-]{section.3.6}{Non-homogeneous equations - Undetermined coefficients}{chapter.3}% 20
-\BOOKMARK [0][-]{appendix.A}{A fast quadratic method}{}% 21
-\BOOKMARK [0][-]{appendix.B}{Exercises for Chapter 1}{}% 22
-\BOOKMARK [1][-]{section.B.1}{Section ??}{appendix.B}% 23
-\BOOKMARK [1][-]{section.B.2}{Section ??}{appendix.B}% 24
-\BOOKMARK [0][-]{appendix.C}{Exercises for Chapter 2}{}% 25
-\BOOKMARK [1][-]{section.C.1}{Section ??}{appendix.C}% 26
-\BOOKMARK [1][-]{section.C.2}{Section ??}{appendix.C}% 27
-\BOOKMARK [1][-]{section.C.3}{Section ??}{appendix.C}% 28
-\BOOKMARK [1][-]{section.C.4}{Section ??}{appendix.C}% 29
-\BOOKMARK [1][-]{section.C.5}{Section ??}{appendix.C}% 30
-\BOOKMARK [1][-]{section.C.6}{Section ??}{appendix.C}% 31
-\BOOKMARK [1][-]{section.C.7}{Section ??}{appendix.C}% 32
-\BOOKMARK [1][-]{section.C.8}{Section ??}{appendix.C}% 33
-\BOOKMARK [1][-]{section.C.9}{Section ??}{appendix.C}% 34
-\BOOKMARK [0][-]{appendix.D}{Exercises for Chapter 3}{}% 35
-\BOOKMARK [1][-]{section.D.1}{Section ??}{appendix.D}% 36
-\BOOKMARK [1][-]{section.D.2}{Section ??}{appendix.D}% 37
-\BOOKMARK [1][-]{section.D.3}{Section ??}{appendix.D}% 38
-\BOOKMARK [1][-]{section.D.4}{Section ??}{appendix.D}% 39
-\BOOKMARK [1][-]{section.D.5}{Section ??}{appendix.D}% 40
+\BOOKMARK [1][-]{section.3.7}{Harmonic oscillations}{chapter.3}% 21
+\BOOKMARK [1][-]{section.3.8}{Forced oscillations}{chapter.3}% 22
+\BOOKMARK [1][-]{section.3.9}{Variation of Parameters}{chapter.3}% 23
+\BOOKMARK [0][-]{chapter.4}{Higher order differential equations}{}% 24
+\BOOKMARK [1][-]{section.4.1}{Linear equations}{chapter.4}% 25
+\BOOKMARK [1][-]{section.4.2}{The Method of Undetermined Coefficients}{chapter.4}% 26
+\BOOKMARK [0][-]{chapter.5}{Systems of First Order Linear Equations}{}% 27
+\BOOKMARK [1][-]{section.5.1}{Systems of First Order Linear Equations}{chapter.5}% 28
+\BOOKMARK [1][-]{section.5.2}{Review of Matrices, Vector Fields, Phase Planes and Portraits}{chapter.5}% 29
+\BOOKMARK [1][-]{section.5.3}{Systems of Linear Equations: Linear Independence, and the General Solution Theorem}{chapter.5}% 30
+\BOOKMARK [1][-]{section.5.4}{Basic Theory of Systems of 1st Order Linear EQs - Straight Line Solutions}{chapter.5}% 31
+\BOOKMARK [1][-]{section.5.5}{Phase Portraits for systems with real eigenvalues}{chapter.5}% 32
+\BOOKMARK [1][-]{section.5.6}{Complex Eigenvalues}{chapter.5}% 33
+\BOOKMARK [1][-]{section.5.7}{Repeated and zero eigenvalues}{chapter.5}% 34
+\BOOKMARK [0][-]{chapter.6}{The Laplace Transform}{}% 35
+\BOOKMARK [1][-]{section.6.1}{The definition of the Laplace transform}{chapter.6}% 36
+\BOOKMARK [1][-]{section.6.2}{The Laplace Transform and Initial Value Problems}{chapter.6}% 37
+\BOOKMARK [1][-]{section.6.3}{Solutions to higher order IVPs}{chapter.6}% 38
+\BOOKMARK [1][-]{section.6.4}{Step functions}{chapter.6}% 39
+\BOOKMARK [1][-]{section.6.5}{ODEs with discontinuous forcing functions}{chapter.6}% 40
+\BOOKMARK [1][-]{section.6.6}{Impulse functions}{chapter.6}% 41
+\BOOKMARK [1][-]{section.6.7}{The convolution integral}{chapter.6}% 42
+\BOOKMARK [0][-]{chapter.7}{Series Solutions}{}% 43
+\BOOKMARK [1][-]{section.7.1}{Power Series}{chapter.7}% 44
+\BOOKMARK [1][-]{section.7.2}{Method of series solutions}{chapter.7}% 45
+\BOOKMARK [0][-]{appendix.A}{A fast quadratic method}{}% 46
+\BOOKMARK [0][-]{appendix.B}{Exercises for Chapter 1}{}% 47
+\BOOKMARK [1][-]{section.B.1}{Section 1.1}{appendix.B}% 48
+\BOOKMARK [1][-]{section.B.2}{Section 1.2}{appendix.B}% 49
+\BOOKMARK [0][-]{appendix.C}{Exercises for Chapter 2}{}% 50
+\BOOKMARK [1][-]{section.C.1}{Section 2.1}{appendix.C}% 51
+\BOOKMARK [1][-]{section.C.2}{Section 2.2}{appendix.C}% 52
+\BOOKMARK [1][-]{section.C.3}{Section 2.3}{appendix.C}% 53
+\BOOKMARK [1][-]{section.C.4}{Section 2.4}{appendix.C}% 54
+\BOOKMARK [1][-]{section.C.5}{Section 2.5}{appendix.C}% 55
+\BOOKMARK [1][-]{section.C.6}{Section 2.6}{appendix.C}% 56
+\BOOKMARK [1][-]{section.C.7}{Section 2.7}{appendix.C}% 57
+\BOOKMARK [1][-]{section.C.8}{Section 2.8}{appendix.C}% 58
+\BOOKMARK [1][-]{section.C.9}{Section 2.9}{appendix.C}% 59
+\BOOKMARK [0][-]{appendix.D}{Exercises for Chapter 3}{}% 60
+\BOOKMARK [1][-]{section.D.1}{Section 3.2}{appendix.D}% 61
+\BOOKMARK [1][-]{section.D.2}{Section 3.3}{appendix.D}% 62
+\BOOKMARK [1][-]{section.D.3}{Section 3.4}{appendix.D}% 63
+\BOOKMARK [1][-]{section.D.4}{Section 3.5}{appendix.D}% 64
+\BOOKMARK [1][-]{section.D.5}{Section 3.6}{appendix.D}% 65
+\BOOKMARK [1][-]{section.D.6}{Section 3.7}{appendix.D}% 66
+\BOOKMARK [1][-]{section.D.7}{Section 3.8}{appendix.D}% 67
+\BOOKMARK [1][-]{section.D.8}{Section 3.9}{appendix.D}% 68
+\BOOKMARK [0][-]{appendix.E}{Exercises for Chapter 4}{}% 69
+\BOOKMARK [1][-]{section.E.1}{Section 4.1}{appendix.E}% 70
+\BOOKMARK [1][-]{section.E.2}{Section 4.2}{appendix.E}% 71
+\BOOKMARK [0][-]{appendix.F}{Exercises for Chapter 5}{}% 72
+\BOOKMARK [1][-]{section.F.1}{Section 5.1}{appendix.F}% 73
+\BOOKMARK [1][-]{section.F.2}{Section 5.2}{appendix.F}% 74
+\BOOKMARK [1][-]{section.F.3}{Section 5.3}{appendix.F}% 75
+\BOOKMARK [1][-]{section.F.4}{Section 5.4}{appendix.F}% 76
+\BOOKMARK [1][-]{section.F.5}{Section 5.5}{appendix.F}% 77
+\BOOKMARK [1][-]{section.F.6}{Section 5.6}{appendix.F}% 78
+\BOOKMARK [1][-]{section.F.7}{Section 5.7}{appendix.F}% 79
+\BOOKMARK [0][-]{appendix.G}{Exercises for Chapter 6}{}% 80
+\BOOKMARK [1][-]{section.G.1}{Section 6.1}{appendix.G}% 81
+\BOOKMARK [1][-]{section.G.2}{Section 6.2}{appendix.G}% 82
+\BOOKMARK [1][-]{section.G.3}{Section 6.3}{appendix.G}% 83
+\BOOKMARK [1][-]{section.G.4}{Section 6.4}{appendix.G}% 84
+\BOOKMARK [1][-]{section.G.5}{Section 6.5}{appendix.G}% 85

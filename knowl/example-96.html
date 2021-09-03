@@ -1,25 +1,70 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
 <html lang="en-US">
-<!--**************************************-->
-<!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-18T16:29:41-04:00    *-->
-<!--*                                    *-->
-<!--*      https://pretextbook.org       *-->
-<!--*                                    *-->
-<!--**************************************-->
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:51-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body>
-<article class="example-like"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">6.1.7</span>.</h6>
-<p>Find the Laplace transform of \(f(t)=1\text{,}\) \(t\geq0\) .</p>
-<p>Solution: Using \(a=0\) above we have that \(f(t)=e^{0\cdot t}=1\) hence we can use the formula above to get</p>
-<div class="displaymath">
+<article class="example example-like"><h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.3.2</span><span class="period">.</span>
+</h6>
+<p xmlns:svg="http://www.w3.org/2000/svg">Are \(\mathbf{x}=\left(\begin{array}{c}
+1\\
+2
+\end{array}\right)\) and \(\mathbf{y}=\left(\begin{array}{c}
+3\\
+4
+\end{array}\right)\) linearly independent?</p>
+<p><dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">Method1:</dfn> Note</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+c_{1}\left(\begin{array}{c}
+1\\
+2
+\end{array}\right)+c_{2}\left(\begin{array}{c}
+3\\
+4
+\end{array}\right)=0 \amp \iff c_{1}\left(\begin{array}{c}
+1\\
+2
+\end{array}\right)+c_{2}\left(\begin{array}{c}
+3\\
+4
+\end{array}\right)=0\\
+\amp \iff  \left(\begin{array}{c}
+c_{1}+3c_{2}\\
+2c_{1}+4c_{2}
+\end{array}\right)=0\\
+\amp \iff \left(\begin{array}{cc}
+1 \amp 3\\
+2 \amp 4
+\end{array}\right)\left(\begin{array}{c}
+c_{1}\\
+c_{2}
+\end{array}\right)=0\\
+\amp \iff  \det\left(\begin{array}{cc}
+1 \amp 3\\
+2 \amp 4
+\end{array}\right)=4-6\neq 0
+\end{align*}
+</div>
+<p data-braille="continuation">and from <a class="xref" data-knowl="./knowl/thmlinalg1.html" title="Theorem 5.3.1">Theorem 5.3.1</a> this tells us that they only solution is the trivial solution \(c_{1}=c_{2}=0\) . Hence yes! <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">linearly independent</dfn>!</p>
+<p>Note that to check linear independence, all we needed to check was if</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-\mathcal{L}\left\{ 1\right\} =\frac{1}{s}\,\,\,\,\,\,s&gt;0.
+\det\left(\begin{array}{cc}
+\mathbf{x} \amp \mathbf{y}\end{array}\right)\neq0.
 \end{equation*}
-</div></article><span class="incontext"><a href="ch6-1.html#example-96">in-context</a></span>
+</div>
+<p xmlns:svg="http://www.w3.org/2000/svg"><dfn class="terminology">Method2:</dfn> Draw this on the \(x-y\) plane and note they're NOT on the same line through the origin. Hence they are linearly independent.</p></article><span class="incontext"><a href="ch5-3.html#example-96">in-context</a></span>
 </body>
 </html>

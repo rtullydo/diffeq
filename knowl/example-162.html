@@ -1,0 +1,71 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:57-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<article class="example example-like"><h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">7.2.6</span><span class="period">.</span><span class="space"> </span><span class="title">Bessel equations.</span>
+</h6>
+<p>Another important example is the so callled <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">Bessel Differential Equation</dfn>:</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+x^{2}y^{\prime\prime}+xy^{\prime}+\left(x^{2}-\nu^{2}\right)y=0,\,\,\,\,\,\,x&gt;0
+\end{equation*}
+</div>
+<p data-braille="continuation">where \(\nu\) is some constant. For sake of simplicity, let us pick \(\nu=0\text{,}\) so that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+x^{2}y^{\prime\prime}+xy^{\prime}+x^{2}y=0\,\,\,\,\,\,x&gt;0
+\end{equation*}
+</div>
+<p data-braille="continuation">and we can rewrite this equation by dividing by \(x^{2}\) to get</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+y^{\prime\prime}+\frac{1}{x}y^{\prime}+y=0,\,\,\,\,\,\,x&gt;0.
+\end{equation*}
+</div>
+<p data-braille="continuation">Much like Airy's equation, this seems like such a simple equation, but it turns out there is no nice solution in terms of elementary functions. In turns out that one way to solve this Bessel ODE is to use power series. (Since \(x &gt; 0\text{,}\) the function \(\frac{1}{x}\) is analytic.) One can find out that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+y_{1}(x) \amp =J_{0}(x),\\
+y_{2}(x) \amp =Y_{0}(x)
+\end{align*}
+</div>
+<p data-braille="continuation">where</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+J_{0}(x) =\sum_{n=0}^{\infty}\frac{(-1)^{n}}{\left(n!\right)^{2}2^{2n}}x^{2n}.
+\end{equation*}
+</div>
+<p>\(J_{0}(x)\) is called the Bessel function of first kind of order \(\nu=0\text{.}\) \(Y_{0}(x)\) is called the Bessel function of second kind of order \(\nu=0\text{.}\) \(Y_{0}(x)\) can also be represented by a series, but is more complicated. Another way to write \(Y_{0}\) is as an integral,</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+Y_{0}(x)=-\frac{2}{\pi}\int_{1}^{\infty}\frac{\cos\left(tx\right)}{\sqrt{t^{2}-1}}dt,\,\,x&gt;0
+\end{equation*}
+</div>
+<p data-braille="continuation">Thus the general solution to Bessel Equation</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+y^{\prime\prime}+\frac{1}{x}y^{\prime}+y=0,\,\,\,\,x&gt;0
+\end{equation*}
+</div>
+<p data-braille="continuation">is given by</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+y(x) \amp =c_{1}J_{0}(x)+c_{2}Y_{0}(x)\\
+\amp =c_{1}\sum_{n=0}^{\infty}\frac{(-1)^{n}}{\left(n!\right)^{2}2^{2n}}x^{2n}-c_{2}\int_{1}^{\infty}\frac{2}{\pi}\frac{\cos\left(tx\right)}{\sqrt{t^{2}-1}}dt.
+\end{align*}
+</div></article><span class="incontext"><a href="ch7-2.html#example-162">in-context</a></span>
+</body>
+</html>

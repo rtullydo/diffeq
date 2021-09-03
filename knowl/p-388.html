@@ -1,30 +1,67 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
 <html lang="en-US">
-<!--**************************************-->
-<!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-18T16:29:40-04:00    *-->
-<!--*                                    *-->
-<!--*      https://pretextbook.org       *-->
-<!--*                                    *-->
-<!--**************************************-->
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:48-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body>
-<h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>To finish we have that \(y_{2}=v\cdot t=\left(k_{1}t^{-3}+k_{2}\right)t=k_{1}t^{-2}+k_{2}t\text{.}\) Set \(k_{2}=0\) and \(k_{1}=1\text{.}\) Thus</p>
-<div class="displaymath">
+<h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
+<p>Setting the LHS equal to zero means</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-y_{2}(t)=t^{-2}
+v^{\prime\prime}t+4v^{\prime}=0.
 \end{equation*}
 </div>
-<p>is a linearly independent solution. Hence the general solution is given by</p>
-<div class="displaymath">
-\begin{align*}
-y(t) \amp =c_{1}y_{1}(t)+c_{2}y_{2}(t)\\
-\amp =c_{1}t+c_{2}t^{-2}.
-\end{align*}
+<p data-braille="continuation">Now we notice that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+t^{3}v^{\prime\prime}+4t^{2}v^{\prime}=0
+\end{equation*}
+</div>
+<p data-braille="continuation">is really a first order equation is disguise, using the substitution \(w=v^{\prime}\text{.}\) <article class="assemblage assemblage-like"><p>The equation</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+a(t)v^{\prime\prime}+b(t)v^{\prime}=0
+\end{equation*}
+</div>
+<p data-braille="continuation">using the substitution \(w=v^{\prime}\) becomes</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+a(t) w' + b(t) w = 0\text{,}
+\end{equation*}
+</div>
+<p data-braille="continuation">which is separable and first order.</p></article> Then we need to solve</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+w^{\prime}+\frac{4}{t}w=0.
+\end{equation*}
+</div>
+<p data-braille="continuation">This equation is separable, and gives</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+w = \frac{k_{1}}{t^{4}}
+\end{equation*}
+</div>
+<p data-braille="continuation">Now we need to reverse the substitution to find \(v\text{.}\)</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+v^{\prime}=w=k_{1}t^{-4}
+\end{equation*}
+</div>
+<p data-braille="continuation">hence</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+v=k_{1}t^{-3}+k_{2}.
+\end{equation*}
 </div>
 <span class="incontext"><a href="ch3-5.html#p-388">in-context</a></span>
 </body>

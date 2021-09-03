@@ -1,39 +1,27 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
 <html lang="en-US">
-<!--**************************************-->
-<!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-18T16:29:41-04:00    *-->
-<!--*                                    *-->
-<!--*      https://pretextbook.org       *-->
-<!--*                                    *-->
-<!--**************************************-->
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:51-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body>
-<h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>Going back to the problem of find the Laplace Transform we have that</p>
-<div class="displaymath">
-\begin{align*}
-F(s) \amp =\frac{1-2s}{s^{2}+4s+5}=\frac{1-2s}{\left(s+2\right)^{2}+1}
-\end{align*}
-</div>
-<p>and looking at Formulas 9 and 10 from the Laplace trasnform table:</p>
-<div class="displaymath">
+<h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
+<p>Given a matrix \(A\text{,}\) a number \(\lambda\) is called an <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">eigenvalue</dfn> of \(A\) if there is a nonzero vector \(\mathbf{v}\) such that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-\mathcal{L}\left\{ e^{at}\sin bt\right\} =\frac{b}{(s-a)^{2}+b^{2}}\text{ and }\mathcal{L}\left\{ e^{at}\cos bt\right\} =\frac{s-a}{(s-a)^{2}+b^{2}}.
+A\mathbf{v}=\lambda\mathbf{v}.
 \end{equation*}
 </div>
-<p>We can apply these by separating \(F(s)\) into pieces like this:=</p>
-<div class="displaymath">
-\begin{align*}
-\mathcal{L}^{-1}\left\{ F(s)\right\}  \amp =\mathcal{L}^{-1}\left\{ \frac{1-2s}{\left(s+2\right)^{2}+1}\right\} \\
-\amp =\mathcal{L}^{-1}\left\{ \frac{-2\left(s+2\right)}{\left(s+2\right)^{2}+1}\right\} +\mathcal{L}^{-1}\left\{ \frac{\boldsymbol{+4}+1}{\left(s+2\right)^{2}+1}\right\} \\
-\amp =-2\mathcal{L}^{-1}\left\{ \frac{\left(s-\left(-2\right)\right)}{\left(s-\left(-2\right)\right)^{2}+1}\right\} +5\mathcal{L}^{-1}\left\{ \frac{1}{\left(s+2\right)^{2}+1}\right\} \\
-\amp =-2e^{-2t}\cos t+5e^{-2t}\sin t.
-\end{align*}
-</div>
-<span class="incontext"><a href="ch6-3.html#p-596">in-context</a></span>
+<p data-braille="continuation">The corresponding vector \(\mathbf{v}\) is called an <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">eigenvector of the eigenvalue</dfn>  \(\lambda\text{.}\)</p>
+<span class="incontext"><a href="ch5-4.html#p-596">in-context</a></span>
 </body>
 </html>

@@ -1,64 +1,66 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
 <html lang="en-US">
-<!--**************************************-->
-<!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-18T16:29:41-04:00    *-->
-<!--*                                    *-->
-<!--*      https://pretextbook.org       *-->
-<!--*                                    *-->
-<!--**************************************-->
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:50-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body><article class="example-like"><p>Another important example is the so callled <dfn class="terminology">Bessel Differential Equation</dfn>:</p>
-<div class="displaymath">
+<body><article class="example example-like"><p>Find the Equilibrium solutions to</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-x^{2}y^{\prime\prime}+xy^{\prime}+\left(x^{2}-\nu^{2}\right)y=0,\,\,\,\,\,\,x&gt;0
+\mathbf{x}^{\prime}=\left(\begin{array}{cc}
+1 \amp 2\\
+2 \amp 4
+\end{array}\right)\mathbf{x}
 \end{equation*}
 </div>
-<p>where \(\nu\) is some constant. For sake of simplicity, let us pick \(\nu=0\text{,}\) so that</p>
-<div class="displaymath">
-\begin{equation*}
-x^{2}y^{\prime\prime}+xy^{\prime}+x^{2}y=0\,\,\,\,\,\,x&gt;0
-\end{equation*}
-</div>
-<p>and we can rewrite this equation by dividing by \(x^{2}\) to get</p>
-<div class="displaymath">
-\begin{equation*}
-y^{\prime\prime}+\frac{1}{x}y^{\prime}+y=0,\,\,\,\,\,\,x&gt;0.
-\end{equation*}
-</div>
-<p>Much like Airy's equation, this seems like such a simple equation, but it turns out there is no nice solution in terms of elementary functions. In turns out that one way to solve this Bessel ODE is to use power series. (Since \(x &gt; 0\text{,}\) the function \(\frac{1}{x}\) is analytic.) One can find out that</p>
-<div class="displaymath">
+<p data-braille="continuation">We must solve</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{align*}
-y_{1}(x) \amp =J_{0}(x),\\
-y_{2}(x) \amp =Y_{0}(x)
+\left(\begin{array}{cc}
+1 \amp 2\\
+2 \amp 4
+\end{array}\right)\mathbf{x}=0 \amp \iff\begin{cases}
+x_{1}+2x_{2}=0\\
+2x_{1}+4x_{2}=0
+\end{cases}\\
+\amp \iff x_{1}=-2x_{2}
 \end{align*}
 </div>
-<p>where</p>
-<div class="displaymath">
+<p data-braille="continuation">since these equations are multiple of each other than there is a whole line of solutions:</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-J_{0}(x) =\sum_{n=0}^{\infty}\frac{(-1)^{n}}{\left(n!\right)^{2}2^{2n}}x^{2n}.
+x_{1}=-2x_{2}
 \end{equation*}
 </div>
-<p>\(J_{0}(x)\) is called the Bessel function of first kind of order \(\nu=0\text{.}\) \(Y_{0}(x)\) is called the Bessel function of second kind of order \(\nu=0\text{.}\) \(Y_{0}(x)\) can also be represented by a series, but is more complicated. Another way to write \(Y_{0}\) is as an integral,</p>
-<div class="displaymath">
-\begin{equation*}
-Y_{0}(x)=-\frac{2}{\pi}\int_{1}^{\infty}\frac{\cos\left(tx\right)}{\sqrt{t^{2}-1}}dt,\,\,x&gt;0
-\end{equation*}
-</div>
-<p>Thus the general solution to Bessel Equation</p>
-<div class="displaymath">
-\begin{equation*}
-y^{\prime\prime}+\frac{1}{x}y^{\prime}+y=0,\,\,\,\,x&gt;0
-\end{equation*}
-</div>
-<p>is given by</p>
-<div class="displaymath">
+<p data-braille="continuation">and it turn out that the solution are of then form:</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{align*}
-y(x) \amp =c_{1}J_{0}(x)+c_{2}Y_{0}(x)\\
-\amp =c_{1}\sum_{n=0}^{\infty}\frac{(-1)^{n}}{\left(n!\right)^{2}2^{2n}}x^{2n}-c_{2}\int_{1}^{\infty}\frac{2}{\pi}\frac{\cos\left(tx\right)}{\sqrt{t^{2}-1}}dt.
+\mathbf{x}(t) \amp =\left(\begin{array}{c}
+-2x_{2}\\
+x_{2}
+\end{array}\right)\\
+\amp =x_{2}\left(\begin{array}{c}
+-2\\
+1
+\end{array}\right).
 \end{align*}
+</div>
+<p data-braille="continuation">Using a generic constant \(c \text{,}\) we have that there are an infinite number of equilibrium solutions:</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\mathbf{x}(t)=c\left(\begin{array}{c}
+-2\\
+1
+\end{array}\right).
+\end{equation*}
 </div></article></body>
 </html>

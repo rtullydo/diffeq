@@ -1,17 +1,19 @@
-<!DOCTYPE html>
-<!--**************************************-->
-<!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-18T16:29:38-04:00    *-->
-<!--*                                    *-->
-<!--*      https://pretextbook.org       *-->
-<!--*                                    *-->
-<!--**************************************-->
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:30-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
 <html lang="en-US">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>ODEs with discontinuous forcing functions</title>
 <meta name="Keywords" content="Authored in PreTeXt">
-<meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
@@ -24,7 +26,7 @@ MathJax.Hub.Config({
     jax: ["input/AsciiMath"],
     extensions: ["asciimath2jax.js"],
     TeX: {
-        extensions: ["extpfeil.js", "autobold.js", "https://pretextbook.org/js/lib/mathjaxknowl.js", ],
+        extensions: ["extpfeil.js", "autobold.js", "https://pretextbook.org/js/lib/mathjaxknowl.js", "AMScd.js", ],
         // scrolling to fragment identifiers is controlled by other Javascript
         positionToHash: false,
         equationNumbers: { autoNumber: "none", useLabelIds: true, },
@@ -41,23 +43,21 @@ MathJax.Hub.Config({
         mtextFontInherit: true,
     },
 });
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.12/pretext.js"></script><script src="https://pretextbook.org/js/0.12/pretext_add_on.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/pretext.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/toc.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/colors_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/setcolors.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/features.css" rel="stylesheet" type="text/css">
-<script>var logged_in = false;
-var role = 'student';
-var guest_access = true;
-var login_required = false;
-var js_version = 0.12;
-</script>
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="mathbook-book has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div class="hidden-content" style="display:none">\(\DeclareMathOperator{\RE}{Re}
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" class="hidden-content" style="display:none">\(\DeclareMathOperator{\RE}{Re}
   \DeclareMathOperator{\IM}{Im}
   \DeclareMathOperator{\ess}{ess}
   \DeclareMathOperator{\intr}{int}
@@ -160,7 +160,7 @@ var js_version = 0.12;
 <p class="byline">Phanuel Mariano, Ryan Tully-Doyle</p>
 </div>
 </div></div>
-<nav id="primary-navbar" class="navbar"><div class="container">
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
 <div class="navbar-top-buttons">
 <button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="ch6-4.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch6.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="ch6-6.html" title="Next">Next</a></span></div>
 </div>
@@ -168,9 +168,9 @@ var js_version = 0.12;
 <button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="ch6-4.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch6.html" title="Up">Up</a><a class="next-button button toolbar-item" href="ch6-6.html" title="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
-<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
 <nav id="toc"><ul>
-<li class="link"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
 <li class="link">
 <a href="introduction.html" data-scroll="introduction"><span class="codenumber">1</span> <span class="title">Introduction</span></a><ul>
 <li><a href="ch1-1.html" data-scroll="ch1-1">Modeling via differential equations, some solutions and definitions</a></li>
@@ -198,9 +198,9 @@ var js_version = 0.12;
 <li><a href="ch3-4.html" data-scroll="ch3-4">Complex roots of the characteristic equation</a></li>
 <li><a href="ch3-5.html" data-scroll="ch3-5">Repeated roots; Reduction of order</a></li>
 <li><a href="ch3-6.html" data-scroll="ch3-6">Non-homogeneous equations - Undetermined coefficients</a></li>
-<li><a href="ch3-7.html" data-scroll="ch3-7">Variation of Parameters</a></li>
 <li><a href="ch3-8.html" data-scroll="ch3-8">Harmonic oscillations</a></li>
 <li><a href="ch3-9.html" data-scroll="ch3-9">Forced oscillations</a></li>
+<li><a href="ch3-7.html" data-scroll="ch3-7">Variation of Parameters</a></li>
 </ul>
 </li>
 <li class="link">
@@ -210,9 +210,14 @@ var js_version = 0.12;
 </ul>
 </li>
 <li class="link">
-<a href="ch5.html" data-scroll="ch5"><span class="codenumber">5</span> <span class="title">Series Solutions</span></a><ul>
-<li><a href="ch5-1.html" data-scroll="ch5-1">Power Series</a></li>
-<li><a href="ch5-2.html" data-scroll="ch5-2">Method of series solutions</a></li>
+<a href="ch5.html" data-scroll="ch5"><span class="codenumber">5</span> <span class="title">Systems of First Order Linear Equations</span></a><ul>
+<li><a href="ch5-1.html" data-scroll="ch5-1">Systems of First Order Linear Equations</a></li>
+<li><a href="ch5-2.html" data-scroll="ch5-2">Review of Matrices, Vector Fields, Phase Planes and Portraits</a></li>
+<li><a href="ch5-3.html" data-scroll="ch5-3">Systems of Linear Equations: Linear Independence, and the General Solution Theorem</a></li>
+<li><a href="ch5-4.html" data-scroll="ch5-4">Basic Theory of Systems of 1st Order Linear EQs - Straight Line Solutions</a></li>
+<li><a href="ch5-5.html" data-scroll="ch5-5">Phase Portraits for systems with real eigenvalues</a></li>
+<li><a href="ch5-6.html" data-scroll="ch5-6">Complex Eigenvalues</a></li>
+<li><a href="ch5-7.html" data-scroll="ch5-7">Repeated and zero eigenvalues</a></li>
 </ul>
 </li>
 <li class="link">
@@ -226,7 +231,13 @@ var js_version = 0.12;
 <li><a href="ch6-7.html" data-scroll="ch6-7">The convolution integral</a></li>
 </ul>
 </li>
-<li class="link"><a href="backmatter-1.html" data-scroll="backmatter-1"><span class="title">Back Matter</span></a></li>
+<li class="link">
+<a href="ch7.html" data-scroll="ch7"><span class="codenumber">7</span> <span class="title">Series Solutions</span></a><ul>
+<li><a href="ch7-1.html" data-scroll="ch7-1">Power Series</a></li>
+<li><a href="ch7-2.html" data-scroll="ch7-2">Method of series solutions</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1"><span class="title">Back Matter</span></a></li>
 <li class="link"><a href="quadratic.html" data-scroll="quadratic"><span class="codenumber">A</span> <span class="title">A fast quadratic method</span></a></li>
 <li class="link">
 <a href="exercises.html" data-scroll="exercises"><span class="codenumber">B</span> <span class="title">Exercises for Chapter 1</span></a><ul>
@@ -254,8 +265,9 @@ var js_version = 0.12;
 <li><a href="ex3-4.html" data-scroll="ex3-4">Section 3.4</a></li>
 <li><a href="ex3-5.html" data-scroll="ex3-5">Section 3.5</a></li>
 <li><a href="ex3-6.html" data-scroll="ex3-6">Section 3.6</a></li>
-<li><a href="ex3-7.html" data-scroll="ex3-7">Section 3.7</a></li>
-<li><a href="ex3-8.html" data-scroll="ex3-8">Section 3.8/Section 3.9</a></li>
+<li><a href="ex3-8.html" data-scroll="ex3-8">Section 3.7</a></li>
+<li><a href="ex3-9.html" data-scroll="ex3-9">Section 3.8</a></li>
+<li><a href="ex3-7.html" data-scroll="ex3-7">Section 3.9</a></li>
 </ul>
 </li>
 <li class="link">
@@ -265,7 +277,18 @@ var js_version = 0.12;
 </ul>
 </li>
 <li class="link">
-<a href="appendix-6.html" data-scroll="appendix-6"><span class="codenumber">F</span> <span class="title">Exercises for Chapter 6</span></a><ul>
+<a href="appendix-6.html" data-scroll="appendix-6"><span class="codenumber">F</span> <span class="title">Exercises for Chapter 5</span></a><ul>
+<li><a href="ex5-1.html" data-scroll="ex5-1">Section 5.1</a></li>
+<li><a href="ex5-2.html" data-scroll="ex5-2">Section 5.2</a></li>
+<li><a href="ex5-3.html" data-scroll="ex5-3">Section 5.3</a></li>
+<li><a href="ex5-4.html" data-scroll="ex5-4">Section 5.4</a></li>
+<li><a href="ex5-5.html" data-scroll="ex5-5">Section 5.5</a></li>
+<li><a href="ex5-6.html" data-scroll="ex5-6">Section 5.6</a></li>
+<li><a href="ex5-7.html" data-scroll="ex5-7">Section 5.7</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="appendix-7.html" data-scroll="appendix-7"><span class="codenumber">G</span> <span class="title">Exercises for Chapter 6</span></a><ul>
 <li><a href="ex6-1.html" data-scroll="ex6-1">Section 6.1</a></li>
 <li><a href="ex6-2.html" data-scroll="ex6-2">Section 6.2</a></li>
 <li><a href="ex6-3.html" data-scroll="ex6-3">Section 6.3</a></li>
@@ -275,80 +298,82 @@ var js_version = 0.12;
 </li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
-<main class="main"><div id="content" class="pretext-content"><section class="section" id="ch6-5"><h2 class="heading hide-type">
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="ch6-5"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">6.5</span> <span class="title">ODEs with discontinuous forcing functions</span>
 </h2>
-<a href="ch6-5.html" class="permalink">¶</a><p id="p-648">We will now do some examples involving intial value problems where the forcing function have pieces that switch on and off. This will require the use of step functions to turn parts of the forcing function on and off as the definition requires. You can think of this as a way to rewrite a multi-part definition into just one definition for a piecewise continuous function.</p>
-<article class="example-like" id="example-120"><a data-knowl="" class="id-ref" data-refid="hk-example-120"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">6.5.1</span>.</h6></a></article><div id="hk-example-120" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-649">Solve using Laplace Transforms:</p>
+<p id="p-808">We will now do some examples involving intial value problems where the forcing function have pieces that switch on and off. This will require the use of step functions to turn parts of the forcing function on and off as the definition requires. You can think of this as a way to rewrite a multi-part definition into just one definition for a piecewise continuous function.</p>
+<article class="example example-like" id="example-142"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-142"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.5.1</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-142"><article class="example example-like"><p id="p-809">Solve using Laplace Transforms:</p>
 <div class="displaymath">
 \begin{equation*}
 y^{\prime}=-y+u_{3}(t),\,\,\,\,\,y(0)=2.
 \end{equation*}
 </div>
-<p id="p-650">Step 1: Take \(\mathcal{L}\) of both sides and solve for \(\mathcal{L}\)</p>
+<p id="p-810">Step 1: Take \(\mathcal{L}\) of both sides and solve for \(\mathcal{L}\)</p>
 <div class="displaymath">
 \begin{equation*}
 \mathcal{L}\left\{ y^{\prime}\right\} =\mathcal{L}\left\{ -y\right\} +\mathcal{L}\left\{ u_{3}(t)\right\} 
 \end{equation*}
 </div>
-<p>so that</p>
+<p data-braille="continuation">so that</p>
 <div class="displaymath">
 \begin{equation*}
 s\mathcal{L}\left\{ y\right\} -y(0)=-\mathcal{L}\left\{ y\right\} +\frac{e^{-3s}}{s}.
 \end{equation*}
 </div>
-<p id="p-651">Step 2: Solve for \(\mathcal{L}\left\{ y\right\} \text{,}\)</p>
+<p id="p-811">Step 2: Solve for \(\mathcal{L}\left\{ y\right\} \text{,}\)</p>
 <div class="displaymath">
 \begin{equation*}
 \mathcal{L}\left\{ y\right\} =\frac{2}{s+1}+\frac{e^{-3s}}{s\left(s+1\right)}
 \end{equation*}
 </div>
-<p id="p-652">Step 3: We do partial fractions on</p>
+<p id="p-812">Step 3: We do partial fractions on</p>
 <div class="displaymath">
 \begin{equation*}
 \frac{1}{s\left(s+1\right)}=\frac{1}{s}-\frac{1}{s+1}
 \end{equation*}
 </div>
-<p id="p-653">Step 4: Take the inverse Laplace transform: Using \(\mathcal{L}\left[u_{a}(t)f(t-a)\right]=e^{-as}F(s)\text{,}\) and get</p>
+<p id="p-813">Step 4: Take the inverse Laplace transform: Using \(\mathcal{L}\left[u_{a}(t)f(t-a)\right]=e^{-as}F(s)\text{,}\) and get</p>
 <div class="displaymath">
 \begin{align*}
 y \amp =\mathcal{L}^{-1}\left\{ \frac{2}{s+1}+e^{-3s}\frac{1}{s}-e^{-3s}\frac{1}{s+1}\right\} \\
 \amp =2e^{-t}+u_{3}(t)-u_{3}(t)e^{-\left(t-3\right)}.
 \end{align*}
 </div></article></div>
-<article class="example-like" id="example-121"><a data-knowl="" class="id-ref" data-refid="hk-example-121"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">6.5.2</span>.</h6></a></article><div id="hk-example-121" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-654">Solve using Laplace Transforms:</p>
+<article class="example example-like" id="example-143"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-143"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.5.2</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-143"><article class="example example-like"><p id="p-814">Solve using Laplace Transforms:</p>
 <div class="displaymath">
 \begin{equation*}
 y^{\prime}=-3y+6u_{4}(t)e^{-\left(t-4\right)},\,\,\,\,\,y(0)=5.
 \end{equation*}
 </div>
-<p id="p-655">Step 1: Take \(\mathcal{L}\) of both sides</p>
+<p id="p-815">Step 1: Take \(\mathcal{L}\) of both sides</p>
 <div class="displaymath">
 \begin{equation*}
 \mathcal{L}\left\{ y^{\prime}\right\} =-3\mathcal{L}\left\{ y\right\} +6\mathcal{L}\left\{ u_{4}(t)e^{-\left(t-4\right)}\right\} 
 \end{equation*}
 </div>
-<p>and get</p>
+<p data-braille="continuation">and get</p>
 <div class="displaymath">
 \begin{equation*}
 s\mathcal{L}\left\{ y\right\} -y(0)=-3\mathcal{L}\left\{ y\right\} +6\mathcal{L}\left\{ u_{4}(t)e^{-\left(t-4\right)}\right\} 
 \end{equation*}
 </div>
-<p id="p-656">Step 2: Solve for \(\mathcal{L}\left\{ y\right\} \) and get</p>
+<p id="p-816">Step 2: Solve for \(\mathcal{L}\left\{ y\right\} \) and get</p>
 <div class="displaymath">
 \begin{equation*}
 \mathcal{L}\left\{ y\right\} =\frac{5}{s+3}+\frac{6e^{-4s}}{\left(s+3\right)\left(s+1\right)}.
 \end{equation*}
 </div>
-<p id="p-657">Step 3: We do partial fractions</p>
+<p id="p-817">Step 3: We do partial fractions</p>
 <div class="displaymath">
 \begin{equation*}
 \frac{6}{\left(s+3\right)\left(s+1\right)}=\frac{-3}{\left(s+3\right)}+\frac{3}{\left(s+1\right)}.
 \end{equation*}
 </div>
-<p id="p-658">Step 3: Take the inverse Laplace transform: Using \(\mathcal{L}\left[u_{a}(t)f(t-a)\right]=e^{-as}F(s)\text{,}\) and</p>
+<p id="p-818">Step 3: Take the inverse Laplace transform: Using \(\mathcal{L}\left[u_{a}(t)f(t-a)\right]=e^{-as}F(s)\text{,}\) and</p>
 <div class="displaymath">
 \begin{align*}
 y \amp =\mathcal{L}^{-1}\left\{ \frac{5}{s+3}+\frac{6e^{-4s}}{\left(s+3\right)\left(s+1\right)}\right\} \\
@@ -356,20 +381,21 @@ y \amp =\mathcal{L}^{-1}\left\{ \frac{5}{s+3}+\frac{6e^{-4s}}{\left(s+3\right)\l
 \amp =5e^{-3t}-3u_{4}(t)e^{-3\left(t-4\right)}+3u_{4}(t)e^{-\left(t-4\right)}.
 \end{align*}
 </div></article></div>
-<article class="example-like" id="example-122"><a data-knowl="" class="id-ref" data-refid="hk-example-122"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">6.5.3</span>.</h6></a></article><div id="hk-example-122" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-659">Solve using Laplace Transforms:</p>
+<article class="example example-like" id="example-144"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-144"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.5.3</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-144"><article class="example example-like"><p id="p-819">Solve using Laplace Transforms:</p>
 <div class="displaymath">
 \begin{equation*}
 y^{\prime\prime}+4y=3u_{5}(t)\sin\left(t-5\right),\,\,\,\,\,y(0)=1,y^{\prime}(0)=0.
 \end{equation*}
 </div>
-<p id="p-660">Step 1: Take \(\mathcal{L}\) of both sides and solve for \(\mathcal{L}\)</p>
+<p id="p-820">Step 1: Take \(\mathcal{L}\) of both sides and solve for \(\mathcal{L}\)</p>
 <div class="displaymath">
 \begin{equation*}
 \mathcal{L}\left\{ y^{\prime\prime}\right\} +4\mathcal{L}\left\{ y\right\} =3\mathcal{L}\left\{ u_{5}(t)\sin\left(t-5\right)\right\} 
 \end{equation*}
 </div>
-<p>and recall \(\mathcal{L}\left[u_{a}(t)f(t-a)\right]=e^{-as}F(s)\text{,}\) hence \(a=4\text{,}\) \(f(t-5)=\sin\left(t-5\right)\) hence \(f(t)=\sin t\) and \(\mathcal{L}\left\{ \sin t\right\} =\frac{1}{s^{2}+1}\) hence</p>
+<p data-braille="continuation">and recall \(\mathcal{L}\left[u_{a}(t)f(t-a)\right]=e^{-as}F(s)\text{,}\) hence \(a=4\text{,}\) \(f(t-5)=\sin\left(t-5\right)\) hence \(f(t)=\sin t\) and \(\mathcal{L}\left\{ \sin t\right\} =\frac{1}{s^{2}+1}\) hence</p>
 <div class="displaymath">
 \begin{align*}
 s^{2}\mathcal{L}\left\{ y\right\} -sy(0)-y^{\prime}(0)+4\mathcal{L}\left\{ y\right\}  \amp =3\frac{e^{-5s}}{s^{2}+1},\implies\\
@@ -377,20 +403,20 @@ s^{2}\mathcal{L}\left\{ y\right\} -sy(0)-y^{\prime}(0)+4\mathcal{L}\left\{ y\rig
 \mathcal{L}\left\{ y\right\}  \amp =3\frac{e^{-5s}}{\left(s^{2}+4\right)\left(s^{2}+1\right)}+\frac{s}{s^{2}+4}
 \end{align*}
 </div>
-<p id="p-661">Step 2: We do partial fractions on</p>
+<p id="p-821">Step 2: We do partial fractions on</p>
 <div class="displaymath">
 \begin{equation*}
 \frac{3}{\left(s^{2}+4\right)\left(s^{2}+1\right)}=\frac{As+B}{s^{2}+4}+\frac{Cs+D}{s^{2}+1}
 \end{equation*}
 </div>
-<p>hence</p>
+<p data-braille="continuation">hence</p>
 <div class="displaymath">
 \begin{align*}
 3 \amp =\left(As+B\right)\left(s^{2}+1\right)+\left(Cs+D\right)\left(s^{2}+4\right),\implies\\
 0\cdot s^{3}+0\cdot s^{2}+0\cdot s+3 \amp =\left(A+C\right)s^{3}+\left(B+D\right)s^{2}+\left(A+4C\right)s+\left(B+4D\right)
 \end{align*}
 </div>
-<p>hence</p>
+<p data-braille="continuation">hence</p>
 <div class="displaymath">
 \begin{align*}
 A+C \amp =0\\
@@ -399,19 +425,19 @@ A+4C \amp =0\\
 B+4D \amp =3
 \end{align*}
 </div>
-<p>and get</p>
+<p data-braille="continuation">and get</p>
 <div class="displaymath">
 \begin{equation*}
 A=0\,\,\,\,B=-1,\,\,\,\,C=0,\,\,\,D=1
 \end{equation*}
 </div>
-<p>hence</p>
+<p data-braille="continuation">hence</p>
 <div class="displaymath">
 \begin{equation*}
 \frac{3}{\left(s^{2}+4\right)\left(s^{2}+1\right)}=\frac{-1}{s^{2}+4}+\frac{1}{s^{2}+1}
 \end{equation*}
 </div>
-<p id="p-662">Step 3: Take the inverse Laplace transform: Using \(\mathcal{L}\left[u_{a}(t)f(t-a)\right]=e^{-as}F(s)\text{,}\) and \(\mathcal{L}\left\{ \sin(at)\right\} =\frac{a}{s^{2}+a^{2}}\) and \(\mathcal{L}\left\{ \cos(at)\right\} =\frac{a}{s^{2}+a^{2}}\) we have</p>
+<p id="p-822">Step 3: Take the inverse Laplace transform: Using \(\mathcal{L}\left[u_{a}(t)f(t-a)\right]=e^{-as}F(s)\text{,}\) and \(\mathcal{L}\left\{ \sin(at)\right\} =\frac{a}{s^{2}+a^{2}}\) and \(\mathcal{L}\left\{ \cos(at)\right\} =\frac{a}{s^{2}+a^{2}}\) we have</p>
 <div class="displaymath">
 \begin{align*}
 y \amp =\mathcal{L}^{-1}\left\{ \frac{-e^{-5s}}{s^{2}+4}+\frac{e^{-5s}}{s^{2}+1}+\frac{s}{s^{2}+4}\right\} \\
@@ -419,20 +445,21 @@ y \amp =\mathcal{L}^{-1}\left\{ \frac{-e^{-5s}}{s^{2}+4}+\frac{e^{-5s}}{s^{2}+1}
 \amp =-\frac{1}{2}u_{5}(t)\sin\left(2\left(t-5\right)\right)+u_{5}(t)\sin\left(t-5\right)+\cos\left(2t\right)
 \end{align*}
 </div></article></div>
-<article class="example-like" id="example-123"><a data-knowl="" class="id-ref" data-refid="hk-example-123"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">6.5.4</span>.</h6></a></article><div id="hk-example-123" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-663">Solve using Laplace Transforms:</p>
+<article class="example example-like" id="example-145"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-145"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.5.4</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-145"><article class="example example-like"><p id="p-823">Solve using Laplace Transforms:</p>
 <div class="displaymath">
 \begin{equation*}
 y^{(4)}-y=u_{1}(t)-u_{2}(t),\,\,\,\,\,y(0)=0,y^{\prime}(0)=0,y^{\prime\prime}(0)=0.,y^{\prime\prime\prime}(0)=0..
 \end{equation*}
 </div>
-<p id="p-664">Step 1: Take \(\mathcal{L}\) of both sides and solve for \(\mathcal{L}\)</p>
+<p id="p-824">Step 1: Take \(\mathcal{L}\) of both sides and solve for \(\mathcal{L}\)</p>
 <div class="displaymath">
 \begin{equation*}
 \mathcal{L}\left\{ y^{(4)}\right\} -\mathcal{L}\left\{ y\right\} =\mathcal{L}\left\{ u_{1}(t)-u_{2}(t)\right\} 
 \end{equation*}
 </div>
-<p>hence</p>
+<p data-braille="continuation">hence</p>
 <div class="displaymath">
 \begin{align*}
 \amp s^{4}\mathcal{L}\left\{ y\right\} -s^{3}y(0)-s^{2}y^{\prime}(0)-sy^{\prime\prime}(0)-sy^{\prime\prime\prime}-y^{\prime}(0)-\mathcal{L}\left\{ y\right\}\\
@@ -441,32 +468,32 @@ y^{(4)}-y=u_{1}(t)-u_{2}(t),\,\,\,\,\,y(0)=0,y^{\prime}(0)=0,y^{\prime\prime}(0)
 \mathcal{L}\left\{ y\right\}  \amp =\frac{e^{-s}}{s\left(s^{4}-1\right)}-\frac{e^{-2s}}{s\left(s^{4}-1\right)}
 \end{align*}
 </div>
-<p id="p-665">Step 2: We do partial fractions on</p>
+<p id="p-825">Step 2: We do partial fractions on</p>
 <div class="displaymath">
 \begin{equation*}
 \frac{1}{s\left(s^{4}-1\right)}=\frac{1}{s\left(s^{2}-1\right)\left(s^{2}+1\right)}=\frac{1}{s\left(s+1\right)\left(s-1\right)\left(s^{2}+1\right)}=
 \end{equation*}
 </div>
-<p>hence</p>
+<p data-braille="continuation">hence</p>
 <div class="displaymath">
 \begin{equation*}
 \frac{1}{s\left(s^{4}-1\right)}=\frac{A}{s}+\frac{B}{s+1}+\frac{C}{s-1}+\frac{Ds+E}{s^{2}+1}
 \end{equation*}
 </div>
-<p>after doing the work to get the partial fractions you get</p>
+<p data-braille="continuation">after doing the work to get the partial fractions you get</p>
 <div class="displaymath">
 \begin{equation*}
 \frac{1}{s\left(s^{4}-1\right)}=-\frac{1}{s}+\frac{1}{4}\frac{1}{s+1}+\frac{1}{4}\frac{1}{s-1}+\frac{1}{2}\frac{s}{s^{2}+1}
 \end{equation*}
 </div>
-<p>putting it back we need to take the inverse of</p>
+<p data-braille="continuation">putting it back we need to take the inverse of</p>
 <div class="displaymath">
 \begin{align*}
 \amp e^{-s}\left[-\frac{1}{s}+\frac{1}{4}\frac{1}{s+1}+\frac{1}{4}\frac{1}{s-1}+\frac{1}{2}\frac{s}{s^{2}+1}\right]\\
 \amp -e^{-2s}\left[-\frac{1}{s}+\frac{1}{4}\frac{1}{s+1}+\frac{1}{4}\frac{1}{s-1}+\frac{1}{2}\frac{s}{s^{2}+1}\right]
 \end{align*}
 </div>
-<p id="p-666">Step 3: Take the inverse Laplace transform: Using \(\mathcal{L}\left[u_{a}(t)f(t-a)\right]=e^{-as}F(s)\text{,}\) and \(\mathcal{L}\left\{ \cos(at)\right\} =\frac{a}{s^{2}+a^{2}}\) and \(\mathcal{L}\left\{ e^{at}\right\} =\frac{1}{s-a}\) we have</p>
+<p id="p-826">Step 3: Take the inverse Laplace transform: Using \(\mathcal{L}\left[u_{a}(t)f(t-a)\right]=e^{-as}F(s)\text{,}\) and \(\mathcal{L}\left\{ \cos(at)\right\} =\frac{a}{s^{2}+a^{2}}\) and \(\mathcal{L}\left\{ e^{at}\right\} =\frac{1}{s-a}\) we have</p>
 <div class="displaymath">
 \begin{align*}
 y \amp =\mathcal{L}^{-1}\left\{ e^{-s}\left[-\frac{1}{s}+\frac{1}{4}\frac{1}{s+1}+\frac{1}{4}\frac{1}{s-1}+\frac{1}{2}\frac{s}{s^{2}+1}\right]\right\} \\
@@ -475,8 +502,9 @@ y \amp =\mathcal{L}^{-1}\left\{ e^{-s}\left[-\frac{1}{s}+\frac{1}{4}\frac{1}{s+1
 \amp +u_{2}(t)-u_{2}(t)\left\{ \frac{1}{4}e^{-1\left(t-2\right)}+\frac{1}{4}e^{1\left(t-2\right)}+\frac{1}{2}\cos\left(t-2\right)\right\} 
 \end{align*}
 </div></article></div>
-<article class="example-like" id="example-124"><a data-knowl="" class="id-ref" data-refid="hk-example-124"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">6.5.5</span>.</h6></a></article><div id="hk-example-124" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-667">Find the Laplace transform of</p>
+<article class="example example-like" id="example-146"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-146"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.5.5</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-146"><article class="example example-like"><p id="p-827">Find the Laplace transform of</p>
 <div class="displaymath">
 \begin{equation*}
 f(t)=\begin{cases}
@@ -485,43 +513,45 @@ t \amp 0\leq t\lt 1\\
 \end{cases}.
 \end{equation*}
 </div>
-<p id="p-668">Step 1: First let us rewrite this in terms of unit step functions. When \(0\leq t\lt 1\text{:}\) the function is \(f(t)=t\) When \(1\leq t\lt \infty\text{:}\) then function is \(f(t)=t+?\cdot u_{1}(t)=3t\) hence \(?=2t\) so that</p>
+<p id="p-828">Step 1: First let us rewrite this in terms of unit step functions. When \(0\leq t\lt 1\text{:}\) the function is \(f(t)=t\) When \(1\leq t\lt \infty\text{:}\) then function is \(f(t)=t+?\cdot u_{1}(t)=3t\) hence \(?=2t\) so that</p>
 <div class="displaymath">
 \begin{equation*}
 f(t)=t+2tu_{1}(t).
 \end{equation*}
 </div>
-<p id="p-669">Step 2: Before we can take a Laplace transform, we notice that our fomula involves \(\mathcal{L}\left\{ u_{c}(t)g\left(t-c\right)\right\} =e^{-ct}\mathcal{L}\left\{ g(t)\right\} \text{.}\) Thus we will need to turn \(2tu_{1}(t)\) into this form:</p>
+<p id="p-829">Step 2: Before we can take a Laplace transform, we notice that our fomula involves \(\mathcal{L}\left\{ u_{c}(t)g\left(t-c\right)\right\} =e^{-ct}\mathcal{L}\left\{ g(t)\right\} \text{.}\) Thus we will need to turn \(2tu_{1}(t)\) into this form:</p>
 <div class="displaymath">
 \begin{align*}
 f(t) \amp =t+2tu_{1}(t)\\
 \amp =t+2\left(t-\boldsymbol{1}\right)u_{1}(t)+\boldsymbol{2u_{1}(t)}
 \end{align*}
 </div>
-<p>hence</p>
+<p data-braille="continuation">hence</p>
 <div class="displaymath">
 \begin{align*}
 \mathcal{L}\left\{ f(t)\right\}  \amp =\mathcal{L}\left\{ t\right\} +2\mathcal{L}\left\{ (t-1)u_{1}(t)\right\} +2\mathcal{L}\left\{ u_{1}(t)\right\} \\
 \amp =\frac{1}{s^{2}}+2e^{-s}\frac{1}{s^{2}}+2e^{-s}\frac{1}{s}.
 \end{align*}
 </div></article></div>
-<p id="p-670">We now introduce the following useful formula that is not included in the table, which records the translation of a step function:</p>
-<article class="theorem-like" id="fact-1"><h6 class="heading">
-<span class="type">Fact</span> <span class="codenumber">6.5.6</span>.</h6>
-<p id="p-671">We have</p>
+<p id="p-830">We now introduce the following useful formula that is not included in the table, which records the translation of a step function:</p>
+<article class="fact theorem-like" id="fact-1"><h6 class="heading">
+<span class="type">Fact</span><span class="space"> </span><span class="codenumber">6.5.6</span><span class="period">.</span>
+</h6>
+<p id="p-831">We have</p>
 <div class="displaymath">
 \begin{equation*}
 \mathcal{L}\left\{ u_{c}(t)h(t)\right\} =e^{-cs}\mathcal{L}\left\{ h\left(t+c\right)\right\} .
 \end{equation*}
-</div></article><article class="example-like" id="example-125"><a data-knowl="" class="id-ref" data-refid="hk-example-125"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">6.5.7</span>.</h6></a></article><div id="hk-example-125" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-672">Take the Laplace transform of \(f(t)=u_{1}(t)te^{t}\text{.}\)</p>
-<p id="p-673">Notice that we cannot use the formula \(\mathcal{L}\left\{ u_{c}(t)g\left(t-c\right)\right\} =e^{-ct}\mathcal{L}\left\{ g(t)\right\} \) directly since \(te^{t}\) is not written as a function of \((t-1)\text{.}\) Hence we'll need to use \(\mathcal{L}\left\{ u_{c}(t)h(t)\right\} =e^{-cs}\mathcal{L}\left\{ h\left(t+c\right)\right\} \) with \(h(t)=te^{t}\) and \(c=1\text{.}\) Thus</p>
+</div></article><article class="example example-like" id="example-147"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-147"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.5.7</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-147"><article class="example example-like"><p id="p-832">Take the Laplace transform of \(f(t)=u_{1}(t)te^{t}\text{.}\)</p>
+<p id="p-833">Notice that we cannot use the formula \(\mathcal{L}\left\{ u_{c}(t)g\left(t-c\right)\right\} =e^{-ct}\mathcal{L}\left\{ g(t)\right\} \) directly since \(te^{t}\) is not written as a function of \((t-1)\text{.}\) Hence we'll need to use \(\mathcal{L}\left\{ u_{c}(t)h(t)\right\} =e^{-cs}\mathcal{L}\left\{ h\left(t+c\right)\right\} \) with \(h(t)=te^{t}\) and \(c=1\text{.}\) Thus</p>
 <div class="displaymath">
 \begin{equation*}
 h\left(t+1\right)=(t+1)e^{t+1}
 \end{equation*}
 </div>
-<p>and we get</p>
+<p data-braille="continuation">and we get</p>
 <div class="displaymath">
 \begin{align*}
 \mathcal{L}\left\{ u_{1}(t)te^{t}\right\}  \amp =e^{-cs}\mathcal{L}\left\{ h\left(t+c\right)\right\} \\
@@ -531,9 +561,7 @@ h\left(t+1\right)=(t+1)e^{t+1}
 \amp =e^{1-s}\left(\frac{1}{\left(s-1\right)^{2}}+\frac{1}{\left(s-1\right)}\right)
 \end{align*}
 </div>
-<p>where we used formula \(2\) and \(11\) in the table.</p></article></div></section></div></main>
+<p data-braille="continuation">where we used formula \(2\) and \(11\) in the table.</p></article></div></section></div></main>
 </div>
-<div class="login-link"><span id="loginlogout" class="login">login</span></div>
-<script src="https://pretextbook.org/js/0.12/login.js"></script>
 </body>
 </html>

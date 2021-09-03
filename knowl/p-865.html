@@ -1,0 +1,47 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:56-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
+<p>Split up \(H(S)=F(s)G(s)\) where \(F(s)=\frac{2}{(s-3)^{3}}\) and \(G(s)=\frac{5}{s^{2}+25}\) so that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+H(s)=3\cdot\frac{2!}{(s-3)^{2+1}}\cdot\frac{5}{s^{2}+5^{2}}
+\end{equation*}
+</div>
+<p data-braille="continuation">and since</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+\mathcal{L}^{-1}\left\{ F\right\}  \amp =\mathcal{L}^{-1}\left\{ \frac{2!}{(s-3)^{2+1}}\right\} =t^{2}e^{3t},\\
+\mathcal{L}^{-1}\left\{ G\right\}  \amp =\mathcal{L}^{-1}\left\{ \frac{5}{s^{2}+5^{2}}\right\} =\sin\left(5t\right)
+\end{align*}
+</div>
+<p data-braille="continuation">so that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+\mathcal{L}^{-1}\left\{ H(s)\right\}  \amp =3\int_{0}^{t}f(t-\tau)g(\tau)d\tau\\
+\amp =3\int_{0}^{t}(t-\tau)^{2}e^{3(t-\tau)}\sin\left(5\tau\right)d\tau
+\end{align*}
+</div>
+<p data-braille="continuation">but you also need to be prepared that one of the possible solutions is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+\mathcal{L}^{-1}\left\{ H(s)\right\}  \amp =3\int_{0}^{t}f(\tau)g(t-\tau)d\tau\\
+\amp =3\int_{0}^{t}\tau^{2}e^{3\tau}\sin\left(5\left(t-\tau\right)\right)d\tau.
+\end{align*}
+</div>
+<span class="incontext"><a href="ch6-7.html#p-865">in-context</a></span>
+</body>
+</html>

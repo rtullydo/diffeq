@@ -108,17 +108,19 @@
             <titlepage>
                 <author>
                     <personname>Phanuel Mariano</personname>
-                    <institution>union College</institution>
+                    <institution>Union College</institution>
                 </author>
                 <author>
                   <personname>Ryan Tully-Doyle</personname>
-                  <institution>Cal Poly, San Luis Obispo</institution>
+                  <institution>California Polytechnic State University, San Luis Obispo</institution>
                 </author>
                 <date><today /></date>
             </titlepage>
 
             <abstract>
                 <p>This set of lecture notes covers topics typical of an introductory course in differential equations. The notes draw extensively from Phanuel Mariano's <q>Lecture notes in differential equations</q>.</p>
+
+                This is the Second Edition. 
             </abstract>
 
         </frontmatter>
@@ -129,6 +131,7 @@
       <xi:include href="source/chapter4.ptx" />
       <xi:include href="source/chapter5.ptx" />
       <xi:include href="source/chapter6.ptx" />
+      <xi:include href="source/chapter7.ptx" />
       <xi:include href="source/exercises.ptx" />
 
 

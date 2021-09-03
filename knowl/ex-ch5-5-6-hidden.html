@@ -1,0 +1,61 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:52-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body><article class="example example-like"><p>Consider</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\frac{d\mathbf{x}}{dt}=\left(\begin{array}{cc}
+2 \amp 2\\
+1 \amp 3
+\end{array}\right)\mathbf{x}.
+\end{equation*}
+</div>
+<p data-braille="continuation">Draw the Phase portrait.</p>
+<p xmlns:svg="http://www.w3.org/2000/svg"><dfn class="terminology">Solution:</dfn></p>
+<p>Solving for eigenvalues and eigenvectors we have</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\begin{array}{ccc}
+\lambda_{1}=4, \amp  \amp \mathbf{v}_{1}=\left(\begin{array}{c}
+1\\
+1
+\end{array}\right)\\
+\lambda_{2}=1, \amp  \amp \mathbf{v}_{2}=\left(\begin{array}{c}
+-2\\
+1
+\end{array}\right)
+\end{array}
+\end{equation*}
+</div>
+<p data-braille="continuation">hence the general solution is given by</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\mathbf{x}(t)=c_{1}e^{4t}\left(\begin{array}{c}
+1\\
+1
+\end{array}\right)+c_{2}e^{t}\left(\begin{array}{c}
+-2\\
+1
+\end{array}\right).
+\end{equation*}
+</div>
+<p xmlns:svg="http://www.w3.org/2000/svg">Now we draw the Phase portrait. First draw the straight line solutions in Phase Plane with arrows pointing outwards towards the origin. (This is because both eigenvalues are positive, hence the exponential explode away from the origin). Then draw the other solutions in the plane, which all converge explode away from the origin. Note that the solutions go towards the direction of the eigenvector that has the biggest magnitude. Note that \(\left|\lambda_{1}\right|=4&gt;1=\left|\lambda_{2}\right|\text{,}\) hence the straight line solution \(c_{2}e^{4t}\left(\begin{array}{c}
+1\\
+1
+\end{array}\right)\) has more strength. Hence all the other solution are going towards the direction of \(e^{4t}\left(\begin{array}{c}
+1\\
+1
+\end{array}\right)\) pointing outwards.  And the Phase portrait looks like this: <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/7.5b-3.png" style="width: 100%; height: auto;" alt=""></div> Note that solutions "source" out.</p></article></body>
+</html>

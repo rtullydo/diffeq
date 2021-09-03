@@ -512,36 +512,36 @@
       </me>
       gives that the roots are
       <me>
-      r_1=a + ib \text{ and }r_2=a - ib.
+      r_1=\alpha + i\beta \text{ and }r_2=\alpha  - i\beta.
       </me>
       (Remember that complex roots of real polynomials always come in conjugate pairs.)</p>
-      <p>These roots are distinct, so we can apply the form of solutions we developed in the previous section. So for the root <m>r_1 = a + ib</m>, the solution is of the form
+      <p>These roots are distinct, so we can apply the form of solutions we developed in the previous section. So for the root <m>r_1 = \alpha  + i\beta</m>, the solution is of the form
       <md>
-      <mrow>y(t) \amp =e^{r_1t}=e^{\left(a+ib \right)t}=e^{a t}e^{ib t}</mrow>
-       <mrow>\amp =e^{a t}\left(\cos\left(b t\right)+i\sin\left(b t\right)\right)</mrow>
-       <mrow>\amp =e^{a t}\cos\left(b t\right)+ie^{a t}\sin\left(b t\right)</mrow>
+      <mrow>y(t) \amp =e^{r_1t}=e^{\left(\alpha +i\beta \right)t}=e^{\alpha  t}e^{i\beta t}</mrow>
+       <mrow>\amp =e^{\alpha  t}\left(\cos\left(\beta t\right)+i\sin\left(\beta t\right)\right)</mrow>
+       <mrow>\amp =e^{\alpha  t}\cos\left(\beta t\right)+ie^{\alpha  t}\sin\left(\beta t\right)</mrow>
        <mrow>\amp =u(t)+iv(t)</mrow>
       </md>
-      where <m>u(t)=e^{a t}\cos\left(b t\right)</m> is the real part
-      and <m>v(t)=e^{a t}\sin\left(b t\right)</m> is the imaginary part.</p>
+      where <m>u(t)=e^{\alpha  t}\cos\left(\beta t\right)</m> is the real part
+      and <m>v(t)=e^{\alpha  t}\sin\left(\beta t\right)</m> is the imaginary part.</p>
       <p>The complex form of the solution is frequently useful for computational purposes, but in practice (and for non-mathematicians) we prefer real solutions. Because the differential operator is linear, we have the following theorem:</p>
-      <theorem>
+      <theorem xml:id="thm-3-4-1">
         <p>If <m>y(t)=u(t)+iv(t)</m> is a complex solution
         to an ODE of the form <m>ay^{\prime\prime}+by^{\prime}+cy=0</m>, then
         so are <m>u(t)</m> and <m>v(t)</m>.</p>
       </theorem>
-      <p>Therefore since <m>u(t)=e^{a t}\cos\left(b t\right)</m>
-      and <m>v(t)=e^{a t}\sin\left(b t\right)</m> are solutions we can
+      <p>Therefore since <m>u(t)=e^{\alpha  t}\cos\left(\beta t\right)</m>
+      and <m>v(t)=e^{\alpha  t}\sin\left(\beta t\right)</m> are solutions we can
       compute (after some tedious work) that the Wronskian of <m>u</m> and <m>v</m>
       are:
       <me>
-      W\left(u,v\right)(t)=\mu e^{2a t}\neq0\text{ as long as }b\neq0.
+      W\left(u,v\right)(t)=\beta e^{2\alpha  t}\neq0\text{ as long as }\beta\neq0.
       </me>
       Hence by the <xref ref="thmgensol" />,
       because the Wronskian is not zero we have that <m>u(t)</m> and <m>v(t)</m> form a
       fundamental set of solutions. In other words, the general solution to <m>a y '' + by' + cy = 0</m> is
       <me>
-        y_g = e^{at} (c_1 \cos(bt) + c_2\sin(bt)).
+        y_g = e^{\alpha t} (c_1 \cos(\beta t) + c_2\sin(\beta t)).
       </me></p>
     </subsection>
     <subsection>
@@ -565,7 +565,7 @@
       \hline
       r_{1},r_{2}= \text{real, distinct} \amp y(t)=c_{1}e^{r_{1}t}+c_{2}e^{r_{2}t} \amp \left(r+1\right)\left(r-1\right)=r^{2}-1=0\\
       \hline
-      r=a \pm ib, \text{imaginary} \amp y(t)=c_{1}e^{a t}\cos b t+c_{2}e^{a t}\sin b t \amp r^{2}+1=0\\
+      r=\alpha  \pm i\beta, \text{imaginary} \amp y(t)=c_{1}e^{\alpha  t}\cos \beta t+c_{2}e^{\alpha t}\sin \beta t \amp r^{2}+1=0\\
       \hline
       \end{array}
       </me></p>
@@ -743,7 +743,7 @@
         \hline
         r_{1},r_{2}= \text{real, distinct} \amp y(t)=c_{1}e^{r_{1}t}+c_{2}e^{r_{2}t} \amp \left(r+1\right)\left(r-1\right)=0 \\
         \hline
-        r=a\pm ib,\text{imaginary} \amp y(t)=c_{1}e^{a t}\cos b t+c_{2}e^{a t}\sin b t \amp r^{2}+1=0\\
+        r=\alpha\pm i\beta,\text{imaginary} \amp y(t)=c_{1}e^{\alpha t}\cos \beta t+c_{2}e^{a t}\sin \beta t \amp r^{2}+1=0\\
         \hline
         r=r_{1},\text{real, repeated} \amp y(t)=c_{1}e^{r_{1}t}+c_{2}te^{r_{1}t}. \amp \left(r-2\right)^{2}=0\\
         \hline
@@ -903,15 +903,18 @@
         \hline
         P_{n}(t)=a_{n}t^{n}+a_{n-1}t^{n-1}+\cdots+a_{0} \amp t^{s}\left[A_{m}t^{m}+A_{m-1}t^{m-1}+\cdots+A_{0}\right]\\
         \hline
-        e^{\alpha t}P_{m}(t) \amp t^{s}e^{\alpha t}\left[A_{m}t^{m}+A_{m-1}t^{m-1}+\cdots+A_{0}\right]\\
+        e^{\alpha_0 t}P_{m}(t) \amp t^{s}e^{\alpha_0 t}\left[A_{m}t^{m}+A_{m-1}t^{m-1}+\cdots+A_{0}\right]\\
         \hline
-        P_{m}(t)e^{\alpha t}\cos\beta t \text{ or } P_{m}(t)e^{\alpha t}\sin\beta t \amp t^{s}\left[\left(A_{m}t^{m}+\cdots+A_{0}\right)e^{\alpha t}\cos\beta t\right. \\
-        \amp \left.+\left(B_{m}t^{m}+\cdots+B_{0}\right)e^{\alpha t}\sin\beta t\right]\\
+        P_{m}(t)e^{\alpha_0 t}\cos\beta_0 t \text{ or } P_{m}(t)e^{\alpha_0 t}\sin\beta t \amp t^{s}\left[\left(A_{m}t^{m}+\cdots+A_{0}\right)e^{\alpha_0 t}\cos\beta t\right. \\
+        \amp \left.+\left(B_{m}t^{m}+\cdots+B_{0}\right)e^{\alpha_0 t}\sin\beta_0 t\right]\\
         \hline
         \end{array}
       </me>This looks more complicated that it actually is because there's a possibility that <m>g(t)</m> is actually a solution to the homogeneous equation. So <m>s=</m> the smallest nonnegative integer (<m>s=0,1,</m>or <m>2</m>) such
       that no term of <m>y_{p}</m> is a solution to the corresponding homogeneous
       equation. (For example, given the equation <m>x'' + 4x' + 4x = e^{-2t}</m>, we can't guess <m>y_p = A e^{-2t}</m> because this solves the homogeneous equation.)</p>
+
+      <p>The next few examples will give a very detailed explanation on the mechanics of the <term>method
+        of undetermined coefficients (MOUC):</term> </p>
 
       <example>
         Find the solution to the following IVP:
@@ -1013,7 +1016,7 @@
         y_{h}(t)=c_{1}e^{-t}\cos3t+c_{2}e^{-t}\sin3t.
         </me></p>
         <p>Step 2: Now as long as the RHS <m>g(t)</m>
-        is not part of <m>y_{c}</m> then we can use that as our guess. So we let
+        is not part of <m>y_{h}</m> then we can use that as our guess. So we let
         <m>y_{p}(t)=A\cos2t+B\sin2t</m>.</p>
 
         <p>Step 3: Plug into the LHS and set equal to RHS
@@ -1053,14 +1056,14 @@
         y_{p}=\left(At+B\right)e^{-t}
         </me>
         since <m>At+B</m> is the general form of a one degree polynomial. But
-        this doesn't work because <m>Be^{-t}</m> is included in the <m>y_{c}</m> as
+        this doesn't work because <m>Be^{-t}</m> is included in the <m>y_{h}</m> as
         <m>c_{1}e^{-t}</m></p>
         <p>Step 2 (Second guess): Now guess
         <me>
         y_{p}=t\left(At+B\right)e^{-t}
         </me>
         so that both <m>At^{2}e^{-t}</m> and <m>Bte^{-t}</m> are different than the terms
-        in <m>y_{c}</m>. </p>
+        in <m>y_{h}</m>. </p>
       </example>
       <example>
         Find the general form of a particular
@@ -1085,7 +1088,7 @@
         y_{p}=t\left(At+B\right)e^{-3t}+Ct^{3}+Dt^{2}+Et+F.
         </me>
         But this still doesn't work since <m>Bte^{-3t}</m> is included in the
-        <m>y_{c}</m> as <m>c_{2}te^{-3t}</m>.
+        <m>y_{h}</m> as <m>c_{2}te^{-3t}</m>.
         Our third guess is to multiply again only that part by <m>t</m>
         and get
         <me>
@@ -1121,12 +1124,425 @@
 
         <p> Step 1: As in Example 3 we know <m>y_{h}(t)=c_{1}e^{-t}\cos3t+c_{2}e^{-t}\sin3t.</m></p>
         <p> Since <m>e^{-t}\cos3t</m> is already
-        inside our <m>y_{c}</m> we need to multiply by <m>t</m> .
+        inside our <m>y_{h}</m> we need to multiply by <m>t</m> .
         <me>
         y_{p}=t\left(Ae^{-t}\cos3t+Be^{-t}\sin3t\right)+C.
         </me>
         Note that <m>17</m> is a zero degree polynomial , which is why we have
         the <m>C</m> in the <m>y_{p}</m>.</p>
+      </example>
+    </subsection>
+  </section>
+
+
+  <section xml:id="ch3-8">
+    <title>Harmonic oscillations</title>
+    <introduction>
+      <p>We'll now take a closer look at the model that motivated our study of second order equations with constant coefficients - harmonic oscillators. The
+      simplest example of a harmonic oscillator are the motions of a spring-mass system.</p>
+    </introduction> 
+
+    <subsection><title>Mass-spring systems</title>
+      <p>Suppose a mass <m>m</m> hangs from a vertical spring of original length
+      <m>l</m>.
+      <sidebyside>
+      <image source = "images/Spring1.jpg"/>
+      <image source = "images/Spring2.jpg"/>
+      </sidebyside></p>
+      <p>We will study the motion of a mass when it is acted on by an external
+      force (forcing function) and/or is initially displaced.
+      Let <m>u(t)=</m>displacement of the mass from its equilibrium position at
+      time <m>t</m>. The motion of the mass <m>u(t)</m> is modeled by the following:
+      <me>
+      mu^{\prime\prime}(t)+\gamma u^{\prime}(t)+ku(t)=F(t)\,\,\,\,\,\,u(0)=u_{0},u^{\prime}(0)=v_{0}.
+      </me>
+      where <m>m,\gamma,k</m> are positive.</p>
+
+      <p>The specific constants depend on the measurement system in use. <m>m</m> is found from <m>w=mg</m>. <m>\gamma</m> is given in units of <m>\frac{\text{weight unit} \cdot s}{\text{distance unit}}</m>.  <m>k</m> is found using Hooke's Law, <m>mg=kL</m>.</p>
+     
+      <example>
+        <p>A <m>4</m> lb mass stretches a spring <m>2</m>
+        inches. The mass is displaced an additional 6 in. and then released;
+        and is in a medium that exerts a viscous resistance of <m>6</m> lb when
+        the mass has a velocity of <m>3</m> ft/sec. Formulate the IVP that governs the motion of this mass.</p> 
+
+        
+        <p>Solution:</p>
+        <p>Find <m>m</m>: <m>w=mg</m> which implies
+        <me>
+        m=\frac{w}{g}=\frac{4\text{ lb}}{32\text{ ft/s}^2}=\frac{1}{8}\frac{\text{lb}s^{2}}{ft}
+        </me></p>
+        <p>Find <m>\gamma</m>: Using <m>\gamma u^{\prime}=6</m> lb we have
+        <me>
+        \gamma=\frac{6\text{ lb}}{3\text{ ft/sec}}=2\frac{\text{lb sec}}{\text{ft}}.
+        </me></p>
+        <p>Find <m>k</m>: (Hooke's Law)
+        <me>
+        k=\frac{mg}{L}=\frac{4\text{ lb}}{2\text{ in}}=\frac{4\text{ lb}}{(1/6)\text{ ft}}=24\frac{\text{lb}}{ft}.
+        </me></p>
+        <p>Thus 
+        <me>
+        \frac{1}{8}u^{\prime\prime}+2u^{\prime}+24u=0
+        </me>
+        hence 
+        <me>
+        u^{\prime\prime}+16u^{\prime}+192u=0,\,\,\,\,u(0)=\frac{1}{2},\,\,\,u^{\prime}(0)=0
+        </me>
+        since <m>u(0)=6\text{in }\frac{1\text{ft}}{12\text{in}}=\frac{1}{2}</m>. </p>
+        <p>Solving this 
+        <me>
+        u(t)=\frac{1}{4}e^{-8t}\left(2\cos\left(8\sqrt{2}t\right)+\sqrt{2}\sin\left(8\sqrt{2}t\right)\right).
+        </me></p>
+        <image source = "images/Spring3.jpg"/>
+      </example>
+
+      <definition>
+        <p> When 
+        <me>
+        u(t)=A\cos\omega_{0}t+B\sin\omega_{0}t=R\cos\left(\omega_{0}t-\delta\right)
+        </me>
+        then <m>\omega_{0}=</m> is the <term>natural frequency</term> of the system.</p>
+      </definition>
+    </subsection>
+
+    <subsection><title>Derivation of the mass/spring Differential Equation</title>
+
+    <p>To see how the differential equation that models the behavior of a mass-spring system is derived, we will recall some basic facts from Physics. 
+    Using Newton's Second Law:
+    <me>
+    mu^{\prime\prime}(t)=f(t).
+    </me>
+    where <m>f</m> is the net force acting on the mass.
+    </p>
+
+    <p>The <term>forces </term> are:</p>
+
+    <p>Weight: <m>w=mg</m> (a downward force).</p>
+
+    <p>Spring force: <m>F_{s}=-k\left(L+u(t)\right)</m> (either up or down force). </p>
+
+    <p>Damping force: <m>F_{d}(t)=-\gamma u^{\prime}(t)</m> (either up or down), which may
+    be due to air resistance, friction, machanical device. It acts in the opposite direction as the motion of the mass. </p>
+
+    <p>External force: <m>F(t)</m> (either an up or down).</p>
+
+    <p>Putting it all together 
+
+    <md>
+      <mrow>mu^{\prime\prime}(t) \amp= mg+F_{s}(t)+F_{d}(t)+F(t) </mrow>
+      <mrow> \amp= mg-k\left(L+u((t)\right)-\gamma u^{\prime}(t)+F(t)</mrow>
+    </md>
+
+    which using <m>mg=kL</m> (from Hooke's Law) and simplifying we have
+    <me>
+    mu^{\prime\prime}(t)+\gamma u^{\prime}(t)+ku(t)=F(t)\,\,\,\,\,\,u(0)=u_{0},u^{\prime}(0)=v_{0}.
+    </me>
+    where <m>m,\gamma,k</m> are positive.
+    </p>
+
+    </subsection>
+
+    <subsection><title>Undamped harmonic oscillator</title>
+
+      <p>When the damping coefficient <m>\gamma=0</m> (nothing stopping it from
+      oscillating forever), we have 
+      <me>
+      mu^{\prime\prime}+ku=0
+      </me>
+      so that <m>mr^{2}+k=0</m> gives <m>r=\pm i\sqrt{\frac{k}{m}}.</m>This is a
+      special number, so we'll denote it <m>\omega_{0}=\sqrt{\frac{k}{m}}.</m>
+      We get 
+      <me>
+      u(t)=A\cos\omega_{0}t+B\sin\omega_{0}t
+      </me>
+      with period <m>\frac{2\pi}{\omega}</m> and the <term>natural frequency</term> of the system is <m>\omega_{0}</m>.</p>
+    </subsection>
+
+    <subsection><title>Damped harmonic oscillator:</title>
+
+      <p>A <term>damper</term> is an applied force that resists velocity (that is, the damping force is always opposite the direction of motion). A common way to model a damping force is as proportional to the velocity <m>u'(t)</m>. When damped, the model equation becomes 
+      <me>
+      mu^{\prime\prime}(t)+\gamma u^{\prime}(t)+ku(t)=0.
+      </me>
+      In general we'll have the following characteristic equation 
+      <me>
+      mr^{2}+\gamma r+k=0,
+      </me>
+      and solving for the roots we get 
+      <me>
+      r=\frac{-\gamma\pm\sqrt{\gamma^{2}-4km}}{2m}.
+      </me></p>
+    </subsection>
+    <subsection><title>Types of oscillating systems</title>
+
+      <p>Different types of behavior are possible depending on the value of <m>b^{2}-4mk</m>. We'll classify the possible cases in the following
+      way:</p>
+      <ul>
+        <li><p>If <m>\gamma=0</m>, 
+        <ul>
+          <li>the oscillator is <term>undamped</term>. </li>
+          <li> Mass oscillates forever </li>
+          <li> The natural period is <m>2\pi\sqrt{\frac{m}{k}}</m>.</li>
+          </ul></p></li>
+        <li><p>If <m>\gamma>0</m> and <m>\gamma^{2}-4km\lt0</m> (which happens when the roots are <m>r=\alpha\pm\beta i</m>)
+        <ul>
+          <li> The oscillator is <term>underdamped</term>. The mass oscillates back and
+          forth as it tends to its rest position. The solutions
+          are
+          <me>
+          u=Re^{-\gamma t/(2m)}\cos\left(\mu t-\delta\right)
+          </me>
+          and <m>u</m> is bounded between <m>\pm Re^{-\gamma t/(2m)}</m>.</li>
+          <li><image width="70%" source="images/Spring5.jpg"/></li>
+        </ul></p></li>
+
+        <li><p>If <m>\gamma>0</m> and <m>\gamma^{2}-4km>0</m> (which happens when there are two
+        distinct <m>r_{1},r_{2}</m>): 
+
+
+        <ul>
+          <li>The oscillator is <term>overdamped</term>. The mass tends to its rest
+          position but does not oscillate.</li>
+          <li>The solutions are 
+          <me>
+          u=c_{1}e^{r_{1}t}+c_{2}e^{r_{2}t},\,\,\,r_{1},r_{2}\lt0
+          </me>
+          </li>
+        </ul></p></li>
+
+        <li><p> If <m>\gamma>0</m> and <m>\gamma^{2}-4km=0</m> (which happens when there is one negative
+        <m>r</m>): 
+
+          <ul>
+          <li> The oscillator is <term>critically damped.</term> The mass tends to its
+          rest position but does not oscillate.</li> 
+          <li>Solutions tend to the origin tangent to the unique line of eigenvectors.</li>
+          <li> The solutions are
+          <me>
+          u=c_{1}e^{-\gamma t/(2m)}+c_{2}te^{-\gamma t/(2m)}
+          </me></li>
+          </ul></p>
+        </li>
+      </ul>
+         
+      <p>The image below illustrates the behavior possible in different cases. Underdamped is in blue, overdamped in green, and critically damped in red and black.</p>
+      <image source="images/Spring6.jpg"/>
+    </subsection>
+
+    <subsection>
+      <title>Electric Circuts</title>
+      <p> The flow of electric charge in certain basic electrical circuits (<term>RLC</term> for resistor (R), inductor (L), capacitor (C)) is
+      modeled by second order linear ODEs with constant coefficients: 
+      <me>
+      LQ^{\prime\prime}(t)+RQ^{\prime}(t)+\frac{1}{C}Q(t)=E(t),\,\,\,\,\,Q(0)=Q_{0},\,\,\,Q^{\prime}(0)=Q_{0}^{\prime}
+      </me>
+      where <m>Q=</m> charge (coulombs).</p>
+      <image source="images/Spring7.jpg"/>
+    </subsection>
+  </section>
+
+  <section xml:id="ch3-9">
+    <title>Forced oscillations</title>
+      <introduction>
+        <p>We consider equations of the form 
+        <me>
+        mu^{\prime\prime}+\gamma u^{\prime}+ku=F(t)
+        </me>
+        where <m>m>0,\gamma>0,k>0</m> are mass, damping coefficients, and spring
+        constant. Here <m>F(t)</m> represents <term>external force</term> done to
+        the mass-spring system. (e.g wind or cars driving on a bridge) While these forcing functions come in many forms, one of the most important cases is where the forcing function is itself a harmonic oscillation (you can think of this as corresponding to an ambient vibration). 
+        </p>
+      </introduction>
+
+    <subsection>
+      <title>Harmonic forcing functions</title>  
+      
+      <p>Suppose that the forcing function is <m>F(t)=F_{0}\cos\omega t</m>, so that the governing equation for the system is
+      <me>
+      mu^{\prime\prime}+\gamma u^{\prime}+ku=F(t).
+      </me>
+      Since this is a linear equation in <m>u</m>, recall that we can write the solution as
+      <md>
+      <mrow>u(t) \amp =c_{1}u_{1}(t)+c_{2}u_{2}(t)+A\cos\omega t+B\sin\omega t</mrow>
+       <mrow>\amp =u_{h}+u_{p},</mrow>
+      </md>
+      and it turns out that <m>\lim_{t\to\infty}u_{h}(t)=0</m>. (See examples
+      above)</p>
+      
+      <p>We call <m>u_{h}(t)</m> a <term>transient solution</term>, as its contribution to the system disappears as time progresses. 
+      The particular solution <m>u_{p}(t)=A\cos\omega t+B\sin\omega t</m> is called the <term>steady-state solution</term>, as it is the long-term, limiting behavior of the system.
+      </p>
+
+      <example> 
+        <p>Consider a undamped harmonic oscillator with model equation
+        <me>
+        u^{\prime\prime}+2u=\cos\left(\omega t\right),\,\,\,\,\omega\neq\sqrt{2}.
+        </me>
+        Find the general solution <m>u(t)</m>. What is the natural frequency of the system?</p>
+
+        <p>Solution:</p>
+        <p>Step 1: Recall that <m>r^{2}+2=0</m> so <m>r=\pm\sqrt{2}i</m>,
+        so that 
+        <me>
+        u_{h}(t)=c_{1}\cos\left(\sqrt{2}t\right)+c_{2}\sin\left(\sqrt{2}t\right).
+        </me></p>
+        
+        <p>Step 2: We make our first guess 
+        <me>
+        u_{p}(t)=A\cos\left(\omega t\right)+B\sin\left(\omega t\right)
+        </me>
+        and there are no repeats with <m>u_{h}</m> as long as <m>\omega\neq0</m>,
+        hence we have the correct guess. Thus 
+        <md>
+        <mrow>u_{p}^{\prime}(t) \amp =-A\omega\sin\left(\omega t\right)+B\omega\cos\left(\omega t\right)</mrow>
+        <mrow>u_{p}^{\prime\prime}(t) \amp =-A\omega^{2}\cos\left(\omega t\right)-B\omega^{2}\sin\left(\omega t\right).</mrow>
+        </md>
+        Plugging this into the LHS, we have
+        <md>
+        <mrow>LHS=u_{p}^{\prime\prime}+2u_{p} \amp =\left[-A\omega^{2}\cos\left(\omega t\right)-B\omega^{2}\sin\left(\omega t\right)\right]</mrow>
+         <mrow>\amp +2A\cos\left(\omega t\right)+2B\sin\left(\omega t\right)</mrow>
+         <mrow>\amp =A\left(2-\omega^{2}\right)\cos\left(\omega t\right)+B\left(2-\omega^{2}\right)\sin\left(\omega t\right)</mrow>
+        </md>
+        Then, setting <m>LHS=RHS=1\cdot\cos\left(\omega t\right)+0\sin\left(\omega t\right)</m>
+        we have 
+        <md>
+        <mrow>A\left(2-\omega^{2}\right)=1 \amp ,\,\,\,\,\,\,B\left(2-\omega^{2}\right)=0</mrow>
+        <mrow>A=\frac{1}{2-\omega^{2}} \amp ,\,\,\,\,\,\,B=0</mrow>
+        </md>
+        so that
+        <me>
+        u(t)=c_{1}\cos\left(\sqrt{2}t\right)+c_{2}\sin\left(\sqrt{2}t\right)+\frac{1}{2-\omega^{2}}\cos\left(\omega t\right).
+        </me></p>
+      </example>
+    </subsection>
+
+    <subsection>
+      <title>Resonance (undamped systems)</title>
+
+      <p>When the forcing function of an undamped system  is far from the natural frequency of a undamped system, forcing function and the natural behavior of the system interact in a combination of constructive and destructive interference.
+        <sage>
+          <input>
+            var('x')
+            y = function('y')(x)
+            de = diff(y, x, 2) + 2*y == cos(5*x)
+            f = desolve(de, y, [0,0,0])
+            plot(f, [0,10*pi], title = f)
+          </input>
+        </sage>
+       However, when the frequency of the forcing function approaches the natural frequency of the system, constructive and destructive interference tend to cluster into locally strong or weak oscillations called <term>beats</term>. 
+      <me>
+      \omega_{0}\approx\omega.
+      </me>
+      Solutions in this case typically look something like this: 
+      <image source = "images/3.8-2.jpg"/></p>
+     <sage>
+          <input>
+            var('x')
+            y = function('y')(x)
+            de = diff(y, x, 2) + 2*y == cos(1.21*x)
+            f = desolve(de, y, [0,0,0])
+            plot(f, [0,20*pi], title = f)
+          </input>
+        </sage>   
+
+
+      <p>When the natural and forcing frequencies are equal, the result is <term>harmonic resonance</term>: 
+      <me>
+      \omega_{0}=\omega.
+      </me>
+      We need a new <m>u_{p}</m> to solve for when resonance happens, since we
+      can't plug <m>\omega=\sqrt{2}</m>, into <m>\frac{1}{2-\omega^{2}}\cos\left(\omega t\right)</m>. 
+      We will see that solution looks like this: 
+      <image source="images/3.8-3.jpg"/>
+        <sage>
+          <input>
+            var('x')
+            y = function('y')(x)
+            de = diff(y, x, 2) + 2*y == cos(sqrt(2)*x)
+            f = desolve(de, y, [0,0,0])
+            plot(f, [0,20*pi], title = f)
+          </input>
+        </sage>
+
+
+
+      That is, the energy of the forcing function is stored in the system with no destructive interference, which results in increasingly wide oscillations. Meaning, if the external forcing and the system oscilations are matching, then the system will become more and more stronger because of the matching external forcing.
+      </p>
+
+      
+
+
+      <example> 
+        <title>Resonance</title>
+        <p>Solve the following undamped harmonic
+        oscillator:
+        <me>
+        u^{\prime\prime}+2u=\cos\left(\sqrt{2}t\right),\,\,\,\,u(0)=0,\,\,u^{\prime}(0)=0.
+        </me>
+        What is the natural frequency? What is the frequency for the external
+        force? What kind of behavior of the solution will you get get?</p>
+        
+
+        <p>Solution:</p>
+        <p>Step1: Recall that <m>r^{2}+2=0</m> so <m>r=\pm\sqrt{2}i</m>,
+        so that 
+        <me>
+        u_{h}(t)=c_{1}\cos\left(\sqrt{2}t\right)+c_{2}\sin\left(\sqrt{2}t\right).
+        </me>
+        The natural frequency of the system is <m>\omega_{0}=\sqrt{2}</m>.
+        The external frequency is <m>\omega=\sqrt{2}</m>. Since they match, then
+        we will get resonance!</p>
+        
+        <p>Step 2: We make our first guess
+        <me>
+        u_{p}(t)=A\cos\left(\sqrt{2}t\right)+B\sin\left(\sqrt{2}t\right)
+        </me>
+        but we know that this overlaps with the homogeneous solution, so we choose instead our second
+        guess (by multiplying old guess by <m>t</m>)
+        <me>
+        u_{p}(t)=At\cos\left(\sqrt{2}t\right)+Bt\sin\left(\sqrt{2}t\right).
+        </me>
+        Then
+        <md>
+        <mrow>u_{p}^{\prime}(t) \amp =A\cos\sqrt{2t}-A\sqrt{2}t\sin\sqrt{2}t</mrow>
+         <mrow>\amp +B\sin\sqrt{2}t+B\sqrt{2}t\cos\sqrt{2}t</mrow>
+        <mrow>u_{p}^{\prime\prime}(t) \amp =-\sqrt{2}A\sin\sqrt{2}t-A\sqrt{2}\sin\sqrt{2}t</mrow>
+         <mrow>\amp -A2t\cos\sqrt{2}t</mrow>
+         <mrow>\amp B\sqrt{2}\cos\sqrt{2}t+B\sqrt{2}\cos\sqrt{2}t</mrow>
+         <mrow>\amp -B2t\sin\sqrt{2}t</mrow>
+        </md>
+        Plugging this into the LHS we have
+        <md>
+        <mrow>LHS=u_{p}^{\prime\prime}+2u_{p} \amp =\text{simplify}</mrow>
+         <mrow>\amp =2\sqrt{2}B\cos\left(\sqrt{2}t\right)-2\sqrt{2}A\sin\left(\sqrt{2}t\right).</mrow>
+        </md>
+        Now, setting <m>LHS=RHS=1\cdot\cos\left(\sqrt{2}t\right)+0\sin\left(\sqrt{2}t\right),</m>
+        we have 
+        <md>
+        <mrow>2\sqrt{2}B=1 \amp ,\,\,\,\,\,\,-2\sqrt{2}A=0</mrow>
+        <mrow>B=\frac{1}{2\sqrt{2}} \amp ,\,\,\,\,\,\,A=0</mrow>
+        </md>
+        so that
+        <me>
+        u(t)=c_{1}\cos\left(\sqrt{2}t\right)+c_{2}\sin\left(\sqrt{2}t\right)+\frac{1}{2\sqrt{2}}t\sin\left(\sqrt{2}t\right).
+        </me>
+        Using initial condition we have <m>c_{1}=0,c_{2}=0</m>. 
+        <me>
+        u(t)=\frac{1}{2\sqrt{2}}t\sin\left(\sqrt{2}t\right).
+        </me>
+        Hence we get the picture similar to the one above since 
+        <me>
+        \frac{1}{2\sqrt{2}}t\sin\left(\sqrt{2}t\right)\approx\pm\frac{t}{2\sqrt{2}}\text{ when }t\text{ is large.}
+        </me></p>
+        <sage>
+          <input>
+            var('x')
+            y = function('y')(x)
+            de = diff(y, x, 2) + 2*y == cos(sqrt(2)*x)
+            f = desolve(de, y, [0,0,0])
+            plot(f, [0,10*pi], title = f)
+          </input>
+        </sage>
       </example>
     </subsection>
   </section>
@@ -1138,7 +1554,7 @@
     y^{\prime\prime}+4y =\frac{3}{\sin t}
     </me>
     MOUC doesn't work with quotients, only products. We will learn a (more complicated) general formula to solving more general linear non-homoheneous
-    2nd order ODEs.</p>
+    2nd order ODEs. This formula will give a particular solution to a non-homogeneous equation given that you already know what the fundamental set of solutions are for the corresponsing homogeneous equation. </p>
 
     <theorem xml:id="thmvarpara">
     <title>Variation of Parameters</title> 
@@ -1365,352 +1781,8 @@
     </example>
   </section>
 
-  <section xml:id="ch3-8">
-    <title>Harmonic oscillations</title>
-    <introduction>
-      <p>We'll now take a closer look at the model that motivated our study of second order equations with constant coefficients - harmonic oscillators. The
-      simplest example of a harmonic oscillator are the motions of a spring-mass system.</p>
-    </introduction> 
-
-    <subsection><title>Mass-spring systems</title>
-      <p>Suppose a mass <m>m</m> hangs from a vertical spring of original length
-      <m>l</m>.
-      <sidebyside>
-      <image source = "images/Spring1.jpg"/>
-      <image source = "images/Spring2.jpg"/>
-      </sidebyside></p>
-      <p>We will study the motion of a mass when it is acted on by an external
-      force (forcing function) and/or is initially displaced.
-      Let <m>u(t)=</m>displacement of the mass from its equilibrium position at
-      time <m>t</m>. The motion of the mass <m>u(t)</m> is modeled by the following:
-      <me>
-      mu^{\prime\prime}(t)+\gamma u^{\prime}(t)+ku(t)=F(t)\,\,\,\,\,\,u(0)=u_{0},u^{\prime}(0)=v_{0}.
-      </me>
-      where <m>m,\gamma,k</m> are positive.</p>
-
-      <p>The specific constants depend on the measurement system in use. <m>m</m> is found from <m>w=mg</m>. <m>\gamma</m> is given in units of <m>\frac{\text{weight unit} \cdot s}{\text{distance unit}}</m>.  <m>k</m> is found using Hooke's Law, <m>mg=kL</m>.</p>
-     
-      <example>
-        <p>A <m>4</m> lb mass stretches a spring <m>2</m>
-        inches. The mass is displaced an additional 6 in. and then released;
-        and is in a medium with a damping coefficients <m>\gamma=2\frac{\text{lb sec}}{\text{ft}}</m>.
-        Formulate the IVP that governs the motion of this mass.</p> 
-        
-        <p>Solution:</p>
-        <p>Find <m>m</m>: <m>w=mg</m> which implies
-        <me>
-        m=\frac{w}{g}=\frac{4\text{ lb}}{32\text{ ft/s}^2}=\frac{1}{8}\frac{\text{lb}s^{2}}{ft}
-        </me></p>
-        <p>Find <m>\gamma</m>: Given
-        <me>
-        \gamma=2\frac{\text{lb sec}}{\text{ft}}.
-        </me></p>
-        <p>Find <m>k</m>: (Hooke's Law)
-        <me>
-        k=\frac{mg}{L}=\frac{4\text{ lb}}{2\text{ in}}=\frac{4\text{ lb}}{(1/6)\text{ ft}}=24\frac{\text{lb}}{ft}.
-        </me></p>
-        <p>Thus 
-        <me>
-        \frac{1}{8}u^{\prime\prime}+2u^{\prime}+24u=0
-        </me>
-        hence 
-        <me>
-        u^{\prime\prime}+16u^{\prime}+192u=0,\,\,\,\,u(0)=\frac{1}{2},\,\,\,u^{\prime}(0)=0
-        </me>
-        since <m>u(0)=6\text{in }\frac{1\text{ft}}{12\text{in}}=\frac{1}{2}</m>. </p>
-        <p>Solving this 
-        <me>
-        u(t)=\frac{1}{4}e^{-8t}\left(2\cos\left(8\sqrt{2}t\right)+\sqrt{2}\sin\left(8\sqrt{2}t\right)\right).
-        </me></p>
-        <image source = "images/Spring3.jpg"/>
-      </example>
-
-      <definition>
-        <p> When 
-        <me>
-        u(t)=A\cos\omega_{0}t+B\sin\omega_{0}t=R\cos\left(\omega_{0}t-\delta\right)
-        </me>
-        then <m>\omega_{0}=</m> is the <term>natural frequency</term> of the system.</p>
-      </definition>
-    </subsection>
-
-    <subsection><title>Undamped harmonic oscillator</title>
-
-      <p>When the damping coefficient <m>\gamma=0</m> (nothing stopping it from
-      oscillating forever), we have 
-      <me>
-      mu^{\prime\prime}+ku=0
-      </me>
-      so that <m>mr^{2}+k=0</m> gives <m>r=\pm i\sqrt{\frac{k}{m}}.</m>This is a
-      special number, so we'll denote it <m>\omega_{0}=\sqrt{\frac{k}{m}}.</m>
-      We get 
-      <me>
-      u(t)=A\cos\omega_{0}t+B\sin\omega_{0}t
-      </me>
-      with period <m>\frac{2\pi}{\omega}</m> and the <term>natural frequency</term> of the system is <m>\omega_{0}</m>.</p>
-    </subsection>
-
-    <subsection><title>Damped harmonic oscillator:</title>
-
-      <p>A <term>damper</term> is an applied force that resists velocity (that is, the damping force is always opposite the direction of motion). A common way to model a damping force is as proportional to the velocity <m>u'(t)</m>. When damped, the model equation becomes 
-      <me>
-      mu^{\prime\prime}(t)+\gamma u^{\prime}(t)+ku(t)=0.
-      </me>
-      In general we'll have the following characteristic equation 
-      <me>
-      mr^{2}+\gamma r+k=0,
-      </me>
-      and solving for the roots we get 
-      <me>
-      r=\frac{-\gamma\pm\sqrt{\gamma^{2}-4km}}{2m}.
-      </me></p>
-    </subsection>
-    <subsection><title>Types of oscillating systems</title>
-
-      <p>Different types of behavior are possible depending on the value of <m>b^{2}-4mk</m>. We'll classify the possible cases in the following
-      way:</p>
-      <ul>
-        <li><p>If <m>\gamma=0</m>, 
-        <ul>
-          <li>the oscillator is <term>undamped</term>. </li>
-          <li> Mass oscillates forever </li>
-          <li> The natural period is <m>2\pi\sqrt{\frac{m}{k}}</m>.</li>
-          </ul></p></li>
-        <li><p>If <m>\gamma>0</m> and <m>\gamma^{2}-4km\lt0</m> (which happens when the roots are <m>r=\alpha\pm\beta i</m>)
-        <ul>
-          <li> The oscillator is <term>underdamped</term>. The mass oscillates back and
-          forth as it tends to its rest position. The solutions
-          are
-          <me>
-          u=Re^{-\gamma t/(2m)}\cos\left(\mu t-\delta\right)
-          </me>
-          and <m>u</m> is bounded between <m>\pm Re^{-\gamma t/(2m)}</m>.</li>
-          <li><image width="70%" source="images/Spring5.jpg"/></li>
-        </ul></p></li>
-
-        <li><p>If <m>\gamma>0</m> and <m>\gamma^{2}-4km>0</m> (which happens when there are two
-        distinct <m>r_{1},r_{2}</m>): 
 
 
-        <ul>
-          <li>The oscillator is <term>overdamped</term>. The mass tends to its rest
-          position but does not oscillate.</li>
-          <li>The solutions are 
-          <me>
-          u=c_{1}e^{r_{1}t}+c_{2}e^{r_{2}t},\,\,\,r_{1},r_{2}\lt0
-          </me>
-          </li>
-        </ul></p></li>
 
-        <li><p> If <m>\gamma>0</m> and <m>\gamma^{2}-4km=0</m> (which happens when there is one negative
-        <m>r</m>): 
-
-          <ul>
-          <li> The oscillator is <term>critically damped.</term> The mass tends to its
-          rest position but does not oscillate.</li> 
-          <li>Solutions tend to the origin tangent to the unique line of eigenvectors.</li>
-          <li> The solutions are
-          <me>
-          u=c_{1}e^{-\gamma t/(2m)}+c_{2}te^{-\gamma t/(2m)}
-          </me></li>
-          </ul></p>
-        </li>
-      </ul>
-         
-      <p>The image below illustrates the behavior possible in different cases. Underdamped is in blue, overdamped in green, and critically damped in red and black.</p>
-      <image source="images/Spring6.jpg"/>
-    </subsection>
-
-    <subsection>
-      <title>Electric Circuts</title>
-      <p> The flow of electric charge in certain basic electrical circuits (<term>RLC</term> for resistor (R), inductor (L), capacitor (C)) is
-      modeled by second order linear ODEs with constant coefficients: 
-      <me>
-      LQ^{\prime\prime}(t)+RQ^{\prime}(t)+\frac{1}{C}Q(t)=E(t),\,\,\,\,\,Q(0)=Q_{0},\,\,\,Q^{\prime}(0)=Q_{0}^{\prime}
-      </me>
-      where <m>Q=</m> charge (coulombs).</p>
-      <image source="images/Spring7.jpg"/>
-    </subsection>
-  </section>
-
-  <section xml:id="ch3-9">
-    <title>Forced oscillations</title>
-      <introduction>
-        <p>We consider equations of the form 
-        <me>
-        mu^{\prime\prime}+\gamma u^{\prime}+ku=F(t)
-        </me>
-        where <m>m>0,\gamma>0,k>0</m> are mass, damping coefficients, and spring
-        constant. Here <m>F(t)</m> represents <term>external force</term> done to
-        the mass-spring system. (e.g wind or cars driving on a bridge) While these forcing functions come in many forms, one of the most important cases is where the forcing function is itself a harmonic oscillation (you can think of this as corresponding to an ambient vibration). 
-        </p>
-      </introduction>
-
-    <subsection>
-      <title>Harmonic forcing functions</title>  
-      
-      <p>Suppose that the forcing function is <m>F(t)=F_{0}\cos\omega t</m>, so that the governing equation for the system is
-      <me>
-      mu^{\prime\prime}+\gamma u^{\prime}+ku=F(t).
-      </me>
-      Since this is a linear equation in <m>u</m>, recall that we can write the solution as
-      <md>
-      <mrow>u(t) \amp =c_{1}u_{1}(t)+c_{2}u_{2}(t)+A\cos\omega t+B\sin\omega t</mrow>
-       <mrow>\amp =u_{h}+u_{p},</mrow>
-      </md>
-      and it turns out that <m>\lim_{t\to\infty}u_{h}(t)=0</m>. (See examples
-      above)</p>
-      
-      <p>We call <m>u_{h}(t)</m> a <term>transient solution</term>, as its contribution to the system disappears as time progresses. 
-      The particular solution <m>u_{p}(t)=A\cos\omega t+B\sin\omega t</m> is called the <term>steady-state solution</term>, as it is the long-term, limiting behavior of the system.
-      </p>
-
-      <example> 
-        <p>Consider a undamped harmonic oscillator with model equation
-        <me>
-        u^{\prime\prime}+2u=\cos\left(\omega t\right),\,\,\,\,\omega\neq\sqrt{2}.
-        </me>
-        Find the general solution <m>u(t)</m>. What is the natural frequency of the system?</p>
-
-        <p>Solution:</p>
-        <p>Step 1: Recall that <m>r^{2}+2=0</m> so <m>r=\pm\sqrt{2}i</m>,
-        so that 
-        <me>
-        u_{h}(t)=c_{1}\cos\left(\sqrt{2}t\right)+c_{2}\sin\left(\sqrt{2}t\right).
-        </me></p>
-        
-        <p>Step 2: We make our first guess 
-        <me>
-        u_{p}(t)=A\cos\left(\omega t\right)+B\sin\left(\omega t\right)
-        </me>
-        and there are no repeats with <m>u_{h}</m> as long as <m>\omega\neq0</m>,
-        hence we have the correct guess. Thus 
-        <md>
-        <mrow>u_{p}^{\prime}(t) \amp =-A\omega\sin\left(\omega t\right)+B\omega\cos\left(\omega t\right)</mrow>
-        <mrow>u_{p}^{\prime\prime}(t) \amp =-A\omega^{2}\cos\left(\omega t\right)-B\omega^{2}\sin\left(\omega t\right).</mrow>
-        </md>
-        Plugging this into the LHS, we have
-        <md>
-        <mrow>LHS=u_{p}^{\prime\prime}+2u_{p} \amp =\left[-A\omega^{2}\cos\left(\omega t\right)-B\omega^{2}\sin\left(\omega t\right)\right]</mrow>
-         <mrow>\amp +2A\cos\left(\omega t\right)+2B\sin\left(\omega t\right)</mrow>
-         <mrow>\amp =A\left(2-\omega^{2}\right)\cos\left(\omega t\right)+B\left(2-\omega^{2}\right)\sin\left(\omega t\right)</mrow>
-        </md>
-        Then, setting <m>LHS=RHS=1\cdot\cos\left(\omega t\right)+0\sin\left(\omega t\right)</m>
-        we have 
-        <md>
-        <mrow>A\left(2-\omega^{2}\right)=1 \amp ,\,\,\,\,\,\,B\left(2-\omega^{2}\right)=0</mrow>
-        <mrow>A=\frac{1}{2-\omega^{2}} \amp ,\,\,\,\,\,\,B=0</mrow>
-        </md>
-        so that
-        <me>
-        u(t)=c_{1}\cos\left(\sqrt{2}t\right)+c_{2}\sin\left(\sqrt{2}t\right)+\frac{1}{2-\omega^{2}}\cos\left(\omega t\right).
-        </me></p>
-      </example>
-    </subsection>
-
-    <subsection>
-      <title>Resonance (undamped systems)</title>
-      <image source="images/3.7-1.png"/>
-      <p>When the forcing function of an undamped system  is far from the natural frequency of a undamped system, forcing function and the natural behavior of the system interact in a combination of constructive and destructive interference.
-        <sage>
-          <input>
-            var('x')
-            y = function('y')(x)
-            de = diff(y, x, 2) + 2*y == cos(5*x)
-            f = desolve(de, y, [0,0,0])
-            plot(f, [0,10*pi], title = f)
-          </input>
-        </sage>
-       However, when the frequency of the forcing function approaches the natural frequency of the system, constructive and destructive interference tend to cluster into locally strong or weak oscillations called <term>beats</term>. 
-      <me>
-      \frac{\omega_{0}}{2\pi}\approx\frac{\omega}{2\pi}\iff\omega_{0}\approx\omega.
-      </me>
-      Solutions in this case typically look something like this: 
-      <image source = "images/3.8-2.jpg"/></p>
-    
-
-
-      <p>When the natural and forcing frequencies are equal, the result is <term>harmonic resonance</term>: 
-      <me>
-      \omega_{0}=\omega.
-      </me>
-      We need a new <m>u_{p}</m> to solve for when resonance happens, since we
-      can't plug <m>\omega=\sqrt{2}</m>, into <m>\frac{1}{2-\omega^{2}}\cos\left(\omega t\right)</m>. 
-      We will see that solution looks like this: 
-      <image source="images/3.8-3.jpg"/>
-      That is, the energy of the forcing function is stored in the system with no destructive interference, which results in increasingly wide oscillations.
-      </p>
-      <example> 
-        <p>Solve the following undamped harmonic
-        oscillator:
-        <me>
-        u^{\prime\prime}+2u=\cos\left(\sqrt{2}t\right),\,\,\,\,u(0)=0,\,\,u^{\prime}(0)=0.
-        </me>
-        What is the natural frequency? What is the frequency for the external
-        force? What kind of behavior of the solution will you get get?</p>
-        
-
-        <p>Solution:</p>
-        <p>Step1: Recall that <m>r^{2}+2=0</m> so <m>r=\pm\sqrt{2}i</m>,
-        so that 
-        <me>
-        u_{h}(t)=c_{1}\cos\left(\sqrt{2}t\right)+c_{2}\sin\left(\sqrt{2}t\right).
-        </me>
-        The natural frequency of the system is <m>\omega_{0}=\sqrt{2}</m>.
-        The external frequency is <m>\omega=\sqrt{2}</m>. Since they match, then
-        we will get resonance!</p>
-        
-        <p>Step 2: We make our first guess
-        <me>
-        u_{p}(t)=A\cos\left(\sqrt{2}t\right)+B\sin\left(\sqrt{2}t\right)
-        </me>
-        but we know that this overlaps with the homogeneous solution, so we choose instead our second
-        guess (by multiplying old guess by <m>t</m>)
-        <me>
-        u_{p}(t)=At\cos\left(\sqrt{2}t\right)+Bt\sin\left(\sqrt{2}t\right).
-        </me>
-        Then
-        <md>
-        <mrow>u_{p}^{\prime}(t) \amp =A\cos\sqrt{2t}-A\sqrt{2}t\sin\sqrt{2}t</mrow>
-         <mrow>\amp +B\sin\sqrt{2}t+B\sqrt{2}t\cos\sqrt{2}t</mrow>
-        <mrow>u_{p}^{\prime\prime}(t) \amp =-\sqrt{2}A\sin\sqrt{2}t-A\sqrt{2}\sin\sqrt{2}t</mrow>
-         <mrow>\amp -A2t\cos\sqrt{2}t</mrow>
-         <mrow>\amp B\sqrt{2}\cos\sqrt{2}t+B\sqrt{2}\cos\sqrt{2}t</mrow>
-         <mrow>\amp -B2t\sin\sqrt{2}t</mrow>
-        </md>
-        Plugging this into the LHS we have
-        <md>
-        <mrow>LHS=u_{p}^{\prime\prime}+2u_{p} \amp =\text{simplify}</mrow>
-         <mrow>\amp =2\sqrt{2}B\cos\left(\sqrt{2}t\right)-2\sqrt{2}A\sin\left(\sqrt{2}t\right).</mrow>
-        </md>
-        Now, setting <m>LHS=RHS=1\cdot\cos\left(\sqrt{2}t\right)+0\sin\left(\sqrt{2}t\right),</m>
-        we have 
-        <md>
-        <mrow>2\sqrt{2}B=1 \amp ,\,\,\,\,\,\,-2\sqrt{2}A=0</mrow>
-        <mrow>B=\frac{1}{2\sqrt{2}} \amp ,\,\,\,\,\,\,A=0</mrow>
-        </md>
-        so that
-        <me>
-        u(t)=c_{1}\cos\left(\sqrt{2}t\right)+c_{2}\sin\left(\sqrt{2}t\right)+\frac{1}{2\sqrt{2}}t\sin\left(\sqrt{2}t\right).
-        </me>
-        Using initial condition we have <m>c_{1}=0,c_{2}=0</m>. 
-        <me>
-        u(t)=\frac{1}{2\sqrt{2}}t\sin\left(\sqrt{2}t\right).
-        </me>
-        Hence we get the picture similar to the one above since 
-        <me>
-        \frac{1}{2\sqrt{2}}t\sin\left(\sqrt{2}t\right)\approx\pm\frac{t}{2\sqrt{2}}\text{ when }t\text{ is large.}
-        </me></p>
-        <sage>
-          <input>
-            var('x')
-            y = function('y')(x)
-            de = diff(y, x, 2) + 2*y == cos(sqrt(2)*x)
-            f = desolve(de, y, [0,0,0])
-            plot(f, [0,10*pi], title = f)
-          </input>
-        </sage>
-      </example>
-    </subsection>
-  </section>
+  
 </chapter>

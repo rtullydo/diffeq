@@ -1,25 +1,82 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
 <html lang="en-US">
-<!--**************************************-->
-<!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-18T16:29:40-04:00    *-->
-<!--*                                    *-->
-<!--*      https://pretextbook.org       *-->
-<!--*                                    *-->
-<!--**************************************-->
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:50-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body>
-<article class="example-like"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">5.2.3</span>.</h6>
-<p>Every positive \(x_0\) is ordinary for the equation</p>
-<div class="displaymath">
+<article class="example example-like"><h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.2.2</span><span class="period">.</span>
+</h6>
+<p>Verify that \(\mathbf{x}=\left(\begin{array}{c}
+1\\
+-2
+\end{array}\right)e^{-4t}\) is a solution to</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-y'' + (\ln x) y = 0.
+\mathbf{x}^{\prime}=\left(\begin{array}{cc}
+2 \amp 3\\
+4 \amp -2
+\end{array}\right)\mathbf{x}.
 \end{equation*}
 </div>
-<p>However, \(\ln x\) has an asymptote at \(x=0\text{,}\) so this is a <dfn class="terminology">singular point</dfn> for the equation. (Singular points are important to consider but quite complicated to analyze, and addressed in further advanced courses in ODE).</p></article><span class="incontext"><a href="ch5-2.html#example-88">in-context</a></span>
+<p xmlns:svg="http://www.w3.org/2000/svg"><dfn class="terminology">Solution:</dfn></p>
+<p>We plug \(\mathbf{x}=\left(\begin{array}{c}
+1\\
+-2
+\end{array}\right)e^{-4t}\) into the LHS and RHS and see if they are equal to each other</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\text{LHS}=\mathbf{x}^{\prime}=\left(\begin{array}{c}
+e^{-4t}\\
+-2e^{-4t}
+\end{array}\right)^{\prime}=\left(\begin{array}{c}
+-4e^{-4t}\\
+8e^{-4t}
+\end{array}\right)
+\end{equation*}
+</div>
+<p data-braille="continuation">and</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+\text{RHS} \amp =\left(\begin{array}{cc}
+2 \amp 3\\
+4 \amp -2
+\end{array}\right)\mathbf{x}=\left(\begin{array}{cc}
+2 \amp 3\\
+4 \amp -2
+\end{array}\right)\left(\begin{array}{c}
+e^{-4t}\\
+-2e^{-4t}
+\end{array}\right)\\
+\amp =\left(\begin{array}{c}
+2e^{-4t}-6e^{-4t}\\
+4e^{-4t}+4e^{-4t}
+\end{array}\right)\\
+\amp =\left(\begin{array}{c}
+-4e^{-4t}\\
+8e^{-4t}
+\end{array}\right)
+\end{align*}
+</div>
+<p data-braille="continuation">since</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\text{LHS}=\text{RHS}
+\end{equation*}
+</div>
+<p data-braille="continuation">then \(\mathbf{x}=\left(\begin{array}{c}
+1\\
+-2
+\end{array}\right)e^{-4t}\) is a solution to this system.</p></article><span class="incontext"><a href="ch5-2.html#example-88">in-context</a></span>
 </body>
 </html>

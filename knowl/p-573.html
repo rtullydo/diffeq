@@ -1,50 +1,57 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
 <html lang="en-US">
-<!--**************************************-->
-<!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-18T16:29:41-04:00    *-->
-<!--*                                    *-->
-<!--*      https://pretextbook.org       *-->
-<!--*                                    *-->
-<!--**************************************-->
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:51-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body>
-<h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>First</p>
-<div class="displaymath">
+<h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
+<p>Let's get back to differential equations. Consider the system:</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-\frac{6}{s\left(s+4\right)}=\frac{A}{s}+\frac{B}{\left(s+4\right)}
+\frac{d\mathbf{x}}{dt}=A\mathbf{x}
 \end{equation*}
 </div>
-<p>so that</p>
-<div class="displaymath">
+<p data-braille="continuation">which we sometimes also write as</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-6=A\left(s+4\right)+Bs
+\mathbf{x}^{\prime}=A\mathbf{x}
 \end{equation*}
 </div>
-<p>or</p>
-<div class="displaymath">
+<p data-braille="continuation">where \(A=\left(\begin{array}{cc}
+a \amp b\\
+c \amp d
+\end{array}\right)\) and \(\mathbf{x}=\left(\begin{array}{c}
+x_{1}\\
+x_{2}
+\end{array}\right)\text{.}\) Recall that an <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">Equilibrium Solution</dfn>, is a constant function \(\mathbf{x}(t)=\left(x_{0},y_{0}\right)\) such that \(\frac{d\mathbf{x}}{dt}=A\mathbf{x}=\mathbf{0}\text{.}\) That is if</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-0s+6=\left(A+B\right)s+4A
+\left(\begin{array}{cc}
+a \amp b\\
+c \amp d
+\end{array}\right)\left(\begin{array}{c}
+x_{1}\\
+X_{2}
+\end{array}\right)=0\iff\left(\begin{array}{c}
+ax_{1}+bx_{2}\\
+cx_{1}+dx_{2}
+\end{array}\right)=\left(\begin{array}{c}
+0\\
+0
+\end{array}\right).
 \end{equation*}
 </div>
-<p>and get</p>
-<div class="displaymath">
-\begin{align*}
-\end{align*}
-</div>
-<p>so that \(A=-\frac{3}{2}\) and \(B=\frac{3}{2}\) hence</p>
-<div class="displaymath">
-\begin{align*}
-\mathcal{L}^{-1}\left\{ \frac{6}{s\left(s+4\right)}\right\}  \amp =\mathcal{L}^{-1}\left\{ \frac{3/2}{s}+\frac{-3/2}{\left(s+4\right)}\right\} \\
-\amp =\frac{3}{2}\mathcal{L}^{-1}\left\{ \frac{1}{s}\right\} -\frac{3}{2}\mathcal{L}\left\{ \frac{1}{\left(s+4\right)}\right\} \\
-\amp =\frac{3}{2}\cdot1-\frac{3}{2}\mathcal{L}\left\{ \frac{1}{s-(-4)}\right\} \\
-\amp =\frac{3}{2}\cdot1-\frac{3}{2}e^{-4t}
-\end{align*}
-</div>
-<span class="incontext"><a href="ch6-2.html#p-573">in-context</a></span>
+<p data-braille="continuation">So this just boiled downed to a linear algebra problem and we can restate <a class="xref" data-knowl="./knowl/thmlinalg1.html" title="Theorem 5.3.1">Theorem 5.3.1</a> in differential equations language.</p>
+<span class="incontext"><a href="ch5-3.html#p-573">in-context</a></span>
 </body>
 </html>

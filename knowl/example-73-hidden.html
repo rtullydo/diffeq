@@ -1,99 +1,68 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
 <html lang="en-US">
-<!--**************************************-->
-<!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-18T16:29:40-04:00    *-->
-<!--*                                    *-->
-<!--*      https://pretextbook.org       *-->
-<!--*                                    *-->
-<!--**************************************-->
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:49-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
-<script>$(function () {
-    // Make *any* div with class 'sagecell-sage' an executable Sage cell
-    // Their results will be linked, only within language type
-    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
-                           linked: true,
-                           languages: ['sage'],
-                           evalButtonText: 'Evaluate (Sage)'});
-});
-</script>
 </head>
-<body><article class="example-like"><p>Solve the following undamped harmonic oscillator:</p>
-<div class="displaymath">
+<body><article class="example example-like"><p>Find the general solution to</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-u^{\prime\prime}+2u=\cos\left(\sqrt{2}t\right),\,\,\,\,u(0)=0,\,\,u^{\prime}(0)=0.
+t^{2}y^{\prime\prime}-3ty^{\prime}+3y=8t^{3},\,\,\,\,t&gt;0
 \end{equation*}
 </div>
-<p>What is the natural frequency? What is the frequency for the external force? What kind of behavior of the solution will you get get?</p>
-<p>Solution:</p>
-<p>Step1: Recall that \(r^{2}+2=0\) so \(r=\pm\sqrt{2}i\text{,}\) so that</p>
-<div class="displaymath">
+<p data-braille="continuation">given that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-u_{h}(t)=c_{1}\cos\left(\sqrt{2}t\right)+c_{2}\sin\left(\sqrt{2}t\right).
+y_{1}(t)=t,\,\,\,y_{2}(t)=t^{3}
 \end{equation*}
 </div>
-<p>The natural frequency of the system is \(\omega_{0}=\sqrt{2}\text{.}\) The external frequency is \(\omega=\sqrt{2}\text{.}\) Since they match, then we will get resonance!</p>
-<p>Step 2: We make our first guess</p>
-<div class="displaymath">
+<p data-braille="continuation">forms a fundamental set of solution for the corresponding homogeneous differential equation.</p>
+<p>Step 1: Since \(y_{1}(t)=t,\,\,\,y_{2}(t)=t^{3}\) forms a fundamental set of solution, this means that the general solution for the homogeneous equation is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-u_{p}(t)=A\cos\left(\sqrt{2}t\right)+B\sin\left(\sqrt{2}t\right)
+y_{h}=c_{1}t+c_{2}t^{3}.
 \end{equation*}
 </div>
-<p>but we know that this overlaps with the homogeneous solution, so we choose instead our second guess (by multiplying old guess by \(t\))</p>
-<div class="displaymath">
-\begin{equation*}
-u_{p}(t)=At\cos\left(\sqrt{2}t\right)+Bt\sin\left(\sqrt{2}t\right).
-\end{equation*}
-</div>
-<p>Then</p>
-<div class="displaymath">
+<p>Step 2: Find the Wronskian:</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{align*}
-u_{p}^{\prime}(t) \amp =A\cos\sqrt{2t}-A\sqrt{2}t\sin\sqrt{2}t\\
-\amp +B\sin\sqrt{2}t+B\sqrt{2}t\cos\sqrt{2}t\\
-u_{p}^{\prime\prime}(t) \amp =-\sqrt{2}A\sin\sqrt{2}t-A\sqrt{2}\sin\sqrt{2}t\\
-\amp -A2t\cos\sqrt{2}t\\
-\amp B\sqrt{2}\cos\sqrt{2}t+B\sqrt{2}\cos\sqrt{2}t\\
-\amp -B2t\sin\sqrt{2}t
+W(y_{1},y_{2})(t) \amp =\left|\begin{array}{cc}
+t \amp t^{3}\\
+1 \amp 3t^{2}
+\end{array}\right|\\
+\amp =3t^{3}-t^{3}=2t^{3}\neq0,
 \end{align*}
 </div>
-<p>Plugging this into the LHS we have</p>
-<div class="displaymath">
+<p>Step 3: Rewrite the equation in the form \(y^{\prime\prime}+p(t)y^{\prime}+q(t)y=g(t)\) and hence</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+y^{\prime\prime}-\frac{3}{t}y^{\prime}+\frac{3}{t^{2}}y=8t,.
+\end{equation*}
+</div>
+<p data-braille="continuation">Use our formula with \(g(t)=8t\) and get</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{align*}
-LHS=u_{p}^{\prime\prime}+2u_{p} \amp =\text{simplify}\\
-\amp =2\sqrt{2}B\cos\left(\sqrt{2}t\right)-2\sqrt{2}A\sin\left(\sqrt{2}t\right).
+y_{p}(t) \amp =-y_{1}(t)\left[\int\frac{y_{2}(t)g(t)}{W\left(y_{1},y_{2}\right)(t)}dt\right]+y_{2}(t)\left[\int\frac{y_{1}(t)g(t)}{W\left(y_{1},y_{2}\right)(t)}dt\right]\\
+\amp =-t\left[\int\frac{t^{3}}{2t^{3}}8tdt\right]+t^{3}\left[\int\frac{t}{2t^{3}}8tdt\right]\\
+\amp =-t\left[\int4tdt\right]+t^{3}\left[\int\frac{4}{t}dt\right]\\
+\amp =-t\left[2t^{2}\right]+t^{3}\left[4\ln t\right]\\
+\amp =-2t^{3}+4t^{3}\ln t
 \end{align*}
 </div>
-<p>Now, setting \(LHS=RHS=1\cdot\cos\left(\sqrt{2}t\right)+0\sin\left(\sqrt{2}t\right),\) we have</p>
-<div class="displaymath">
+<p data-braille="continuation">hence the general solution is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{align*}
-2\sqrt{2}B=1 \amp ,\,\,\,\,\,\,-2\sqrt{2}A=0\\
-B=\frac{1}{2\sqrt{2}} \amp ,\,\,\,\,\,\,A=0
+y(t) \amp =y_{h}+y_{p}\\
+\amp =c_{1}t+c_{2}t^{3}-2t^{3}+4t^{3}\ln t.
 \end{align*}
-</div>
-<p>so that</p>
-<div class="displaymath">
-\begin{equation*}
-u(t)=c_{1}\cos\left(\sqrt{2}t\right)+c_{2}\sin\left(\sqrt{2}t\right)+\frac{1}{2\sqrt{2}}t\sin\left(\sqrt{2}t\right).
-\end{equation*}
-</div>
-<p>Using initial condition we have \(c_{1}=0,c_{2}=0\text{.}\)</p>
-<div class="displaymath">
-\begin{equation*}
-u(t)=\frac{1}{2\sqrt{2}}t\sin\left(\sqrt{2}t\right).
-\end{equation*}
-</div>
-<p>Hence we get the picture similar to the one above since</p>
-<div class="displaymath">
-\begin{equation*}
-\frac{1}{2\sqrt{2}}t\sin\left(\sqrt{2}t\right)\approx\pm\frac{t}{2\sqrt{2}}\text{ when }t\text{ is large.}
-\end{equation*}
-</div>
-<div class="sagecell-sage" id="sage-21"><script type="text/x-sage">var('x')
-y = function('y')(x)
-de = diff(y, x, 2) + 2*y == cos(sqrt(2)*x)
-f = desolve(de, y, [0,0,0])
-plot(f, [0,10*pi], title = f)
-</script></div></article></body>
+</div></article></body>
 </html>

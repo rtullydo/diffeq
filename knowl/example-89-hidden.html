@@ -1,56 +1,17 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
 <html lang="en-US">
-<!--**************************************-->
-<!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-18T16:29:40-04:00    *-->
-<!--*                                    *-->
-<!--*      https://pretextbook.org       *-->
-<!--*                                    *-->
-<!--**************************************-->
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:50-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body><article class="example-like"><p>To illustrate the method, we'll begin with the power series approach to a first order differential equation</p>
-<div class="displaymath">
-\begin{equation*}
-y' - 2y = 0.
-\end{equation*}
-</div>
-<p>Of course, we already know that the solution to this equation should be \(y = k e^{2x}\) by the method of characteristic equations, so we should expect our series answer to recover that.</p>
-<p>Since the equation is regular at every point, (2 is analytic), for convenience, we will work at the regular point \(x = 0\text{.}\) We will assume that the solution \(y = f(x)\) is a power series, which gives the expressions</p>
-<div class="displaymath">
-\begin{align*}
-y \amp = \sum_{k=0}^\infty c_k x^k  = c_0 + c_1 x + c_2 x^2 + \ldots;\\
-y' \amp = \sum_{k=0}^\infty (k+1) c_{k+1} x^k  = c_1 + 2c_2 x + 3c_3 x^2 + \ldots.
-\end{align*}
-</div>
-<p>Plugging into the differential equation, we get</p>
-<div class="displaymath">
-\begin{align*}
-(c_1 + 2c_2 x + 3c_3 x^2 + \ldots) - 2(c_0 + c_1 x + c_2 x^2 + \ldots) \amp = 0\\
-(c_1 - 2c_0) + (2c_2 - 2c_1)x + (3c_3 - 2c_2)x^2 + \ldots\amp = 0.
-\end{align*}
-</div>
-<p>What we get when we set all the coefficients equal to 0 is called a <dfn class="terminology">recursion</dfn>: if we know \(c_0\text{,}\) we can get \(c_1\text{,}\) which lets us get \(c_2\) and so on. We use substitution to get all the values in terms of the first value \(c_0\text{.}\)</p>
-<div class="displaymath">
-\begin{equation*}
-\begin{array}{ccc}
-c_1 - 2c_0 = 0 \amp \Rightarrow \amp c_1 = 2c_0 \\
-2c_2 - 2c_1 = 0 \amp \Rightarrow \amp c_2 = c_1 = 2c_0 \\
-3c_3 - 2c_2 = 0 \amp \Rightarrow \amp c_3 = \frac{2}{3}c_2 = \frac{4}{3}c_0 \\
-4c_4 - 2c_3 = 0 \amp \Rightarrow \amp c_4 = \frac{2}{4}c_3 = \frac{2}{3} c_0 \\
-\vdots \amp \vdots \amp \vdots
-\end{array}
-\end{equation*}
-</div>
-<p>Now we can substitute these expressions into our assumed solution \(y\text{:}\)</p>
-<div class="displaymath">
-\begin{align*}
-y \amp = c_0 + c_1 x + c_2 x^2 + c_3 x^3 + \ldots\\
-\amp = c_0 + (2c_0) x + (2c_0)x^2 + (\frac{4}{3}c_0)x^3 + \ldots\\
-\amp = c_0\underbrace{\left(1 + 2x + 2x^2 + \frac{4}{3} x^3 + \ldots \right)}_{\text{homogeneous solution}}
-\end{align*}
-</div>
-<p>The quantity \(c_0\) comes from an intital condition, and the series in this case turns out to be the power series of the function \(e^{2x}\) (check if you like!).</p></article></body>
+<body><article class="example example-like"><p xmlns:svg="http://www.w3.org/2000/svg">Suppose \(\mathbf{x}(t)=\left(\cos t,\sin t\right)\text{,}\) draw the trajectory of \(\mathbf{x}(t) \) for \(0\leq t\leq2\pi\) on the Phase plane. <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/5-parametric1.png" style="width: 100%; height: auto;" alt=""></div></p></article></body>
 </html>

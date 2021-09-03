@@ -1,0 +1,46 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:55-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<article class="example example-like"><h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.4.9</span><span class="period">.</span>
+</h6>
+<p xmlns:svg="http://www.w3.org/2000/svg">Take the Inverse Laplace Transform of:\({\displaystyle F(s)=\frac{9\left(s-3\right)e^{-5s}}{s^{2}-6s+13}}\)</p>
+<p>Solution: In this example we can only complete the square since we can't factor and get</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\frac{9\left(s-3\right)e^{-5s}}{s^{2}-6s+13}=\frac{9\left(s-3\right)e^{-5s}}{\left(s-3\right)^{2}+2^{2}}
+\end{equation*}
+</div>
+<p data-braille="continuation">Now note that by \(\mathcal{L}\left\{ e^{ct}f\left(t\right)\right\} =F(s-c)\) and \(\mathcal{L}\left\{ \cos at\right\} =\frac{s}{s^{2}+a^{2}}\) we have</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+\mathcal{L}\left\{ \cos\left(2t\right)\right\} =\frac{s}{s^{2}+2^{2}} \amp \implies\mathcal{L}\left\{ e^{3t}\cos\left(2t\right)\right\} =\frac{(s-3)}{(s-3)^{2}+2^{2}}
+\end{align*}
+</div>
+<p data-braille="continuation">(Need to take care of the \(e^{-5s}\)) Now use \(\mathcal{L}\left\{ u_{c}(t)f_{1}\left(t-c\right)\right\} =e^{-cs}F_{1}(s)\) with \(f_{1}(t)=e^{3t}\cos\left(2t\right)\) and \(c=5\) so that \(f_{1}(t-5)=e^{3(t-5)}\cos\left(2\left(t-5\right)\right)\) hence</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\mathcal{L}\left\{ u_{5}(t)e^{3(t-5)}\cos\left(2\left(t-5\right)\right)\right\} =e^{-5s}\frac{(s-3)}{(s-3)^{2}+2^{2}}
+\end{equation*}
+</div>
+<p data-braille="continuation">Thus multiplying both sides by \(9\)</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\mathcal{L}^{-1}\left\{ F(s)\right\} =9u_{5}(t)e^{3(t-5)}\cos\left(2\left(t-5\right)\right).
+\end{equation*}
+</div></article><span class="incontext"><a href="ch6-4.html#example-138">in-context</a></span>
+</body>
+</html>

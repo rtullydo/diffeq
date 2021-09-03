@@ -1,12 +1,14 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
 <html lang="en-US">
-<!--**************************************-->
-<!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-18T16:29:40-04:00    *-->
-<!--*                                    *-->
-<!--*      https://pretextbook.org       *-->
-<!--*                                    *-->
-<!--**************************************-->
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:45-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
@@ -20,15 +22,15 @@
 });
 </script>
 </head>
-<body><article class="example-like"><p>Consider the equation \(\frac{dy}{dt}=(1+y)^{2}\text{.}\)</p>
-<p>The phase line is \([\ominus-1\oplus]\) \(\begin{array}{c}
+<body><article class="example example-like"><p xmlns:svg="http://www.w3.org/2000/svg">Consider the equation \(\frac{dy}{dt}=(1+y)^{2}\text{.}\)</p>
+<p xmlns:svg="http://www.w3.org/2000/svg">The phase line is  \(\begin{array}{c}
 \wedge\\
 -1\\
 \wedge
 \end{array}\) Sketch a curve.</p>
-<p>These increasing/decreasing behaviors could be asymptotes. (Phase LINE DOES NOT TELL US THIS INFO)</p>
-<p>ACTUAL SOL: \(y(t)=-1-\frac{1}{t+c}\text{.}\) Asymptote at \(t=c\text{.}\)</p>
-<p>If \(y(0)&gt;-1\) then draw possible curve.</p>
+<p xmlns:svg="http://www.w3.org/2000/svg">The Phase Line doesn't tell us if there could be any vertical assymptotes. (Phase LINE DOES NOT TELL US THIS INFO)</p>
+<p xmlns:svg="http://www.w3.org/2000/svg">ACTUAL SOLUTION: \(y(t)=-1-\frac{1}{t+c}\text{.}\) Note that there is an assymptote at \(t=c\text{.}\)</p>
+<p xmlns:svg="http://www.w3.org/2000/svg">If \(y(0)&gt;-1\) then draw possible curve.</p>
 <div class="sagecell-sage" id="sage-12"><script type="text/x-sage">t,y=var('t,y')
 g = Graphics()
 g+= plot_slope_field((1+y)^2, (t,-5,5),(y,-5,5))

@@ -1,0 +1,615 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:26-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Basic Theory of Systems of 1st Order Linear EQs - Straight Line Solutions</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['\\(','\\)']]
+    },
+    asciimath2jax: {
+        ignoreClass: ".*",
+        processClass: "has_am"
+    },
+    jax: ["input/AsciiMath"],
+    extensions: ["asciimath2jax.js"],
+    TeX: {
+        extensions: ["extpfeil.js", "autobold.js", "https://pretextbook.org/js/lib/mathjaxknowl.js", "AMScd.js", ],
+        // scrolling to fragment identifiers is controlled by other Javascript
+        positionToHash: false,
+        equationNumbers: { autoNumber: "none", useLabelIds: true, },
+        TagSide: "right",
+        TagIndent: ".8em",
+    },
+    // HTML-CSS output Jax to be dropped for MathJax 3.0
+    "HTML-CSS": {
+        scale: 88,
+        mtextFontInherit: true,
+    },
+    CommonHTML: {
+        scale: 88,
+        mtextFontInherit: true,
+    },
+});
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="mathbook-book has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" class="hidden-content" style="display:none">\(\DeclareMathOperator{\RE}{Re}
+  \DeclareMathOperator{\IM}{Im}
+  \DeclareMathOperator{\ess}{ess}
+  \DeclareMathOperator{\intr}{int}
+  \DeclareMathOperator{\dist}{dist}
+  \DeclareMathOperator{\dom}{dom}
+  \DeclareMathOperator{\diag}{diag}
+  \DeclareMathOperator\re{\mathrm {Re~}}
+  \DeclareMathOperator\im{\mathrm {Im~}}
+  
+  \newcommand\dd{\mathrm d}
+  \newcommand{\eps}{\varepsilon}
+  \newcommand{\To}{\longrightarrow}
+  \newcommand{\hilbert}{\mathcal{H}}
+  \newcommand{\s}{\mathcal{S}_2}
+  \newcommand{\A}{\mathcal{A}}
+  \newcommand\h{\mathcal{H}}
+  \newcommand{\J}{\mathcal{J}}
+  \newcommand{\M}{\mathcal{M}}
+  \newcommand{\F}{\mathbb{F}}
+  \newcommand{\N}{\mathcal{N}}
+  \newcommand{\T}{\mathbb{T}}
+  \newcommand{\W}{\mathcal{W}}
+  \newcommand{\X}{\mathcal{X}}
+  \newcommand{\D}{\mathbb{D}}
+  \newcommand{\C}{\mathbb{C}}
+  \newcommand{\BOP}{\mathbf{B}}
+  \newcommand{\Z}{\mathbb{Z}}
+  \newcommand{\BH}{\mathbf{B}(\mathcal{H})}
+  \newcommand{\KH}{\mathcal{K}(\mathcal{H})}
+  \newcommand{\pick}{\mathcal{P}_2}
+  \newcommand{\schur}{\mathcal{S}_2}
+  \newcommand{\R}{\mathbb{R}}
+  \newcommand{\Complex}{\mathbb{C}}
+  \newcommand{\Field}{\mathbb{F}}
+  \newcommand{\RPlus}{\Real^{+}}
+  \newcommand{\Polar}{\mathcal{P}_{\s}}
+  \newcommand{\Poly}{\mathcal{P}(E)}
+  \newcommand{\EssD}{\mathcal{D}}
+  \newcommand{\Lop}{\mathcal{L}}
+  \newcommand{\cc}[1]{\overline{#1}}
+  \newcommand{\abs}[1]{\left\vert#1\right\vert}
+  \newcommand{\set}[1]{\left\{#1\right\}}
+  \newcommand{\seq}[1]{\left\lt#1\right&gt;}
+  \newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+  \newcommand{\essnorm}[1]{\norm{#1}_{\ess}}
+  \newcommand{\tr}{\operatorname{tr}}
+  \newcommand{\ran}[1]{\operatorname{ran}#1}
+  \newcommand{\nt}{\stackrel{\mathrm {nt}}{\to}}
+  \newcommand{\pnt}{\xrightarrow{pnt}}
+  \newcommand{\ip}[2]{\left\langle #1, #2 \right\rangle}
+  \newcommand{\ad}{^\ast}
+  \newcommand{\inv}{^{-1}}
+  \newcommand{\adinv}{^{\ast -1}}
+  \newcommand{\invad}{^{-1 \ast}}
+  \newcommand\Pick{\mathcal P}
+  \newcommand\Ha{\mathbb{H}}
+  \newcommand{\HH}{\Ha\times\Ha}
+  \newcommand\Htau{\mathbb{H}(\tau)}
+  \newcommand{\vp}{\varphi}
+  \newcommand{\ph}{\varphi}
+  \newcommand\al{\alpha}
+  \newcommand\ga{\gamma}
+  \newcommand\de{\delta}
+  \newcommand\ep{\varepsilon}
+  \newcommand\la{\lambda}
+  \newcommand\up{\upsilon}
+  \newcommand\si{\sigma}
+  \newcommand\beq{\begin{equation}}
+  \newcommand\ds{\displaystyle}
+  \newcommand\eeq{\end{equation}}
+  \newcommand\df{\stackrel{\rm def}{=}}
+  \newcommand\ii{\mathrm i}
+  \newcommand{\vectwo}[2]
+  {
+     \begin{pmatrix} #1 \\ #2 \end{pmatrix}
+  }
+  \newcommand{\vecthree}[3]
+  {
+     \begin{pmatrix} #1 \\ #2 \\ #3 \end{pmatrix}
+  }
+  \newcommand\blue{\color{blue}}
+  \newcommand\black{\color{black}}
+  \newcommand\red{\color{red}}
+  
+  \newcommand\nn{\nonumber}
+  \newcommand\bbm{\begin{bmatrix}}
+  \newcommand\ebm{\end{bmatrix}}
+  \newcommand\bpm{\begin{pmatrix}}
+  \newcommand\epm{\end{pmatrix}}
+  \numberwithin{equation}{section}
+  \newcommand\nin{\noindent}
+  \newcommand{\nCr}[2]{\,_{#1}C_{#2}} 
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="diffeqs.html"><span class="title">Differential Equations</span></a></h1>
+<p class="byline">Phanuel Mariano, Ryan Tully-Doyle</p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="ch5-3.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch5.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="ch5-5.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="ch5-3.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch5.html" title="Up">Up</a><a class="next-button button toolbar-item" href="ch5-5.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
+<li class="link">
+<a href="introduction.html" data-scroll="introduction"><span class="codenumber">1</span> <span class="title">Introduction</span></a><ul>
+<li><a href="ch1-1.html" data-scroll="ch1-1">Modeling via differential equations, some solutions and definitions</a></li>
+<li><a href="ch1-2.html" data-scroll="ch1-2">Slope fields (direction fields)</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch2.html" data-scroll="ch2"><span class="codenumber">2</span> <span class="title">First Order Differential Equations</span></a><ul>
+<li><a href="ch2-1.html" data-scroll="ch2-1">Linear equations and integrating factors</a></li>
+<li><a href="ch2-2.html" data-scroll="ch2-2">Separable equations</a></li>
+<li><a href="ch2-3.html" data-scroll="ch2-3">Separable homogeneous equations and the substitution method</a></li>
+<li><a href="ch2-4.html" data-scroll="ch2-4">Modeling with Differential Equations</a></li>
+<li><a href="ch2-5.html" data-scroll="ch2-5">Modeling with differential equations - more problems</a></li>
+<li><a href="ch2-6.html" data-scroll="ch2-6">Existence and Uniqueness of Solutions</a></li>
+<li><a href="ch2-7.html" data-scroll="ch2-7">Autonomous Equations and Population dynamics</a></li>
+<li><a href="ch2-8.html" data-scroll="ch2-8">Exact equations</a></li>
+<li><a href="ch2-9.html" data-scroll="ch2-9">Euler's method</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch3.html" data-scroll="ch3"><span class="codenumber">3</span> <span class="title">Second Order Linear Equations</span></a><ul>
+<li><a href="ch3-1.html" data-scroll="ch3-1">Motivation - mass-spring systems.</a></li>
+<li><a href="ch3-2.html" data-scroll="ch3-2">Second order linear equations</a></li>
+<li><a href="ch3-3.html" data-scroll="ch3-3">Solutions to Linear Equations; the Wronskian</a></li>
+<li><a href="ch3-4.html" data-scroll="ch3-4">Complex roots of the characteristic equation</a></li>
+<li><a href="ch3-5.html" data-scroll="ch3-5">Repeated roots; Reduction of order</a></li>
+<li><a href="ch3-6.html" data-scroll="ch3-6">Non-homogeneous equations - Undetermined coefficients</a></li>
+<li><a href="ch3-8.html" data-scroll="ch3-8">Harmonic oscillations</a></li>
+<li><a href="ch3-9.html" data-scroll="ch3-9">Forced oscillations</a></li>
+<li><a href="ch3-7.html" data-scroll="ch3-7">Variation of Parameters</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch-4.html" data-scroll="ch-4"><span class="codenumber">4</span> <span class="title">Higher order differential equations</span></a><ul>
+<li><a href="ch4-1.html" data-scroll="ch4-1">Linear equations</a></li>
+<li><a href="ch4-2.html" data-scroll="ch4-2">The Method of Undetermined Coefficients</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch5.html" data-scroll="ch5"><span class="codenumber">5</span> <span class="title">Systems of First Order Linear Equations</span></a><ul>
+<li><a href="ch5-1.html" data-scroll="ch5-1">Systems of First Order Linear Equations</a></li>
+<li><a href="ch5-2.html" data-scroll="ch5-2">Review of Matrices, Vector Fields, Phase Planes and Portraits</a></li>
+<li><a href="ch5-3.html" data-scroll="ch5-3">Systems of Linear Equations: Linear Independence, and the General Solution Theorem</a></li>
+<li><a href="ch5-4.html" data-scroll="ch5-4" class="active">Basic Theory of Systems of 1st Order Linear EQs - Straight Line Solutions</a></li>
+<li><a href="ch5-5.html" data-scroll="ch5-5">Phase Portraits for systems with real eigenvalues</a></li>
+<li><a href="ch5-6.html" data-scroll="ch5-6">Complex Eigenvalues</a></li>
+<li><a href="ch5-7.html" data-scroll="ch5-7">Repeated and zero eigenvalues</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch6.html" data-scroll="ch6"><span class="codenumber">6</span> <span class="title">The Laplace Transform</span></a><ul>
+<li><a href="ch6-1.html" data-scroll="ch6-1">The definition of the Laplace transform</a></li>
+<li><a href="ch6-2.html" data-scroll="ch6-2">The Laplace Transform and Initial Value Problems</a></li>
+<li><a href="ch6-3.html" data-scroll="ch6-3">Solutions to higher order IVPs</a></li>
+<li><a href="ch6-4.html" data-scroll="ch6-4">Step functions</a></li>
+<li><a href="ch6-5.html" data-scroll="ch6-5">ODEs with discontinuous forcing functions</a></li>
+<li><a href="ch6-6.html" data-scroll="ch6-6">Impulse functions</a></li>
+<li><a href="ch6-7.html" data-scroll="ch6-7">The convolution integral</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch7.html" data-scroll="ch7"><span class="codenumber">7</span> <span class="title">Series Solutions</span></a><ul>
+<li><a href="ch7-1.html" data-scroll="ch7-1">Power Series</a></li>
+<li><a href="ch7-2.html" data-scroll="ch7-2">Method of series solutions</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="quadratic.html" data-scroll="quadratic"><span class="codenumber">A</span> <span class="title">A fast quadratic method</span></a></li>
+<li class="link">
+<a href="exercises.html" data-scroll="exercises"><span class="codenumber">B</span> <span class="title">Exercises for Chapter 1</span></a><ul>
+<li><a href="ex1-1.html" data-scroll="ex1-1">Section 1.1</a></li>
+<li><a href="ex1-2.html" data-scroll="ex1-2">Section 1.2</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="appendix-3.html" data-scroll="appendix-3"><span class="codenumber">C</span> <span class="title">Exercises for Chapter 2</span></a><ul>
+<li><a href="ex2-1.html" data-scroll="ex2-1">Section 2.1</a></li>
+<li><a href="ex2-2.html" data-scroll="ex2-2">Section 2.2</a></li>
+<li><a href="ex2-3.html" data-scroll="ex2-3">Section 2.3</a></li>
+<li><a href="ex2-4.html" data-scroll="ex2-4">Section 2.4</a></li>
+<li><a href="ex2-5.html" data-scroll="ex2-5">Section 2.5</a></li>
+<li><a href="ex2-6.html" data-scroll="ex2-6">Section 2.6</a></li>
+<li><a href="ex2-7.html" data-scroll="ex2-7">Section 2.7</a></li>
+<li><a href="ex2-8.html" data-scroll="ex2-8">Section 2.8</a></li>
+<li><a href="ex2-9.html" data-scroll="ex2-9">Section 2.9</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="appendix-4.html" data-scroll="appendix-4"><span class="codenumber">D</span> <span class="title">Exercises for Chapter 3</span></a><ul>
+<li><a href="ex3-2.html" data-scroll="ex3-2">Section 3.2</a></li>
+<li><a href="ex3-3.html" data-scroll="ex3-3">Section 3.3</a></li>
+<li><a href="ex3-4.html" data-scroll="ex3-4">Section 3.4</a></li>
+<li><a href="ex3-5.html" data-scroll="ex3-5">Section 3.5</a></li>
+<li><a href="ex3-6.html" data-scroll="ex3-6">Section 3.6</a></li>
+<li><a href="ex3-8.html" data-scroll="ex3-8">Section 3.7</a></li>
+<li><a href="ex3-9.html" data-scroll="ex3-9">Section 3.8</a></li>
+<li><a href="ex3-7.html" data-scroll="ex3-7">Section 3.9</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="appendix-5.html" data-scroll="appendix-5"><span class="codenumber">E</span> <span class="title">Exercises for Chapter 4</span></a><ul>
+<li><a href="ex4-1.html" data-scroll="ex4-1">Section 4.1</a></li>
+<li><a href="ex4-2.html" data-scroll="ex4-2">Section 4.2</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="appendix-6.html" data-scroll="appendix-6"><span class="codenumber">F</span> <span class="title">Exercises for Chapter 5</span></a><ul>
+<li><a href="ex5-1.html" data-scroll="ex5-1">Section 5.1</a></li>
+<li><a href="ex5-2.html" data-scroll="ex5-2">Section 5.2</a></li>
+<li><a href="ex5-3.html" data-scroll="ex5-3">Section 5.3</a></li>
+<li><a href="ex5-4.html" data-scroll="ex5-4">Section 5.4</a></li>
+<li><a href="ex5-5.html" data-scroll="ex5-5">Section 5.5</a></li>
+<li><a href="ex5-6.html" data-scroll="ex5-6">Section 5.6</a></li>
+<li><a href="ex5-7.html" data-scroll="ex5-7">Section 5.7</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="appendix-7.html" data-scroll="appendix-7"><span class="codenumber">G</span> <span class="title">Exercises for Chapter 6</span></a><ul>
+<li><a href="ex6-1.html" data-scroll="ex6-1">Section 6.1</a></li>
+<li><a href="ex6-2.html" data-scroll="ex6-2">Section 6.2</a></li>
+<li><a href="ex6-3.html" data-scroll="ex6-3">Section 6.3</a></li>
+<li><a href="ex6-4.html" data-scroll="ex6-4">Section 6.4</a></li>
+<li><a href="ex6-5.html" data-scroll="ex6-5">Section 6.5</a></li>
+</ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="ch5-4"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">5.4</span> <span class="title">Basic Theory of Systems of 1st Order Linear EQs - Straight Line Solutions</span>
+</h2>
+<section class="subsection" id="subsection-56"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.4.1</span> <span class="title">Eigenvalues and Eigenvectors</span>
+</h3>
+<p id="p-594">Geometrically, an <dfn class="terminology">eigenvector</dfn> is a vector where the vector field points in the same or opposite direction as the vector itself. For example, consider the following vector field:</p>
+<div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/3.2%20-%20system1.png" style="width: 100%; height: auto;" alt=""></div>
+<p id="p-595">Then note that, the vectors in the directions of the straight-line are called <dfn class="terminology">eigenvectors</dfn>.</p>
+<article class="assemblage assemblage-like" id="assemblage-9"><h6 class="heading"><span class="title">Eigenvalue/Eigenvectors.</span></h6>
+<p id="p-596">Given a matrix \(A\text{,}\) a number \(\lambda\) is called an <dfn class="terminology">eigenvalue</dfn> of \(A\) if there is a nonzero vector \(\mathbf{v}\) such that</p>
+<div class="displaymath">
+\begin{equation*}
+A\mathbf{v}=\lambda\mathbf{v}.
+\end{equation*}
+</div>
+<p data-braille="continuation">The corresponding vector \(\mathbf{v}\) is called an <dfn class="terminology">eigenvector of the eigenvalue</dfn>  \(\lambda\text{.}\)</p></article><p id="p-597">Our goal is to demonstrate how to find eigenvalues and their corresponding eigenvectors of a given matrix</p>
+<div class="displaymath">
+\begin{equation*}
+A=\left(\begin{array}{cc}
+a \amp b\\
+c \amp d
+\end{array}\right).
+\end{equation*}
+</div>
+<p data-braille="continuation">First we find the eigenvalues, then we use the eigenvalue to find the corresponding eigenvectors. Let \(I=\left(\begin{array}{cc}
+1 \amp 0\\
+0 \amp 1
+\end{array}\right)\) be the identity matrix then \(\lambda I=\left(\begin{array}{cc}
+\lambda \amp 0\\
+0 \amp \lambda
+\end{array}\right)\text{.}\) Note that by the definition of an eigenvalue, we must have that for some nonzero \(\mathbf{v}\text{,}\) we have</p>
+<div class="displaymath">
+\begin{align*}
+A\mathbf{v}=\lambda\mathbf{v} \amp \iff  A\mathbf{v}=\lambda\mathbf{v}\\
+\amp \iff  A\mathbf{v}-\lambda\mathbf{v}=\mathbf{0} \\
+\amp \iff  A\mathbf{v}-\lambda I\mathbf{v}=\mathbf{0}\\
+\amp \iff  \left(A-\lambda I\right)\mathbf{v}=\mathbf{0}.
+\end{align*}
+</div>
+<p data-braille="continuation">Now \(A-\lambda I\) is actually another matrix. What matrix? Let's see,</p>
+<div class="displaymath">
+\begin{align*}
+A-\lambda I \amp =  \left(\begin{array}{cc}
+a \amp b\\
+c \amp d
+\end{array}\right)-\left(\begin{array}{cc}
+\lambda \amp 0\\
+0 \amp \lambda
+\end{array}\right)\\
+\amp =  \left(\begin{array}{cc}
+a-\lambda \amp b\\
+c \amp d-\lambda
+\end{array}\right). 
+\end{align*}
+</div>
+<p id="p-598">So using <a class="xref" data-knowl="./knowl/thmlinalg1.html" title="Theorem 5.3.1">Theorem 5.3.1</a> from  <a href="ch5-3.html" class="internal" title="Section 5.3: Systems of Linear Equations: Linear Independence, and the General Solution Theorem">Section 5.3</a>, when do we know that the equation \(\left(A-\lambda I\right)\mathbf{v}=\mathbf{0}\) has nontrivial solution? Recall that <a class="xref" data-knowl="./knowl/thmlinalg1.html" title="Theorem 5.3.1">Theorem 5.3.1</a>  says that if</p>
+<div class="displaymath">
+\begin{equation*}
+\det\left(A-\lambda I\right)=0,
+\end{equation*}
+</div>
+<p data-braille="continuation">then we have nontrivial solutions! Let's solve for \(\lambda\text{,}\) because we know how to find determinants.</p>
+<div class="displaymath">
+\begin{align*}
+\det\left(A-\lambda I\right)=0 \amp \iff  \det\left(\begin{array}{cc}
+a-\lambda \amp b\\
+c \amp d-\lambda
+\end{array}\right)=0\\
+\amp \iff  \left(a-\lambda\right)\left(d-\lambda\right)-bc=0.\\
+\amp \iff  \left(\mbox{something}\right)\lambda^{2}+(\mbox{something})\lambda+(\mbox{something})=0 
+\end{align*}
+</div>
+<p data-braille="continuation">so solve for \(\lambda\) and that will be your eigenvalue! This polynomial is called the <dfn class="terminology">characteristic polynomial</dfn>.</p>
+<article class="example example-like" id="example-ch5-4-1"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-ch5-4-1"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Finding eigenvalues and eigenvectors.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-ch5-4-1"><article class="example example-like"><p id="p-599">Find the eigenvalues and a corresponding eigenvector of the matrix</p>
+<div class="displaymath">
+\begin{equation*}
+A=\left(\begin{array}{cc}
+2 \amp 3\\
+0 \amp -4
+\end{array}\right).
+\end{equation*}
+</div>
+<p id="p-600"><dfn class="terminology">Step1:</dfn>Solve</p>
+<div class="displaymath">
+\begin{align*}
+\det\left(A-\lambda I\right)=0 \amp \iff  \det\left(\begin{array}{cc}
+2-\lambda \amp 3\\
+0 \amp -4-\lambda
+\end{array}\right)=0\\
+\amp \iff  \left(2-\lambda\right)\left(-4-\lambda\right)-0\cdot3=0.\\
+\amp \iff \left(2-\lambda\right)\left(-4-\lambda\right)=0\\
+\amp \iff  \lambda=-4,2.
+\end{align*}
+</div>
+<p id="p-601"><dfn class="terminology">Step2:</dfn> Find the eigenvectors: Let's start with \(\lambda_{1}=2\) then \(\mathbf{v}_{1}=\left(\begin{array}{c}
+x_{1}\\
+x_{2}
+\end{array}\right)\) is an eigenvector if</p>
+<div class="displaymath">
+\begin{align*}
+A\mathbf{v}=2\mathbf{v} \amp \iff  \left(\begin{array}{cc}
+2 \amp 3\\
+0 \amp -4
+\end{array}\right)\left(\begin{array}{c}
+x_{1}\\
+x_{2}
+\end{array}\right)=2\left(\begin{array}{c}
+x_{1}\\
+x_{2}
+\end{array}\right)\\
+\amp \iff  \left(\begin{array}{c}
+2x_{1}+3x_{2}\\
+-4x_{2}
+\end{array}\right)=2\left(\begin{array}{c}
+x_{1}\\
+x_{2}
+\end{array}\right)\\
+\amp \iff  \begin{cases}
+2x_{1}+3x_{2}=2x_{1}\\
+-4x_{2}=2x_{2}
+\end{cases}\\
+\amp \iff  x_{2}=0\mbox{ and }x_{1}=\mbox{can be anything.} 
+\end{align*}
+</div>
+<p data-braille="continuation">so choose \(\mathbf{v}_{1}=\left(\begin{array}{c}
+1\\
+0
+\end{array}\right)\) as an eigenvector.</p>
+<dfn class="terminology">Step3:</dfn> Find the corresponding eigenvectors: Now let \(\lambda_{2}=-4\) then \(\mathbf{v_{2}}=\left(\begin{array}{c}
+x_{1}\\
+x_{2}
+\end{array}\right)\) is an eigenvector if<div class="displaymath">
+\begin{align*}
+A\mathbf{v}=-4\mathbf{v} \amp \iff \begin{cases}
+2x_{1}+3x_{2}=-4x_{1}\\
+-4x_{2}=-4x_{2}
+\end{cases}\\
+\amp \iff  \begin{cases}
+6x_{1}+3x_{2}=0 \amp \implies x_{2}=-2x_{1}\\
+-4x_{2}=-4x_{2}
+\end{cases} 
+\end{align*}
+</div>so plugging the equation \(x_{2}=-2x_{1}\) back into the vector we get<div class="displaymath">
+\begin{align*}
+\mathbf{v}_{2} \amp =\left(\begin{array}{c}
+x_{1}\\
+x_{2}
+\end{array}\right) \\
+\amp =\left(\begin{array}{c}
+x_{1}\\
+-2x_{1}
+\end{array}\right)
+\end{align*}
+</div>and since \(x_{1}\) can be anything, we can choose \(x_{1}=1\) and \(\mathbf{v}_{2}=\left(\begin{array}{c}
+x_{1}\\
+-2x_{1}
+\end{array}\right)\) is an eigenvector of the matrix \(A\text{.}\) <p id="p-602">Notice that any multiple of an eigenvector would also be an eigenvector themselves. So we could also have chosen</p>
+<div class="displaymath">
+\begin{equation*}
+\mathbf{v}_{2}=-3\left(\begin{array}{c}
+1\\
+-2
+\end{array}\right)=\left(\begin{array}{c}
+-3\\
+6
+\end{array}\right).
+\end{equation*}
+</div>
+<p data-braille="continuation">Hence for any eigenvalue \(\lambda\) there are an infinite number of possible eigenvectors \(\mathbf{v}\) corresponding to \(\lambda\text{.}\)</p></article></div></section><section class="subsection" id="subsection-57"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.4.2</span> <span class="title">Back to Systems of Differential Equations</span>
+</h3>
+<p id="p-603">Why are eigenvalues and eigenvectors important and useful in differential equations? Consider the system</p>
+<div class="displaymath">
+\begin{equation*}
+\mathbf{x}^{\prime}=\left(\begin{array}{cc}
+2 \amp 3\\
+0 \amp -4
+\end{array}\right)\mathbf{x}
+\end{equation*}
+</div>
+<p data-braille="continuation">Its vector field looks like this:</p>
+<div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/3.2%20-%20system1.png" style="width: 100%; height: auto;" alt=""></div>
+<p id="p-604">We want to search for <dfn class="terminology">straight line solutions</dfn>.  Note that you see them on this vector field. We'd like to search for them because, for one, they probably have easy explicit formulas. And more importantly they are <dfn class="terminology">linearly independent</dfn> (why? Because they are not in the same line), which will help build the general solution.</p>
+<p id="p-605">So how do we find them? From the geometry of the phase plane. If \(\mathbf{x}(t)\) is a straight-line solution, then notice that \(A\mathbf{x}=\lambda\mathbf{x}\) for some \(\lambda\text{.}\) Because the vector \(A\mathbf{x}\) points in the same direction as the vector from \((0,0)\) to \(\mathbf{x}\text{.}\) This means the solution \(\mathbf{x}(t)\) are formed from eigenvectors. So if we can find an eigenvector and its eigenvalue then we would have found a straight line solution.</p>
+<article class="theorem theorem-like" id="thm-ch5-4-1"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.4.2</span><span class="period">.</span>
+</h6>
+<p id="p-606">Suppose \(\lambda\) is an eigenvalue and \(\mathbf{v}=\left(\begin{array}{c}
+x\\
+y
+\end{array}\right)\) is a corresponding eigevenvector. Then</p>
+<div class="displaymath">
+\begin{equation*}
+\mathbf{x}(t)=e^{\lambda t}\left(\begin{array}{c}
+x\\
+y
+\end{array}\right)=\left(\begin{array}{c}
+e^{\lambda t}x\\
+e^{\lambda t}y
+\end{array}\right)
+\end{equation*}
+</div>
+<p data-braille="continuation">is a straight-line solution to the differential equation</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{d\mathbf{x}}{dt}=A\mathbf{x}.
+\end{equation*}
+</div></article><article class="hiddenproof" id="proof-4"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-4"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-4"><article class="hiddenproof"><p id="p-607">We just have to check that the LHS and RHS are equal to each other in</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{d\mathbf{x}}{dt}=A\mathbf{x}.
+\end{equation*}
+</div>
+<p id="p-608">The Left-Hand-Side is</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{d\mathbf{x}}{dt}=\frac{d}{dt}\left(\begin{array}{c}
+e^{\lambda t}x\\
+e^{\lambda t}y
+\end{array}\right)=\left(\begin{array}{c}
+\lambda e^{\lambda t}x\\
+\lambda e^{\lambda t}y
+\end{array}\right)=\lambda\left(\begin{array}{c}
+e^{\lambda t}x\\
+e^{\lambda t}y
+\end{array}\right)=\lambda\mathbf{x}
+\end{equation*}
+</div>
+<p data-braille="continuation">and the Right-Hand-Side is</p>
+<div class="displaymath">
+\begin{equation*}
+A\mathbf{x}=Ae^{\lambda t}\mathbf{v}=e^{\lambda t}A\mathbf{v}=e^{\lambda t}\lambda\mathbf{v}=\lambda\left(e^{\lambda t}\mathbf{v}\right)=\lambda\mathbf{x}.
+\end{equation*}
+</div>
+<p data-braille="continuation">So yes they are equal, hence \(\mathbf{x}(t)=e^{\lambda t}\left(\begin{array}{c}
+x\\
+y
+\end{array}\right)\) is a solution, and plotting this solution in the \(x_{1}-x_{2}\) plane, shows a moving particle moving in a straight-line.</p></article></div>
+<p id="p-609">We are now ready to solve  a vector differential equation with straight-line solutions.</p>
+<article class="example example-like" id="example-102"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-102"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.4.3</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-102"><article class="example example-like"><p id="p-610">Find the General solution to</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{d\mathbf{x}}{dt}=\left(\begin{array}{cc}
+2 \amp 3\\
+0 \amp -4
+\end{array}\right)\mathbf{x}
+\end{equation*}
+</div>
+<p id="p-611">Recall that from <a class="xref" data-knowl="./knowl/example-ch5-4-1.html" title="Example 5.4.1: Finding eigenvalues and eigenvectors">Example 5.4.1</a>, the matrix \(A=\left(\begin{array}{cc}
+2 \amp 3\\
+0 \amp -4
+\end{array}\right)\) has the eigenvalue \(\lambda_{1}=2\) with an eigenvector \(\mathbf{v}_{1}=\left(\begin{array}{c}
+1\\
+0
+\end{array}\right)\text{,}\) and \(\lambda_{2}=-4\) with eigenvector \(\mathbf{v}_{2}=\left(\begin{array}{c}
+1\\
+-2
+\end{array}\right)\text{.}\) From <a class="xref" data-knowl="./knowl/thm-ch5-4-1.html" title="Theorem 5.4.2">Theorem 5.4.2</a>, which we have just proved: Then we know two straight line solutions:</p>
+<div class="displaymath">
+\begin{equation*}
+\mathbf{x}^{(1)}(t)=e^{2t}\left(\begin{array}{c}
+1\\
+0
+\end{array}\right),\mbox{ and }\mathbf{x}^{(2)}(t)=e^{-4t}\left(\begin{array}{c}
+1\\
+-2
+\end{array}\right).
+\end{equation*}
+</div>
+<p data-braille="continuation">If these are independent, then we can form the general solution using <a class="xref" data-knowl="./knowl/diffeq-system-genthm.html" title="Theorem 5.3.9: The General Solution theorem">Theorem 5.3.9</a>, the general solution theorem.  Take the Wronkian:</p>
+<div class="displaymath">
+\begin{equation*}
+W\left[\mathbf{x}^{(1)},\mathbf{x}^{(2)}\right]=\left|\begin{array}{cc}
+e^{2t} \amp e^{-4t}\\
+0 \amp -2e^{-4t}
+\end{array}\right|=-2e^{-2t}\neq0
+\end{equation*}
+</div>
+<p data-braille="continuation">hence \(\left\{ \mathbf{x}^{(1)},\mathbf{x}^{(2)}\right\} \) forms a <dfn class="terminology">fundamental set of solutions</dfn>. Another way to show they are linearly indepenent is to remember that these vectors are in completely different lines and are not multiples of each other. Therefore they are independent! Thus the <dfn class="terminology">general solution</dfn> is</p>
+<div class="displaymath">
+\begin{equation*}
+\mathbf{x}(t)=c_{1}e^{2t}\left(\begin{array}{c}
+1\\
+0
+\end{array}\right)+c_{2}e^{-4t}\left(\begin{array}{c}
+1\\
+-2
+\end{array}\right).
+\end{equation*}
+</div></article></div>
+<p id="p-612">We summarize this example into a Theorem. The key thing to remember here is that this theorem applies only to when you have <dfn class="terminology">distinct</dfn> and <dfn class="terminology">real</dfn> eigenvalues \(\lambda_{1},\lambda_{2}\text{.}\)</p>
+<article class="theorem theorem-like" id="thm-ch5-4-2"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.4.4</span><span class="period">.</span><span class="space"> </span><span class="title">Real and distinct eigenvalues.</span>
+</h6>
+<p id="p-613">Suppose \(A\) is a matrix with distinct, real eigenvalues \(\lambda_{1},\lambda_{2}\) with corresponding eigenvectors \(\mathbf{v}_{1},\mathbf{v}_{2}\text{,}\) respectively. Then the <dfn class="terminology">general solution</dfn> of the system</p>
+<div class="displaymath">
+\begin{equation*}
+\mathbf{x}^{\prime}=A\mathbf{x}
+\end{equation*}
+</div>
+<p data-braille="continuation">is</p>
+<div class="displaymath">
+\begin{equation*}
+\mathbf{x}(t)=c_{1}e^{\lambda_{1}t}\mathbf{v}_{1}+c_{2}e^{\lambda_{2}t}\mathbf{v}_{2}.
+\end{equation*}
+</div>
+<p data-braille="continuation">Moreover, the solutions \(\mathbf{x}^{(1)}(t)=e^{\lambda_{1}t}\mathbf{v}_{1},\mathbf{x}^{(2)}(t)=e^{\lambda_{2}t}\mathbf{v}_{2}\) are linearly independent.</p></article></section></section></div></main>
+</div>
+</body>
+</html>

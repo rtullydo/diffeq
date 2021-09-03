@@ -1,49 +1,26 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
 <html lang="en-US">
-<!--**************************************-->
-<!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-18T16:29:41-04:00    *-->
-<!--*                                    *-->
-<!--*      https://pretextbook.org       *-->
-<!--*                                    *-->
-<!--**************************************-->
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:53-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body>
-<h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>We can consider a unit impulse at an arbitrary point \(t=t_{0}\text{,}\) meaning \(\delta\left(t-t_{0}\right)\text{,}\) hence</p>
-<div class="displaymath">
-\begin{align*}
-\delta\left(t-t_{0}\right) \amp =0,\,\,t\neq t_{0},\\
-\int_{-\infty}^{\infty}\delta(t-t_{0})dt \amp =1.
-\end{align*}
-</div>
-<p>We will now compute the Laplace Transform of \(\delta\left(t-t_{0}\right)\text{,}\) using the properties of the integral definition:</p>
-<div class="displaymath">
-\begin{align*}
-\mathcal{L}\left\{ \delta\left(t-t_{0}\right)\right\}  \amp =\lim_{\tau\to0^{+}}\mathcal{L}\left\{ d_{\tau}\left(t-t_{0}\right)\right\} \\
-\amp =\lim_{\tau\to0^{+}}\int_{t_{0}-\tau}^{t_{0}+\tau}e^{-st}d_{\tau}\left(t-t_{0}\right)dt\\
-\amp =\lim_{\tau\to0^{+}}\frac{1}{2\tau}\int_{t_{0}-\tau}^{t_{0}+\tau}e^{-st}dt=\lim_{\tau\to0^{+}}\frac{1}{2\tau}\left[\frac{e^{-st}}{t}\right]_{t=t_{0}-\tau}^{t=t_{0}+\tau}\\
-\amp =\frac{e^{-st_{0}}}{s}\lim_{\tau\to0^{+}}\frac{e^{s\tau}-e^{-s\tau}}{2\tau},\text{ by algebra}\\
-\amp =e^{-st_{0}}\lim_{\tau\to0^{+}}\frac{\sinh(s\tau)}{s\tau},\text{ by formula below}\\
-\amp =e^{-st_{0}}\lim_{\tau\to0^{+}}\frac{s\cosh(s\tau)}{s},\text{ by L'Hopitals rule}\\
-\amp =e^{-st_{0}}.
-\end{align*}
-</div>
-<p>where we used the fact that</p>
-<div class="displaymath">
+<h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
+<p>Recall that when \(\det A=0\) then by <a class="xref" data-knowl="./knowl/thmlinalg1.html" title="Theorem 5.3.1">Theorem 5.3.1</a>, we must have infinitely many equilibrium solutions. Note that in all examples we've worked with so far, the only equilibrium solution was the trivial equilibrium solution, which means we've only worked with systems where \(\det A\neq0\text{.}\) It turns out that when \(\det A=0\) then there will always exist be a zero eigenvalue, say</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-\sinh(s\tau)=\frac{e^{s\tau}-s^{-s\tau}}{2}.
+\lambda_{1}=0.
 \end{equation*}
 </div>
-<p>In summary,</p>
-<div class="displaymath">
-\begin{equation*}
-\mathcal{L}\left\{ \delta\left(t-t_{0}\right)\right\} =e^{-st_{0}},\,\,\,t_{0}&gt;0.
-\end{equation*}
-</div>
-<span class="incontext"><a href="ch6-6.html#p-680">in-context</a></span>
+<span class="incontext"><a href="ch5-7.html#p-680">in-context</a></span>
 </body>
 </html>

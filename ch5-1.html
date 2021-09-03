@@ -1,17 +1,19 @@
-<!DOCTYPE html>
-<!--**************************************-->
-<!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-18T16:29:38-04:00    *-->
-<!--*                                    *-->
-<!--*      https://pretextbook.org       *-->
-<!--*                                    *-->
-<!--**************************************-->
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:24-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
 <html lang="en-US">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Power Series</title>
+<title>Systems of First Order Linear Equations</title>
 <meta name="Keywords" content="Authored in PreTeXt">
-<meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
@@ -24,7 +26,7 @@ MathJax.Hub.Config({
     jax: ["input/AsciiMath"],
     extensions: ["asciimath2jax.js"],
     TeX: {
-        extensions: ["extpfeil.js", "autobold.js", "https://pretextbook.org/js/lib/mathjaxknowl.js", ],
+        extensions: ["extpfeil.js", "autobold.js", "https://pretextbook.org/js/lib/mathjaxknowl.js", "AMScd.js", ],
         // scrolling to fragment identifiers is controlled by other Javascript
         positionToHash: false,
         equationNumbers: { autoNumber: "none", useLabelIds: true, },
@@ -41,23 +43,21 @@ MathJax.Hub.Config({
         mtextFontInherit: true,
     },
 });
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.12/pretext.js"></script><script src="https://pretextbook.org/js/0.12/pretext_add_on.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/pretext.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/toc.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/colors_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/setcolors.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/features.css" rel="stylesheet" type="text/css">
-<script>var logged_in = false;
-var role = 'student';
-var guest_access = true;
-var login_required = false;
-var js_version = 0.12;
-</script>
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="mathbook-book has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div class="hidden-content" style="display:none">\(\DeclareMathOperator{\RE}{Re}
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" class="hidden-content" style="display:none">\(\DeclareMathOperator{\RE}{Re}
   \DeclareMathOperator{\IM}{Im}
   \DeclareMathOperator{\ess}{ess}
   \DeclareMathOperator{\intr}{int}
@@ -160,7 +160,7 @@ var js_version = 0.12;
 <p class="byline">Phanuel Mariano, Ryan Tully-Doyle</p>
 </div>
 </div></div>
-<nav id="primary-navbar" class="navbar"><div class="container">
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
 <div class="navbar-top-buttons">
 <button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="ch5.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch5.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="ch5-2.html" title="Next">Next</a></span></div>
 </div>
@@ -168,9 +168,9 @@ var js_version = 0.12;
 <button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="ch5.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch5.html" title="Up">Up</a><a class="next-button button toolbar-item" href="ch5-2.html" title="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
-<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
 <nav id="toc"><ul>
-<li class="link"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
 <li class="link">
 <a href="introduction.html" data-scroll="introduction"><span class="codenumber">1</span> <span class="title">Introduction</span></a><ul>
 <li><a href="ch1-1.html" data-scroll="ch1-1">Modeling via differential equations, some solutions and definitions</a></li>
@@ -198,9 +198,9 @@ var js_version = 0.12;
 <li><a href="ch3-4.html" data-scroll="ch3-4">Complex roots of the characteristic equation</a></li>
 <li><a href="ch3-5.html" data-scroll="ch3-5">Repeated roots; Reduction of order</a></li>
 <li><a href="ch3-6.html" data-scroll="ch3-6">Non-homogeneous equations - Undetermined coefficients</a></li>
-<li><a href="ch3-7.html" data-scroll="ch3-7">Variation of Parameters</a></li>
 <li><a href="ch3-8.html" data-scroll="ch3-8">Harmonic oscillations</a></li>
 <li><a href="ch3-9.html" data-scroll="ch3-9">Forced oscillations</a></li>
+<li><a href="ch3-7.html" data-scroll="ch3-7">Variation of Parameters</a></li>
 </ul>
 </li>
 <li class="link">
@@ -210,9 +210,14 @@ var js_version = 0.12;
 </ul>
 </li>
 <li class="link">
-<a href="ch5.html" data-scroll="ch5"><span class="codenumber">5</span> <span class="title">Series Solutions</span></a><ul>
-<li><a href="ch5-1.html" data-scroll="ch5-1" class="active">Power Series</a></li>
-<li><a href="ch5-2.html" data-scroll="ch5-2">Method of series solutions</a></li>
+<a href="ch5.html" data-scroll="ch5"><span class="codenumber">5</span> <span class="title">Systems of First Order Linear Equations</span></a><ul>
+<li><a href="ch5-1.html" data-scroll="ch5-1" class="active">Systems of First Order Linear Equations</a></li>
+<li><a href="ch5-2.html" data-scroll="ch5-2">Review of Matrices, Vector Fields, Phase Planes and Portraits</a></li>
+<li><a href="ch5-3.html" data-scroll="ch5-3">Systems of Linear Equations: Linear Independence, and the General Solution Theorem</a></li>
+<li><a href="ch5-4.html" data-scroll="ch5-4">Basic Theory of Systems of 1st Order Linear EQs - Straight Line Solutions</a></li>
+<li><a href="ch5-5.html" data-scroll="ch5-5">Phase Portraits for systems with real eigenvalues</a></li>
+<li><a href="ch5-6.html" data-scroll="ch5-6">Complex Eigenvalues</a></li>
+<li><a href="ch5-7.html" data-scroll="ch5-7">Repeated and zero eigenvalues</a></li>
 </ul>
 </li>
 <li class="link">
@@ -226,7 +231,13 @@ var js_version = 0.12;
 <li><a href="ch6-7.html" data-scroll="ch6-7">The convolution integral</a></li>
 </ul>
 </li>
-<li class="link"><a href="backmatter-1.html" data-scroll="backmatter-1"><span class="title">Back Matter</span></a></li>
+<li class="link">
+<a href="ch7.html" data-scroll="ch7"><span class="codenumber">7</span> <span class="title">Series Solutions</span></a><ul>
+<li><a href="ch7-1.html" data-scroll="ch7-1">Power Series</a></li>
+<li><a href="ch7-2.html" data-scroll="ch7-2">Method of series solutions</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1"><span class="title">Back Matter</span></a></li>
 <li class="link"><a href="quadratic.html" data-scroll="quadratic"><span class="codenumber">A</span> <span class="title">A fast quadratic method</span></a></li>
 <li class="link">
 <a href="exercises.html" data-scroll="exercises"><span class="codenumber">B</span> <span class="title">Exercises for Chapter 1</span></a><ul>
@@ -254,8 +265,9 @@ var js_version = 0.12;
 <li><a href="ex3-4.html" data-scroll="ex3-4">Section 3.4</a></li>
 <li><a href="ex3-5.html" data-scroll="ex3-5">Section 3.5</a></li>
 <li><a href="ex3-6.html" data-scroll="ex3-6">Section 3.6</a></li>
-<li><a href="ex3-7.html" data-scroll="ex3-7">Section 3.7</a></li>
-<li><a href="ex3-8.html" data-scroll="ex3-8">Section 3.8/Section 3.9</a></li>
+<li><a href="ex3-8.html" data-scroll="ex3-8">Section 3.7</a></li>
+<li><a href="ex3-9.html" data-scroll="ex3-9">Section 3.8</a></li>
+<li><a href="ex3-7.html" data-scroll="ex3-7">Section 3.9</a></li>
 </ul>
 </li>
 <li class="link">
@@ -265,7 +277,18 @@ var js_version = 0.12;
 </ul>
 </li>
 <li class="link">
-<a href="appendix-6.html" data-scroll="appendix-6"><span class="codenumber">F</span> <span class="title">Exercises for Chapter 6</span></a><ul>
+<a href="appendix-6.html" data-scroll="appendix-6"><span class="codenumber">F</span> <span class="title">Exercises for Chapter 5</span></a><ul>
+<li><a href="ex5-1.html" data-scroll="ex5-1">Section 5.1</a></li>
+<li><a href="ex5-2.html" data-scroll="ex5-2">Section 5.2</a></li>
+<li><a href="ex5-3.html" data-scroll="ex5-3">Section 5.3</a></li>
+<li><a href="ex5-4.html" data-scroll="ex5-4">Section 5.4</a></li>
+<li><a href="ex5-5.html" data-scroll="ex5-5">Section 5.5</a></li>
+<li><a href="ex5-6.html" data-scroll="ex5-6">Section 5.6</a></li>
+<li><a href="ex5-7.html" data-scroll="ex5-7">Section 5.7</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="appendix-7.html" data-scroll="appendix-7"><span class="codenumber">G</span> <span class="title">Exercises for Chapter 6</span></a><ul>
 <li><a href="ex6-1.html" data-scroll="ex6-1">Section 6.1</a></li>
 <li><a href="ex6-2.html" data-scroll="ex6-2">Section 6.2</a></li>
 <li><a href="ex6-3.html" data-scroll="ex6-3">Section 6.3</a></li>
@@ -275,192 +298,171 @@ var js_version = 0.12;
 </li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
-<main class="main"><div id="content" class="pretext-content"><section class="section" id="ch5-1"><h2 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">5.1</span> <span class="title">Power Series</span>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="ch5-1"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">5.1</span> <span class="title">Systems of First Order Linear Equations</span>
 </h2>
-<a href="ch5-1.html" class="permalink">¶</a><p id="p-502">Suppose that we're given the problem</p>
-<div class="displaymath">
-\begin{equation*}
-\frac{dy}{dx} = e^{x^2}.
-\end{equation*}
-</div>
-<p>This is pretty obviously a separable differential equation, and after resorting we get</p>
-<div class="displaymath">
-\begin{equation*}
-dy = e^{x^2} \,dx,
-\end{equation*}
-</div>
-<p>and so</p>
-<div class="displaymath">
-\begin{equation*}
-y = \int e^{x^2} \, dx.
-\end{equation*}
-</div>
-<p>Unfortunately, the function \(e^{x^2}\) (an enormously useful function that shows up regularly in probability and statistics in the form of the Gaussian or normal distribution), despite being a very nice function, <em class="emphasis">has no closed form antiderivative</em>. That is, there is no function that I can write down for \(y\text{.}\) Can we really not solve a problem like \(\int_0^1 e^{x^2}\, dx\text{?}\)</p>
-<p id="p-503">In calculus, we learn that one approach to a large class of problems like this is to use <dfn class="terminology">power series</dfn>, which are expressions of the form</p>
-<div class="displaymath">
-\begin{equation*}
-\sum_{k=0}^\infty a_k(x - a)^k = a_0 + a_1 (x-a) + a_2 (x-a)^2 + \ldots
-\end{equation*}
-</div>
-<p>where \(a_0, a_1,\ldots\) are constants. (We'd really like to think of a power series like giant polynomial, but this is isn't always justified...)</p>
-<p id="p-504">A power series <dfn class="terminology">converges at \(x_0\)</dfn> if</p>
-<div class="displaymath">
-\begin{equation*}
-\lim_{n \to \infty} a_0 + a_1 (x_0 - a) + \ldots + a_n (x_0 -a)^n = \lim_{n\to \infty} \sum_{k=0}^{\infty} a_k (x_0 - a)^k = \lim_{n\to \infty} S_n \text{ exists.}
-\end{equation*}
-</div>
-<p>The function \(S_n(x)\) is called the <dfn class="terminology">\(n\)th partial sum</dfn>. Often times, we'll use the shorthand notation</p>
-<div class="displaymath">
-\begin{equation*}
-\sum_{k=0}^\infty a_k (x - a)^k = \lim_{n\to\infty} \sum_{k=0}^n a_k(x-a)^k
-\end{equation*}
-</div>
-<p>to represent the limit of the partial sums.</p>
-<p id="p-505">The constant \(a\) is called the center of the power series. A power series centered at \(a\) always converges at \(x = a\) (since all but one of the terms is \(0\)). If there is <em class="emphasis">any</em> other point for the series converges, we call it a <dfn class="terminology">convergent power series</dfn>. If a series fails to converge anywhere except at \(x = a\text{,}\) we call it a <dfn class="terminology">divergent power series</dfn>. A series is called <dfn class="terminology">absolutely convergent</dfn> at \(x_0\) if</p>
-<div class="displaymath">
-\begin{equation*}
-\sum_{k=0}^\infty \abs{a_k} \abs{ x_0-a}^k \text{ exists.}
-\end{equation*}
-</div>
-<p id="p-506">If a powre series converges absolutely for some \(x = x_0\text{,}\) then it also converges for every value of \(x\) closer to the center \(a\) than \(x_0\) - that is, the series converges for \(\abs{x - a} \lt \abs{x_0 - a}\text{.}\) The proof of this follows from the squeeze theorem and properties of positive series.</p>
+<section class="introduction" id="introduction-13"><p id="p-512">We start by giving some examples of systems of differential equations with 2 unknown functions.</p></section><section class="subsection" id="subsection-47"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.1.1</span> <span class="title">Predator-Prey system</span>
+</h3>
+<p id="p-513">Let \(R(t)=\) prey population and let \(F(t)=\) predator population. Then the following is a system of first order equations:</p>
 <div class="displaymath">
 \begin{align*}
-\amp \abs{x - a} \leq \abs{x_0 - a}\\
-\amp \Leftrightarrow \sum_{k=0}^n \abs{a_k}\abs{x - a}^k \leq \sum_{k=0}^m \abs{a_k}\abs{x_0 - a}^k\\
-\amp \Leftrightarrow \lim_{n \to \infty} \sum_{k=0}^n \abs{a_k}\abs{x - a}^k \leq \lim_{n \to \infty} \sum_{k=0}^m \abs{a_k}\abs{x_0 - a}^k
+\frac{dR}{dt} \amp = 2R-1.2RF\\
+\frac{dF}{dt}  \amp = -F+0.9RF.
 \end{align*}
 </div>
-<p>and since the larger sum exists, so too must the smaller. This leads to a question of some importance with power series generally - for a given center \(a\text{,}\) what is the largest set around \(a\) on which the series converges? absolutely? The largest number \(\rho\) for which a power series centered at \(a\) converges for every \(x \in (a - \rho, a + \rho)\) (alteratively all \(x\) so that \(\abs{x - a} \lt \rho\)) is called the <dfn class="terminology">radius of convergence</dfn>. How can we find it?</p>
-<p id="p-507">Two of the most powerful tests for convergence we encounter in calculus are the root and ratio tests, both of which work very nicely on power series because power series contain terms of the form \((x-a)^n\text{.}\)</p>
-<article class="theorem-like" id="theorem-12"><h6 class="heading">
-<span class="type">Theorem</span> <span class="codenumber">5.1.1</span>. <span class="title">Ratio test for convergence.</span>
-</h6>
-<p id="p-508">Let \(\sum_{k=0}^\infty c_k\) be an infinite series, and suppose that the limit</p>
-<div class="displaymath">
-\begin{equation*}
-L = \lim_{n\to\infty} \abs{\frac{c_{k+1}}{c_k}} \text{ exists.}
-\end{equation*}
-</div>
-<p>Then the series converges if \(L \lt 1\) and diverges if \(L &gt; 1\text{.}\) If \(L = 1\text{,}\) the test is inconclusive.</p></article><p id="p-509">Now let's apply the ratio test to a power series to see if we can discover for which values of \(x\) the series converges. Consider the series \(S = \sum_{k=0}^\infty a_x (x - a)^k\text{.}\) We can apply the ratio test by computing the limit (if it exists)</p>
+<p data-braille="continuation">Notice that the prey and predator population are dependent on each other, and thus we need a system of equations. For example, if there are too many predators then normally that would decrease the population of the prey.</p></section><section class="subsection" id="subsection-48"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.1.2</span> <span class="title">Spring-Mass Systems and Mixing Problems</span>
+</h3>
+<p id="p-514">Suppose we have mass attached to a spring which is attached to another mass attached to a another spring. The behavior of one mass is affected by the other (and vice versa). We need a system of ODE to solve such problems.</p>
+<p id="p-515">Suppose we have one tank that is being mixed with a solution that flows into another tank. We need systems of equations to determine the amount of mass in each tank.</p>
+<article class="example example-like" id="example-85"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-85"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Double Tank Problem.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-85"><article class="example example-like"><p id="p-516">Salt water with concentration \(3\) g/L of salt flows into tank #1 at a rate \(4\) L/min. at a rate of \(4\) L/min.</p>
+<ul class="disc">
+<li id="li-222">The well mixed mixture from tank #1 flows into tank #2 at a rate of 4 L/min, and the well mixed mixture of tank #2 flows out at a rate of 4 L/min.</li>
+<li id="li-223">Tank #1 initially has 30 L of salt water with \(6\) g of salt dissolved in it.</li>
+<li id="li-224">Tank #2 initially has 20 L of fresh water.</li>
+</ul>
+<p data-braille="continuation"><dfn class="terminology">Question:</dfn> Write a system of ODEs representing this problem. <dfn class="terminology">Solution:</dfn></p>
+<p id="p-517">Step 1: First we define variables.</p>
+<p id="p-518">Let \(x_{1}(t)\) and \(x_{2}(t)\)  be the amount of salt in tank #1 and tank #2, respectively at time \(t \)  (minutes).</p>
+<p id="p-519">Step 2: Use \(x_{i}^{\prime}=\text{Rate in }-\text{Rate out}\text{.}\)</p>
+<p id="p-520">We first get</p>
 <div class="displaymath">
 \begin{align*}
-L \amp = \lim_{k \to \infty} \abs{a_{k+1}(x - a)^{k+1}}{a_k(x -a)^k}\\
-\amp = \lim_{k \to \infty} \abs{\frac{a_{k+1}}{a_k}} \abs{x - a}.
+x_{1}^{\prime}(t)  \amp =\left(\text{concentration in}\right)\times\text{Rate}-\left(\text{concentration out}\right)\times\text{Rate}   \\
+\amp =3\frac{\text{g}}{L}\cdot4\frac{\text{L}}{\text{min}}-\frac{x_{1}(t)}{\text{water in tank 1 at time t}}\cdot 4\frac{\text{L}}{\text{min}}
 \end{align*}
 </div>
-<p>Presuming that \(L\) exists, the ratio test says that the series will converge if \(L \lt 1\text{.}\) Let \(A = \lim_{k\to\infty} \abs{\frac{a_{k+1}}{a_k}}\text{.}\) Then \(L \lt 1\) is equivalent to</p>
+<p data-braille="continuation">but since</p>
+<div class="displaymath">
+\begin{equation*}
+\text{water at time }t=30+\left(4-4\right)t=30
+\end{equation*}
+</div>
+<p data-braille="continuation">hence</p>
+<div class="displaymath">
+\begin{equation*}
+x_{1}^{\prime}(t) =12-\frac{4x_{1}(t)}{30},x_{1}(0)=6.
+\end{equation*}
+</div>
+<p id="p-521">Step 3: Use \(x_{i}^{\prime}=\text{Rate in }-\text{Rate out}\text{.}\) We first get</p>
 <div class="displaymath">
 \begin{align*}
-L  = \lim_{k\to\infty} \abs{\frac{a_{k+1}}{a_k}} \abs{x - a} \amp \lt 1\\
-A \abs{x - a} \amp \lt 1\\
-\abs{x -a} \amp \lt \frac{1}{A}
+x_{2}^{\prime}(t)  \amp =\left(\begin{array}{c}
+\mbox{concentration}\\
+\mbox{of salt coming in}
+\end{array}\right)\times\mbox{Rate}-\left(\begin{array}{c}
+\mbox{concentration}\\
+\mbox{of salt coming out}
+\end{array}\right)\times\mbox{Rate}  \\
+\amp =\frac{x_{1}(t)}{30}\frac{\text{g}}{L}\cdot4\frac{\text{L}}{\text{min}}-\frac{x_{2}(t)}{20+(4-4)t}\cdot4\frac{\text{L}}{\text{min}}\\
+\amp =\frac{4x_{1}(t)}{30}-\frac{4x_{2}(t)}{20},\,\,\,\,\,x_{2}(0)=0
 \end{align*}
 </div>
-<article class="theorem-like" id="theorem-13"><h6 class="heading">
-<span class="type">Theorem</span> <span class="codenumber">5.1.2</span>.</h6>
-<p id="p-510">Let \(\sum a_k (x-a)^k\) be a power series centered at \(a\) so that \(A = \lim_{k\to\infty}\frac{a_{k+1}}{a_k}\) exists. If \(A = 0\text{,}\) then the radius of convergence for the series is \(\rho = \infty\) (that is, the series converges for every \(x\)). Otherwise, the radius of converge is \(\rho = \frac{1}{A}\text{.}\) (that is, the series converges for \(x \in (a - \rho, a + \rho)\)).</p></article><p id="p-511">A convergent power series defines a very special kind of function on its interval of convergence. Let</p>
+<p data-braille="continuation">Putting it together, the system we have is</p>
 <div class="displaymath">
 \begin{equation*}
-f(x) = \sum_{k=0}^{\infty} a_k (x - a)^k
+\begin{cases}
+x_{1}^{\prime}=12-\frac{2}{15}x_{1} \amp x_{1}(0)=6.\\
+x_{2}^{\prime}=\frac{4}{30}x_{1}-\frac{1}{5}x_{2} \amp x_{2}(0)=0
+\end{cases}
 \end{equation*}
-</div>
-<p>with domain \(\mathcal D = (a -\rho, a+\rho)\text{.}\) The function \(f\) defined this way is called an <dfn class="terminology">analytic function</dfn>. Such functions are extremely nice - they are smooth, they have derivatives to all orders, they can be integrated as many times as one requires. (n.b.: Functions formed from power series are the central object of study in complex analysis, which consequently is a beautiful subject.)</p>
-<p id="p-512">In calculus, we learn a method for deriving power series of a function called <dfn class="terminology">Taylor series</dfn>. <article class="definition-like" id="definition-14"><h6 class="heading">
-<span class="type">Definition</span> <span class="codenumber">5.1.3</span>.</h6>If \(f\) is analytic on an open interval \(I\) centered at \(a\text{,}\) then for all \(x \in I\text{,}\)<div class="displaymath">
-\begin{equation*}
-f(x) = \sum_{k=0}^\infty \frac{f^{(k)}(a)}{k!}(x-a)^k;
-\end{equation*}
-</div>that is, \(f\) has a power series centered at \(a\) with \(a_k = \frac{f^{(k)}(a)}{k!}\text{.}\)</article> Finite Taylor series, called <dfn class="terminology">Taylor polynomials</dfn>, are typically excellent approximations of functions near \(x=a\text{.}\)</p>
-<p id="p-513">So why care about this? We can essentially treat Taylor series like “infinitely long polynomials” where they converge - convergent power series can be treated algebraically like functions and are easily integrated and differentiated:</p>
+</div></article></div></section><section class="subsection" id="subsection-49"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.1.3</span> <span class="title">Overview of system of ODEs</span>
+</h3>
+<p id="p-522">We will be dealing only with \(2\times2\) systems, or sometimes \(3\times3\) systems. But in general we can have \(n\times n\) systems. The following is called a <dfn class="terminology">linear homogeneous system</dfn> of <dfn class="terminology">First Order Equations</dfn>:</p>
 <div class="displaymath">
 \begin{align*}
-\frac{d}{dx} f(x) \amp = \frac{d}{dx} \left[\sum_{k=0}^\infty a_k (x-a)^k\right]\\
-\amp= \sum_{k=0}^\infty \frac{d}{dx} a_k (x-a)^k\\
-\amp = \sum_{k=0}^\infty k a_k (x-a)^{k-1}\\
-\amp = \sum_{k=1}^\infty k a_k (x-a)^{k-1} \hspace{.1in} \text { (first term was 0)}\\
-\amp = \sum_{k=0}^\infty (k+1) a_{k+1} (x-a)^k \hspace{.1in} \text{ (re-index)}
+x_{1}^{\prime} \amp =a(t)x_{1}+b(t)x_{2}\\
+x_{2}^{\prime} \amp =c(t)x_{1}+d(t)x_{2}
 \end{align*}
 </div>
-<p>Taking another derivative gets us an expression for the second derivative of a power series:</p>
+<p data-braille="continuation">The following system is called <dfn class="terminology">non-homogeneous</dfn> if</p>
+<div class="displaymath">
+\begin{align*}
+x_{1}^{\prime} \amp =a(t)x_{1}+b(t)x_{2}+g_{1}(t)\\
+x_{2}^{\prime} \amp =c(t)x_{1}+d(t)x_{2}+g_{2}(t)
+\end{align*}
+</div>
+<p data-braille="continuation">where \(g_{1}(t)\) or \(g_{2}(t)\neq 0\text{.}\)</p>
+<p id="p-523">An <dfn class="terminology">initial value problem (IVP)</dfn> consists of a system of differential equations and intial conditions such as</p>
 <div class="displaymath">
 \begin{equation*}
-\frac{d^2}{dx^2} f(x) = \sum_{k=0}^\infty (k+2)(k+1) a_{k+2} (x-a)^k.
+\begin{cases}
+x_{1}^{\prime}=a(t)x_{1}+b(t)x_{2} \amp x_{1}(t_{0})=x_{1}^{0}\\
+x_{2}^{\prime}=c(t)x_{1}+d(t)x_{2} \amp x_{2}(t_{0})=x_{2}^{0}
+\end{cases}
 \end{equation*}
 </div>
-<article class="assemblage-like" id="assemblage-7"><p id="p-514">If \(f(x) = \sum_{k=0}^\infty a_k (x-a)^k\text{,}\) then we have</p>
-<div class="displaymath">
-\begin{gather*}
-f'(x) = \sum_{k=0}^\infty (k+1)a_{k+1} (x-a)^k\\
-f''(x) = \sum_{k=0}^\infty (k+2)(k+1) a_{k+2} (x-a)^k
-\end{gather*}
-</div></article><p id="p-515">We should generally have the following basic power series of common functions memorized:</p>
+<p id="p-524"><dfn class="terminology">Existence/Uniqueness?</dfn> As long as all the coefficient functions are all continuous then we have the existence and uniqueness of a solution \(\left(x_{1}(t),x_{2}(t)\right) \) to any IVP.</p></section><section class="subsection" id="subsection-50"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.1.4</span> <span class="title">Turning a Second Order ODE into a System of First Order of ODEs</span>
+</h3>
+<p id="p-525">If we would like to turn a Second Order Linear ODE into a system of equations, the trick is to let</p>
 <div class="displaymath">
 \begin{equation*}
-\begin{array}{c|c|c|c|c}
-f(x) \amp a \amp \sum a_k (x-a)^k \amp \rho \amp \text{IOC} \\ \hline
-e^x \amp 0 \amp \sum \frac{x^k}{k!} \amp \infty \amp (-\infty, \infty) \\
-\cos x \amp 0 \amp \sum (-1)^k \frac{x^{2k}}{(2k)!} \amp \infty \amp (-\infty, \infty) \\
-\sin x \amp 0 \amp \sum (-1)^k \frac{x^{2k+1}}{(2k+1)!} \amp \infty \amp (-\infty, \infty) \\
-\ln (1+x) \amp 0 \amp \sum (-1)^{k+1} \frac{x^k}{k} \amp 1 \amp (-1, 1) \\
-\frac{1}{1-x} \amp 0 \amp \sum x^k \amp 1 \amp (-1,1)
+x_{1}=y,x_{2}=y^{\prime}.
+\end{equation*}
+</div>
+<article class="example example-like" id="example-86"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-86"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.1.2</span><span class="period">.</span><span class="space"> </span><span class="title">Turning an ODE into a system.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-86"><article class="example example-like"><p id="p-526">Turn</p>
+<div class="displaymath">
+\begin{equation*}
+y^{\prime\prime}+\frac{1}{2}y^{\prime}+2y=\sin t
+\end{equation*}
+</div>
+<p data-braille="continuation">into a system of differential equations.</p>
+<p id="p-527"><dfn class="terminology">Solution:</dfn></p>
+<p id="p-528">Goal:  We let \(x_{1}=y\) , \(x_{2}=y^{\prime}\) and set up the following system:</p>
+<div class="displaymath">
+\begin{align*}
+x_{1}^{\prime} \amp =?\\
+x_{2}^{\prime} \amp =? 
+\end{align*}
+</div>
+<p id="p-529">To do so, we start with what we defined and take derivatives:</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{array}{ccc}
+x_{1}=y \amp \implies \amp x_{1}^{\prime}=y^{\prime}=x_{2}\\
+x_{2}=y^{\prime} \amp \implies \amp  x_{2}^{\prime}=y^{\prime\prime}=-\frac{1}{2}y^{\prime}-2y-\sin t
 \end{array}
 \end{equation*}
 </div>
-<article class="example-like" id="example-85"><a data-knowl="" class="id-ref" data-refid="hk-example-85"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">5.1.4</span>. <span class="title">Integrate \(e^{x^2}\).</span>
-</h6></a></article><div id="hk-example-85" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-516">We can now answer the question posed at the beginning of this discussion: since \(e^x = \sum \frac{x^k}{k!}\text{,}\) we get</p>
-<div class="displaymath">
-\begin{equation*}
-e^{x^2} = \sum \frac{(x^2)^k}{k!} = \sum \frac{x^{2k}}{k!}.
-\end{equation*}
-</div>
-<p>Then</p>
+<p data-braille="continuation">hence</p>
 <div class="displaymath">
 \begin{align*}
-\int e^{x^2} \, dx \amp = \int \sum \frac{x^{2k}}{k!}\,dx \\
-\amp = \sum \int \frac{x^{2k}}{k!} \, dx \\
-\amp = \left[\sum \frac{x^{2k+1}}{(2k+1) k!}\right] + C
+x_{2}^{\prime} \amp =-\frac{1}{2}y^{\prime}-2y-\sin t \\
+\amp =-\frac{1}{2}x_{2}-2x_{1}-\sin t,\text{ by definition} 
 \end{align*}
 </div>
-<p>This function has no closed form, but the result can be worked with easily (for example, in approximation).</p></article></div>
-<article class="example-like" id="example-86"><a data-knowl="" class="id-ref" data-refid="hk-example-86"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">5.1.5</span>. <span class="title">Applying the ratio test.</span>
-</h6></a></article><div id="hk-example-86" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-517">Find the radius and interval of convergence of the series</p>
+<p data-braille="continuation">thus</p>
 <div class="displaymath">
 \begin{equation*}
-\sum_{k=0}^\infty \frac{(-1)^k}{10^k} (x-5)^k.
+\begin{cases}
+x_{1}^{\prime}=x_{2}\\
+x_{2}^{\prime}=-2x_{1}-\frac{1}{2}x_{2}+\sin t
+\end{cases}
 \end{equation*}
-</div>
-<p id="p-518">To apply the ratio test, we need the terms</p>
+</div></article></div>
+<article class="assemblage assemblage-like" id="assemblage-7"><h6 class="heading"><span class="title">Turning any Second Order Linear ODE into Systems of First Order ODEs.</span></h6>
+<p id="p-530">If we have</p>
 <div class="displaymath">
 \begin{equation*}
-c_k = \frac{(-1)^k}{10^k}(x-5)^k
+a(t)y^{\prime\prime}+b(t)y^{\prime}+c(t)y=g(t)
 \end{equation*}
 </div>
-<p>and</p>
+<p data-braille="continuation">then we by letting \(x_{1}=y\) and \(x_{2}=y^{\prime}\text{,}\) and using the method in the above example, we can obtain</p>
 <div class="displaymath">
 \begin{equation*}
-c_{k+1} = \frac{(-1)^{k+1}}{10^{k+1}}(x-5)^{k+1}.
+\begin{cases}
+x_{1}^{\prime}=x_{2}\\
+x_{2}^{\prime}=-\frac{c}{a}x_{1}-\frac{b}{a}x_{2}+\frac{g}{a}
+\end{cases}
 \end{equation*}
+</div></article></section></section></div></main>
 </div>
-<p>Then</p>
-<div class="displaymath">
-\begin{align*}
-\lim_{k\to \infty} \abs{\frac{c_{k+1}}{c_k}} \amp = \lim_{k\to\infty} \abs{\frac{(-1)^{k+1}(x-5)^{k+1}}{10^{k+1}}\cdot\frac{10^k}{(-1)^k}{(-1)^k(x-5)^k}}\\
-\amp = \lim_{k\to\infty} \abs{\frac{1}{10}(x-5)} = \frac{1}{10}\abs{x-5}
-\end{align*}
-</div>
-<p>which by the ratio test will converge if</p>
-<div class="displaymath">
-\begin{align*}
-\frac{1}{10}\abs{x-5} \amp \lt 1\\
-\text{or } \abs{x-5} \lt 10.
-\end{align*}
-</div>
-<p>Then the radius of convergence \(\rho = 10\text{,}\) and the interval of converge, which has endpoints given by \(a \pm \rho\text{,}\) is \((-5,15)\text{.}\)</p></article></div></section></div></main>
-</div>
-<div class="login-link"><span id="loginlogout" class="login">login</span></div>
-<script src="https://pretextbook.org/js/0.12/login.js"></script>
 </body>
 </html>

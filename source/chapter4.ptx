@@ -4,7 +4,7 @@
         <title>Linear equations</title>
         <subsection>
         <title>General linear equations</title>
-        <p>Everything we did in Chapter 3 for second order linear equations can be extended to higher order systems. Suppose we have the <m>n</m>th order linear equation 
+        <p>Everything we did in <xref ref="ch3" />for second order linear equations can be extended to higher order systems. Suppose we have the <m>n</m>th order linear equation 
         <me>
         a_{n}(t)y^{(n)}+a_{n-1}(t)y^{(n-1)}+\cdots+a_{1}(t)y^{\prime}+a_{0}(t)y=g(t).
         </me>

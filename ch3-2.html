@@ -1,17 +1,19 @@
-<!DOCTYPE html>
-<!--**************************************-->
-<!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-18T16:29:37-04:00    *-->
-<!--*                                    *-->
-<!--*      https://pretextbook.org       *-->
-<!--*                                    *-->
-<!--**************************************-->
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:21-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
 <html lang="en-US">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Second order linear equations</title>
 <meta name="Keywords" content="Authored in PreTeXt">
-<meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
@@ -24,7 +26,7 @@ MathJax.Hub.Config({
     jax: ["input/AsciiMath"],
     extensions: ["asciimath2jax.js"],
     TeX: {
-        extensions: ["extpfeil.js", "autobold.js", "https://pretextbook.org/js/lib/mathjaxknowl.js", ],
+        extensions: ["extpfeil.js", "autobold.js", "https://pretextbook.org/js/lib/mathjaxknowl.js", "AMScd.js", ],
         // scrolling to fragment identifiers is controlled by other Javascript
         positionToHash: false,
         equationNumbers: { autoNumber: "none", useLabelIds: true, },
@@ -41,23 +43,21 @@ MathJax.Hub.Config({
         mtextFontInherit: true,
     },
 });
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.12/pretext.js"></script><script src="https://pretextbook.org/js/0.12/pretext_add_on.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/pretext.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/toc.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/colors_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/setcolors.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/features.css" rel="stylesheet" type="text/css">
-<script>var logged_in = false;
-var role = 'student';
-var guest_access = true;
-var login_required = false;
-var js_version = 0.12;
-</script>
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="mathbook-book has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div class="hidden-content" style="display:none">\(\DeclareMathOperator{\RE}{Re}
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" class="hidden-content" style="display:none">\(\DeclareMathOperator{\RE}{Re}
   \DeclareMathOperator{\IM}{Im}
   \DeclareMathOperator{\ess}{ess}
   \DeclareMathOperator{\intr}{int}
@@ -160,7 +160,7 @@ var js_version = 0.12;
 <p class="byline">Phanuel Mariano, Ryan Tully-Doyle</p>
 </div>
 </div></div>
-<nav id="primary-navbar" class="navbar"><div class="container">
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
 <div class="navbar-top-buttons">
 <button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="ch3-1.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch3.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="ch3-3.html" title="Next">Next</a></span></div>
 </div>
@@ -168,9 +168,9 @@ var js_version = 0.12;
 <button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="ch3-1.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch3.html" title="Up">Up</a><a class="next-button button toolbar-item" href="ch3-3.html" title="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
-<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
 <nav id="toc"><ul>
-<li class="link"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
 <li class="link">
 <a href="introduction.html" data-scroll="introduction"><span class="codenumber">1</span> <span class="title">Introduction</span></a><ul>
 <li><a href="ch1-1.html" data-scroll="ch1-1">Modeling via differential equations, some solutions and definitions</a></li>
@@ -198,9 +198,9 @@ var js_version = 0.12;
 <li><a href="ch3-4.html" data-scroll="ch3-4">Complex roots of the characteristic equation</a></li>
 <li><a href="ch3-5.html" data-scroll="ch3-5">Repeated roots; Reduction of order</a></li>
 <li><a href="ch3-6.html" data-scroll="ch3-6">Non-homogeneous equations - Undetermined coefficients</a></li>
-<li><a href="ch3-7.html" data-scroll="ch3-7">Variation of Parameters</a></li>
 <li><a href="ch3-8.html" data-scroll="ch3-8">Harmonic oscillations</a></li>
 <li><a href="ch3-9.html" data-scroll="ch3-9">Forced oscillations</a></li>
+<li><a href="ch3-7.html" data-scroll="ch3-7">Variation of Parameters</a></li>
 </ul>
 </li>
 <li class="link">
@@ -210,9 +210,14 @@ var js_version = 0.12;
 </ul>
 </li>
 <li class="link">
-<a href="ch5.html" data-scroll="ch5"><span class="codenumber">5</span> <span class="title">Series Solutions</span></a><ul>
-<li><a href="ch5-1.html" data-scroll="ch5-1">Power Series</a></li>
-<li><a href="ch5-2.html" data-scroll="ch5-2">Method of series solutions</a></li>
+<a href="ch5.html" data-scroll="ch5"><span class="codenumber">5</span> <span class="title">Systems of First Order Linear Equations</span></a><ul>
+<li><a href="ch5-1.html" data-scroll="ch5-1">Systems of First Order Linear Equations</a></li>
+<li><a href="ch5-2.html" data-scroll="ch5-2">Review of Matrices, Vector Fields, Phase Planes and Portraits</a></li>
+<li><a href="ch5-3.html" data-scroll="ch5-3">Systems of Linear Equations: Linear Independence, and the General Solution Theorem</a></li>
+<li><a href="ch5-4.html" data-scroll="ch5-4">Basic Theory of Systems of 1st Order Linear EQs - Straight Line Solutions</a></li>
+<li><a href="ch5-5.html" data-scroll="ch5-5">Phase Portraits for systems with real eigenvalues</a></li>
+<li><a href="ch5-6.html" data-scroll="ch5-6">Complex Eigenvalues</a></li>
+<li><a href="ch5-7.html" data-scroll="ch5-7">Repeated and zero eigenvalues</a></li>
 </ul>
 </li>
 <li class="link">
@@ -226,7 +231,13 @@ var js_version = 0.12;
 <li><a href="ch6-7.html" data-scroll="ch6-7">The convolution integral</a></li>
 </ul>
 </li>
-<li class="link"><a href="backmatter-1.html" data-scroll="backmatter-1"><span class="title">Back Matter</span></a></li>
+<li class="link">
+<a href="ch7.html" data-scroll="ch7"><span class="codenumber">7</span> <span class="title">Series Solutions</span></a><ul>
+<li><a href="ch7-1.html" data-scroll="ch7-1">Power Series</a></li>
+<li><a href="ch7-2.html" data-scroll="ch7-2">Method of series solutions</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1"><span class="title">Back Matter</span></a></li>
 <li class="link"><a href="quadratic.html" data-scroll="quadratic"><span class="codenumber">A</span> <span class="title">A fast quadratic method</span></a></li>
 <li class="link">
 <a href="exercises.html" data-scroll="exercises"><span class="codenumber">B</span> <span class="title">Exercises for Chapter 1</span></a><ul>
@@ -254,8 +265,9 @@ var js_version = 0.12;
 <li><a href="ex3-4.html" data-scroll="ex3-4">Section 3.4</a></li>
 <li><a href="ex3-5.html" data-scroll="ex3-5">Section 3.5</a></li>
 <li><a href="ex3-6.html" data-scroll="ex3-6">Section 3.6</a></li>
-<li><a href="ex3-7.html" data-scroll="ex3-7">Section 3.7</a></li>
-<li><a href="ex3-8.html" data-scroll="ex3-8">Section 3.8/Section 3.9</a></li>
+<li><a href="ex3-8.html" data-scroll="ex3-8">Section 3.7</a></li>
+<li><a href="ex3-9.html" data-scroll="ex3-9">Section 3.8</a></li>
+<li><a href="ex3-7.html" data-scroll="ex3-7">Section 3.9</a></li>
 </ul>
 </li>
 <li class="link">
@@ -265,7 +277,18 @@ var js_version = 0.12;
 </ul>
 </li>
 <li class="link">
-<a href="appendix-6.html" data-scroll="appendix-6"><span class="codenumber">F</span> <span class="title">Exercises for Chapter 6</span></a><ul>
+<a href="appendix-6.html" data-scroll="appendix-6"><span class="codenumber">F</span> <span class="title">Exercises for Chapter 5</span></a><ul>
+<li><a href="ex5-1.html" data-scroll="ex5-1">Section 5.1</a></li>
+<li><a href="ex5-2.html" data-scroll="ex5-2">Section 5.2</a></li>
+<li><a href="ex5-3.html" data-scroll="ex5-3">Section 5.3</a></li>
+<li><a href="ex5-4.html" data-scroll="ex5-4">Section 5.4</a></li>
+<li><a href="ex5-5.html" data-scroll="ex5-5">Section 5.5</a></li>
+<li><a href="ex5-6.html" data-scroll="ex5-6">Section 5.6</a></li>
+<li><a href="ex5-7.html" data-scroll="ex5-7">Section 5.7</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="appendix-7.html" data-scroll="appendix-7"><span class="codenumber">G</span> <span class="title">Exercises for Chapter 6</span></a><ul>
 <li><a href="ex6-1.html" data-scroll="ex6-1">Section 6.1</a></li>
 <li><a href="ex6-2.html" data-scroll="ex6-2">Section 6.2</a></li>
 <li><a href="ex6-3.html" data-scroll="ex6-3">Section 6.3</a></li>
@@ -275,41 +298,41 @@ var js_version = 0.12;
 </li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
-<main class="main"><div id="content" class="pretext-content"><section class="section" id="ch3-2"><h2 class="heading hide-type">
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="ch3-2"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">3.2</span> <span class="title">Second order linear equations</span>
 </h2>
-<a href="ch3-2.html" class="permalink">¶</a><section class="introduction" id="introduction-9"><p id="p-314">A <dfn class="terminology">general second order ODE</dfn> is of the form</p>
+<section class="introduction" id="introduction-9"><p id="p-316">A <dfn class="terminology">general second order ODE</dfn> is of the form</p>
 <div class="displaymath">
 \begin{equation*}
 \frac{d^{2}y}{dt^{2}}=f\left(t,y,\frac{dy}{dt}\right).
 \end{equation*}
 </div>
-<p>As is the case with first order equations, we can describe a more structured family of equations. A <dfn class="terminology">\(2^{nd}\) order linear ODE</dfn> is of the form</p>
+<p data-braille="continuation">As is the case with first order equations, we can describe a more structured family of equations. A <dfn class="terminology">\(2^{nd}\) order linear ODE</dfn> is of the form</p>
 <div class="displaymath">
 \begin{equation*}
 a(t)y^{\prime\prime}+b(t)y^{\prime}+c(t)y=d(t)
 \end{equation*}
 </div>
-<p>which can be rewritten as</p>
+<p data-braille="continuation">which can be rewritten as</p>
 <div class="displaymath">
 \begin{equation*}
 y^{\prime\prime}+p(t)y^{\prime}+q(t)y=g(t).
 \end{equation*}
 </div>
-<p>A 2nd order ODE is called <dfn class="terminology">homogeneous</dfn> if</p>
+<p data-braille="continuation">A 2nd order ODE is called <dfn class="terminology">homogeneous</dfn> if</p>
 <div class="displaymath">
 \begin{equation*}
 a(t)y^{\prime\prime}+b(t)y^{\prime}+c(t)y=0
 \end{equation*}
 </div>
-<p>and <dfn class="terminology">nonhomogeneous</dfn> if</p>
+<p data-braille="continuation">and <dfn class="terminology">nonhomogeneous</dfn> if</p>
 <div class="displaymath">
 \begin{equation*}
 a(t)y^{\prime\prime}+b(t)y^{\prime}+c(t)y=d(t)
 \end{equation*}
 </div>
-<p>for some \(d(t)\) that is NOT identically zero.</p>
-<p id="p-315">An intial value problem for a second order ODE needs to have <em class="alert">two</em> initial conditions:</p>
+<p data-braille="continuation">for some \(d(t)\) that is NOT identically zero.</p>
+<p id="p-317">An intial value problem for a second order ODE needs to have <em class="alert">two</em> initial conditions:</p>
 <div class="displaymath">
 \begin{align*}
 y(t_{0}) \amp =y_{0},\\
@@ -318,28 +341,28 @@ y^{\prime}(t_{0}) \amp =y_{0}^{\prime}.
 </div></section><section class="subsection" id="subsection-26"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.2.1</span> <span class="title">Second order linear homogeneous ODEs with constant coefficients (characteristic equation)</span>
 </h3>
-<p id="p-316">We will begin with the <dfn class="terminology">2nd order linear homogeneous ODEs with constant coefficients</dfn> that we introduced and motivated in the previous section:</p>
+<p id="p-318">We will begin with the <dfn class="terminology">2nd order linear homogeneous ODEs with constant coefficients</dfn> that we introduced and motivated in the previous section:</p>
 <div class="displaymath">
 \begin{equation*}
 ay''+by^{\prime}+cy=0
 \end{equation*}
 </div>
-<p>where \(a,b,c\) are real constants.</p>
-<p id="p-317">Consider \(y^{\prime\prime}-y=0\) or</p>
+<p data-braille="continuation">where \(a,b,c\) are real constants.</p>
+<p id="p-319">Consider \(y^{\prime\prime}-y=0\) or</p>
 <div class="displaymath">
 \begin{equation*}
 y^{\prime\prime}=y.
 \end{equation*}
 </div>
-<p>Can we think of a solution to this ODE from Calculus 1? A function where its second derivative is equal to itself?</p>
-<p id="p-318">A moment of thought should lead us to conclude that there are two obvious solutions: \(y_{1}(t)=e^{t}\) and \(y_{2}(t)=e^{-t}\text{.}\) But it not hard to check that the larger family of functions \(y = c_{1}e^{t}\) and \(y = c_{2}e^{-t}\) are also solutions for any constants \(c_1, c_2\text{.}\)</p>
-<p id="p-319">Now consider the general ODE</p>
+<p data-braille="continuation">Can we think of a solution to this ODE from Calculus 1? A function where its second derivative is equal to itself?</p>
+<p id="p-320">A moment of thought should lead us to conclude that there are two obvious solutions: \(y_{1}(t)=e^{t}\) and \(y_{2}(t)=e^{-t}\text{.}\) But it not hard to check that the larger family of functions \(y = c_{1}e^{t}\) and \(y = c_{2}e^{-t}\) are also solutions for any constants \(c_1, c_2\text{.}\)</p>
+<p id="p-321">Now consider the general ODE</p>
 <div class="displaymath">
 \begin{equation*}
 ay^{\prime\prime}+by^{\prime}+cy=0.
 \end{equation*}
 </div>
-<p id="p-320">Guided by our observation about the solutions to the previous equation, let us assume solutions are of the form \(y(t)=e^{rt}\text{.}\) (If this is an unsatisfying assumption, another appoach will be explained shortly).  Then</p>
+<p id="p-322">Guided by our observation about the solutions to the previous equation, let us assume solutions are of the form \(y(t)=e^{rt}\text{.}\) (If this is an unsatisfying assumption, another appoach will be explained shortly).  Then</p>
 <div class="displaymath">
 \begin{align*}
 y(t) \amp =e^{rt}\\
@@ -347,29 +370,30 @@ y^{\prime}(t) \amp =re^{rt}\\
 y^{\prime\prime}(t) \amp =r^{2}e^{rt},
 \end{align*}
 </div>
-<p>and plugging this into the ODE we have</p>
+<p data-braille="continuation">and plugging this into the ODE we have</p>
 <div class="displaymath">
 \begin{align*}
 LHS=ar^{2}e^{rt}+bre^{rt}+ce^{rt} \amp \overset{?}{=}0\\
 e^{rt}\left(ar^{2}+br+c\right) \amp \overset{?}{=}0.
 \end{align*}
 </div>
-<p>and since \(e^{rt}\neq0\) then</p>
+<p data-braille="continuation">and since \(e^{rt}\neq0\) then</p>
 <div class="displaymath">
 \begin{equation*}
 ar^{2}+br+c=0.
 \end{equation*}
 </div>
-<p>Using standard methods for quadratic equations, we can solve for the roots \(r=r_{1},r_{2}\text{.}\)</p>
-<p id="p-321">This is called the <dfn class="terminology">characteristic equation</dfn> of this ODE. If the roots \(r_1, r_2\) are <em class="emphasis">real and distinct</em>, then the <dfn class="terminology">general solution to the homogeneous equation</dfn> is of the form</p>
+<p data-braille="continuation">Using standard methods for quadratic equations, we can solve for the roots \(r=r_{1},r_{2}\text{.}\)</p>
+<p id="p-323">This is called the <dfn class="terminology">characteristic equation</dfn> of this ODE. If the roots \(r_1, r_2\) are <em class="emphasis">real and distinct</em>, then the <dfn class="terminology">general solution to the homogeneous equation</dfn> is of the form</p>
 <div class="displaymath">
 \begin{equation*}
 y(t)=c_{1}e^{r_{1}t}+c_{2}e^{r_{2}t}.
 \end{equation*}
 </div>
-<p id="p-322">The justification for gluing together the solutions will be presented in the next section as the “principle of superposition”.</p>
-<article class="example-like" id="example-48"><a data-knowl="" class="id-ref" data-refid="hk-example-48"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">3.2.1</span>.</h6></a></article><div id="hk-example-48" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-323">Let's find the general solution of</p>
+<p id="p-324">The justification for gluing together the solutions will be presented in the next section as the “principle of superposition”.</p>
+<article class="example example-like" id="example-48"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-48"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.1</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-48"><article class="example example-like"><p id="p-325">Let's find the general solution of</p>
 <div class="displaymath">
 \begin{equation*}
 y^{\prime\prime}+5y^{\prime}+6y=0.
@@ -387,28 +411,30 @@ y(t)=c_{1}e^{-2t}+c_{2}e^{-3t}
 \end{equation*}
 </div>is the general solution.</li>
 </ol></article></div>
-<article class="example-like" id="example-49"><a data-knowl="" class="id-ref" data-refid="hk-example-49"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">3.2.2</span>.</h6></a></article><div id="hk-example-49" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-324">Let's find the solution to the following IVP</p>
+<article class="example example-like" id="example-49"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-49"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.2</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-49"><article class="example example-like"><p id="p-326">Let's find the solution to the following IVP</p>
 <div class="displaymath">
 \begin{equation*}
 y^{\prime\prime}+5y^{\prime}+6y=0\,\,\,\,y(0)=2,y^{\prime}(0)=-1.
 \end{equation*}
 </div>
-<p id="p-325">Solving for the particular solution. We have \(y(0)=2\) and \(y^{\prime}(0)=-1\text{.}\) Differentiating \(y(t)=c_{1}e^{-2t}+c_{2}e^{-3t}\) we get \(y^{\prime}(t)=-2c_{1}e^{-2t}-3c_{2}e^{-3t}\) and set up the following system:</p>
+<p id="p-327">Solving for the particular solution. We have \(y(0)=2\) and \(y^{\prime}(0)=-1\text{.}\) Differentiating \(y(t)=c_{1}e^{-2t}+c_{2}e^{-3t}\) we get \(y^{\prime}(t)=-2c_{1}e^{-2t}-3c_{2}e^{-3t}\) and set up the following system:</p>
 <div class="displaymath">
 \begin{align*}
 c_{1}+c_{2} \amp = \amp 2\\
 -2c_{1}-3c_{2} \amp = \amp -1
 \end{align*}
 </div>
-<p>and get \(c_{1}=5,c_{2}=-3\text{.}\) So the particular solution is</p>
+<p data-braille="continuation">and get \(c_{1}=5,c_{2}=-3\text{.}\) So the particular solution is</p>
 <div class="displaymath">
 \begin{equation*}
 y(t)=5e^{-2t}-3e^{-3t}.
 \end{equation*}
 </div></article></div>
-<article class="example-like" id="example-50"><a data-knowl="" class="id-ref" data-refid="hk-example-50"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">3.2.3</span>.</h6></a></article><div id="hk-example-50" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-326">Let's find the general solution of</p>
+<article class="example example-like" id="example-50"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-50"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.3</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-50"><article class="example example-like"><p id="p-328">Let's find the general solution of</p>
 <div class="displaymath">
 \begin{equation*}
 2\frac{d^{2}y}{dt^{2}}+7\frac{dy}{dt}-4y=0.
@@ -428,73 +454,71 @@ y(t)=c_{1}e^{t/2}+c_{2}e^{-4t}
 </ol></article></div></section><section class="subsection" id="subsection-27"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.2.2</span> <span class="title">Derivatives as linear operators and the characteristic equation</span>
 </h3>
-<p id="p-327">It might seem unsatisfying to assume the form of an answer and then show that our guess worked. Is there a mathematical justification for making this guess? The answer is yes, if we're willing to push our understanding of differentiation slightly.</p>
-<p id="p-328">Define the <dfn class="terminology">differential operator</dfn> \(D\) to be the operation of applying \(\frac{d}{dx}\) to a function \(y(x)\text{.}\) The operator \(D\) can be thought of as a function on functions:</p>
+<p id="p-329">It might seem unsatisfying to assume the form of an answer and then show that our guess worked. Is there a mathematical justification for making this guess? The answer is yes, if we're willing to push our understanding of differentiation slightly.</p>
+<p id="p-330">Define the <dfn class="terminology">differential operator</dfn> \(D\) to be the operation of applying \(\frac{d}{dx}\) to a function \(y(x)\text{.}\) The operator \(D\) can be thought of as a function on functions:</p>
 <div class="displaymath">
 \begin{equation*}
 D(\text{function}) = \text{ derivative}.
 \end{equation*}
 </div>
-<p>Any order of derivative can be thought of this way. For example,</p>
+<p data-braille="continuation">Any order of derivative can be thought of this way. For example,</p>
 <div class="displaymath">
 \begin{equation*}
 y''' = \frac{d^3 y}{dx^3} = \frac{d^3}{dx^3} y = D^3 y.
 \end{equation*}
 </div>
-<p>We need a notion of \(D^0\) - what should that mean? It makes sense to set \(D^0(y) = y\) - that is, take no derivatives of \(y\text{.}\) We will use the symbol \(1\) to represent this function, the <dfn class="terminology">identity function</dfn> that leaves \(y\) unchanged.</p>
-<p id="p-329">In Calculus, we learn that derivatives follow certain rules. Two of the most important are</p>
+<p data-braille="continuation">We need a notion of \(D^0\) - what should that mean? It makes sense to set \(D^0(y) = y\) - that is, take no derivatives of \(y\text{.}\) We will use the symbol \(1\) to represent this function, the <dfn class="terminology">identity function</dfn> that leaves \(y\) unchanged.</p>
+<p id="p-331">In Calculus, we learn that derivatives follow certain rules. Two of the most important are</p>
 <div class="displaymath">
 \begin{equation*}
 D(f + g) = Df + Dg
 \end{equation*}
 </div>
-<p>and</p>
+<p data-braille="continuation">and</p>
 <div class="displaymath">
 \begin{equation*}
 D(cf) = cD(f).
 \end{equation*}
 </div>
-<p>These two properties together show that \(D\) is a <dfn class="terminology">linear function</dfn>.</p>
-<p id="p-330">Using differential operator notation allows us to transform an ODE and use algebraic techniques to solve it using first order methods. Consider the equation</p>
+<p data-braille="continuation">These two properties together show that \(D\) is a <dfn class="terminology">linear function</dfn>.</p>
+<p id="p-332">Using differential operator notation allows us to transform an ODE and use algebraic techniques to solve it using first order methods. Consider the equation</p>
 <div class="displaymath">
 \begin{equation*}
 y'' + 3 y ' + 2 y = 0.
 \end{equation*}
 </div>
-<p>This can be written</p>
+<p data-braille="continuation">This can be written</p>
 <div class="displaymath">
 \begin{equation*}
 D^2 y + 3 D y + 2 y = 0
 \end{equation*}
 </div>
-<p>using operator notation. But since each operator is applied to the same input, \(y\text{,}\) we can use function notation to write</p>
+<p data-braille="continuation">using operator notation. But since each operator is applied to the same input, \(y\text{,}\) we can use function notation to write</p>
 <div class="displaymath">
 \begin{equation*}
 (D^2 + 3D + 2)(y) = 0.
 \end{equation*}
 </div>
-<p id="p-331">The operator expression \(D^2 + 3D + 2\) can be factored as symbols into \((D + 2)(D + 1)\) (that this is equal to the original equation applied to \(y\) is a consequence of linearity). Now, using the fact that the derivative of 0 is 0, we assert that the solutions to the equation</p>
+<p id="p-333">The operator expression \(D^2 + 3D + 2\) can be factored as symbols into \((D + 2)(D + 1)\) (that this is equal to the original equation applied to \(y\) is a consequence of linearity). Now, using the fact that the derivative of 0 is 0, we assert that the solutions to the equation</p>
 <div class="displaymath">
 \begin{equation*}
 (D + 1)(D + 2)y = (D + 2)(D+1)y = 0
 \end{equation*}
 </div>
-<p>are the solutions to \((D + 1)(y) = 0\) and \((D + 2)y = 0\text{,}\) which are just the first order equations</p>
+<p data-braille="continuation">are the solutions to \((D + 1)(y) = 0\) and \((D + 2)y = 0\text{,}\) which are just the first order equations</p>
 <div class="displaymath">
 \begin{gather*}
 y' + y = 0\\
 y' + 2y = 0
 \end{gather*}
 </div>
-<p>These are separable, with solutions \(y_1 = c_1 e^{-x}\) and \(y_2 = c_2 e^{-2x}\text{.}\) So the general solution (justified by the principle of superposition, covered in the next section) to the ODE is</p>
+<p data-braille="continuation">These are separable, with solutions \(y_1 = c_1 e^{-x}\) and \(y_2 = c_2 e^{-2x}\text{.}\) So the general solution (justified by the principle of superposition, covered in the next section) to the ODE is</p>
 <div class="displaymath">
 \begin{equation*}
 y = c_1 e^{-x} + c_2 e^{-2x}.
 \end{equation*}
 </div>
-<p id="p-332">Note that the operator polynomial \(D^2 + 3D + 2\) is precisely equivalent to the characteristic polynomial \(r^2 + 3r + 2\text{.}\)</p></section></section></div></main>
+<p id="p-334">Note that the operator polynomial \(D^2 + 3D + 2\) is precisely equivalent to the characteristic polynomial \(r^2 + 3r + 2\text{.}\)</p></section></section></div></main>
 </div>
-<div class="login-link"><span id="loginlogout" class="login">login</span></div>
-<script src="https://pretextbook.org/js/0.12/login.js"></script>
 </body>
 </html>

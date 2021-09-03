@@ -650,7 +650,7 @@
             <example><title>Population growth</title>
             <ul>
             <li> <p><alert>Goal:</alert> Want to write a differential equation that
-            models population growth of say zebras.</p></li>
+            models population growth of zebras.</p></li>
             <li><p> <alert>Assumption:</alert> The rate of growth of the population is proportional
             to the size of the population. </p></li>
             <li><p><alert>Problem:</alert> Write a differential equation that governs
@@ -711,7 +711,7 @@
                 <p> and</p>
                 <md>
                 <mrow>\mbox{Rate out } \amp = \amp \left(\begin{array}{c}
-                \mbox{concentrarion}\\
+                \mbox{concentration}\\
                 \mbox{of stuff going out}
                 \end{array}\right)\times\mbox{Rate}</mrow>
                 <mrow> \amp = \amp \left(\frac{y(t)}{60} \frac{\mbox{kg}}{\mbox{L}}\right)\times5\frac{\mbox{L}}{\mbox{min}}.</mrow>
@@ -1320,7 +1320,7 @@
     you really do have to explicitly find the solution to figure out the domain
     of the function.</p>
     <corollary>
-    <p>Moreover assuming the same conditions as Theorem 1, if <m>(t_{0},y_{0})</m>
+    <p>Moreover assuming the same conditions as  <xref ref="existencethm2"/>, if <m>(t_{0},y_{0})</m>
     is a point in this rectangle and if <m>y_{1}(t)</m> and <m>y_{2}(t)</m> are
     two functions that solve the IVP
     <me>
@@ -1625,10 +1625,10 @@
     </example>
 
     <example>
-      <title>We don't know how quickly things jump</title>
+      <title>We don't know how quickly solutions increase/decrease with respect to time</title>
 
       <p>Show that the graph <m>\frac{dP}{dt}=(1-\frac{P}{20})^{3}(\frac{P}{5}-1)P^{7}</m>
-      has Phase line <m>[\ominus20\oplus5\ominus0\oplus]</m><m>\begin{array}{c}
+      has Phase line <m>\begin{array}{c}
       \vee\\
       20\\
       \wedge\\
@@ -1636,7 +1636,11 @@
       \vee\\
       0\\
       \wedge
-      \end{array}</m> but <m>5</m> jumps to <m>20</m> very quickly (like <m>0.00001</m> quick.</p>
+      \end{array}</m></p>
+      <p>
+             By plotting a graph of actual solutions, you'll see that solutions
+             between <m>y=5</m> and <m>y=20</m>, increase very rapidly. See the following slope field. 
+      </p>
       <sage>
         <input>
           t,y=var('t,y')
@@ -1650,14 +1654,14 @@
 
       <p>Consider the equation <m>\frac{dy}{dt}=(1+y)^{2}</m>.</p>
 
-      <p> The phase line is <m>[\ominus-1\oplus]</m> <m>\begin{array}{c}
+      <p> The phase line is  <m>\begin{array}{c}
       \wedge\\
       -1\\
       \wedge
       \end{array}</m> Sketch a curve.</p>
-      <p> These increasing/decreasing behaviors could be asymptotes. (Phase
+      <p> The Phase Line doesn't tell us if there could be any vertical assymptotes. (Phase
       LINE DOES NOT TELL US THIS INFO)</p>
-      <p> ACTUAL SOL: <m>y(t)=-1-\frac{1}{t+c}</m>. Asymptote at <m>t=c</m>.</p>
+      <p> ACTUAL SOLUTION: <m>y(t)=-1-\frac{1}{t+c}</m>. Note that there is an assymptote at <m>t=c</m>.</p>
       <p>If <m>y(0)>-1</m> then draw possible curve.</p>
       <sage>
         <input>
@@ -1677,9 +1681,8 @@
       <p> Consider the equation <m>\frac{dy}{dt}=\frac{1}{1-y}</m>.</p>
 
       <p> The phase line would be:
-        <image source="images/1.6-Phase3.png"/>
-
-      We can sketch <q>cusp-like</q> curves. Once a curve has fallen into a hole once it reaches the dotted line.</p>
+        <image source="images/1.6-Phase3.png" width="30%"/>
+      We drew a hole/circle for <m>y=1</m> since the derivative can't exit there. It turns out that for Phase Lines with holes, its solutions tend to have cusps. See the graph below. </p>
       <sage>
         <input>
           t,y=var('t,y')
@@ -1720,7 +1723,7 @@
           <li><m>y_{0}</m> is an <term>asymptotically stable</term> equilibrium if any solution with
           initial condition sufficiently close to <m>y_{0}</m> is asymptotic to
           <m>y_{0}</m> as <m>t</m> increases.</li>
-          <li>Phase Line looks like this: <m>\left[\ominus y_{0}\oplus\right]</m> <m>\begin{array}{c}
+          <li>Phase Line looks like this:  <m>\begin{array}{c}
           \vee\\
           y_{0}\\
           \wedge
@@ -1736,7 +1739,7 @@
             <li> <m>y_{0}</m> is an <term>asymptotically unstable</term> equilibrium if any solution with
             initial condition sufficiently close to <m>y_{0}</m> tends torward <m>y_{0}</m>
             as <m>t</m> decreases.</li>
-            <li> The phase line looks like this: <m>\left[\oplus y_{0}\ominus\right]</m> <m>\begin{array}{c}
+            <li> The phase line looks like this:  <m>\begin{array}{c}
             \wedge\\
             y_{0}\\
             \vee
@@ -1746,16 +1749,16 @@
           </ol>
         </li>
         <li>
-          <p><alert>Semistable:</alert></p>
+          <p><alert>Semistable(node):</alert></p>
 
           <ol>
             <li> <m>y_{0}</m> is an <alert>asymptotically semistable</alert> equilibrium if it doesn't fit the category
             of a sink or source
-            \item Phase Line looks like this: <m>\left[\oplus y_{0}\oplus\right]</m> <m>\begin{array}{c}
+            \item Phase Line looks like this:  <m>\begin{array}{c}
             \wedge\\
             y_{0}\\
             \wedge
-            \end{array}</m>or <m>\left[\ominus y_{0}\ominus\right]</m> <m>\begin{array}{c}
+            \end{array}</m>or  <m>\begin{array}{c}
             \vee\\
             y_{0}\\
             \vee
@@ -1771,7 +1774,7 @@
 
       <p>Consider the equation <m>\frac{dy}{dt}=y^{2}+y-6=(y+3)(y-2)</m>.</p>
 
-      <p>The phase line is <m>\left[\oplus2\ominus-3\oplus\right]</m> <m>\begin{array}{c}
+      <p>The phase line is <m>\begin{array}{c}
       \wedge\\
       2\\
       \vee\\
@@ -1779,6 +1782,8 @@
       \wedge
       \end{array}</m></p>
       <p>How can these be classified?</p>
+      <p> <m>y_{0}=2</m> is assymptotically unstable while <m>y_{0}=-3</m> is assymptotically
+stable.  </p>
       </example>
       <example>
         <title>(Using <m>f(y)</m>)</title>
@@ -1794,7 +1799,7 @@
 
       <image source="images/1.6-f(y).png"/>
 
-      <p>Then draw phase line : <m>\left[\ominus c\oplus b\ominus a\oplus\right]</m>
+      <p>Then draw phase line : 
       <m>\begin{array}{c}
       \vee\\
       c\\
@@ -2233,6 +2238,9 @@
             <mrow>y_{k+1} \amp = \amp y_{k}+f\left(t_{k},y_{k}\right)h.</mrow>
           </md></p>
         </definition>
+
+        One can check their work using the following application, which computes all the points for Euler's Method: <url href="https://davidmathlogic.com/euler/"> Euler's Method Applet</url>
+
         <example>
           <p>
           Suppose we have the autonomous equation

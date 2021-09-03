@@ -1,17 +1,19 @@
-<!DOCTYPE html>
-<!--**************************************-->
-<!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-18T16:29:38-04:00    *-->
-<!--*                                    *-->
-<!--*      https://pretextbook.org       *-->
-<!--*                                    *-->
-<!--**************************************-->
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:25-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
 <html lang="en-US">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Method of series solutions</title>
+<title>Review of Matrices, Vector Fields, Phase Planes and Portraits</title>
 <meta name="Keywords" content="Authored in PreTeXt">
-<meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
@@ -24,7 +26,7 @@ MathJax.Hub.Config({
     jax: ["input/AsciiMath"],
     extensions: ["asciimath2jax.js"],
     TeX: {
-        extensions: ["extpfeil.js", "autobold.js", "https://pretextbook.org/js/lib/mathjaxknowl.js", ],
+        extensions: ["extpfeil.js", "autobold.js", "https://pretextbook.org/js/lib/mathjaxknowl.js", "AMScd.js", ],
         // scrolling to fragment identifiers is controlled by other Javascript
         positionToHash: false,
         equationNumbers: { autoNumber: "none", useLabelIds: true, },
@@ -41,31 +43,21 @@ MathJax.Hub.Config({
         mtextFontInherit: true,
     },
 });
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><script>$(function () {
-    // Make *any* div with class 'sagecell-sage' an executable Sage cell
-    // Their results will be linked, only within language type
-    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
-                           linked: true,
-                           languages: ['sage'],
-                           evalButtonText: 'Evaluate (Sage)'});
-});
-</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.12/pretext.js"></script><script src="https://pretextbook.org/js/0.12/pretext_add_on.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/pretext.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/toc.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/colors_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/setcolors.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/features.css" rel="stylesheet" type="text/css">
-<script>var logged_in = false;
-var role = 'student';
-var guest_access = true;
-var login_required = false;
-var js_version = 0.12;
-</script>
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="mathbook-book has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div class="hidden-content" style="display:none">\(\DeclareMathOperator{\RE}{Re}
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" class="hidden-content" style="display:none">\(\DeclareMathOperator{\RE}{Re}
   \DeclareMathOperator{\IM}{Im}
   \DeclareMathOperator{\ess}{ess}
   \DeclareMathOperator{\intr}{int}
@@ -168,17 +160,17 @@ var js_version = 0.12;
 <p class="byline">Phanuel Mariano, Ryan Tully-Doyle</p>
 </div>
 </div></div>
-<nav id="primary-navbar" class="navbar"><div class="container">
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
 <div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="ch5-1.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch5.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="ch6.html" title="Next">Next</a></span></div>
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="ch5-1.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch5.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="ch5-3.html" title="Next">Next</a></span></div>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="ch5-1.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch5.html" title="Up">Up</a><a class="next-button button toolbar-item" href="ch6.html" title="Next">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="ch5-1.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch5.html" title="Up">Up</a><a class="next-button button toolbar-item" href="ch5-3.html" title="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
-<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
 <nav id="toc"><ul>
-<li class="link"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
 <li class="link">
 <a href="introduction.html" data-scroll="introduction"><span class="codenumber">1</span> <span class="title">Introduction</span></a><ul>
 <li><a href="ch1-1.html" data-scroll="ch1-1">Modeling via differential equations, some solutions and definitions</a></li>
@@ -206,9 +198,9 @@ var js_version = 0.12;
 <li><a href="ch3-4.html" data-scroll="ch3-4">Complex roots of the characteristic equation</a></li>
 <li><a href="ch3-5.html" data-scroll="ch3-5">Repeated roots; Reduction of order</a></li>
 <li><a href="ch3-6.html" data-scroll="ch3-6">Non-homogeneous equations - Undetermined coefficients</a></li>
-<li><a href="ch3-7.html" data-scroll="ch3-7">Variation of Parameters</a></li>
 <li><a href="ch3-8.html" data-scroll="ch3-8">Harmonic oscillations</a></li>
 <li><a href="ch3-9.html" data-scroll="ch3-9">Forced oscillations</a></li>
+<li><a href="ch3-7.html" data-scroll="ch3-7">Variation of Parameters</a></li>
 </ul>
 </li>
 <li class="link">
@@ -218,9 +210,14 @@ var js_version = 0.12;
 </ul>
 </li>
 <li class="link">
-<a href="ch5.html" data-scroll="ch5"><span class="codenumber">5</span> <span class="title">Series Solutions</span></a><ul>
-<li><a href="ch5-1.html" data-scroll="ch5-1">Power Series</a></li>
-<li><a href="ch5-2.html" data-scroll="ch5-2" class="active">Method of series solutions</a></li>
+<a href="ch5.html" data-scroll="ch5"><span class="codenumber">5</span> <span class="title">Systems of First Order Linear Equations</span></a><ul>
+<li><a href="ch5-1.html" data-scroll="ch5-1">Systems of First Order Linear Equations</a></li>
+<li><a href="ch5-2.html" data-scroll="ch5-2" class="active">Review of Matrices, Vector Fields, Phase Planes and Portraits</a></li>
+<li><a href="ch5-3.html" data-scroll="ch5-3">Systems of Linear Equations: Linear Independence, and the General Solution Theorem</a></li>
+<li><a href="ch5-4.html" data-scroll="ch5-4">Basic Theory of Systems of 1st Order Linear EQs - Straight Line Solutions</a></li>
+<li><a href="ch5-5.html" data-scroll="ch5-5">Phase Portraits for systems with real eigenvalues</a></li>
+<li><a href="ch5-6.html" data-scroll="ch5-6">Complex Eigenvalues</a></li>
+<li><a href="ch5-7.html" data-scroll="ch5-7">Repeated and zero eigenvalues</a></li>
 </ul>
 </li>
 <li class="link">
@@ -234,7 +231,13 @@ var js_version = 0.12;
 <li><a href="ch6-7.html" data-scroll="ch6-7">The convolution integral</a></li>
 </ul>
 </li>
-<li class="link"><a href="backmatter-1.html" data-scroll="backmatter-1"><span class="title">Back Matter</span></a></li>
+<li class="link">
+<a href="ch7.html" data-scroll="ch7"><span class="codenumber">7</span> <span class="title">Series Solutions</span></a><ul>
+<li><a href="ch7-1.html" data-scroll="ch7-1">Power Series</a></li>
+<li><a href="ch7-2.html" data-scroll="ch7-2">Method of series solutions</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1"><span class="title">Back Matter</span></a></li>
 <li class="link"><a href="quadratic.html" data-scroll="quadratic"><span class="codenumber">A</span> <span class="title">A fast quadratic method</span></a></li>
 <li class="link">
 <a href="exercises.html" data-scroll="exercises"><span class="codenumber">B</span> <span class="title">Exercises for Chapter 1</span></a><ul>
@@ -262,8 +265,9 @@ var js_version = 0.12;
 <li><a href="ex3-4.html" data-scroll="ex3-4">Section 3.4</a></li>
 <li><a href="ex3-5.html" data-scroll="ex3-5">Section 3.5</a></li>
 <li><a href="ex3-6.html" data-scroll="ex3-6">Section 3.6</a></li>
-<li><a href="ex3-7.html" data-scroll="ex3-7">Section 3.7</a></li>
-<li><a href="ex3-8.html" data-scroll="ex3-8">Section 3.8/Section 3.9</a></li>
+<li><a href="ex3-8.html" data-scroll="ex3-8">Section 3.7</a></li>
+<li><a href="ex3-9.html" data-scroll="ex3-9">Section 3.8</a></li>
+<li><a href="ex3-7.html" data-scroll="ex3-7">Section 3.9</a></li>
 </ul>
 </li>
 <li class="link">
@@ -273,7 +277,18 @@ var js_version = 0.12;
 </ul>
 </li>
 <li class="link">
-<a href="appendix-6.html" data-scroll="appendix-6"><span class="codenumber">F</span> <span class="title">Exercises for Chapter 6</span></a><ul>
+<a href="appendix-6.html" data-scroll="appendix-6"><span class="codenumber">F</span> <span class="title">Exercises for Chapter 5</span></a><ul>
+<li><a href="ex5-1.html" data-scroll="ex5-1">Section 5.1</a></li>
+<li><a href="ex5-2.html" data-scroll="ex5-2">Section 5.2</a></li>
+<li><a href="ex5-3.html" data-scroll="ex5-3">Section 5.3</a></li>
+<li><a href="ex5-4.html" data-scroll="ex5-4">Section 5.4</a></li>
+<li><a href="ex5-5.html" data-scroll="ex5-5">Section 5.5</a></li>
+<li><a href="ex5-6.html" data-scroll="ex5-6">Section 5.6</a></li>
+<li><a href="ex5-7.html" data-scroll="ex5-7">Section 5.7</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="appendix-7.html" data-scroll="appendix-7"><span class="codenumber">G</span> <span class="title">Exercises for Chapter 6</span></a><ul>
 <li><a href="ex6-1.html" data-scroll="ex6-1">Section 6.1</a></li>
 <li><a href="ex6-2.html" data-scroll="ex6-2">Section 6.2</a></li>
 <li><a href="ex6-3.html" data-scroll="ex6-3">Section 6.3</a></li>
@@ -283,228 +298,396 @@ var js_version = 0.12;
 </li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
-<main class="main"><div id="content" class="pretext-content"><section class="section" id="ch5-2"><h2 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">5.2</span> <span class="title">Method of series solutions</span>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="ch5-2"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">5.2</span> <span class="title">Review of Matrices, Vector Fields, Phase Planes and Portraits</span>
 </h2>
-<a href="ch5-2.html" class="permalink">¶</a><p id="p-519">The idea of this section is to use series to construct solutions to linear differential equations that don't have obvious closed form solutions (which is most of them). First, we need to know that the differential equation is itself sufficiently well-behaved to have analytic solutions.</p>
-<article class="definition-like" id="defordpoint"><h6 class="heading">
-<span class="type">Definition</span> <span class="codenumber">5.2.1</span>.</h6>
-<p id="p-520">A point \(x=x_0\) is called an <dfn class="terminology">ordinary point</dfn> for a homogeneous second order differential equation of the form</p>
+<section class="introduction" id="introduction-14"><p id="p-531">We will start by considering the following <dfn class="terminology">linear system with constant coefficients</dfn>:</p>
+<div class="displaymath">
+\begin{align*}
+x_{1}^{\prime} \amp =  ax_{1}+bx_{2}\\
+x_{2}^{\prime} \amp =  cx_{1}+dx_{2}.
+\end{align*}
+</div>
+<p data-braille="continuation">Let</p>
 <div class="displaymath">
 \begin{equation*}
-y'' + P(x)y' + Q(x)y = 0
+A=\left(\begin{array}{cc}
+a \amp b\\
+c \amp d
+\end{array}\right)
 \end{equation*}
 </div>
-<p>if \(P\) and \(Q\) are analytic at \(x_0\text{.}\) (Typical functions for \(P,Q\) are trig functions, exponentials, polynomials, and rational functions, which are analytic away from asymptotes).</p></article><article class="example-like" id="example-87"><a data-knowl="" class="id-ref" data-refid="hk-example-87"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">5.2.2</span>.</h6></a></article><div id="hk-example-87" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-521">Every point \(x=x_0\) is ordinary for the differential equation</p>
+<p data-braille="continuation">be a matrix and let \(\mathbf{x}=\left(\begin{array}{c}
+x_{1}\\
+x_{2}
+\end{array}\right)\) be a vector. We can define <dfn class="terminology">matrix-vector</dfn> product as</p>
 <div class="displaymath">
 \begin{equation*}
-y'' + e^x y = 0.
+A\mathbf{x}=\left(\begin{array}{cc}
+a \amp b\\
+c \amp d
+\end{array}\right)\left(\begin{array}{c}
+x_{1}\\
+x_{2}
+\end{array}\right)=\left(\begin{array}{c}
+ax_{1}+bx_{2}\\
+cx_{1}+dx_{2}
+\end{array}\right).
+\end{equation*}
+</div>
+<p data-braille="continuation">For example, if \(A=\left(\begin{array}{cc}
+1 \amp 2\\
+-1 \amp 3
+\end{array}\right)\) and \(\mathbf{x}=\left(\begin{array}{c}
+2\\
+1
+\end{array}\right)\text{,}\) then</p>
+<div class="displaymath">
+\begin{equation*}
+A\mathbf{x}=\left(\begin{array}{cc}
+1 \amp 2\\
+-1 \amp 3
+\end{array}\right)\left(\begin{array}{c}
+2\\
+1
+\end{array}\right)=\left(\begin{array}{c}
+2+2\\
+-2+3
+\end{array}\right)=\left(\begin{array}{c}
+4\\
+1
+\end{array}\right)
+\end{equation*}
+</div>
+<p data-braille="continuation">One can also <dfn class="terminology">add</dfn> vectors and <dfn class="terminology">scale</dfn> vectors! For example, if \(\mathbf{x}_{1}=\left(\begin{array}{c}
+x_{1}\\
+x_{2}
+\end{array}\right)\) and \(\mathbf{x}_{2}=\left(\begin{array}{c}
+y_{1}\\
+y_{2}
+\end{array}\right)\text{,}\) then</p>
+<div class="displaymath">
+\begin{equation*}
+\mathbf{x}_{1}+\mathbf{x}_{2}=\left(\begin{array}{c}
+x_{1}+y_{1}\\
+x_{1}+y_{2}
+\end{array}\right)
+\end{equation*}
+</div>
+<p data-braille="continuation">and if \(c\in\mathbb{R}\) then</p>
+<div class="displaymath">
+\begin{equation*}
+c\mathbf{x}_{1}=c\left(\begin{array}{c}
+x_{1}\\
+x_{2}
+\end{array}\right)=\left(\begin{array}{c}
+cx_{1}\\
+cx_{2}
+\end{array}\right)
+\end{equation*}
+</div>
+<p id="p-532">Thus we can write a system of ODES, such as</p>
+<div class="displaymath">
+\begin{align*}
+x_{1}^{\prime} \amp =  ax_{1}+bx_{2}\\
+x_{2}^{\prime} \amp =  cx_{1}+dx_{2}.
+\end{align*}
+</div>
+<p data-braille="continuation">as</p>
+<div class="displaymath">
+\begin{equation*}
+\mathbf{x}^{\prime}=A\mathbf{x}
+\end{equation*}
+</div>
+<p data-braille="continuation">where \(A=\left(\begin{array}{cc}
+a \amp b\\
+c \amp d
+\end{array}\right)\) and \(\mathbf{x}=\left(\begin{array}{c}
+x_{1}\\
+x_{2}
+\end{array}\right)\text{.}\) Here \(A\) is called the coefficient matrix. One could also write</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{d\mathbf{x}}{dt}=A\mathbf{x}.
+\end{equation*}
+</div></section><article class="example example-like" id="example-87"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-87"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.2.1</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-87"><article class="example example-like"><p id="p-533">The system</p>
+<div class="displaymath">
+\begin{align*}
+x_{1}^{\prime} \amp =-2x_{1}+x_{2}\\
+x_{2}^{\prime} \amp =x_{1}-2x_{2}
+\end{align*}
+</div>
+<p data-braille="continuation">can be represented by</p>
+<div class="displaymath">
+\begin{align*}
+\left(\begin{array}{c}
+x_{1}^{\prime}\\
+x_{2}
+\end{array}\right) \amp =\left(\begin{array}{cc}
+-2 \amp 1\\
+1 \amp -2
+\end{array}\right)\left(\begin{array}{c}
+x_{1}\\
+x_{2}
+\end{array}\right) \\
+\mathbf{x}^{\prime} \amp =A\mathbf{x}
+\end{align*}
+</div></article></div>
+<article class="example example-like" id="example-88"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-88"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.2.2</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-88"><article class="example example-like"><p id="p-534">Verify that \(\mathbf{x}=\left(\begin{array}{c}
+1\\
+-2
+\end{array}\right)e^{-4t}\) is a solution to</p>
+<div class="displaymath">
+\begin{equation*}
+\mathbf{x}^{\prime}=\left(\begin{array}{cc}
+2 \amp 3\\
+4 \amp -2
+\end{array}\right)\mathbf{x}.
+\end{equation*}
+</div>
+<p id="p-535"><dfn class="terminology">Solution:</dfn></p>
+<p id="p-536">We plug \(\mathbf{x}=\left(\begin{array}{c}
+1\\
+-2
+\end{array}\right)e^{-4t}\) into the LHS and RHS and see if they are equal to each other</p>
+<div class="displaymath">
+\begin{equation*}
+\text{LHS}=\mathbf{x}^{\prime}=\left(\begin{array}{c}
+e^{-4t}\\
+-2e^{-4t}
+\end{array}\right)^{\prime}=\left(\begin{array}{c}
+-4e^{-4t}\\
+8e^{-4t}
+\end{array}\right)
+\end{equation*}
+</div>
+<p data-braille="continuation">and</p>
+<div class="displaymath">
+\begin{align*}
+\text{RHS} \amp =\left(\begin{array}{cc}
+2 \amp 3\\
+4 \amp -2
+\end{array}\right)\mathbf{x}=\left(\begin{array}{cc}
+2 \amp 3\\
+4 \amp -2
+\end{array}\right)\left(\begin{array}{c}
+e^{-4t}\\
+-2e^{-4t}
+\end{array}\right)\\
+\amp =\left(\begin{array}{c}
+2e^{-4t}-6e^{-4t}\\
+4e^{-4t}+4e^{-4t}
+\end{array}\right)\\
+\amp =\left(\begin{array}{c}
+-4e^{-4t}\\
+8e^{-4t}
+\end{array}\right)
+\end{align*}
+</div>
+<p data-braille="continuation">since</p>
+<div class="displaymath">
+\begin{equation*}
+\text{LHS}=\text{RHS}
+\end{equation*}
+</div>
+<p data-braille="continuation">then \(\mathbf{x}=\left(\begin{array}{c}
+1\\
+-2
+\end{array}\right)e^{-4t}\) is a solution to this system.</p></article></div>
+<section class="subsection" id="subsection-51"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.2.1</span> <span class="title">Visualizing solutions to systems of first order ODEs (Phase Planes/Phase Portraits)</span>
+</h3>
+<p id="p-537">What do solutions \(\mathbf{x}(t)\) to \(\mathbf{x}^{\prime}=A\mathbf{x}\) look like? <dfn class="terminology">They are parametric equations in the plane!</dfn>. We can graph in the \(x_{1}-x_{2}\) plane since</p>
+<div class="displaymath">
+\begin{equation*}
+\mathbf{x}(t)=\left(x_{1}(t),x_{2}(t)\right)
+\end{equation*}
+</div>
+<p data-braille="continuation">is a vector (or point) that changes in time. Recall that this requires some knowledge of multivariable Calculus. Also note that there is no axis for time here! Imagine a curve passing through time.</p>
+<p id="p-538">The <dfn class="terminology">Phase Plane</dfn> is  the \(x_1-x_2\) plane in which the parametric curve (or trajectory) of the solution \(\mathbf{x}(t)=\left(x_{1}(t),x_{2}(t)\right)\) is drawn.</p>
+<article class="example example-like" id="example-89"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-89"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.2.3</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-89"><article class="example example-like"><p id="p-539">Suppose \(\mathbf{x}(t)=\left(\cos t,\sin t\right)\text{,}\) draw the trajectory of \(\mathbf{x}(t) \) for \(0\leq t\leq2\pi\) on the Phase plane. <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/5-parametric1.png" style="width: 100%; height: auto;" alt=""></div></p></article></div>
+<p id="p-540">A <dfn class="terminology">Phase Portrait</dfn>  is a portrait of several different solutions to the system with different initial conditions conditions.</p>
+<article class="example example-like" id="example-90"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-90"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.2.4</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-90"><article class="example example-like"><p id="p-541">Here is an example of a Phase Portrait drawn on the Phase plane. <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/7.2-1.png" style="width: 100%; height: auto;" alt=""></div></p></article></div>
+<p id="p-542">What are the simplest solutions? An <dfn class="terminology">equilibrium solution</dfn> is a constant solution: \(\mathbf{x}(t)=(x_{0},y_{0})\text{.}\) An equilibrum solution is graphed as dot, since as time moves on, the vector stays constant in the same place. To solve for the equilibrium solution you set the derivatives equal to zero, in this case</p>
+<div class="displaymath">
+\begin{equation*}
+A\mathbf{x}=\mathbf{0}.
+\end{equation*}
+</div>
+<article class="example example-like" id="example-91"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-91"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.2.5</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-91"><article class="example example-like"><p id="p-543">Find the Equilibrium solutions to</p>
+<div class="displaymath">
+\begin{equation*}
+\mathbf{x}^{\prime}=\left(\begin{array}{cc}
+1 \amp 2\\
+2 \amp 4
+\end{array}\right)\mathbf{x}
+\end{equation*}
+</div>
+<p data-braille="continuation">We must solve</p>
+<div class="displaymath">
+\begin{align*}
+\left(\begin{array}{cc}
+1 \amp 2\\
+2 \amp 4
+\end{array}\right)\mathbf{x}=0 \amp \iff\begin{cases}
+x_{1}+2x_{2}=0\\
+2x_{1}+4x_{2}=0
+\end{cases}\\
+\amp \iff x_{1}=-2x_{2}
+\end{align*}
+</div>
+<p data-braille="continuation">since these equations are multiple of each other than there is a whole line of solutions:</p>
+<div class="displaymath">
+\begin{equation*}
+x_{1}=-2x_{2}
+\end{equation*}
+</div>
+<p data-braille="continuation">and it turn out that the solution are of then form:</p>
+<div class="displaymath">
+\begin{align*}
+\mathbf{x}(t) \amp =\left(\begin{array}{c}
+-2x_{2}\\
+x_{2}
+\end{array}\right)\\
+\amp =x_{2}\left(\begin{array}{c}
+-2\\
+1
+\end{array}\right).
+\end{align*}
+</div>
+<p data-braille="continuation">Using a generic constant \(c \text{,}\) we have that there are an infinite number of equilibrium solutions:</p>
+<div class="displaymath">
+\begin{equation*}
+\mathbf{x}(t)=c\left(\begin{array}{c}
+-2\\
+1
+\end{array}\right).
 \end{equation*}
 </div></article></div>
-<article class="example-like" id="example-88"><a data-knowl="" class="id-ref" data-refid="hk-example-88"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">5.2.3</span>.</h6></a></article><div id="hk-example-88" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-522">Every positive \(x_0\) is ordinary for the equation</p>
+<article class="example example-like" id="example-92"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-92"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.2.6</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-92"><article class="example example-like"><p id="p-544">Find the Equilibrium solutions to</p>
 <div class="displaymath">
 \begin{equation*}
-y'' + (\ln x) y = 0.
+\mathbf{x}^{\prime}=\left(\begin{array}{cc}
+1 \amp 2\\
+3 \amp 4
+\end{array}\right)\mathbf{x}
 \end{equation*}
 </div>
-<p>However, \(\ln x\) has an asymptote at \(x=0\text{,}\) so this is a <dfn class="terminology">singular point</dfn> for the equation. (Singular points are important to consider but quite complicated to analyze, and addressed in further advanced courses in ODE).</p></article></div>
-<p id="p-523">The big idea of power series solutions is that if</p>
-<div class="displaymath">
-\begin{equation*}
-y'' + P y' + Q y = 0
-\end{equation*}
-</div>
-<p>then at any ordinary point \(x = x_0\) we can find two linearly independent power series centered at \(x_0\) that solve the differential equation of the form</p>
-<div class="displaymath">
-\begin{equation*}
-y = \sum_{k=0}^\infty c_k (x-x_0)^k.
-\end{equation*}
-</div>
-<p>The challenge is to find the coefficients \(c_k\text{.}\)</p>
-<article class="example-like" id="example-89"><a data-knowl="" class="id-ref" data-refid="hk-example-89"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">5.2.4</span>. <span class="title">First order example.</span>
-</h6></a></article><div id="hk-example-89" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-524">To illustrate the method, we'll begin with the power series approach to a first order differential equation</p>
-<div class="displaymath">
-\begin{equation*}
-y' - 2y = 0.
-\end{equation*}
-</div>
-<p>Of course, we already know that the solution to this equation should be \(y = k e^{2x}\) by the method of characteristic equations, so we should expect our series answer to recover that.</p>
-<p id="p-525">Since the equation is regular at every point, (2 is analytic), for convenience, we will work at the regular point \(x = 0\text{.}\) We will assume that the solution \(y = f(x)\) is a power series, which gives the expressions</p>
+<p data-braille="continuation">We must solve</p>
 <div class="displaymath">
 \begin{align*}
-y \amp = \sum_{k=0}^\infty c_k x^k  = c_0 + c_1 x + c_2 x^2 + \ldots;\\
-y' \amp = \sum_{k=0}^\infty (k+1) c_{k+1} x^k  = c_1 + 2c_2 x + 3c_3 x^2 + \ldots.
+\left(\begin{array}{cc}
+1 \amp 2\\
+3 \amp 4
+\end{array}\right)\mathbf{x}=0 \amp \iff\begin{cases}
+x_{1}+2x_{2}=0\\
+3x_{1}+4x_{2}=0
+\end{cases}\\
+\amp \iff x_{1}=0, x_{2}=0
 \end{align*}
+</div></article></div>
+<p id="p-545">A <dfn class="terminology">vector field</dfn> is an assignment of a vector to each point in the plane.  We consider vector fields  of the system</p>
+<div class="displaymath">
+\begin{equation*}
+\mathbf{x}^{\prime}=A\mathbf{x}
+\end{equation*}
 </div>
-<p>Plugging into the differential equation, we get</p>
+<p data-braille="continuation">which can be drawn using the following assignment:</p>
+<div class="displaymath">
+\begin{equation*}
+\mathbf{F}(x_{1},x_{2})=A\mathbf{x}.
+\end{equation*}
+</div>
+<p id="p-546">Or more generally, if the system is written as</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{cases}
+x_{1}^{\prime}=f(x_{1},x_{2})\\
+x_{2}=g(x_{1},x_{2})
+\end{cases}
+\end{equation*}
+</div>
+<p data-braille="continuation">then we can rewrite this as</p>
+<div class="displaymath">
+\begin{equation*}
+\mathbf{x}^{\prime}=\mathbf{F}\left(\mathbf{x}\right)
+\end{equation*}
+</div>
+<p data-braille="continuation">where the vector field on the right hand side is given by</p>
+<div class="displaymath">
+\begin{equation*}
+\mathbf{F}\left(\mathbf{x}\right)=\mathbf{F}\left(x_{1},x_{2}\right)=\left(\begin{array}{c}
+f(x_{1},x_{2})\\
+g(x_{1},x_{2})
+\end{array}\right).
+\end{equation*}
+</div>
+<p data-braille="continuation">Note if we picture \(\mathbf{x}(t)\) as particle moving through space, then \(\mathbf{x}^{\prime}\) represents the vector tangent to the curve drawn out by \(\mathbf{x}(t)\text{.}\) Thus the vector field</p>
+<div class="displaymath">
+\begin{equation*}
+\mathbf{F}\left(x_{1},x_{2}\right)
+\end{equation*}
+</div>
+<p data-braille="continuation">represents these tangent vector. Thus by drawing out the vector field \(\mathbf{F}\) on the plane, we can obtain a general idea of what the solution \(\mathbf{x}(t)\) looks like.</p>
+<p id="p-547">A <dfn class="terminology">direction field</dfn> is a vector field, but with all the lengths normalized (all lengths are the same). Most computer software will draw out direction fields, since vector fields can be hard to draw if the length of the vectors get too big.</p>
+<article class="example example-like" id="example-93"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-93"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.2.7</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-93"><article class="example example-like"><p id="p-548">Consider</p>
 <div class="displaymath">
 \begin{align*}
-(c_1 + 2c_2 x + 3c_3 x^2 + \ldots) - 2(c_0 + c_1 x + c_2 x^2 + \ldots) \amp = 0\\
-(c_1 - 2c_0) + (2c_2 - 2c_1)x + (3c_3 - 2c_2)x^2 + \ldots\amp = 0.
+x_{1}^{\prime} \amp =x_{1}\\
+x_{2}^{\prime} \amp =1. 
 \end{align*}
 </div>
-<p>What we get when we set all the coefficients equal to 0 is called a <dfn class="terminology">recursion</dfn>: if we know \(c_0\text{,}\) we can get \(c_1\text{,}\) which lets us get \(c_2\) and so on. We use substitution to get all the values in terms of the first value \(c_0\text{.}\)</p>
-<div class="displaymath">
-\begin{equation*}
-\begin{array}{ccc}
-c_1 - 2c_0 = 0 \amp \Rightarrow \amp c_1 = 2c_0 \\
-2c_2 - 2c_1 = 0 \amp \Rightarrow \amp c_2 = c_1 = 2c_0 \\
-3c_3 - 2c_2 = 0 \amp \Rightarrow \amp c_3 = \frac{2}{3}c_2 = \frac{4}{3}c_0 \\
-4c_4 - 2c_3 = 0 \amp \Rightarrow \amp c_4 = \frac{2}{4}c_3 = \frac{2}{3} c_0 \\
-\vdots \amp \vdots \amp \vdots
-\end{array}
-\end{equation*}
-</div>
-<p>Now we can substitute these expressions into our assumed solution \(y\text{:}\)</p>
+<p data-braille="continuation">Draw a rough sketch of the vector field. Use a computer software to draw a direction field. Then draw a rough Phase portrait based on this direction field. (In later sections, we will be able to draw exactly what the Phase portrait should roughly look like without making guesses)</p>
+<p id="p-549"><dfn class="terminology">Solution:</dfn></p>
+<p id="p-550">Using the vector Field \(\mathbf{F}(x_{1},x_{2})=\left(x_{1},1\right)\text{.}\) One example of an applet that lets you draw direction fields: <a class="external" href="https://homepages.bluffton.edu/~nesterd/apps/slopefields.html" target="_blank">https://homepages.bluffton.edu/~nesterd/apps/slopefields.html</a> We get <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/5-VecField1.png" style="width: 100%; height: auto;" alt=""></div> Thus a Phase Portrait would look like: <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/5-VecField1b.png" style="width: 100%; height: auto;" alt=""></div> Recall that a Phase portrait is simply several examples of solutions (which are Phase planes) to the system.</p></article></div>
+<article class="example example-like" id="example-94"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-94"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.2.8</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-94"><article class="example example-like"><p id="p-551">Consider the IVP</p>
 <div class="displaymath">
 \begin{align*}
-y \amp = c_0 + c_1 x + c_2 x^2 + c_3 x^3 + \ldots\\
-\amp = c_0 + (2c_0) x + (2c_0)x^2 + (\frac{4}{3}c_0)x^3 + \ldots\\
-\amp = c_0\underbrace{\left(1 + 2x + 2x^2 + \frac{4}{3} x^3 + \ldots \right)}_{\text{homogeneous solution}}
+x_{1}^{\prime} \amp =x_{1}\,\,\,\,\,\,,x_{1}(0)=-1\\
+x_{2}^{\prime} \amp =1\,\,\,\,\,\,\,\,,x_{2}(0)=0
 \end{align*}
 </div>
-<p>The quantity \(c_0\) comes from an intital condition, and the series in this case turns out to be the power series of the function \(e^{2x}\) (check if you like!).</p></article></div>
-<article class="example-like" id="example-90"><a data-knowl="" class="id-ref" data-refid="hk-example-90"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">5.2.5</span>. <span class="title">Airy's equation.</span>
-</h6></a></article><div id="hk-example-90" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-526">The next example first appeared in work on optics in 1838. It is a very simple second order linear equation, yet does <em class="emphasis">not have any closed form solutions</em>. That is, the only approach to finding solutions is to use series methods. The solutions turn out to have applications in quantum physics as well as in optics. The equation is the straightforward looking</p>
+<p data-braille="continuation">Using the previous example, draw a rough sketch of the trajectory for the solution of this IVP on the Phase plane and predict the long term behavior of the solution. (In later sections, we will be able to draw better graphs without using the vector field, and we will be able to find the exact long term behavior without guessing)</p>
+<p id="p-552"><dfn class="terminology">Solution</dfn></p>
+<p id="p-553">By following the general direction of the vectors in the vector field above starting at the point \((-1,0)\) in the \(x_{1}-x_{2}\) plane we obtain: <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/5-VecField1c.png" style="width: 100%; height: auto;" alt=""></div> Note that</p>
 <div class="displaymath">
 \begin{equation*}
-y'' - x y = 0.
+\lim_{t\to\infty}x_{1}(t)=-\infty
 \end{equation*}
 </div>
-<p id="p-527">Since \(P = 0\) and \(Q = x\text{,}\) both of which are analytic functions, series solutions exist everywhere, so we assume a center point of \(x_0 = 0\text{.}\) Then we have the expressions</p>
 <div class="displaymath">
-\begin{gather*}
-y = \sum_{k=0}^\infty c_k x^k = c_0 + c_1 x + c_2 x^2 + c_3 x^3 + c_4 x^4 + \ldots\\
-y' = \sum_{k=0}^\infty (k+1) c_{k+1} x^k = c_1 + 2c_2 x + 3 c_3 x^2 + 4 c_4 x^3 + \ldots\\
-y'' = \sum_{k=0}^\infty (k+2)(k+1) c_{k+2} x^k = 2c_2 + 6c_3 x + 12 c_4 x^2 + 20c_5 x^3 + \ldots
-\end{gather*}
-</div>
-<p>Plugging into Airy's equation, we get</p>
+\begin{equation*}
+\lim_{t\to\infty}x_{2}(t)=+\infty
+\end{equation*}
+</div></article></div>
+<article class="example example-like" id="example-95"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-95"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.2.9</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-95"><article class="example example-like"><p id="p-554">Consider</p>
 <div class="displaymath">
 \begin{align*}
-\amp(2c_2 + 6c_3 x + 12 c_4 x^2 + 20c_5 x^3 + \ldots)\\
-\amp\hspace{1in} - x(c_0 + c_1 x + c_2 x^2 + c_3 x^3 + c_4 x^4 + \ldots) = 0\\
-\amp(2c_2 + 6c_3 x + 12 c_4 x^2 + 20c_5 x^3 + \ldots)\\
-\amp\hspace{1in} - (c_0 x + c_1 x^2 + c_2 x^3 + c_3 x^4 + c_4 x^5 + \ldots) = 0\\
-\amp\text{which resorts into}\\
-\amp2c_2 + (6c_3 - c_0)x + (12c_4 - c_1)x^2 + (20c_5 - c_2)x^3 \\
-\amp\hspace{1in}+ (30c_6 - c_3)x^4 + (42c_7 - c_4)x^5 + \ldots = 0
+x_{1}^{\prime} \amp =x_{2}\\
+x_{2}^{\prime} \amp =-2x_{1}
 \end{align*}
 </div>
-<p>Now we set the coefficients of each term equal to 0.</p>
-<p id="p-528">First, notice that \(2c_2 =0\) means that \(c_2 = 0\text{.}\) But \(20c_5 - c_2 = 0\text{,}\) and so \(c_5 =0\) as well. Since, \(c_8\) is given in terms of \(c_5\text{,}\) \(c_8\) is also 0, and so on for the family of coefficients \(c_2, c_5, c_8, c_{11}, \ldots\text{.}\) The is one family of coefficients.</p>
-<p id="p-529">The second family is in terms of \(c_0\text{:}\)</p>
-<div class="displaymath">
-\begin{equation*}
-\begin{array}{ccc}
-6c_3 - c_0 = 0 \amp \Rightarrow \amp c_3 = \frac{1}{6} c_0 \\
-30 c_6 - c_3 = 0 \amp \Rightarrow \amp c_6 = \frac{1}{6\cdot 5} c_3 = \frac{1}{6\cdot5\cdot3\cdot2} c_0 \\
-72 c_9 - c_6 = 0 \amp \Rightarrow \amp c_9 = \frac{1}{9\cdot 8} c_6 = \frac{1}{9\cdot8\cdot6\cdot5\cdot3\cdot2}c_0\\
-\vdots \amp \vdots \amp \vdots
-\end{array}
-\end{equation*}
+<p data-braille="continuation">Draw a rough sketch of the vector field. Use a computer software to draw a vector field. Then draw a rough Phase portrait based on this vector field. (In later sections, we will be able to draw exactly what the Phase portrait should look like without making guesses).</p>
+<p id="p-555"><dfn class="terminology">Solution</dfn></p>
+<p id="p-556">We again can use the following applet to draw the vector fields: <a class="external" href="https://homepages.bluffton.edu/~nesterd/apps/slopefields.html" target="_blank">https://homepages.bluffton.edu/~nesterd/apps/slopefields.html</a> Using the vector Field \(\mathbf{F}(x_{1},x_{2})=\left(x_{2},-2x_{1}\right)\text{.}\) We obtain: <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/5-VecField2.png" style="width: 100%; height: auto;" alt=""></div> A Phase Portrait could be: <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/5-VecField2b.png" style="width: 100%; height: auto;" alt=""></div></p></article></div></section></section></div></main>
 </div>
-<p>which gives expressions for \(c_3, c_6, c_9, c_12, \ldots\) in terms of \(c_0\) (this will correspond to the first linearly independent solution).</p>
-<p id="p-530">The third family of solutions is given by \(c_1\text{:}\)</p>
-<div class="displaymath">
-\begin{equation*}
-\begin{array}{ccc}
-12c_4 - c_1 = 0 \amp \Rightarrow \amp c_4 = \frac{1}{4\cdot3}c_1 \\
-42c_7 - c_3 = 0 \amp \Rightarrow \amp c_7 = \frac{1}{7\cdot6}c_3 = \frac{1}{7\cdot6\cdot4\cdot3}c_1 \\
-90c_{10} -  c_7 \amp \Rightarrow \amp c_{10} = \frac{1}{10\cdot9\cdot 7\cdot6\cdot 4\cdot3}c_1 \\
-\vdots \amp \vdots \amp \vdots
-\end{array}
-\end{equation*}
-</div>
-<p>which gives expressions for \(c_4, c_7, c_{10}, c_{13}, \ldots\) in terms of c_1 (this represents the second linearly independent solution).</p>
-<p id="p-531">Then we are ready to solve the equation. Starting with our assumed solution of the form \(y = \sum c_k x^k\) and sorting into the three families we've identified, we get</p>
-<div class="displaymath">
-\begin{align*}
-y \amp = c_0 + c_1 x + c_2 x^2 + c_3 x^3 \ldots\\
-\amp = c_0 + c_3 x^3 + c_6 x^6 + c_9 x^9 + \ldots \hspace{.5in} c_0 \text{ family}\\
-\amp \phantom{=} + c_1 x + c_4 x^4 + c_7 x^7 + c_{10} x^{10} + \ldots \hspace{.5in} c_1 \text{ family}\\
-\amp \phantom{=} + c_2 x^2 + c_5 x^5 + c_8 x^8 + \ldots \hspace{.5in} c_2 \text{ family}\\
-\amp = c_0\left( 1 + \frac{1}{3\cdot2} x^3 + \frac{1}{6\cdot5\cdot3\cdot2} x^6 + \frac{1}{9\cdot8\cdot6\cdot5\cdot3\cdot2}x^9 + \ldots \right)\\
-\amp \phantom{=} + c_1\left( x + \frac{1}{4\cdot3} x^4 + \frac{1}{7\cdot6\cdot4\cdot3} x^7 + \frac{1}{10\cdot9\cdot 7\cdot6\cdot 4\cdot3} x^{10} + \ldots\right) \\
-\amp \phantom{=} + 0 + 0 + 0 + 0 + \ldots 
-\end{align*}
-</div>
-<p id="p-532">Then the two linearly independent solutions to Airy's equation are</p>
-<div class="displaymath">
-\begin{equation*}
-y_1 = 1 + \frac{1}{3\cdot2} x^3 + \frac{1}{6\cdot5\cdot3\cdot2} x^6 + \frac{1}{9\cdot8\cdot6\cdot5\cdot3\cdot2}x^9 + \ldots
-\end{equation*}
-</div>
-<p>and</p>
-<div class="displaymath">
-\begin{equation*}
-y_2 = x + \frac{1}{4\cdot3} x^4 + \frac{1}{7\cdot6\cdot4\cdot3} x^7 + \frac{1}{10\cdot9\cdot 7\cdot6\cdot 4\cdot3} x^{10} + \ldots
-\end{equation*}
-</div>
-<p>where neither function has a closed form. (The complicated behavior of the solutions is part of why there isn't much better than a series or improper integral form, as can be seen from their plots. The plot below is a slight rearrangment of the two solutions into a different fundamental set, but preserves the same behavior - namely, the functions are oscillating and then become exponential.)</p>
-<div class="hidden-sagecell-sage" id="sage-22"><script type="text/x-sage">y =  Graphics();
-y += plot(airy_ai(x), (x,-10,5), ymin = -1, ymax = 1, color = 'red');
-y += plot(airy_bi(x), (x,-10,5), ymin = -1, ymax = 1);
-y.show()
-</script></div></article></div>
-<article class="example-like" id="example-91"><a data-knowl="" class="id-ref" data-refid="hk-example-91"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">5.2.6</span>. <span class="title">Bessel equations.</span>
-</h6></a></article><div id="hk-example-91" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-533">Another important example is the so callled <dfn class="terminology">Bessel Differential Equation</dfn>:</p>
-<div class="displaymath">
-\begin{equation*}
-x^{2}y^{\prime\prime}+xy^{\prime}+\left(x^{2}-\nu^{2}\right)y=0,\,\,\,\,\,\,x&gt;0
-\end{equation*}
-</div>
-<p>where \(\nu\) is some constant. For sake of simplicity, let us pick \(\nu=0\text{,}\) so that</p>
-<div class="displaymath">
-\begin{equation*}
-x^{2}y^{\prime\prime}+xy^{\prime}+x^{2}y=0\,\,\,\,\,\,x&gt;0
-\end{equation*}
-</div>
-<p>and we can rewrite this equation by dividing by \(x^{2}\) to get</p>
-<div class="displaymath">
-\begin{equation*}
-y^{\prime\prime}+\frac{1}{x}y^{\prime}+y=0,\,\,\,\,\,\,x&gt;0.
-\end{equation*}
-</div>
-<p>Much like Airy's equation, this seems like such a simple equation, but it turns out there is no nice solution in terms of elementary functions. In turns out that one way to solve this Bessel ODE is to use power series. (Since \(x &gt; 0\text{,}\) the function \(\frac{1}{x}\) is analytic.) One can find out that</p>
-<div class="displaymath">
-\begin{align*}
-y_{1}(x) \amp =J_{0}(x),\\
-y_{2}(x) \amp =Y_{0}(x)
-\end{align*}
-</div>
-<p>where</p>
-<div class="displaymath">
-\begin{equation*}
-J_{0}(x) =\sum_{n=0}^{\infty}\frac{(-1)^{n}}{\left(n!\right)^{2}2^{2n}}x^{2n}.
-\end{equation*}
-</div>
-<p id="p-534">\(J_{0}(x)\) is called the Bessel function of first kind of order \(\nu=0\text{.}\) \(Y_{0}(x)\) is called the Bessel function of second kind of order \(\nu=0\text{.}\) \(Y_{0}(x)\) can also be represented by a series, but is more complicated. Another way to write \(Y_{0}\) is as an integral,</p>
-<div class="displaymath">
-\begin{equation*}
-Y_{0}(x)=-\frac{2}{\pi}\int_{1}^{\infty}\frac{\cos\left(tx\right)}{\sqrt{t^{2}-1}}dt,\,\,x&gt;0
-\end{equation*}
-</div>
-<p>Thus the general solution to Bessel Equation</p>
-<div class="displaymath">
-\begin{equation*}
-y^{\prime\prime}+\frac{1}{x}y^{\prime}+y=0,\,\,\,\,x&gt;0
-\end{equation*}
-</div>
-<p>is given by</p>
-<div class="displaymath">
-\begin{align*}
-y(x) \amp =c_{1}J_{0}(x)+c_{2}Y_{0}(x)\\
-\amp =c_{1}\sum_{n=0}^{\infty}\frac{(-1)^{n}}{\left(n!\right)^{2}2^{2n}}x^{2n}-c_{2}\int_{1}^{\infty}\frac{2}{\pi}\frac{\cos\left(tx\right)}{\sqrt{t^{2}-1}}dt.
-\end{align*}
-</div></article></div></section></div></main>
-</div>
-<div class="login-link"><span id="loginlogout" class="login">login</span></div>
-<script src="https://pretextbook.org/js/0.12/login.js"></script>
 </body>
 </html>

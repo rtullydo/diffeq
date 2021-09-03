@@ -1,37 +1,71 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
 <html lang="en-US">
-<!--**************************************-->
-<!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-18T16:29:41-04:00    *-->
-<!--*                                    *-->
-<!--*      https://pretextbook.org       *-->
-<!--*                                    *-->
-<!--**************************************-->
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:54-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body>
-<article class="example-like"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">6.4.12</span>.</h6>
-<p>Take the Inverse Laplace Transform of: \({\displaystyle F(s)=\frac{1}{s^{2}-10s+26}}\text{.}\)</p>
-<p>Solution: (practice with using \(\mathcal{L}\left\{ e^{ct}g\left(t\right)\right\} =G(s-c)\)). First we complete the square and get</p>
-<div class="displaymath">
-\begin{equation*}
-\frac{1}{s^{2}-10s+26}=\frac{1}{\left(s-5\right)^{2}+1}
-\end{equation*}
+<article class="example example-like"><h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.8</span><span class="period">.</span>
+</h6>
+<p xmlns:svg="http://www.w3.org/2000/svg">Find the Laplace transform of \(f(t)=\sin(at)\text{.}\)</p>
+<p>Solution: We compute</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+\mathcal{L}\left\{ \sin at\right\} =F(s) \amp =\int_{0}^{\infty}e^{-st}\sin(at)dt\\
+\amp =\lim_{B\to\infty}\int_{0}^{B}e^{-st}\sin(at)dt.
+\end{align*}
 </div>
-<p>and use \(\mathcal{L}\left\{ \sin at\right\} =\frac{a}{s^{2}+a^{2}}\) with \(a=1\) so that \(\mathcal{L}\left\{ \sin t\right\} =\frac{1}{s^{2}+1}\) Then use the fact that \(\mathcal{L}\left\{ e^{ct}g\left(t\right)\right\} =G(s-c)\) with \(c=5\) and \(g(t)=\sin t\text{,}\) thus we know that</p>
-<div class="displaymath">
-\begin{equation*}
-\mathcal{L}\left\{ e^{5t}\sin t\right\} =\frac{1}{\left(s-5\right)^{2}+1}
-\end{equation*}
+<p data-braille="continuation">Using integration by parts, we get</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+u=\sin(at)\,\,\,\,\,\,\,\, \amp dv=e^{-st}dt\\
+du=a\cos(at)dt\,\,\,\,\,\,\,\, \amp v=-\frac{e^{-st}}{s}
+\end{align*}
 </div>
-<p>hence</p>
-<div class="displaymath">
+<p data-braille="continuation">so we have</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+F(s) \amp =\lim_{B\to\infty}\left[\left.-\frac{e^{-st}\sin(at)}{s}\right|_{t=0}^{t=B}+\int_{0}^{B}\frac{e^{-st}}{s}a\cos(at)dt\right]\\
+\amp =\lim_{B\to\infty}\left[-\frac{e^{-sB}\sin(aB)}{s}+0+\int_{0}^{B}\frac{e^{-st}}{s}a\cos(at)dt\right]\\
+\amp =0+\frac{a}{s}\int_{0}^{\infty}e^{-st}\cos(at)dt.\,\,\,\,\,\,\,\,(\star)
+\end{align*}
+</div>
+<p data-braille="continuation">Integrating \(\int_{0}^{\infty}e^{-st}\cos(at)dt\) again we get</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+u=\cos(at)\,\,\,\,\,\,\,\, \amp dv=e^{-st}dt\\
+du=-a\sin(at)dt\,\,\,\,\,\,\,\, \amp v=-\frac{e^{-st}}{s}
+\end{align*}
+</div>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+\int_{0}^{\infty}e^{-st}\cos(at)dt \amp =\lim_{B\to\infty}\left[\left.-\frac{e^{-st}\cos(at)}{s}\right|_{t=0}^{t=B}-\int_{0}^{B}\frac{e^{-st}}{s}a\sin(at)dt\right]\\
+\amp =\lim_{B\to\infty}\left[-\frac{e^{-sB}\cos(aB)}{s}+\frac{e^{-st}}{s}-\frac{a}{s}\int_{0}^{B}\frac{e^{-st}}{s}a\sin(at)dt\right]\\
+\amp =\left[0+\frac{t}{s}-\frac{a}{s}\int_{0}^{\infty}e^{-st}\sin(at)dt\right].
+\end{align*}
+</div>
+<p data-braille="continuation">Plugging this back into \((\star)\) we have</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+F(t) \amp =\frac{a}{s}\left[\frac{1}{s}-\frac{a}{s}\int_{0}^{\infty}e^{-st}\sin(at)dt\right]\\
+\amp =\frac{a}{s}\left[\frac{1}{s}-\frac{a}{s}F(s)\right]
+\end{align*}
+</div>
+<p data-braille="continuation">Then we can solve this equation using algebra for \(F(s)\) and get</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-\mathcal{L}^{-1}\left\{ F(s)\right\} =e^{5t}\sin t.
+F(s)=\frac{a}{s^{2}+a^{2}},\,\,\,\,s&gt;0.
 \end{equation*}
-</div></article><span class="incontext"><a href="ch6-4.html#example-119">in-context</a></span>
+</div></article><span class="incontext"><a href="ch6-1.html#example-119">in-context</a></span>
 </body>
 </html>

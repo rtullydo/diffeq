@@ -1,66 +1,64 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
 <html lang="en-US">
-<!--**************************************-->
-<!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-18T16:29:40-04:00    *-->
-<!--*                                    *-->
-<!--*      https://pretextbook.org       *-->
-<!--*                                    *-->
-<!--**************************************-->
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:49-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body><article class="example-like"><p>Find the general solution to</p>
-<div class="displaymath">
+<body><article class="example example-like"><p>Consider a undamped harmonic oscillator with model equation</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-t^{2}y^{\prime\prime}+2ty^{\prime}-2y=6t
+u^{\prime\prime}+2u=\cos\left(\omega t\right),\,\,\,\,\omega\neq\sqrt{2}.
 \end{equation*}
 </div>
-<p>given that</p>
-<div class="displaymath">
+<p data-braille="continuation">Find the general solution \(u(t)\text{.}\) What is the natural frequency of the system?</p>
+<p xmlns:svg="http://www.w3.org/2000/svg">Solution:</p>
+<p>Step 1: Recall that \(r^{2}+2=0\) so \(r=\pm\sqrt{2}i\text{,}\) so that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-y_{1}(t)=t,\,\,\,y_{2}(t)=t^{-2}
+u_{h}(t)=c_{1}\cos\left(\sqrt{2}t\right)+c_{2}\sin\left(\sqrt{2}t\right).
 \end{equation*}
 </div>
-<p>forms a fundamental set of solution for the corresponding homogeneous differential equation.</p>
-<p>Step 1: Since \(y_{1}(t)=t,\,\,\,y_{2}(t)=t^{-2}\) forms a fundamental set of solution, this means that the general solution for the homogeneous equation is</p>
-<div class="displaymath">
+<p>Step 2: We make our first guess</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-y_{h}=c_{1}t+c_{2}t^{-2}.
+u_{p}(t)=A\cos\left(\omega t\right)+B\sin\left(\omega t\right)
 \end{equation*}
 </div>
-<p>Step 2: Find the Wronskian:</p>
-<div class="displaymath">
+<p data-braille="continuation">and there are no repeats with \(u_{h}\) as long as \(\omega\neq0\text{,}\) hence we have the correct guess. Thus</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{align*}
-W(y_{1},y_{2})(t) \amp =\left|\begin{array}{cc}
-t \amp t^{-2}\\
-1 \amp -2t^{-3}
-\end{array}\right|\\
-\amp =-2t^{-2}-t^{-2}=-3t^{-2}\neq0,
+u_{p}^{\prime}(t) \amp =-A\omega\sin\left(\omega t\right)+B\omega\cos\left(\omega t\right)\\
+u_{p}^{\prime\prime}(t) \amp =-A\omega^{2}\cos\left(\omega t\right)-B\omega^{2}\sin\left(\omega t\right).
 \end{align*}
 </div>
-<p>Step 3: Rewrite the equation in the form \(y^{\prime\prime}+p(t)y^{\prime}+q(t)y=g(t)\) and hence</p>
-<div class="displaymath">
+<p data-braille="continuation">Plugging this into the LHS, we have</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+LHS=u_{p}^{\prime\prime}+2u_{p} \amp =\left[-A\omega^{2}\cos\left(\omega t\right)-B\omega^{2}\sin\left(\omega t\right)\right]\\
+\amp +2A\cos\left(\omega t\right)+2B\sin\left(\omega t\right)\\
+\amp =A\left(2-\omega^{2}\right)\cos\left(\omega t\right)+B\left(2-\omega^{2}\right)\sin\left(\omega t\right)
+\end{align*}
+</div>
+<p data-braille="continuation">Then, setting \(LHS=RHS=1\cdot\cos\left(\omega t\right)+0\sin\left(\omega t\right)\) we have</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+A\left(2-\omega^{2}\right)=1 \amp ,\,\,\,\,\,\,B\left(2-\omega^{2}\right)=0\\
+A=\frac{1}{2-\omega^{2}} \amp ,\,\,\,\,\,\,B=0
+\end{align*}
+</div>
+<p data-braille="continuation">so that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-y^{\prime\prime}+\frac{2}{t}y^{\prime}-\frac{2}{t^{2}}y=\frac{6}{t}.
+u(t)=c_{1}\cos\left(\sqrt{2}t\right)+c_{2}\sin\left(\sqrt{2}t\right)+\frac{1}{2-\omega^{2}}\cos\left(\omega t\right).
 \end{equation*}
-</div>
-<p>Use our formula with \(g(t)=\frac{6}{t}\) and get</p>
-<div class="displaymath">
-\begin{align*}
-y_{p}(t) \amp =-y_{1}(t)\left[\int\frac{y_{2}(t)g(t)}{W\left(y_{1},y_{2}\right)(t)}dt\right]+y_{2}(t)\left[\int\frac{y_{1}(t)g(t)}{W\left(y_{1},y_{2}\right)(t)}dt\right]\\
-\amp =-t\left[\int\frac{t^{-2}}{-3t^{-2}}\frac{6}{t}dt\right]+t^{-2}\left[\int\frac{t}{-3t^{-2})}\frac{6}{t}dt\right]\\
-\amp =-t\left[\int\frac{2}{t}dt\right]+t^{-2}\left[\int-2t^{2}dt\right]\\
-\amp =-t\left[2\ln t\right]+t^{-2}\left[-\frac{2}{3}t^{3}\right]\\
-\amp =-2t\ln t-\frac{2}{3}t.
-\end{align*}
-</div>
-<p>Hence, the general solution is</p>
-<div class="displaymath">
-\begin{align*}
-y(t) \amp =y_{h}+y_{p}\\
-\amp =c_{1}t+c_{2}t^{-2}-2t\ln t-\frac{2}{3}t.
-\end{align*}
 </div></article></body>
 </html>

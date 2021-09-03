@@ -1,25 +1,45 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
 <html lang="en-US">
-<!--**************************************-->
-<!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-18T16:29:40-04:00    *-->
-<!--*                                    *-->
-<!--*      https://pretextbook.org       *-->
-<!--*                                    *-->
-<!--**************************************-->
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:49-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body>
-<h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>When the natural and forcing frequencies are equal, the result is <dfn class="terminology">harmonic resonance</dfn>:</p>
-<div class="displaymath">
+<h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
+<p>The proof can be found in any differential equations text, or online. The idea is this: Suppose</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-\omega_{0}=\omega.
+y_{h}(t)=c_{1}y_{1}(t)+c_{2}y_{1}(t)
 \end{equation*}
 </div>
-<p>We need a new \(u_{p}\) to solve for when resonance happens, since we can't plug \(\omega=\sqrt{2}\text{,}\) into \(\frac{1}{2-\omega^{2}}\cos\left(\omega t\right)\text{.}\) We will see that solution looks like this: <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/3.8-3.jpg" style="width: 100%; height: auto;" alt=""></div> That is, the energy of the forcing function is stored in the system with no destructive interference, which results in increasingly wide oscillations.</p>
-<span class="incontext"><a href="ch3-9.html#p-465">in-context</a></span>
+<p data-braille="continuation">is the general solution to</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+y^{\prime\prime}+p(t)y^{\prime}+q(t)y=0.
+\end{equation*}
+</div>
+<p data-braille="continuation">Then the idea is to use the following guess:</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+y_{p}(t)=u_{1}(t)y_{1}(t)+u_{2}(t)y_{2}(t)
+\end{equation*}
+</div>
+<p data-braille="continuation">for the non-homogeneous equation, and also make the extra assumption that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+u_{1}^{\prime}(t)y_{1}(t)+u_{2}^{\prime}(t)y_{2}(t)=0.\,\,\,\,\,(\star)
+\end{equation*}
+</div>
+<p data-braille="continuation">The validity of this assumption is difficult to justify without higher level mathematics, but one can at least take comfort in that we have an extra constraint to play with, so for computational convenience we select condition \((\star)\text{.}\)</p>
+<span class="incontext"><a href="ch3-7.html#p-465">in-context</a></span>
 </body>
 </html>

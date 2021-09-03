@@ -1,12 +1,14 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
 <html lang="en-US">
-<!--**************************************-->
-<!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-18T16:29:40-04:00    *-->
-<!--*                                    *-->
-<!--*      https://pretextbook.org       *-->
-<!--*                                    *-->
-<!--**************************************-->
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:46-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
@@ -20,14 +22,14 @@
 });
 </script>
 </head>
-<body><article class="example-like"><p>Solve \(\left(x\cos x+e^{y}\right)dx+xe^{y}dy\)</p>
+<body><article class="example example-like"><p xmlns:svg="http://www.w3.org/2000/svg">Solve \(\left(x\cos x+e^{y}\right)dx+xe^{y}dy\)</p>
 <ol class="decimal">
-<li>If this equation is exact then \(M_{y}=N_{x}\text{,}\) and<div class="displaymath">
+<li>If this equation is exact then \(M_{y}=N_{x}\text{,}\) and<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{align*}
 M_{y} \amp =e^{y}\\
 N_{x} \amp =e^{y}
 \end{align*}
-</div>Now note that it is actually easier to integrate \(N\) with respect to \(y\text{:}\) Thus we can start the diagram in the other direction<div class="displaymath">
+</div>Now note that it is actually easier to integrate \(N\) with respect to \(y\text{:}\) Thus we can start the diagram in the other direction<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{align*}
 \amp \psi_{x}=x\cos x+e^{y} \amp \Longleftarrow \amp =\psi_{x}=e^{y}+g^{\prime}(x)\\
 \amp  \amp  \amp \boldsymbol{\psi=xe^{y}+g(x)}\\
@@ -36,12 +38,12 @@ N_{x} \amp =e^{y}
 \end{align*}
 </div>
 </li>
-<li>Solve for \(g(x)\) by noting that since<div class="displaymath">
+<li>Solve for \(g(x)\) by noting that since<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{align*}
 x\cos x+e^{y}=e^{y}+g^{\prime}(x)\implies \amp g^{\prime}(x)=x\cos x
 \end{align*}
 </div>but at the end of the day we can't avoid the harder integration, as we still need to integration by parts to \(g(x)=x\sin x+\cos x\)</li>
-<li><p>Put it all together and get \(\psi(x,y)=xe^{y}+x\sin x+\cos x\) and hence the <em class="emphasis">implicit solution</em> is \(xe^{y}+x\sin x+\cos x=C.\)</p></li>
+<li><p xmlns:svg="http://www.w3.org/2000/svg">Put it all together and get \(\psi(x,y)=xe^{y}+x\sin x+\cos x\) and hence the <em class="emphasis">implicit solution</em> is \(xe^{y}+x\sin x+\cos x=C.\)</p></li>
 </ol>
 <div class="sagecell-sage" id="sage-18"><script type="text/x-sage">var('x,y')
 P = plot_vector_field((x*cos(x) + e^y, x*e^y), (-3,3),(0,5))

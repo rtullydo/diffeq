@@ -1,0 +1,117 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:51-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<article class="example example-like"><h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Finding eigenvalues and eigenvectors.</span>
+</h6>
+<p>Find the eigenvalues and a corresponding eigenvector of the matrix</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+A=\left(\begin{array}{cc}
+2 \amp 3\\
+0 \amp -4
+\end{array}\right).
+\end{equation*}
+</div>
+<p><dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">Step1:</dfn>Solve</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+\det\left(A-\lambda I\right)=0 \amp \iff  \det\left(\begin{array}{cc}
+2-\lambda \amp 3\\
+0 \amp -4-\lambda
+\end{array}\right)=0\\
+\amp \iff  \left(2-\lambda\right)\left(-4-\lambda\right)-0\cdot3=0.\\
+\amp \iff \left(2-\lambda\right)\left(-4-\lambda\right)=0\\
+\amp \iff  \lambda=-4,2.
+\end{align*}
+</div>
+<p><dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">Step2:</dfn> Find the eigenvectors: Let's start with \(\lambda_{1}=2\) then \(\mathbf{v}_{1}=\left(\begin{array}{c}
+x_{1}\\
+x_{2}
+\end{array}\right)\) is an eigenvector if</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+A\mathbf{v}=2\mathbf{v} \amp \iff  \left(\begin{array}{cc}
+2 \amp 3\\
+0 \amp -4
+\end{array}\right)\left(\begin{array}{c}
+x_{1}\\
+x_{2}
+\end{array}\right)=2\left(\begin{array}{c}
+x_{1}\\
+x_{2}
+\end{array}\right)\\
+\amp \iff  \left(\begin{array}{c}
+2x_{1}+3x_{2}\\
+-4x_{2}
+\end{array}\right)=2\left(\begin{array}{c}
+x_{1}\\
+x_{2}
+\end{array}\right)\\
+\amp \iff  \begin{cases}
+2x_{1}+3x_{2}=2x_{1}\\
+-4x_{2}=2x_{2}
+\end{cases}\\
+\amp \iff  x_{2}=0\mbox{ and }x_{1}=\mbox{can be anything.} 
+\end{align*}
+</div>
+<p data-braille="continuation">so choose \(\mathbf{v}_{1}=\left(\begin{array}{c}
+1\\
+0
+\end{array}\right)\) as an eigenvector.</p>
+<dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">Step3:</dfn> Find the corresponding eigenvectors: Now let \(\lambda_{2}=-4\) then \(\mathbf{v_{2}}=\left(\begin{array}{c}
+x_{1}\\
+x_{2}
+\end{array}\right)\) is an eigenvector if<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+A\mathbf{v}=-4\mathbf{v} \amp \iff \begin{cases}
+2x_{1}+3x_{2}=-4x_{1}\\
+-4x_{2}=-4x_{2}
+\end{cases}\\
+\amp \iff  \begin{cases}
+6x_{1}+3x_{2}=0 \amp \implies x_{2}=-2x_{1}\\
+-4x_{2}=-4x_{2}
+\end{cases} 
+\end{align*}
+</div>so plugging the equation \(x_{2}=-2x_{1}\) back into the vector we get<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+\mathbf{v}_{2} \amp =\left(\begin{array}{c}
+x_{1}\\
+x_{2}
+\end{array}\right) \\
+\amp =\left(\begin{array}{c}
+x_{1}\\
+-2x_{1}
+\end{array}\right)
+\end{align*}
+</div>and since \(x_{1}\) can be anything, we can choose \(x_{1}=1\) and \(\mathbf{v}_{2}=\left(\begin{array}{c}
+x_{1}\\
+-2x_{1}
+\end{array}\right)\) is an eigenvector of the matrix \(A\text{.}\) <p>Notice that any multiple of an eigenvector would also be an eigenvector themselves. So we could also have chosen</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\mathbf{v}_{2}=-3\left(\begin{array}{c}
+1\\
+-2
+\end{array}\right)=\left(\begin{array}{c}
+-3\\
+6
+\end{array}\right).
+\end{equation*}
+</div>
+<p data-braille="continuation">Hence for any eigenvalue \(\lambda\) there are an infinite number of possible eigenvectors \(\mathbf{v}\) corresponding to \(\lambda\text{.}\)</p></article><span class="incontext"><a href="ch5-4.html#example-ch5-4-1">in-context</a></span>
+</body>
+</html>

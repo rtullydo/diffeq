@@ -3,7 +3,7 @@
 <section xml:id="ch1-1">
   <title>Modeling via differential equations, some solutions and definitions</title>
   <introduction>
-    <p>We being by asking what a differential equation is. In your calculus career, you have seen quite a number of them already, just in disguise. For example, you might have been asked <q>what function is the antiderivative of <m>x^2</m>?</q> In other words, find a function <m>f(x)</m> so that
+    <p>We start by asking what a differential equation is. In your calculus career, you have seen quite a number of them already, just in disguise. For example, you might have been asked <q>what function is the antiderivative of <m>x^2</m>?</q> In other words, find a function <m>f(x)</m> so that
     <me>
       \frac{d}{dx} f(x) = x^2.
     </me>
@@ -79,7 +79,7 @@
         <me>
           \frac{dy}{dt} = f(t,y),
         </me>
-        where <m>y = f(t)</m> is a function and <m>t</m> is the independent variable.</p>
+        where <m>y = y(t)</m> is a function and <m>t</m> is the independent variable.</p>
         <p>An <term>initial value problem (IVP)</term> is a differential equation with an intial condition:
         <me>
           \frac{dy}{dt} = f(t, y), \text{ and } y(t_0) = y_0.
@@ -220,7 +220,7 @@
 
   <section xml:id="ch1-2">
     <title>Slope fields (direction fields)</title>
-    <introduction><p>In this section, we will learn about a <em>qualitative</em> techinque - that is, we will learn to interpret the behavior of the solutions of differential equations using the equations themselves. </p></introduction>
+    <introduction><p>In this section, we will learn about a <em>qualitative</em> technique - that is, we will learn to interpret the behavior of the solutions of differential equations using the equations themselves. </p></introduction>
     <subsection><title>Slope fields</title>
     <p>Generally, there are three broad approaches to differential equations:
     <ol>
@@ -238,7 +238,7 @@
     <p>When we have an equation of the form <m>\frac{dy}{dt}=f(t,y)</m>. We can
     always make a <term>slope field</term> for the ODE. A slope field
     contains minitangets at several points of a graph that describe the behavior of solutions through those points.</p>
-    <example><title>Slope field for <m>y' = t - y</m></title>
+    <example><title>Slope field for <m>y' = y-t</m></title>
       <tabular top="minor" left="minor">
         <row bottom="medium">
           <cell left="minor" right="minor">
@@ -246,7 +246,7 @@
           <cell right="minor">
           <m>y</m></cell>
           <cell right="minor">
-          <m>f(t,y) = t - y</m></cell>
+          <m>f(t,y) = y - t</m></cell>
         </row>
         <row bottom="minor">
           <cell left="minor" right="minor">
@@ -332,7 +332,7 @@
     <ul>
       <li>Qualitatively, given a starting point, we can predict the long-term behavior of a particular solution. One feature to notice in the picture above is that solutions seem to have very different asymptotic behavior depending on whether the initial point is above or below the line <m>y = t + 1</m>.</li>
       <li> Slope fields like the one above allow us to sketch what solution curves <em>might</em> look like, as curves through a given point must have matching slope there. (Indeed, before computers, working by hand and sketching solutions was a time-consuming and detail-oriented art.)</li>
-      <li> You can find a link to <c>Dfield</c>, an applet that generates slope/direction fields, at <url href="https://math.rice.edu/~dfield/dfpp.html"> this link.</url></li>
+      <li> You can find a link to <c>Dfield</c>, an applet that generates slope/direction fields, at <url href="https://www.cs.unm.edu/~joel/dfield/"> this link.</url></li>
       <li> Slope fields can also be visualized in Desmos in various ways. A simple example can be found <url href="https://www.desmos.com/calculator/v6ft5ichl3">here.</url></li>
     </ul>
   </subsection>
@@ -342,7 +342,7 @@
     <ul>
       <li> The slopes are always the same in each <em>vertical line</em>. Draw a picture.</li>
       <li> These are the simple ODEs corresponding to finding antiderivatives in Calculus II.</li>
-      <li> For example, the slope field of <m>\frac{dy}{dt} = 2t</m> is computed
+      <li> For example, the slope field of <m>\frac{dy}{dt} = 2t</m> (with 2 possible solutions drawn on it) is computed
       <sage>
         <input>
           g = Graphics()

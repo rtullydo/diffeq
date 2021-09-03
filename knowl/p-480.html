@@ -1,36 +1,37 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
 <html lang="en-US">
-<!--**************************************-->
-<!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-18T16:29:40-04:00    *-->
-<!--*                                    *-->
-<!--*      https://pretextbook.org       *-->
-<!--*                                    *-->
-<!--**************************************-->
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:49-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body>
-<h6 class="heading"><span class="type">Paragraph</span></h6>
-<p>The characteristic polynomial is</p>
-<div class="displaymath">
-\begin{align*}
-r^{4}+8r^{3}+16r^{2} \amp =0
-\end{align*}
-</div>
-<p>which by the hint we know factors as</p>
-<div class="displaymath">
+<h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
+<p>Everything we did in <a href="ch3.html" class="internal" title="Chapter 3: Second Order Linear Equations">Chapter 3</a>for second order linear equations can be extended to higher order systems. Suppose we have the \(n\)th order linear equation</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-r^{2}\left(r+4\right)^{2}=0.
+a_{n}(t)y^{(n)}+a_{n-1}(t)y^{(n-1)}+\cdots+a_{1}(t)y^{\prime}+a_{0}(t)y=g(t).
 \end{equation*}
 </div>
-<p>Note that since this a 4th degree polynomial we need to have 4 roots: \(0,0,-4,-4\text{.}\) So we use the same method we do when we have repeats and get</p>
-<div class="displaymath">
-\begin{align*}
-y(t) \amp =c_{1}e^{0t}+c_{2}te^{0t}+c_{3}e^{-4t}+c_{4}te^{-4t}\\
-\amp =c_{1}+c_{2}t+c_{3}e^{-4t}+c_{4}te^{-4t}.
-\end{align*}
+<p data-braille="continuation">We assume that \(a_{n}(t),\dots,a_{0}(t)\) are continuous functions on an interval \(I\text{,}\) and that \(a_{n}(t)\neq0\) inside the interval: so that we can write it in standand form as</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+y^{(n)}+p_{n-1}(t)y^{(n-1)}+\cdots+p_{1}(t)y^{\prime}+p_{0}(t)y=g(t).\,\,\,\,\,(\star)
+\end{equation*}
+</div>
+<p data-braille="continuation">with initial conditions</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+y(t_{0})=y_{0},\,\,y^{\prime}(t_{0})=y_{0}^{\prime},\,\,\cdots,y^{(n-1)}(t_{0})=y_{0}^{(n-1)}.\,\,\,\,\,(\star)\text{.}
+\end{equation*}
 </div>
 <span class="incontext"><a href="ch4-1.html#p-480">in-context</a></span>
 </body>

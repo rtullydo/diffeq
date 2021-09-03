@@ -1,17 +1,19 @@
-<!DOCTYPE html>
-<!--**************************************-->
-<!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-18T16:29:38-04:00    *-->
-<!--*                                    *-->
-<!--*      https://pretextbook.org       *-->
-<!--*                                    *-->
-<!--**************************************-->
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:31-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
 <html lang="en-US">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>The convolution integral</title>
 <meta name="Keywords" content="Authored in PreTeXt">
-<meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
@@ -24,7 +26,7 @@ MathJax.Hub.Config({
     jax: ["input/AsciiMath"],
     extensions: ["asciimath2jax.js"],
     TeX: {
-        extensions: ["extpfeil.js", "autobold.js", "https://pretextbook.org/js/lib/mathjaxknowl.js", ],
+        extensions: ["extpfeil.js", "autobold.js", "https://pretextbook.org/js/lib/mathjaxknowl.js", "AMScd.js", ],
         // scrolling to fragment identifiers is controlled by other Javascript
         positionToHash: false,
         equationNumbers: { autoNumber: "none", useLabelIds: true, },
@@ -41,23 +43,21 @@ MathJax.Hub.Config({
         mtextFontInherit: true,
     },
 });
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.12/pretext.js"></script><script src="https://pretextbook.org/js/0.12/pretext_add_on.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/pretext.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/toc.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/colors_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/setcolors.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/features.css" rel="stylesheet" type="text/css">
-<script>var logged_in = false;
-var role = 'student';
-var guest_access = true;
-var login_required = false;
-var js_version = 0.12;
-</script>
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="mathbook-book has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div class="hidden-content" style="display:none">\(\DeclareMathOperator{\RE}{Re}
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" class="hidden-content" style="display:none">\(\DeclareMathOperator{\RE}{Re}
   \DeclareMathOperator{\IM}{Im}
   \DeclareMathOperator{\ess}{ess}
   \DeclareMathOperator{\intr}{int}
@@ -160,17 +160,17 @@ var js_version = 0.12;
 <p class="byline">Phanuel Mariano, Ryan Tully-Doyle</p>
 </div>
 </div></div>
-<nav id="primary-navbar" class="navbar"><div class="container">
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
 <div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="ch6-6.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch6.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="backmatter-1.html" title="Next">Next</a></span></div>
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="ch6-6.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch6.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="ch7.html" title="Next">Next</a></span></div>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="ch6-6.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch6.html" title="Up">Up</a><a class="next-button button toolbar-item" href="backmatter-1.html" title="Next">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="ch6-6.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch6.html" title="Up">Up</a><a class="next-button button toolbar-item" href="ch7.html" title="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
-<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
 <nav id="toc"><ul>
-<li class="link"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
 <li class="link">
 <a href="introduction.html" data-scroll="introduction"><span class="codenumber">1</span> <span class="title">Introduction</span></a><ul>
 <li><a href="ch1-1.html" data-scroll="ch1-1">Modeling via differential equations, some solutions and definitions</a></li>
@@ -198,9 +198,9 @@ var js_version = 0.12;
 <li><a href="ch3-4.html" data-scroll="ch3-4">Complex roots of the characteristic equation</a></li>
 <li><a href="ch3-5.html" data-scroll="ch3-5">Repeated roots; Reduction of order</a></li>
 <li><a href="ch3-6.html" data-scroll="ch3-6">Non-homogeneous equations - Undetermined coefficients</a></li>
-<li><a href="ch3-7.html" data-scroll="ch3-7">Variation of Parameters</a></li>
 <li><a href="ch3-8.html" data-scroll="ch3-8">Harmonic oscillations</a></li>
 <li><a href="ch3-9.html" data-scroll="ch3-9">Forced oscillations</a></li>
+<li><a href="ch3-7.html" data-scroll="ch3-7">Variation of Parameters</a></li>
 </ul>
 </li>
 <li class="link">
@@ -210,9 +210,14 @@ var js_version = 0.12;
 </ul>
 </li>
 <li class="link">
-<a href="ch5.html" data-scroll="ch5"><span class="codenumber">5</span> <span class="title">Series Solutions</span></a><ul>
-<li><a href="ch5-1.html" data-scroll="ch5-1">Power Series</a></li>
-<li><a href="ch5-2.html" data-scroll="ch5-2">Method of series solutions</a></li>
+<a href="ch5.html" data-scroll="ch5"><span class="codenumber">5</span> <span class="title">Systems of First Order Linear Equations</span></a><ul>
+<li><a href="ch5-1.html" data-scroll="ch5-1">Systems of First Order Linear Equations</a></li>
+<li><a href="ch5-2.html" data-scroll="ch5-2">Review of Matrices, Vector Fields, Phase Planes and Portraits</a></li>
+<li><a href="ch5-3.html" data-scroll="ch5-3">Systems of Linear Equations: Linear Independence, and the General Solution Theorem</a></li>
+<li><a href="ch5-4.html" data-scroll="ch5-4">Basic Theory of Systems of 1st Order Linear EQs - Straight Line Solutions</a></li>
+<li><a href="ch5-5.html" data-scroll="ch5-5">Phase Portraits for systems with real eigenvalues</a></li>
+<li><a href="ch5-6.html" data-scroll="ch5-6">Complex Eigenvalues</a></li>
+<li><a href="ch5-7.html" data-scroll="ch5-7">Repeated and zero eigenvalues</a></li>
 </ul>
 </li>
 <li class="link">
@@ -226,7 +231,13 @@ var js_version = 0.12;
 <li><a href="ch6-7.html" data-scroll="ch6-7" class="active">The convolution integral</a></li>
 </ul>
 </li>
-<li class="link"><a href="backmatter-1.html" data-scroll="backmatter-1"><span class="title">Back Matter</span></a></li>
+<li class="link">
+<a href="ch7.html" data-scroll="ch7"><span class="codenumber">7</span> <span class="title">Series Solutions</span></a><ul>
+<li><a href="ch7-1.html" data-scroll="ch7-1">Power Series</a></li>
+<li><a href="ch7-2.html" data-scroll="ch7-2">Method of series solutions</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1"><span class="title">Back Matter</span></a></li>
 <li class="link"><a href="quadratic.html" data-scroll="quadratic"><span class="codenumber">A</span> <span class="title">A fast quadratic method</span></a></li>
 <li class="link">
 <a href="exercises.html" data-scroll="exercises"><span class="codenumber">B</span> <span class="title">Exercises for Chapter 1</span></a><ul>
@@ -254,8 +265,9 @@ var js_version = 0.12;
 <li><a href="ex3-4.html" data-scroll="ex3-4">Section 3.4</a></li>
 <li><a href="ex3-5.html" data-scroll="ex3-5">Section 3.5</a></li>
 <li><a href="ex3-6.html" data-scroll="ex3-6">Section 3.6</a></li>
-<li><a href="ex3-7.html" data-scroll="ex3-7">Section 3.7</a></li>
-<li><a href="ex3-8.html" data-scroll="ex3-8">Section 3.8/Section 3.9</a></li>
+<li><a href="ex3-8.html" data-scroll="ex3-8">Section 3.7</a></li>
+<li><a href="ex3-9.html" data-scroll="ex3-9">Section 3.8</a></li>
+<li><a href="ex3-7.html" data-scroll="ex3-7">Section 3.9</a></li>
 </ul>
 </li>
 <li class="link">
@@ -265,7 +277,18 @@ var js_version = 0.12;
 </ul>
 </li>
 <li class="link">
-<a href="appendix-6.html" data-scroll="appendix-6"><span class="codenumber">F</span> <span class="title">Exercises for Chapter 6</span></a><ul>
+<a href="appendix-6.html" data-scroll="appendix-6"><span class="codenumber">F</span> <span class="title">Exercises for Chapter 5</span></a><ul>
+<li><a href="ex5-1.html" data-scroll="ex5-1">Section 5.1</a></li>
+<li><a href="ex5-2.html" data-scroll="ex5-2">Section 5.2</a></li>
+<li><a href="ex5-3.html" data-scroll="ex5-3">Section 5.3</a></li>
+<li><a href="ex5-4.html" data-scroll="ex5-4">Section 5.4</a></li>
+<li><a href="ex5-5.html" data-scroll="ex5-5">Section 5.5</a></li>
+<li><a href="ex5-6.html" data-scroll="ex5-6">Section 5.6</a></li>
+<li><a href="ex5-7.html" data-scroll="ex5-7">Section 5.7</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="appendix-7.html" data-scroll="appendix-7"><span class="codenumber">G</span> <span class="title">Exercises for Chapter 6</span></a><ul>
 <li><a href="ex6-1.html" data-scroll="ex6-1">Section 6.1</a></li>
 <li><a href="ex6-2.html" data-scroll="ex6-2">Section 6.2</a></li>
 <li><a href="ex6-3.html" data-scroll="ex6-3">Section 6.3</a></li>
@@ -275,53 +298,55 @@ var js_version = 0.12;
 </li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
-<main class="main"><div id="content" class="pretext-content"><section class="section" id="ch6-7"><h2 class="heading hide-type">
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="ch6-7"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">6.7</span> <span class="title">The convolution integral</span>
 </h2>
-<a href="ch6-7.html" class="permalink">¶</a><p id="p-695">Suppose we want to take the inverse Laplace transform of a product:</p>
-<p id="p-696">Is it true that</p>
+<p id="p-855">Suppose we want to take the inverse Laplace transform of a product:</p>
+<p id="p-856">Is it true that</p>
 <div class="displaymath">
 \begin{equation*}
 \mathcal{L}^{-1}\left\{ F(s)G(s)\right\} \overset{?}{=}\mathcal{L}^{-1}\left\{ F(s)\right\} \mathcal{L}^{-1}\left\{ G(s)\right\}?
 \end{equation*}
 </div>
-<p>The answer is a resounding <em class="emphasis">NO!</em></p>
-<p id="p-697">In order to take the inverse of a product, we need to define the <dfn class="terminology">convolution integral</dfn>: Let \(f(t),g(t)\) be two nice functions, then</p>
+<p data-braille="continuation">The answer is a resounding <em class="emphasis">NO!</em></p>
+<p id="p-857">In order to take the inverse of a product, we need to define the <dfn class="terminology">convolution integral</dfn>: Let \(f(t),g(t)\) be two nice functions, then</p>
 <div class="displaymath">
 \begin{equation*}
 \left(f\star g\right)(t)=\int_{0}^{t}f\left(t-\tau\right)g\left(\tau\right)d\tau=\int_{0}^{t}f(\tau)g\left(t-\tau\right)d\tau.
 \end{equation*}
 </div>
-<p>The function \(h=f\star g\) is called the \textbf{convolution} of \(f\) and \(g\text{.}\) We can think of convolution as somehow “mixing” or “averaging” the two functions that are being convolved. In practice, convolutions are often used to take jagged, unsmooth functions as input and return smoothed functions as output by convoluting the rough function with an appropriate smooth one.</p>
-<article class="theorem-like" id="theorem-17"><h6 class="heading">
-<span class="type">Theorem</span> <span class="codenumber">6.7.1</span>.</h6>
-<p id="p-698">The Laplace transform of the convolution is</p>
+<p data-braille="continuation">The function \(h=f\star g\) is called the \textbf{convolution} of \(f\) and \(g\text{.}\) We can think of convolution as somehow “mixing” or “averaging” the two functions that are being convolved. In practice, convolutions are often used to take jagged, unsmooth functions as input and return smoothed functions as output by convoluting the rough function with an appropriate smooth one.</p>
+<article class="theorem theorem-like" id="theorem-24"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.7.1</span><span class="period">.</span>
+</h6>
+<p id="p-858">The Laplace transform of the convolution is</p>
 <div class="displaymath">
 \begin{equation*}
 \mathcal{L}\left\{ \left(f\star g\right)(t)\right\} =\mathcal{L}\left\{ f(t)\right\} \mathcal{L}\left\{ g(t)\right\} =F(s)G(s);
 \end{equation*}
 </div>
-<p>that is</p>
+<p data-braille="continuation">that is</p>
 <div class="displaymath">
 \begin{equation*}
 \mathcal{L}^{-1}\left\{ F(s)G(s)\right\} =\left(f\star g\right)(t)=\int_{0}^{t}f\left(t-\tau\right)g\left(\tau\right)d\tau.
 \end{equation*}
-</div></article><p id="p-699">Convolutions have nice properties: We can treat \(\star\) almost like multiplication of functions:</p>
+</div></article><p id="p-859">Convolutions have nice properties: We can treat \(\star\) almost like multiplication of functions:</p>
 <ul class="disc">
-<li id="li-241">\(f\star g=g\star f\) (commutative)</li>
-<li id="li-242">\(f\star\left(g_{1}+g_{2}\right)=f\star g_{1}+f\star g_{2}\) (distributive)</li>
-<li id="li-243">\(\left(f\star g\right)\star h=f\star\left(g\star h\right)\) (associative)</li>
-<li id="li-244">\(f\star0=0\star f=0\text{.}\)</li>
+<li id="li-246">\(f\star g=g\star f\) (commutative)</li>
+<li id="li-247">\(f\star\left(g_{1}+g_{2}\right)=f\star g_{1}+f\star g_{2}\) (distributive)</li>
+<li id="li-248">\(\left(f\star g\right)\star h=f\star\left(g\star h\right)\) (associative)</li>
+<li id="li-249">\(f\star0=0\star f=0\text{.}\)</li>
 </ul>
-<p>However it doesn't have all the properties of ordinary multiplication. In particular, \(\left(f\star1\right)\neq1\star f\text{.}\)</p>
-<article class="example-like" id="example-129"><a data-knowl="" class="id-ref" data-refid="hk-example-129"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">6.7.2</span>.</h6></a></article><div id="hk-example-129" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-700">Find the Laplace transform of</p>
+<p data-braille="continuation">However it doesn't have all the properties of ordinary multiplication. In particular, \(\left(f\star1\right)\neq1\star f\text{.}\)</p>
+<article class="example example-like" id="example-151"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-151"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.7.2</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-151"><article class="example example-like"><p id="p-860">Find the Laplace transform of</p>
 <div class="displaymath">
 \begin{equation*}
 h(t)=\int_{0}^{t}\sin\left(t-\tau\right)\cos\tau d\tau
 \end{equation*}
 </div>
-<p id="p-701">Use \(f=\sin t\) and \(g=\cos t\) and we know that by the Theorem</p>
+<p id="p-861">Use \(f=\sin t\) and \(g=\cos t\) and we know that by the Theorem</p>
 <div class="displaymath">
 \begin{align*}
 \mathcal{L}\left\{ \int_{0}^{t}\sin\left(t-\tau\right)\cos\tau d\tau\right\}  \amp =\mathcal{L}\left\{ \sin t\right\} \mathcal{L}\left\{ \cos t\right\} \\
@@ -329,97 +354,100 @@ h(t)=\int_{0}^{t}\sin\left(t-\tau\right)\cos\tau d\tau
 \amp =\frac{s}{(s^{2}+1)^{2}}.
 \end{align*}
 </div></article></div>
-<article class="example-like" id="example-130"><a data-knowl="" class="id-ref" data-refid="hk-example-130"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">6.7.3</span>.</h6></a></article><div id="hk-example-130" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-702">Find the Laplace transform of</p>
+<article class="example example-like" id="example-152"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-152"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.7.3</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-152"><article class="example example-like"><p id="p-862">Find the Laplace transform of</p>
 <div class="displaymath">
 \begin{equation*}
 e^{t}\int_{0}^{t}\sin\tau\cos\left(t-\tau\right)d\tau.
 \end{equation*}
 </div>
-<p id="p-703">This question is testing if you know how to use formulas</p>
+<p id="p-863">This question is testing if you know how to use formulas</p>
 <div class="displaymath">
 \begin{equation*}
 \mathcal{L}\left\{ e^{ct}f(t)\right\} =F(s-c)
 \end{equation*}
 </div>
-<p>hence we need to first take the Laplace transform of</p>
+<p data-braille="continuation">hence we need to first take the Laplace transform of</p>
 <div class="displaymath">
 \begin{equation*}
 \mathcal{L}\left\{ \int_{0}^{t}\sin\tau\cos\left(t-\tau\right)d\tau\right\} =\mathcal{L}\left\{ \int_{0}^{t}\sin\left(t-\tau\right)\cos\left(\tau\right)d\tau\right\} =\frac{s}{(s^{2}+1)^{2}}
 \end{equation*}
 </div>
-<p>from Example1. Hence using the formula above we have</p>
+<p data-braille="continuation">from Example1. Hence using the formula above we have</p>
 <div class="displaymath">
 \begin{equation*}
 \mathcal{L}\left\{ e^{t}\int_{0}^{t}\sin\tau\cos\left(t-\tau\right)d\tau\right\} =\frac{s-1}{\left(\left(s-1\right)^{2}+1\right)^{2}}
 \end{equation*}
 </div></article></div>
-<article class="example-like" id="example-131"><a data-knowl="" class="id-ref" data-refid="hk-example-131"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">6.7.4</span>.</h6></a></article><div id="hk-example-131" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-704">Find the inverse Laplace transform of</p>
+<article class="example example-like" id="example-153"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-153"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.7.4</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-153"><article class="example example-like"><p id="p-864">Find the inverse Laplace transform of</p>
 <div class="displaymath">
 \begin{equation*}
 H(s)=\frac{30}{\left(s-3\right)^{3}(s^{2}+25)}
 \end{equation*}
 </div>
-<p id="p-705">Split up \(H(S)=F(s)G(s)\) where \(F(s)=\frac{2}{(s-3)^{3}}\) and \(G(s)=\frac{5}{s^{2}+25}\) so that</p>
+<p id="p-865">Split up \(H(S)=F(s)G(s)\) where \(F(s)=\frac{2}{(s-3)^{3}}\) and \(G(s)=\frac{5}{s^{2}+25}\) so that</p>
 <div class="displaymath">
 \begin{equation*}
 H(s)=3\cdot\frac{2!}{(s-3)^{2+1}}\cdot\frac{5}{s^{2}+5^{2}}
 \end{equation*}
 </div>
-<p>and since</p>
+<p data-braille="continuation">and since</p>
 <div class="displaymath">
 \begin{align*}
 \mathcal{L}^{-1}\left\{ F\right\}  \amp =\mathcal{L}^{-1}\left\{ \frac{2!}{(s-3)^{2+1}}\right\} =t^{2}e^{3t},\\
 \mathcal{L}^{-1}\left\{ G\right\}  \amp =\mathcal{L}^{-1}\left\{ \frac{5}{s^{2}+5^{2}}\right\} =\sin\left(5t\right)
 \end{align*}
 </div>
-<p>so that</p>
+<p data-braille="continuation">so that</p>
 <div class="displaymath">
 \begin{align*}
 \mathcal{L}^{-1}\left\{ H(s)\right\}  \amp =3\int_{0}^{t}f(t-\tau)g(\tau)d\tau\\
 \amp =3\int_{0}^{t}(t-\tau)^{2}e^{3(t-\tau)}\sin\left(5\tau\right)d\tau
 \end{align*}
 </div>
-<p>but you also need to be prepared that one of the possible solutions is</p>
+<p data-braille="continuation">but you also need to be prepared that one of the possible solutions is</p>
 <div class="displaymath">
 \begin{align*}
 \mathcal{L}^{-1}\left\{ H(s)\right\}  \amp =3\int_{0}^{t}f(\tau)g(t-\tau)d\tau\\
 \amp =3\int_{0}^{t}\tau^{2}e^{3\tau}\sin\left(5\left(t-\tau\right)\right)d\tau.
 \end{align*}
 </div></article></div>
-<article class="example-like" id="example-132"><a data-knowl="" class="id-ref" data-refid="hk-example-132"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">6.7.5</span>.</h6></a></article><div id="hk-example-132" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-706">Solve the IVP in terms of the convolution integrals:</p>
+<article class="example example-like" id="example-154"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-154"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.7.5</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-154"><article class="example example-like"><p id="p-866">Solve the IVP in terms of the convolution integrals:</p>
 <div class="displaymath">
 \begin{equation*}
 4y^{\prime\prime}+4y^{\prime}+17y=g(t),\,\,\,\,y(0)=0,y^{\prime}(0)=0.
 \end{equation*}
 </div>
-<p id="p-707">Step 1: Take \(\mathcal{L}\) of both sides and solve \(\mathcal{L}\left\{ y\right\} \text{:}\)</p>
+<p id="p-867">Step 1: Take \(\mathcal{L}\) of both sides and solve \(\mathcal{L}\left\{ y\right\} \text{:}\)</p>
 <div class="displaymath">
 \begin{equation*}
 4\left(s^{2}\mathcal{L}\left\{ y\right\} -sy(0)-y^{\prime}(0)\right)+4\left(s\mathcal{L}\left\{ y\right\} -y(0)\right)+17\mathcal{L}\left\{ y\right\} =\mathcal{L}\left\{ g(t)\right\} 
 \end{equation*}
 </div>
-<p>and plugging in the initial conditions we have</p>
+<p data-braille="continuation">and plugging in the initial conditions we have</p>
 <div class="displaymath">
 \begin{equation*}
 \mathcal{L}\left\{ y\right\} \left(4s^{2}+4s+17\right)=\mathcal{L}\left\{ g(t)\right\} 
 \end{equation*}
 </div>
-<p>so that</p>
+<p data-braille="continuation">so that</p>
 <div class="displaymath">
 \begin{equation*}
 \mathcal{L}\left\{ y\right\} =\frac{\mathcal{L}\left\{ g(t)\right\} }{4s^{2}+4s+17}
 \end{equation*}
 </div>
-<p id="p-708">Step 2: Instead of doing partial fractions we will use the convolution integral. But first let us complete the square by first wrtiting</p>
+<p id="p-868">Step 2: Instead of doing partial fractions we will use the convolution integral. But first let us complete the square by first wrtiting</p>
 <div class="displaymath">
 \begin{equation*}
 4s^{2}+4s+17=4\left(s^{2}+s+\frac{17}{4}\right)
 \end{equation*}
 </div>
-<p>hence we want add/subtract \(\left(\frac{b}{2}\right)^{2}=\left(\frac{1}{2}\right)^{2}=\frac{1}{4}\)hence</p>
+<p data-braille="continuation">hence we want add/subtract \(\left(\frac{b}{2}\right)^{2}=\left(\frac{1}{2}\right)^{2}=\frac{1}{4}\)hence</p>
 <div class="displaymath">
 \begin{align*}
 4\left(s^{2}+s+\frac{17}{4}\right) \amp =4\left(s^{2}+s+\frac{1}{4}-\frac{1}{4}+\frac{17}{4}\right)\\
@@ -427,19 +455,19 @@ H(s)=3\cdot\frac{2!}{(s-3)^{2+1}}\cdot\frac{5}{s^{2}+5^{2}}
 \amp =4\left(\left(s+\frac{1}{2}\right)^{2}+4\right)
 \end{align*}
 </div>
-<p>hence</p>
+<p data-braille="continuation">hence</p>
 <div class="displaymath">
 \begin{equation*}
 \frac{\mathcal{L}\left\{ g(t)\right\} }{4s^{2}+4s+17}=\frac{1}{4}\frac{1}{\left(\left(s+\frac{1}{2}\right)^{2}+4\right)}\mathcal{L}\left\{ g(t)\right\} 
 \end{equation*}
 </div>
-<p id="p-709">Step 3: We take the inverse Laplace transform of</p>
+<p id="p-869">Step 3: We take the inverse Laplace transform of</p>
 <div class="displaymath">
 \begin{equation*}
 \mathcal{L}^{-1}\left\{ \frac{1}{4}\frac{1}{\left(\left(s+\frac{1}{2}\right)^{2}+4\right)}\mathcal{L}\left\{ g(t)\right\} \right\} =\mathcal{L}^{-1}\left\{ \frac{1}{4}\mathcal{L}\left\{ f(t)\right\} \mathcal{L}\left\{ g(t)\right\} \right\} 
 \end{equation*}
 </div>
-<p>hence we need to take the inverse of</p>
+<p data-braille="continuation">hence we need to take the inverse of</p>
 <div class="displaymath">
 \begin{align*}
 f(t) \amp =\mathcal{L}^{-1}\left\{ \frac{1}{\left(\left(s+\frac{1}{2}\right)^{2}+4\right)}\right\} \\
@@ -447,7 +475,7 @@ f(t) \amp =\mathcal{L}^{-1}\left\{ \frac{1}{\left(\left(s+\frac{1}{2}\right)^{2}
 \amp =\frac{1}{2}e^{-\frac{1}{2}t}\sin\left(2t\right).
 \end{align*}
 </div>
-<p>Thus using the formula \(\mathcal{L}^{-1}\left\{ F(s)G(s)\right\} =\left(f\star g\right)(t)=\int_{0}^{t}f\left(t-\tau\right)g\left(\tau\right)d\tau\) we have</p>
+<p data-braille="continuation">Thus using the formula \(\mathcal{L}^{-1}\left\{ F(s)G(s)\right\} =\left(f\star g\right)(t)=\int_{0}^{t}f\left(t-\tau\right)g\left(\tau\right)d\tau\) we have</p>
 <div class="displaymath">
 \begin{align*}
 y \amp =\mathcal{L}^{-1}\left\{ \frac{1}{4}\mathcal{L}\left\{ f(t)\right\} \mathcal{L}\left\{ g(t)\right\} \right\} \\
@@ -456,27 +484,28 @@ y \amp =\mathcal{L}^{-1}\left\{ \frac{1}{4}\mathcal{L}\left\{ f(t)\right\} \math
 \amp =\frac{1}{8}\int_{0}^{t}e^{-\frac{1}{2}\left(t-\tau\right)}\sin\left(2\left(t-\tau\right)\right)g\left(\tau\right)d\tau.
 \end{align*}
 </div></article></div>
-<article class="example-like" id="example-133"><a data-knowl="" class="id-ref" data-refid="hk-example-133"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">6.7.6</span>.</h6></a></article><div id="hk-example-133" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-710">Compute the following integral</p>
+<article class="example example-like" id="example-155"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-155"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.7.6</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-155"><article class="example example-like"><p id="p-870">Compute the following integral</p>
 <div class="displaymath">
 \begin{equation*}
 \int_{0}^{5}e^{-x}\sin xdx
 \end{equation*}
 </div>
-<p>using only Laplace transforms.</p>
-<p id="p-711">Solution:: First we want to write this as a convolution:</p>
+<p data-braille="continuation">using only Laplace transforms.</p>
+<p id="p-871">Solution:: First we want to write this as a convolution:</p>
 <div class="displaymath">
 \begin{equation*}
 \int_{0}^{5}e^{-x}\sin xdx=e^{-5}\int_{0}^{5}e^{5-x}\sin xdx.
 \end{equation*}
 </div>
-<p>and let</p>
+<p data-braille="continuation">and let</p>
 <div class="displaymath">
 \begin{equation*}
 h(t)=\int_{0}^{t}e^{t-\tau}\sin\tau d\tau.
 \end{equation*}
 </div>
-<p>The Laplace trasnform of this is</p>
+<p data-braille="continuation">The Laplace trasnform of this is</p>
 <div class="displaymath">
 \begin{align*}
 \mathcal{L}\left\{ h(t)\right\}  \amp =\mathcal{L}\left\{ \int_{0}^{t}e^{t-\tau}\sin\tau d\tau\right\} \\
@@ -486,26 +515,26 @@ h(t)=\int_{0}^{t}e^{t-\tau}\sin\tau d\tau.
 \amp =\frac{1}{\left(s-1\right)\left(s^{2}+1\right)}
 \end{align*}
 </div>
-<p>Now do partiial fractions on this and get</p>
+<p data-braille="continuation">Now do partiial fractions on this and get</p>
 <div class="displaymath">
 \begin{equation*}
 \frac{1}{\left(s-1\right)\left(s^{2}+1\right)}=\frac{1}{2}\left(\frac{1}{s-1}-\frac{s+1}{s^{2}+1}\right)
 \end{equation*}
 </div>
-<p>Hence we can now take the inverse Laplace transform of this:</p>
+<p data-braille="continuation">Hence we can now take the inverse Laplace transform of this:</p>
 <div class="displaymath">
 \begin{align*}
 h(t) \amp =\frac{1}{2}\mathcal{L}^{-1}\left\{ \frac{1}{s-1}\right\} -\frac{1}{2}\mathcal{L}^{-1}\left\{ \frac{s}{s^{2}+1}\right\} -\frac{1}{2}\mathcal{L}^{-1}\left\{ \frac{1}{s^{2}+1}\right\} \\
 \amp =\frac{1}{2}e^{t}-\frac{1}{2}\cos t-\frac{1}{2}\sin t.
 \end{align*}
 </div>
-<p>Thus we computed that</p>
+<p data-braille="continuation">Thus we computed that</p>
 <div class="displaymath">
 \begin{equation*}
 h(t)=\int_{0}^{t}e^{t-\tau}\sin\tau d\tau=\frac{1}{2}e^{t}-\frac{1}{2}\cos t-\frac{1}{2}\sin t
 \end{equation*}
 </div>
-<p>Thus</p>
+<p data-braille="continuation">Thus</p>
 <div class="displaymath">
 \begin{align*}
 e^{-5}\int_{0}^{5}e^{5-x}\sin xdx \amp =e^{-5}h(5)\\
@@ -513,7 +542,5 @@ e^{-5}\int_{0}^{5}e^{5-x}\sin xdx \amp =e^{-5}h(5)\\
 \end{align*}
 </div></article></div></section></div></main>
 </div>
-<div class="login-link"><span id="loginlogout" class="login">login</span></div>
-<script src="https://pretextbook.org/js/0.12/login.js"></script>
 </body>
 </html>

@@ -1,17 +1,19 @@
-<!DOCTYPE html>
-<!--**************************************-->
-<!--*    Generated from PreTeXt source   *-->
-<!--*    on 2020-04-18T16:29:37-04:00    *-->
-<!--*                                    *-->
-<!--*      https://pretextbook.org       *-->
-<!--*                                    *-->
-<!--**************************************-->
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-03-10T18:23:18-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
 <html lang="en-US">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Separable equations</title>
 <meta name="Keywords" content="Authored in PreTeXt">
-<meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
@@ -24,7 +26,7 @@ MathJax.Hub.Config({
     jax: ["input/AsciiMath"],
     extensions: ["asciimath2jax.js"],
     TeX: {
-        extensions: ["extpfeil.js", "autobold.js", "https://pretextbook.org/js/lib/mathjaxknowl.js", ],
+        extensions: ["extpfeil.js", "autobold.js", "https://pretextbook.org/js/lib/mathjaxknowl.js", "AMScd.js", ],
         // scrolling to fragment identifiers is controlled by other Javascript
         positionToHash: false,
         equationNumbers: { autoNumber: "none", useLabelIds: true, },
@@ -49,23 +51,21 @@ MathJax.Hub.Config({
                            languages: ['sage'],
                            evalButtonText: 'Evaluate (Sage)'});
 });
-</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.12/pretext.js"></script><script src="https://pretextbook.org/js/0.12/pretext_add_on.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/pretext.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/toc.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/colors_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/setcolors.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.2/features.css" rel="stylesheet" type="text/css">
-<script>var logged_in = false;
-var role = 'student';
-var guest_access = true;
-var login_required = false;
-var js_version = 0.12;
-</script>
+</script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="mathbook-book has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div class="hidden-content" style="display:none">\(\DeclareMathOperator{\RE}{Re}
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" class="hidden-content" style="display:none">\(\DeclareMathOperator{\RE}{Re}
   \DeclareMathOperator{\IM}{Im}
   \DeclareMathOperator{\ess}{ess}
   \DeclareMathOperator{\intr}{int}
@@ -168,7 +168,7 @@ var js_version = 0.12;
 <p class="byline">Phanuel Mariano, Ryan Tully-Doyle</p>
 </div>
 </div></div>
-<nav id="primary-navbar" class="navbar"><div class="container">
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
 <div class="navbar-top-buttons">
 <button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="ch2-1.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch2.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="ch2-3.html" title="Next">Next</a></span></div>
 </div>
@@ -176,9 +176,9 @@ var js_version = 0.12;
 <button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="ch2-1.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch2.html" title="Up">Up</a><a class="next-button button toolbar-item" href="ch2-3.html" title="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
-<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
 <nav id="toc"><ul>
-<li class="link"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
 <li class="link">
 <a href="introduction.html" data-scroll="introduction"><span class="codenumber">1</span> <span class="title">Introduction</span></a><ul>
 <li><a href="ch1-1.html" data-scroll="ch1-1">Modeling via differential equations, some solutions and definitions</a></li>
@@ -206,9 +206,9 @@ var js_version = 0.12;
 <li><a href="ch3-4.html" data-scroll="ch3-4">Complex roots of the characteristic equation</a></li>
 <li><a href="ch3-5.html" data-scroll="ch3-5">Repeated roots; Reduction of order</a></li>
 <li><a href="ch3-6.html" data-scroll="ch3-6">Non-homogeneous equations - Undetermined coefficients</a></li>
-<li><a href="ch3-7.html" data-scroll="ch3-7">Variation of Parameters</a></li>
 <li><a href="ch3-8.html" data-scroll="ch3-8">Harmonic oscillations</a></li>
 <li><a href="ch3-9.html" data-scroll="ch3-9">Forced oscillations</a></li>
+<li><a href="ch3-7.html" data-scroll="ch3-7">Variation of Parameters</a></li>
 </ul>
 </li>
 <li class="link">
@@ -218,9 +218,14 @@ var js_version = 0.12;
 </ul>
 </li>
 <li class="link">
-<a href="ch5.html" data-scroll="ch5"><span class="codenumber">5</span> <span class="title">Series Solutions</span></a><ul>
-<li><a href="ch5-1.html" data-scroll="ch5-1">Power Series</a></li>
-<li><a href="ch5-2.html" data-scroll="ch5-2">Method of series solutions</a></li>
+<a href="ch5.html" data-scroll="ch5"><span class="codenumber">5</span> <span class="title">Systems of First Order Linear Equations</span></a><ul>
+<li><a href="ch5-1.html" data-scroll="ch5-1">Systems of First Order Linear Equations</a></li>
+<li><a href="ch5-2.html" data-scroll="ch5-2">Review of Matrices, Vector Fields, Phase Planes and Portraits</a></li>
+<li><a href="ch5-3.html" data-scroll="ch5-3">Systems of Linear Equations: Linear Independence, and the General Solution Theorem</a></li>
+<li><a href="ch5-4.html" data-scroll="ch5-4">Basic Theory of Systems of 1st Order Linear EQs - Straight Line Solutions</a></li>
+<li><a href="ch5-5.html" data-scroll="ch5-5">Phase Portraits for systems with real eigenvalues</a></li>
+<li><a href="ch5-6.html" data-scroll="ch5-6">Complex Eigenvalues</a></li>
+<li><a href="ch5-7.html" data-scroll="ch5-7">Repeated and zero eigenvalues</a></li>
 </ul>
 </li>
 <li class="link">
@@ -234,7 +239,13 @@ var js_version = 0.12;
 <li><a href="ch6-7.html" data-scroll="ch6-7">The convolution integral</a></li>
 </ul>
 </li>
-<li class="link"><a href="backmatter-1.html" data-scroll="backmatter-1"><span class="title">Back Matter</span></a></li>
+<li class="link">
+<a href="ch7.html" data-scroll="ch7"><span class="codenumber">7</span> <span class="title">Series Solutions</span></a><ul>
+<li><a href="ch7-1.html" data-scroll="ch7-1">Power Series</a></li>
+<li><a href="ch7-2.html" data-scroll="ch7-2">Method of series solutions</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1"><span class="title">Back Matter</span></a></li>
 <li class="link"><a href="quadratic.html" data-scroll="quadratic"><span class="codenumber">A</span> <span class="title">A fast quadratic method</span></a></li>
 <li class="link">
 <a href="exercises.html" data-scroll="exercises"><span class="codenumber">B</span> <span class="title">Exercises for Chapter 1</span></a><ul>
@@ -262,8 +273,9 @@ var js_version = 0.12;
 <li><a href="ex3-4.html" data-scroll="ex3-4">Section 3.4</a></li>
 <li><a href="ex3-5.html" data-scroll="ex3-5">Section 3.5</a></li>
 <li><a href="ex3-6.html" data-scroll="ex3-6">Section 3.6</a></li>
-<li><a href="ex3-7.html" data-scroll="ex3-7">Section 3.7</a></li>
-<li><a href="ex3-8.html" data-scroll="ex3-8">Section 3.8/Section 3.9</a></li>
+<li><a href="ex3-8.html" data-scroll="ex3-8">Section 3.7</a></li>
+<li><a href="ex3-9.html" data-scroll="ex3-9">Section 3.8</a></li>
+<li><a href="ex3-7.html" data-scroll="ex3-7">Section 3.9</a></li>
 </ul>
 </li>
 <li class="link">
@@ -273,7 +285,18 @@ var js_version = 0.12;
 </ul>
 </li>
 <li class="link">
-<a href="appendix-6.html" data-scroll="appendix-6"><span class="codenumber">F</span> <span class="title">Exercises for Chapter 6</span></a><ul>
+<a href="appendix-6.html" data-scroll="appendix-6"><span class="codenumber">F</span> <span class="title">Exercises for Chapter 5</span></a><ul>
+<li><a href="ex5-1.html" data-scroll="ex5-1">Section 5.1</a></li>
+<li><a href="ex5-2.html" data-scroll="ex5-2">Section 5.2</a></li>
+<li><a href="ex5-3.html" data-scroll="ex5-3">Section 5.3</a></li>
+<li><a href="ex5-4.html" data-scroll="ex5-4">Section 5.4</a></li>
+<li><a href="ex5-5.html" data-scroll="ex5-5">Section 5.5</a></li>
+<li><a href="ex5-6.html" data-scroll="ex5-6">Section 5.6</a></li>
+<li><a href="ex5-7.html" data-scroll="ex5-7">Section 5.7</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="appendix-7.html" data-scroll="appendix-7"><span class="codenumber">G</span> <span class="title">Exercises for Chapter 6</span></a><ul>
 <li><a href="ex6-1.html" data-scroll="ex6-1">Section 6.1</a></li>
 <li><a href="ex6-2.html" data-scroll="ex6-2">Section 6.2</a></li>
 <li><a href="ex6-3.html" data-scroll="ex6-3">Section 6.3</a></li>
@@ -283,35 +306,36 @@ var js_version = 0.12;
 </li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
-<main class="main"><div id="content" class="pretext-content"><section class="section" id="ch2-2"><h2 class="heading hide-type">
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="ch2-2"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">2.2</span> <span class="title">Separable equations</span>
 </h2>
-<a href="ch2-2.html" class="permalink">¶</a><p id="p-65">One of the easiest methods to solve a first order ODE is called <dfn class="terminology">separation of variables</dfn> (presuming that one can integrate the result!). In the previous section, we focused on linear equations, which cover a good deal of first order ODEs. But we want to be able to solve at least some nonlinear equations if they fall into easily computable forms.</p>
+<p id="p-65">One of the easiest methods to solve a first order ODE is called <dfn class="terminology">separation of variables</dfn> (presuming that one can integrate the result!). In the previous section, we focused on linear equations, which cover a good deal of first order ODEs. But we want to be able to solve at least some nonlinear equations if they fall into easily computable forms.</p>
 <p id="p-66">The technique we'll use in this section will only work if the first order ODE is <dfn class="terminology">separable</dfn>. We say a first order ODE is separable if we can write it in the following form:</p>
 <div class="displaymath">
 \begin{equation}
 \frac{dy}{dt}=g(t)h(y).\label{sepeqn}\tag{2.2.1}
 \end{equation}
 </div>
-<p>If we can write it this way, then separate the variables to get (put all the \(y\)'s on one side and all \(t\)'s on the other side)</p>
+<p data-braille="continuation">If we can write it this way, then separate the variables to get (put all the \(y\)'s on one side and all \(t\)'s on the other side)</p>
 <div class="displaymath">
 \begin{equation*}
 \frac{1}{h(y)}dy=g(t)dt,
 \end{equation*}
 </div>
-<p>and then integrate both side with respect to their respective variable. This is legal by a \(u\)-substitution argument. (This is informal algebra!)</p>
+<p data-braille="continuation">and then integrate both side with respect to their respective variable. This is legal by a \(u\)-substitution argument. (This is informal algebra!)</p>
 <p id="p-67">Note: Sometimes you'll see a separable equation written in the following <dfn class="terminology">differential</dfn> form:</p>
 <div class="displaymath">
 \begin{equation*}
 M(x)dy+N(y)dy=0.
 \end{equation*}
 </div>
-<article class="example-like" id="example-9"><a data-knowl="" class="id-ref" data-refid="hk-example-9"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">2.2.1</span>. <span class="title">(Not separable).</span>
-</h6></a></article><div id="hk-example-9" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-68">Notice that \(\frac{dy}{dt}=y+t\) is not separable.</p>
+<article class="example example-like" id="example-9"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-9"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">(Not separable).</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-9"><article class="example example-like"><p id="p-68">Notice that \(\frac{dy}{dt}=y+t\) is not separable.</p>
 <p id="p-69">But we can solve this using the methods of the previous section.</p></article></div>
-<article class="example-like" id="example-10"><a data-knowl="" class="id-ref" data-refid="hk-example-10"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">2.2.2</span>.</h6></a></article><div id="hk-example-10" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-70">Find the general solution of</p>
+<article class="example example-like" id="example-10"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-10"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.2</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-10"><article class="example example-like"><p id="p-70">Find the general solution of</p>
 <div class="displaymath">
 \begin{equation*}
 \frac{dy}{dt}=\frac{t}{y^{2}}.
@@ -332,10 +356,10 @@ M(x)dy+N(y)dy=0.
 y(t)=\sqrt[3]{\frac{3t^{2}}{2}+C}.
 \end{equation*}
 </div>
-<p>If you are able to solve for \(y\) exactly, then this is called an <dfn class="terminology">explicit</dfn> solution, because we can solve exactly with a formula.</p></article></div>
-<article class="example-like" id="example-11"><a data-knowl="" class="id-ref" data-refid="hk-example-11"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">2.2.3</span>. <span class="title">(missing solution).</span>
-</h6></a></article><div id="hk-example-11" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-73">Find the general solution for</p>
+<p data-braille="continuation">If you are able to solve for \(y\) exactly, then this is called an <dfn class="terminology">explicit</dfn> solution, because we can solve exactly with a formula.</p></article></div>
+<article class="example example-like" id="example-11"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-11"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.3</span><span class="period">.</span><span class="space"> </span><span class="title">(missing solution).</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-11"><article class="example example-like"><p id="p-73">Find the general solution for</p>
 <div class="displaymath">
 \begin{equation*}
 \frac{dy}{dt}=y^{2}.
@@ -360,7 +384,7 @@ y(t)=\sqrt[3]{\frac{3t^{2}}{2}+C}.
 y=-\frac{1}{t+C}
 \end{equation*}
 </div>
-<p>does NOT solve the IVP with \(y(0)=0\text{.}\) Thus we have to include the equilibrium solution \(y(t)=0\) to get the complete general solution. In this case we say the general solution is:</p>
+<p data-braille="continuation">does NOT solve the IVP with \(y(0)=0\text{.}\) Thus we have to include the equilibrium solution \(y(t)=0\) to get the complete general solution. In this case we say the general solution is:</p>
 <div class="displaymath">
 \begin{equation*}
 y_g(t) = \begin{cases}
@@ -379,9 +403,9 @@ g += plot(-1/(t + 4), (t, -5,5), ymin = -5, ymax = 5)
 g += plot(0, (t, -5,5), ymin=-5, ymax=5)
 g.show()
 </script></div></article></div>
-<article class="example-like" id="example-12"><a data-knowl="" class="id-ref" data-refid="hk-example-12"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">2.2.4</span>. <span class="title">(Clever quadratic formula trick).</span>
-</h6></a></article><div id="hk-example-12" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-78">Solve the IVP:</p>
+<article class="example example-like" id="example-12"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-12"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.4</span><span class="period">.</span><span class="space"> </span><span class="title">(Clever quadratic formula trick).</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-12"><article class="example example-like"><p id="p-78">Solve the IVP:</p>
 <div class="displaymath">
 \begin{equation*}
 \frac{dy}{dx}=\frac{2x+1}{y+1}\,\,\,\,\,\,y(0)=1
@@ -407,7 +431,7 @@ g.show()
 ay^{2}+by+c=0
 \end{equation*}
 </div>
-<p>where</p>
+<p data-braille="continuation">where</p>
 <div class="displaymath">
 \begin{align*}
 a \amp =1\\
@@ -415,7 +439,7 @@ b \amp =2\\
 c \amp =-2x^{2}-2x+C
 \end{align*}
 </div>
-<p>hence an explicit solution is given by</p>
+<p data-braille="continuation">hence an explicit solution is given by</p>
 <div class="displaymath">
 \begin{align*}
 y \amp =\frac{-b\pm\sqrt{b^{2}-4ac}}{2a}\\
@@ -424,7 +448,7 @@ y \amp =\frac{-b\pm\sqrt{b^{2}-4ac}}{2a}\\
 \amp =-1\pm\sqrt{2x^{2}+2x+C}.
 \end{align*}
 </div>
-<p>Thus the general solution is</p>
+<p data-braille="continuation">Thus the general solution is</p>
 <div class="displaymath">
 \begin{equation*}
 y_g(x)=-1\pm\sqrt{2x^{2}+2x+C}.
@@ -438,25 +462,25 @@ y_g(x)=-1\pm\sqrt{2x^{2}+2x+C}.
 1=y(0)=-1\pm\sqrt{C}
 \end{equation*}
 </div>
-<p>so that</p>
+<p data-braille="continuation">so that</p>
 <div class="displaymath">
 \begin{equation*}
 2=\pm\sqrt{c}
 \end{equation*}
 </div>
-<p>since the LHS is positive we choose the positive sign in the \(\pm\) so that</p>
+<p data-braille="continuation">since the LHS is positive we choose the positive sign in the \(\pm\) so that</p>
 <div class="displaymath">
 \begin{equation*}
 2=\sqrt{c}
 \end{equation*}
 </div>
-<p>hence</p>
+<p data-braille="continuation">hence</p>
 <div class="displaymath">
 \begin{equation*}
 c=4
 \end{equation*}
 </div>
-<p>so that we get the particular solution</p>
+<p data-braille="continuation">so that we get the particular solution</p>
 <div class="displaymath">
 \begin{equation*}
 y_p(x)=-1+\sqrt{2x^{2}+2x+4}.
@@ -471,9 +495,9 @@ g += plot(-1 + sqrt(2*x^2 + 2*x + 4), (x, -5,5), ymin = -5, ymax = 5)
 g += points([(0,1)], size = 50)
 g.show()
 </script></div></article></div>
-<article class="example-like" id="example-13"><a data-knowl="" class="id-ref" data-refid="hk-example-13"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">2.2.5</span>. <span class="title">Implicit solutions.</span>
-</h6></a></article><div id="hk-example-13" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-83">Find the general solution for</p>
+<article class="example example-like" id="example-13"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-13"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.5</span><span class="period">.</span><span class="space"> </span><span class="title">Implicit solutions.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-13"><article class="example example-like"><p id="p-83">Find the general solution for</p>
 <div class="displaymath">
 \begin{equation*}
 \frac{dy}{dt}=\frac{y}{1+y^{2}}.
@@ -485,9 +509,10 @@ g.show()
 \ln\left|y\right|+\frac{y^{2}}{2}=t+C
 \end{equation*}
 </div>
-<p>and leave it that way as there is no nice way to solve this. But any function \(y(t)\) that satisfies the equation above is a solution to our ODE. When we write solutions this way, we call this an <dfn class="terminology">implicit solution</dfn>, as the equation implicitly defines \(y\) as a function of \(t\text{.}\)</p></article></div>
-<article class="example-like" id="example-14"><a data-knowl="" class="id-ref" data-refid="hk-example-14"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">2.2.6</span>.</h6></a></article><div id="hk-example-14" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-85">Solve the IVP</p>
+<p data-braille="continuation">and leave it that way as there is no nice way to solve this. But any function \(y(t)\) that satisfies the equation above is a solution to our ODE. When we write solutions this way, we call this an <dfn class="terminology">implicit solution</dfn>, as the equation implicitly defines \(y\) as a function of \(t\text{.}\)</p></article></div>
+<article class="example example-like" id="example-14"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-14"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.6</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-14"><article class="example example-like"><p id="p-85">Solve the IVP</p>
 <div class="displaymath">
 \begin{equation*}
 \frac{dy}{dt}=t^{4}y\,\,\,\,\,\,y(0)=1.
@@ -513,7 +538,7 @@ y_g(t)=Ce^{t^{5}/5}.
 1=y(0)=Ce^{0}=C
 \end{equation*}
 </div>
-<p>thus \(C=1\text{,}\) hence the particular solution to the IVP is</p>
+<p data-braille="continuation">thus \(C=1\text{,}\) hence the particular solution to the IVP is</p>
 <div class="displaymath">
 \begin{equation*}
 y_p(t)=e^{t^{5}/5}.
@@ -528,8 +553,9 @@ g += plot(exp((t^5)/5), (t, -5,5), ymin = -5, ymax = 5)
 g += points([(0,1)], size = 50)
 g.show()
 </script></div></article></div>
-<article class="example-like" id="example-15"><a data-knowl="" class="id-ref" data-refid="hk-example-15"><h6 class="heading">
-<span class="type">Example</span> <span class="codenumber">2.2.7</span>.</h6></a></article><div id="hk-example-15" class="hidden-content tex2jax_ignore"><article class="example-like"><p id="p-92">Find the general solution:</p>
+<article class="example example-like" id="example-15"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-15"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.7</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-15"><article class="example example-like"><p id="p-92">Find the general solution:</p>
 <div class="displaymath">
 \begin{equation*}
 \frac{dy}{dt}=\left(y+1\right)\left(y+5\right).
@@ -563,7 +589,5 @@ y(t)=-5.
 </li>
 </ul></article></div></section></div></main>
 </div>
-<div class="login-link"><span id="loginlogout" class="login">login</span></div>
-<script src="https://pretextbook.org/js/0.12/login.js"></script>
 </body>
 </html>
